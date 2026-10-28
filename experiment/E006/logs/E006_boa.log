@@ -1,0 +1,53 @@
+2026-10-28 14:31:29,354 INFO E006_boa start: ['wti_crude_oil', 'copper', 'gold', 'corn', 'coffee']
+2026-10-28 15:58:09,047 INFO E006_boa start: ['wti_crude_oil', 'copper', 'gold', 'corn', 'coffee']
+2026-10-28 15:58:09,263 INFO [wti_crude_oil] boa h=1 mean weights top3: [('E005_combo', 0.0825), ('naive', 0.0824), ('E003_knockoff', 0.0824)]
+2026-10-28 15:58:09,278 INFO [wti_crude_oil] boa h=2 mean weights top3: [('E005_ridge', 0.0943), ('E005_combo', 0.0922), ('naive', 0.092)]
+2026-10-28 15:58:09,293 INFO [wti_crude_oil] boa h=3 mean weights top3: [('naive', 0.1125), ('E003_knockoff', 0.1125), ('E003_stability', 0.1125)]
+2026-10-28 15:58:09,309 INFO [wti_crude_oil] boa h=4 mean weights top3: [('naive', 0.1064), ('E003_knockoff', 0.1064), ('E003_stability', 0.1064)]
+2026-10-28 15:58:09,323 INFO [wti_crude_oil] boa h=5 mean weights top3: [('naive', 0.1187), ('E003_knockoff', 0.1187), ('E003_stability', 0.1187)]
+2026-10-28 15:58:09,340 INFO [wti_crude_oil] boa h=6 mean weights top3: [('naive', 0.1072), ('E003_knockoff', 0.1072), ('E003_stability', 0.1072)]
+2026-10-28 15:58:09,355 INFO [wti_crude_oil] boa h=7 mean weights top3: [('naive', 0.1024), ('E003_knockoff', 0.1024), ('E003_stability', 0.1024)]
+2026-10-28 15:58:09,373 INFO [wti_crude_oil] boa h=8 mean weights top3: [('naive', 0.0989), ('E003_knockoff', 0.0989), ('E003_stability', 0.0989)]
+2026-10-28 15:58:09,381 INFO [wti_crude_oil] saved 3072 predictions (0s)
+2026-10-28 15:58:52,380 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 15:58:52,556 INFO [copper] boa h=1 mean weights top3: [('E001', 0.1122), ('naive', 0.1103), ('E003_knockoff', 0.1103)]
+2026-10-28 15:58:52,570 INFO [copper] boa h=2 mean weights top3: [('E006_aalf', 0.1058), ('E001', 0.0998), ('naive', 0.0973)]
+2026-10-28 15:58:52,584 INFO [copper] boa h=3 mean weights top3: [('E006_aalf', 0.1599), ('naive', 0.1395), ('E005_combo', 0.1372)]
+2026-10-28 15:58:52,596 INFO [copper] boa h=4 mean weights top3: [('E006_aalf', 0.1259), ('naive', 0.1006), ('E003_knockoff', 0.1006)]
+2026-10-28 15:58:52,609 INFO [copper] boa h=5 mean weights top3: [('E006_rewts', 0.111), ('E006_aalf', 0.0962), ('naive', 0.096)]
+2026-10-28 15:58:52,621 INFO [copper] boa h=6 mean weights top3: [('E003_stability', 0.1271), ('E006_aalf', 0.0913), ('naive', 0.0855)]
+2026-10-28 15:58:52,633 INFO [copper] boa h=7 mean weights top3: [('E003_stability', 0.1455), ('naive', 0.0917), ('E003_knockoff', 0.0917)]
+2026-10-28 15:58:52,645 INFO [copper] boa h=8 mean weights top3: [('E003_stability', 0.1245), ('naive', 0.0934), ('E003_knockoff', 0.0934)]
+2026-10-28 15:58:52,650 INFO [copper] saved 2152 predictions (0s)
+2026-10-28 15:59:23,292 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 15:59:23,518 INFO [gold] boa h=1 mean weights top3: [('naive', 0.1055), ('E003_knockoff', 0.1055), ('E003_stability', 0.1055)]
+2026-10-28 15:59:23,533 INFO [gold] boa h=2 mean weights top3: [('E006_rewts', 0.111), ('naive', 0.1016), ('E003_knockoff', 0.1016)]
+2026-10-28 15:59:23,548 INFO [gold] boa h=3 mean weights top3: [('E006_rewts', 0.083), ('naive', 0.0816), ('E003_knockoff', 0.0816)]
+2026-10-28 15:59:23,562 INFO [gold] boa h=4 mean weights top3: [('E006_rewts', 0.0907), ('E002', 0.0844), ('naive', 0.0717)]
+2026-10-28 15:59:23,577 INFO [gold] boa h=5 mean weights top3: [('E006_rewts', 0.0924), ('E004_direct', 0.0846), ('naive', 0.0722)]
+2026-10-28 15:59:23,595 INFO [gold] boa h=6 mean weights top3: [('E002', 0.0925), ('E006_rewts', 0.0919), ('E004_direct', 0.073)]
+2026-10-28 15:59:23,610 INFO [gold] boa h=7 mean weights top3: [('E006_rewts', 0.0932), ('E002', 0.0837), ('naive', 0.073)]
+2026-10-28 15:59:23,625 INFO [gold] boa h=8 mean weights top3: [('E006_rewts', 0.0942), ('E003_stability', 0.0867), ('E006_aalf', 0.0714)]
+2026-10-28 15:59:23,630 INFO [gold] saved 3072 predictions (0s)
+2026-10-28 16:00:08,171 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 16:00:08,343 INFO [corn] boa h=1 mean weights top3: [('E001', 0.1761), ('E005_combo', 0.1043), ('E005_ridge', 0.1039)]
+2026-10-28 16:00:08,355 INFO [corn] boa h=2 mean weights top3: [('E001', 0.1703), ('E005_ridge', 0.1006), ('E005_combo', 0.0922)]
+2026-10-28 16:00:08,368 INFO [corn] boa h=3 mean weights top3: [('E001', 0.1351), ('E003_stability', 0.1004), ('E005_ridge', 0.0929)]
+2026-10-28 16:00:08,380 INFO [corn] boa h=4 mean weights top3: [('E001', 0.1268), ('E002', 0.1193), ('E003_stability', 0.0887)]
+2026-10-28 16:00:08,391 INFO [corn] boa h=5 mean weights top3: [('E006_rewts', 0.2566), ('E001', 0.1478), ('E005_ridge', 0.0697)]
+2026-10-28 16:00:08,404 INFO [corn] boa h=6 mean weights top3: [('E006_rewts', 0.2449), ('E001', 0.1199), ('E005_ridge', 0.0813)]
+2026-10-28 16:00:08,416 INFO [corn] boa h=7 mean weights top3: [('E006_rewts', 0.2606), ('E001', 0.1911), ('E004_dirmo2', 0.1715)]
+2026-10-28 16:00:08,428 INFO [corn] boa h=8 mean weights top3: [('E001', 0.1923), ('E006_rewts', 0.1871), ('E004_dirmo2', 0.1427)]
+2026-10-28 16:00:08,434 INFO [corn] saved 2064 predictions (0s)
+2026-10-28 16:00:39,022 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 16:00:39,169 INFO [coffee] boa h=1 mean weights top3: [('E001', 0.1064), ('E006_rewts', 0.0844), ('E006_ecw', 0.0753)]
+2026-10-28 16:00:39,181 INFO [coffee] boa h=2 mean weights top3: [('naive', 0.1009), ('E003_knockoff', 0.1009), ('E003_stability', 0.1009)]
+2026-10-28 16:00:39,193 INFO [coffee] boa h=3 mean weights top3: [('naive', 0.106), ('E003_knockoff', 0.106), ('E003_stability', 0.106)]
+2026-10-28 16:00:39,205 INFO [coffee] boa h=4 mean weights top3: [('naive', 0.1109), ('E003_knockoff', 0.1109), ('E003_stability', 0.1109)]
+2026-10-28 16:00:39,217 INFO [coffee] boa h=5 mean weights top3: [('E006_aalf', 0.1138), ('naive', 0.1136), ('E003_knockoff', 0.1136)]
+2026-10-28 16:00:39,229 INFO [coffee] boa h=6 mean weights top3: [('E006_rewts', 0.1118), ('naive', 0.1055), ('E003_knockoff', 0.1055)]
+2026-10-28 16:00:39,243 INFO [coffee] boa h=7 mean weights top3: [('naive', 0.1055), ('E003_knockoff', 0.1055), ('E003_stability', 0.1055)]
+2026-10-28 16:00:39,254 INFO [coffee] boa h=8 mean weights top3: [('E006_aalf', 0.1027), ('naive', 0.1017), ('E003_knockoff', 0.1017)]
+2026-10-28 16:00:39,260 INFO [coffee] saved 2088 predictions (0s)
+2026-10-28 16:01:09,760 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 16:01:09,766 INFO E006_boa done

@@ -1,0 +1,16 @@
+2026-10-28 14:06:41,420 INFO E006_ecw start: ['coffee']
+2026-10-28 14:06:41,600 INFO [coffee] ecw weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 14:06:44,554 INFO [coffee] ecw origin 1/261 2021-10-17 (3s)
+2026-10-28 14:07:54,947 INFO [coffee] ecw origin 26/261 2022-04-10 (74s)
+2026-10-28 14:09:06,008 INFO [coffee] ecw origin 51/261 2022-10-02 (145s)
+2026-10-28 14:10:17,805 INFO [coffee] ecw origin 76/261 2023-03-26 (216s)
+2026-10-28 14:11:29,826 INFO [coffee] ecw origin 101/261 2023-09-17 (288s)
+2026-10-28 14:12:47,216 INFO [coffee] ecw origin 126/261 2024-03-10 (366s)
+2026-10-28 14:14:07,191 INFO [coffee] ecw origin 151/261 2024-09-01 (446s)
+2026-10-28 14:15:30,778 INFO [coffee] ecw origin 176/261 2025-02-23 (529s)
+2026-10-28 14:16:58,100 INFO [coffee] ecw origin 201/261 2025-08-17 (617s)
+2026-10-28 14:18:25,261 INFO [coffee] ecw origin 226/261 2026-02-08 (704s)
+2026-10-28 14:19:53,410 INFO [coffee] ecw origin 251/261 2026-08-02 (792s)
+2026-10-28 14:20:31,200 INFO [coffee] saved 2088 predictions (830s)
+2026-10-28 14:21:22,713 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 14:21:22,719 INFO E006_ecw done

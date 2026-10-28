@@ -1,0 +1,16 @@
+2026-10-28 14:24:37,691 INFO E006_rewts start: ['coffee']
+2026-10-28 14:24:37,780 INFO [coffee] rewts weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 14:24:40,733 INFO [coffee] rewts origin 1/261 2021-10-17 (3s)
+2026-10-28 14:24:42,103 INFO [coffee] rewts origin 26/261 2022-04-10 (4s)
+2026-10-28 14:24:43,514 INFO [coffee] rewts origin 51/261 2022-10-02 (6s)
+2026-10-28 14:24:45,364 INFO [coffee] rewts origin 76/261 2023-03-26 (8s)
+2026-10-28 14:24:47,020 INFO [coffee] rewts origin 101/261 2023-09-17 (9s)
+2026-10-28 14:24:48,842 INFO [coffee] rewts origin 126/261 2024-03-10 (11s)
+2026-10-28 14:24:50,297 INFO [coffee] rewts origin 151/261 2024-09-01 (13s)
+2026-10-28 14:24:51,537 INFO [coffee] rewts origin 176/261 2025-02-23 (14s)
+2026-10-28 14:24:52,550 INFO [coffee] rewts origin 201/261 2025-08-17 (15s)
+2026-10-28 14:24:53,814 INFO [coffee] rewts origin 226/261 2026-02-08 (16s)
+2026-10-28 14:24:55,253 INFO [coffee] rewts origin 251/261 2026-08-02 (18s)
+2026-10-28 14:24:55,860 INFO [coffee] saved 2088 predictions (18s)
+2026-10-28 14:25:39,961 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 14:25:39,966 INFO E006_rewts done

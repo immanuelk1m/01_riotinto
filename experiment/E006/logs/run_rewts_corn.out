@@ -1,0 +1,16 @@
+2026-10-28 14:23:19,939 INFO E006_rewts start: ['corn']
+2026-10-28 14:23:20,024 INFO [corn] rewts weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 14:23:22,516 INFO [corn] rewts origin 1/258 2021-11-07 (3s)
+2026-10-28 14:23:23,731 INFO [corn] rewts origin 26/258 2022-05-01 (4s)
+2026-10-28 14:23:25,026 INFO [corn] rewts origin 51/258 2022-10-23 (5s)
+2026-10-28 14:23:26,937 INFO [corn] rewts origin 76/258 2023-04-16 (7s)
+2026-10-28 14:23:29,212 INFO [corn] rewts origin 101/258 2023-10-08 (9s)
+2026-10-28 14:23:31,417 INFO [corn] rewts origin 126/258 2024-03-31 (11s)
+2026-10-28 14:23:33,531 INFO [corn] rewts origin 151/258 2024-09-22 (14s)
+2026-10-28 14:23:36,338 INFO [corn] rewts origin 176/258 2025-03-16 (16s)
+2026-10-28 14:23:38,576 INFO [corn] rewts origin 201/258 2025-09-07 (19s)
+2026-10-28 14:23:40,954 INFO [corn] rewts origin 226/258 2026-03-01 (21s)
+2026-10-28 14:23:43,660 INFO [corn] rewts origin 251/258 2026-08-23 (24s)
+2026-10-28 14:23:44,633 INFO [corn] saved 2064 predictions (25s)
+2026-10-28 14:24:33,884 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 14:24:33,890 INFO E006_rewts done

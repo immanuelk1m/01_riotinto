@@ -1,0 +1,21 @@
+2026-10-28 14:06:41,417 INFO E006_aalf start: ['wti_crude_oil']
+2026-10-28 14:06:41,602 INFO [wti_crude_oil] aalf weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 14:06:47,164 INFO [wti_crude_oil] aalf origin 1/384 2019-06-09 (6s)
+2026-10-28 14:07:46,480 INFO [wti_crude_oil] aalf origin 26/384 2019-12-01 (65s)
+2026-10-28 14:08:50,160 INFO [wti_crude_oil] aalf origin 51/384 2020-05-24 (129s)
+2026-10-28 14:09:57,737 INFO [wti_crude_oil] aalf origin 76/384 2020-11-15 (196s)
+2026-10-28 14:11:04,583 INFO [wti_crude_oil] aalf origin 101/384 2021-05-09 (263s)
+2026-10-28 14:12:16,805 INFO [wti_crude_oil] aalf origin 126/384 2021-10-31 (335s)
+2026-10-28 14:13:33,935 INFO [wti_crude_oil] aalf origin 151/384 2022-04-24 (413s)
+2026-10-28 14:14:54,878 INFO [wti_crude_oil] aalf origin 176/384 2022-10-16 (493s)
+2026-10-28 14:16:21,066 INFO [wti_crude_oil] aalf origin 201/384 2023-04-09 (580s)
+2026-10-28 14:17:49,116 INFO [wti_crude_oil] aalf origin 226/384 2023-10-01 (668s)
+2026-10-28 14:19:15,455 INFO [wti_crude_oil] aalf origin 251/384 2024-03-24 (754s)
+2026-10-28 14:20:48,839 INFO [wti_crude_oil] aalf origin 276/384 2024-09-15 (847s)
+2026-10-28 14:22:21,118 INFO [wti_crude_oil] aalf origin 301/384 2025-03-09 (940s)
+2026-10-28 14:23:54,731 INFO [wti_crude_oil] aalf origin 326/384 2025-08-31 (1033s)
+2026-10-28 14:25:27,811 INFO [wti_crude_oil] aalf origin 351/384 2026-02-22 (1126s)
+2026-10-28 14:26:48,439 INFO [wti_crude_oil] aalf origin 376/384 2026-08-16 (1207s)
+2026-10-28 14:27:12,812 INFO [wti_crude_oil] saved 3072 predictions (1231s)
+2026-10-28 14:28:14,155 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 14:28:14,171 INFO E006_aalf done

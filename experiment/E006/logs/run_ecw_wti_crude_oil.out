@@ -1,0 +1,21 @@
+2026-10-28 14:06:41,478 INFO E006_ecw start: ['wti_crude_oil']
+2026-10-28 14:06:41,622 INFO [wti_crude_oil] ecw weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 14:06:44,682 INFO [wti_crude_oil] ecw origin 1/384 2019-06-09 (3s)
+2026-10-28 14:07:56,138 INFO [wti_crude_oil] ecw origin 26/384 2019-12-01 (75s)
+2026-10-28 14:09:10,674 INFO [wti_crude_oil] ecw origin 51/384 2020-05-24 (149s)
+2026-10-28 14:10:27,851 INFO [wti_crude_oil] ecw origin 76/384 2020-11-15 (226s)
+2026-10-28 14:11:46,888 INFO [wti_crude_oil] ecw origin 101/384 2021-05-09 (305s)
+2026-10-28 14:13:12,389 INFO [wti_crude_oil] ecw origin 126/384 2021-10-31 (391s)
+2026-10-28 14:14:40,664 INFO [wti_crude_oil] ecw origin 151/384 2022-04-24 (479s)
+2026-10-28 14:16:15,957 INFO [wti_crude_oil] ecw origin 176/384 2022-10-16 (574s)
+2026-10-28 14:17:52,645 INFO [wti_crude_oil] ecw origin 201/384 2023-04-09 (671s)
+2026-10-28 14:19:27,967 INFO [wti_crude_oil] ecw origin 226/384 2023-10-01 (766s)
+2026-10-28 14:21:10,513 INFO [wti_crude_oil] ecw origin 251/384 2024-03-24 (869s)
+2026-10-28 14:22:49,678 INFO [wti_crude_oil] ecw origin 276/384 2024-09-15 (968s)
+2026-10-28 14:24:32,800 INFO [wti_crude_oil] ecw origin 301/384 2025-03-09 (1071s)
+2026-10-28 14:26:07,201 INFO [wti_crude_oil] ecw origin 326/384 2025-08-31 (1166s)
+2026-10-28 14:27:29,567 INFO [wti_crude_oil] ecw origin 351/384 2026-02-22 (1248s)
+2026-10-28 14:28:45,499 INFO [wti_crude_oil] ecw origin 376/384 2026-08-16 (1324s)
+2026-10-28 14:29:07,504 INFO [wti_crude_oil] saved 3072 predictions (1346s)
+2026-10-28 14:29:56,863 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 14:29:56,871 INFO E006_ecw done

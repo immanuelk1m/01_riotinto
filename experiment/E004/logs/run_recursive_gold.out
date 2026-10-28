@@ -1,0 +1,32 @@
+2026-10-28 21:37:05,530 INFO E004_recursive start: ['gold']
+2026-10-28 21:37:05,717 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 21:37:17,184 INFO [gold] recursive common MI top30 (max=0.2239 min=0.1340): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_YoY_Pct_lag_2, Com_WGC_QTD_Gold_ETF_Asia_Holdings_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1
+2026-10-28 21:37:17,326 INFO [gold] origin 1/384 2019-06-02 (12s)
+2026-10-28 21:37:20,918 INFO [gold] origin 26/384 2019-11-24 (15s)
+2026-10-28 21:37:24,789 INFO [gold] origin 51/384 2020-05-17 (19s)
+2026-10-28 21:37:28,588 INFO [gold] origin 76/384 2020-11-08 (23s)
+2026-10-28 21:37:32,446 INFO [gold] origin 101/384 2021-05-02 (27s)
+2026-10-28 21:37:36,417 INFO [gold] origin 126/384 2021-10-24 (31s)
+2026-10-28 21:37:40,475 INFO [gold] origin 151/384 2022-04-17 (35s)
+2026-10-28 21:37:44,707 INFO [gold] origin 176/384 2022-10-09 (39s)
+2026-10-28 21:37:48,959 INFO [gold] origin 201/384 2023-04-02 (43s)
+2026-10-28 21:37:53,277 INFO [gold] origin 226/384 2023-09-24 (48s)
+2026-10-28 21:37:58,006 INFO [gold] origin 251/384 2024-03-17 (52s)
+2026-10-28 21:38:03,409 INFO [gold] origin 276/384 2024-09-08 (58s)
+2026-10-28 21:38:08,738 INFO [gold] origin 301/384 2025-03-02 (63s)
+2026-10-28 21:38:14,093 INFO [gold] origin 326/384 2025-08-24 (69s)
+2026-10-28 21:38:20,786 INFO [gold] origin 351/384 2026-02-15 (75s)
+2026-10-28 21:38:26,986 INFO [gold] origin 376/384 2026-08-09 (81s)
+2026-10-28 21:38:28,653 INFO [gold] saved 3072 predictions (83s)
+2026-10-28 21:38:56,057 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 21:38:56,062 INFO [gold] E004_recursive h=1   MAPE=1.880% RMSE=71.9429 n=383
+2026-10-28 21:38:56,063 INFO [gold] E004_recursive h=2   MAPE=2.989% RMSE=114.5504 n=382
+2026-10-28 21:38:56,064 INFO [gold] E004_recursive h=3   MAPE=3.882% RMSE=154.1526 n=381
+2026-10-28 21:38:56,065 INFO [gold] E004_recursive h=4   MAPE=4.725% RMSE=187.6204 n=380
+2026-10-28 21:38:56,066 INFO [gold] E004_recursive h=5   MAPE=5.577% RMSE=217.1188 n=379
+2026-10-28 21:38:56,066 INFO [gold] E004_recursive h=6   MAPE=6.419% RMSE=251.5861 n=378
+2026-10-28 21:38:56,067 INFO [gold] E004_recursive h=7   MAPE=7.250% RMSE=285.9729 n=377
+2026-10-28 21:38:56,068 INFO [gold] E004_recursive h=8   MAPE=8.088% RMSE=324.0285 n=376
+2026-10-28 21:38:56,068 INFO [gold] E004_recursive h=all MAPE=5.089% RMSE=215.9075 n=3036
+2026-10-28 21:38:56,072 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:38:56,072 INFO E004_recursive done

@@ -1,0 +1,27 @@
+2026-10-28 21:32:12,805 INFO E004_dirmo2 start: ['corn']
+2026-10-28 21:32:12,887 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:32:15,965 INFO [corn] dirmo2 common MI top30 (max=0.2956 min=0.1062): Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3, Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0
+2026-10-28 21:32:16,578 INFO [corn] origin 1/258 2021-11-07 (4s)
+2026-10-28 21:32:32,075 INFO [corn] origin 26/258 2022-05-01 (19s)
+2026-10-28 21:32:48,454 INFO [corn] origin 51/258 2022-10-23 (36s)
+2026-10-28 21:33:05,268 INFO [corn] origin 76/258 2023-04-16 (52s)
+2026-10-28 21:33:22,996 INFO [corn] origin 101/258 2023-10-08 (70s)
+2026-10-28 21:33:41,535 INFO [corn] origin 126/258 2024-03-31 (89s)
+2026-10-28 21:34:00,168 INFO [corn] origin 151/258 2024-09-22 (107s)
+2026-10-28 21:34:19,380 INFO [corn] origin 176/258 2025-03-16 (127s)
+2026-10-28 21:34:38,899 INFO [corn] origin 201/258 2025-09-07 (146s)
+2026-10-28 21:34:58,690 INFO [corn] origin 226/258 2026-03-01 (166s)
+2026-10-28 21:35:19,049 INFO [corn] origin 251/258 2026-08-23 (186s)
+2026-10-28 21:35:24,778 INFO [corn] saved 2064 predictions (192s)
+2026-10-28 21:35:40,584 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:35:40,586 INFO [corn] E004_dirmo2 h=1   MAPE=2.650% RMSE=18.9654 n=258
+2026-10-28 21:35:40,587 INFO [corn] E004_dirmo2 h=2   MAPE=3.453% RMSE=25.3559 n=258
+2026-10-28 21:35:40,587 INFO [corn] E004_dirmo2 h=3   MAPE=4.593% RMSE=29.9640 n=258
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=4   MAPE=5.179% RMSE=33.7963 n=257
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=5   MAPE=5.823% RMSE=37.2750 n=256
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=6   MAPE=6.134% RMSE=38.7552 n=255
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=7   MAPE=6.201% RMSE=38.9857 n=254
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=8   MAPE=6.544% RMSE=41.5154 n=253
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=all MAPE=5.064% RMSE=33.8274 n=2049
+2026-10-28 21:35:40,592 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:35:40,593 INFO E004_dirmo2 done

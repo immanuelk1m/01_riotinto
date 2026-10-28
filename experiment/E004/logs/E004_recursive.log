@@ -1,0 +1,145 @@
+2026-10-28 21:36:53,987 INFO E004_recursive start: ['wti_crude_oil']
+2026-10-28 21:36:54,116 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 21:37:03,830 INFO [wti_crude_oil] recursive common MI top30 (max=0.2341 min=0.1118): Com_RealEstateDev_Investment_YoY_China_lag_3, Com_DallasFed_DES_WTI_Price_Forecast_Median_USD_Bbl_lag_0, Macro_DallasFed_DES_Average_WTI_Price_Forecast_USD_Bbl_lag_0, eia_steo_quarterly_permian_cumulative_duc_wells_lag_2, eia_steo_quarterly_bakken_cumulative_duc_wells_lag_2
+2026-10-28 21:37:03,958 INFO [wti_crude_oil] origin 1/384 2019-06-09 (10s)
+2026-10-28 21:37:05,530 INFO E004_recursive start: ['gold']
+2026-10-28 21:37:05,717 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 21:37:07,174 INFO [wti_crude_oil] origin 26/384 2019-12-01 (13s)
+2026-10-28 21:37:10,714 INFO [wti_crude_oil] origin 51/384 2020-05-24 (17s)
+2026-10-28 21:37:14,483 INFO [wti_crude_oil] origin 76/384 2020-11-15 (20s)
+2026-10-28 21:37:17,184 INFO [gold] recursive common MI top30 (max=0.2239 min=0.1340): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_YoY_Pct_lag_2, Com_WGC_QTD_Gold_ETF_Asia_Holdings_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1
+2026-10-28 21:37:17,326 INFO [gold] origin 1/384 2019-06-02 (12s)
+2026-10-28 21:37:18,348 INFO [wti_crude_oil] origin 101/384 2021-05-09 (24s)
+2026-10-28 21:37:20,918 INFO [gold] origin 26/384 2019-11-24 (15s)
+2026-10-28 21:37:22,504 INFO [wti_crude_oil] origin 126/384 2021-10-31 (29s)
+2026-10-28 21:37:23,090 INFO E004_recursive start: ['copper']
+2026-10-28 21:37:23,211 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 21:37:24,789 INFO [gold] origin 51/384 2020-05-17 (19s)
+2026-10-28 21:37:26,695 INFO [wti_crude_oil] origin 151/384 2022-04-24 (33s)
+2026-10-28 21:37:28,588 INFO [gold] origin 76/384 2020-11-08 (23s)
+2026-10-28 21:37:29,544 INFO [copper] recursive common MI top30 (max=0.2142 min=0.1263): barrick_quarterly_attributable_copper_production_kt_lag_6, Com_LME_Cu_comm_long_lag_1, barrick_quarterly_attributable_copper_sales_kt_lag_6, Com_Antofagasta_Copper_Production_Quarterly_KT_lag_3, Com_LME_Cu_noncomm_short_lag_1
+2026-10-28 21:37:29,684 INFO [copper] origin 1/269 2021-08-22 (7s)
+2026-10-28 21:37:30,880 INFO [wti_crude_oil] origin 176/384 2022-10-16 (37s)
+2026-10-28 21:37:32,446 INFO [gold] origin 101/384 2021-05-02 (27s)
+2026-10-28 21:37:32,892 INFO [copper] origin 26/269 2022-02-13 (10s)
+2026-10-28 21:37:35,205 INFO [wti_crude_oil] origin 201/384 2023-04-09 (41s)
+2026-10-28 21:37:36,271 INFO [copper] origin 51/269 2022-08-07 (13s)
+2026-10-28 21:37:36,417 INFO [gold] origin 126/384 2021-10-24 (31s)
+2026-10-28 21:37:39,664 INFO [wti_crude_oil] origin 226/384 2023-10-01 (46s)
+2026-10-28 21:37:39,802 INFO [copper] origin 76/269 2023-01-29 (17s)
+2026-10-28 21:37:40,475 INFO [gold] origin 151/384 2022-04-17 (35s)
+2026-10-28 21:37:43,429 INFO [copper] origin 101/269 2023-07-23 (20s)
+2026-10-28 21:37:44,276 INFO [wti_crude_oil] origin 251/384 2024-03-24 (50s)
+2026-10-28 21:37:44,707 INFO [gold] origin 176/384 2022-10-09 (39s)
+2026-10-28 21:37:47,115 INFO [copper] origin 126/269 2024-01-14 (24s)
+2026-10-28 21:37:48,959 INFO [gold] origin 201/384 2023-04-02 (43s)
+2026-10-28 21:37:49,054 INFO [wti_crude_oil] origin 276/384 2024-09-15 (55s)
+2026-10-28 21:37:50,887 INFO [copper] origin 151/269 2024-07-07 (28s)
+2026-10-28 21:37:53,277 INFO [gold] origin 226/384 2023-09-24 (48s)
+2026-10-28 21:37:54,077 INFO [wti_crude_oil] origin 301/384 2025-03-09 (60s)
+2026-10-28 21:37:54,814 INFO [copper] origin 176/269 2024-12-29 (32s)
+2026-10-28 21:37:58,006 INFO [gold] origin 251/384 2024-03-17 (52s)
+2026-10-28 21:37:59,040 INFO [copper] origin 201/269 2025-06-22 (36s)
+2026-10-28 21:37:59,572 INFO [wti_crude_oil] origin 326/384 2025-08-31 (66s)
+2026-10-28 21:38:03,409 INFO [gold] origin 276/384 2024-09-08 (58s)
+2026-10-28 21:38:03,762 INFO [copper] origin 226/269 2025-12-14 (41s)
+2026-10-28 21:38:05,585 INFO [wti_crude_oil] origin 351/384 2026-02-22 (72s)
+2026-10-28 21:38:06,749 INFO E004_recursive start: ['corn']
+2026-10-28 21:38:06,835 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:38:08,661 INFO [copper] origin 251/269 2026-06-07 (46s)
+2026-10-28 21:38:08,738 INFO [gold] origin 301/384 2025-03-02 (63s)
+2026-10-28 21:38:11,129 INFO [corn] recursive common MI top30 (max=0.2956 min=0.1062): Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3, Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0
+2026-10-28 21:38:11,260 INFO [corn] origin 1/258 2021-11-07 (5s)
+2026-10-28 21:38:11,603 INFO [wti_crude_oil] origin 376/384 2026-08-16 (78s)
+2026-10-28 21:38:12,303 INFO [copper] saved 2152 predictions (49s)
+2026-10-28 21:38:13,777 INFO [wti_crude_oil] saved 3072 predictions (80s)
+2026-10-28 21:38:14,093 INFO [gold] origin 326/384 2025-08-24 (69s)
+2026-10-28 21:38:15,177 INFO [corn] origin 26/258 2022-05-01 (8s)
+2026-10-28 21:38:19,923 INFO [corn] origin 51/258 2022-10-23 (13s)
+2026-10-28 21:38:20,278 INFO E004_recursive start: ['coffee']
+2026-10-28 21:38:20,396 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 21:38:20,786 INFO [gold] origin 351/384 2026-02-15 (75s)
+2026-10-28 21:38:24,053 INFO [coffee] recursive common MI top30 (max=0.3030 min=0.0783): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4
+2026-10-28 21:38:24,264 INFO [coffee] origin 1/261 2021-10-17 (4s)
+2026-10-28 21:38:24,690 INFO [corn] origin 76/258 2023-04-16 (18s)
+2026-10-28 21:38:26,986 INFO [gold] origin 376/384 2026-08-09 (81s)
+2026-10-28 21:38:28,487 INFO [coffee] origin 26/261 2022-04-10 (8s)
+2026-10-28 21:38:28,653 INFO [gold] saved 3072 predictions (83s)
+2026-10-28 21:38:28,890 INFO [corn] origin 101/258 2023-10-08 (22s)
+2026-10-28 21:38:32,036 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:38:32,038 INFO [copper] E004_recursive h=1   MAPE=2.412% RMSE=308.2417 n=269
+2026-10-28 21:38:32,039 INFO [copper] E004_recursive h=2   MAPE=3.678% RMSE=466.7534 n=268
+2026-10-28 21:38:32,039 INFO [copper] E004_recursive h=3   MAPE=4.833% RMSE=616.4628 n=267
+2026-10-28 21:38:32,040 INFO [copper] E004_recursive h=4   MAPE=6.139% RMSE=759.6671 n=266
+2026-10-28 21:38:32,040 INFO [copper] E004_recursive h=5   MAPE=7.170% RMSE=896.5725 n=265
+2026-10-28 21:38:32,040 INFO [copper] E004_recursive h=6   MAPE=8.089% RMSE=1006.2698 n=264
+2026-10-28 21:38:32,041 INFO [copper] E004_recursive h=7   MAPE=9.112% RMSE=1142.1292 n=263
+2026-10-28 21:38:32,041 INFO [copper] E004_recursive h=8   MAPE=10.255% RMSE=1294.6891 n=262
+2026-10-28 21:38:32,041 INFO [copper] E004_recursive h=all MAPE=6.439% RMSE=868.3328 n=2124
+2026-10-28 21:38:32,045 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:38:32,045 INFO E004_recursive done
+2026-10-28 21:38:33,171 INFO [coffee] origin 51/261 2022-10-02 (13s)
+2026-10-28 21:38:33,424 INFO [corn] origin 126/258 2024-03-31 (27s)
+2026-10-28 21:38:37,409 INFO [coffee] origin 76/261 2023-03-26 (17s)
+2026-10-28 21:38:37,708 INFO [corn] origin 151/258 2024-09-22 (31s)
+2026-10-28 21:38:40,490 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 21:38:40,493 INFO [wti_crude_oil] E004_recursive h=1   MAPE=5.367% RMSE=5.2486 n=383
+2026-10-28 21:38:40,494 INFO [wti_crude_oil] E004_recursive h=2   MAPE=8.813% RMSE=8.2474 n=382
+2026-10-28 21:38:40,494 INFO [wti_crude_oil] E004_recursive h=3   MAPE=11.656% RMSE=10.3926 n=381
+2026-10-28 21:38:40,494 INFO [wti_crude_oil] E004_recursive h=4   MAPE=14.340% RMSE=13.4007 n=380
+2026-10-28 21:38:40,495 INFO [wti_crude_oil] E004_recursive h=5   MAPE=17.452% RMSE=16.8232 n=379
+2026-10-28 21:38:40,495 INFO [wti_crude_oil] E004_recursive h=6   MAPE=20.200% RMSE=19.4296 n=378
+2026-10-28 21:38:40,496 INFO [wti_crude_oil] E004_recursive h=7   MAPE=23.040% RMSE=22.3707 n=377
+2026-10-28 21:38:40,496 INFO [wti_crude_oil] E004_recursive h=8   MAPE=26.534% RMSE=26.1628 n=376
+2026-10-28 21:38:40,496 INFO [wti_crude_oil] E004_recursive h=all MAPE=15.884% RMSE=16.6528 n=3036
+2026-10-28 21:38:40,500 INFO [wti_crude_oil] naive       h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:38:40,500 INFO E004_recursive done
+2026-10-28 21:38:41,384 INFO [coffee] origin 101/261 2023-09-17 (21s)
+2026-10-28 21:38:41,606 INFO [corn] origin 176/258 2025-03-16 (35s)
+2026-10-28 21:38:45,071 INFO [coffee] origin 126/261 2024-03-10 (25s)
+2026-10-28 21:38:45,439 INFO [corn] origin 201/258 2025-09-07 (39s)
+2026-10-28 21:38:48,800 INFO [coffee] origin 151/261 2024-09-01 (29s)
+2026-10-28 21:38:49,270 INFO [corn] origin 226/258 2026-03-01 (43s)
+2026-10-28 21:38:52,587 INFO [coffee] origin 176/261 2025-02-23 (32s)
+2026-10-28 21:38:53,146 INFO [corn] origin 251/258 2026-08-23 (46s)
+2026-10-28 21:38:54,257 INFO [corn] saved 2064 predictions (48s)
+2026-10-28 21:38:56,057 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 21:38:56,062 INFO [gold] E004_recursive h=1   MAPE=1.880% RMSE=71.9429 n=383
+2026-10-28 21:38:56,063 INFO [gold] E004_recursive h=2   MAPE=2.989% RMSE=114.5504 n=382
+2026-10-28 21:38:56,064 INFO [gold] E004_recursive h=3   MAPE=3.882% RMSE=154.1526 n=381
+2026-10-28 21:38:56,065 INFO [gold] E004_recursive h=4   MAPE=4.725% RMSE=187.6204 n=380
+2026-10-28 21:38:56,066 INFO [gold] E004_recursive h=5   MAPE=5.577% RMSE=217.1188 n=379
+2026-10-28 21:38:56,066 INFO [gold] E004_recursive h=6   MAPE=6.419% RMSE=251.5861 n=378
+2026-10-28 21:38:56,067 INFO [gold] E004_recursive h=7   MAPE=7.250% RMSE=285.9729 n=377
+2026-10-28 21:38:56,068 INFO [gold] E004_recursive h=8   MAPE=8.088% RMSE=324.0285 n=376
+2026-10-28 21:38:56,068 INFO [gold] E004_recursive h=all MAPE=5.089% RMSE=215.9075 n=3036
+2026-10-28 21:38:56,072 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:38:56,072 INFO E004_recursive done
+2026-10-28 21:38:56,628 INFO [coffee] origin 201/261 2025-08-17 (36s)
+2026-10-28 21:39:00,425 INFO [coffee] origin 226/261 2026-02-08 (40s)
+2026-10-28 21:39:04,302 INFO [coffee] origin 251/261 2026-08-02 (44s)
+2026-10-28 21:39:05,896 INFO [coffee] saved 2088 predictions (46s)
+2026-10-28 21:39:11,413 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:39:11,417 INFO [corn] E004_recursive h=1   MAPE=2.640% RMSE=18.9469 n=258
+2026-10-28 21:39:11,418 INFO [corn] E004_recursive h=2   MAPE=3.750% RMSE=27.6361 n=258
+2026-10-28 21:39:11,419 INFO [corn] E004_recursive h=3   MAPE=4.906% RMSE=34.0252 n=258
+2026-10-28 21:39:11,420 INFO [corn] E004_recursive h=4   MAPE=5.945% RMSE=40.7421 n=257
+2026-10-28 21:39:11,421 INFO [corn] E004_recursive h=5   MAPE=6.839% RMSE=46.9593 n=256
+2026-10-28 21:39:11,422 INFO [corn] E004_recursive h=6   MAPE=7.422% RMSE=49.5623 n=255
+2026-10-28 21:39:11,423 INFO [corn] E004_recursive h=7   MAPE=7.895% RMSE=53.6248 n=254
+2026-10-28 21:39:11,423 INFO [corn] E004_recursive h=8   MAPE=8.496% RMSE=57.1811 n=253
+2026-10-28 21:39:11,424 INFO [corn] E004_recursive h=all MAPE=5.974% RMSE=42.8574 n=2049
+2026-10-28 21:39:11,427 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:39:11,427 INFO E004_recursive done
+2026-10-28 21:39:21,744 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 21:39:21,746 INFO [coffee] E004_recursive h=1   MAPE=3.372% RMSE=10.3028 n=261
+2026-10-28 21:39:21,746 INFO [coffee] E004_recursive h=2   MAPE=5.709% RMSE=17.1756 n=261
+2026-10-28 21:39:21,746 INFO [coffee] E004_recursive h=3   MAPE=7.923% RMSE=23.5054 n=261
+2026-10-28 21:39:21,747 INFO [coffee] E004_recursive h=4   MAPE=10.128% RMSE=29.3425 n=260
+2026-10-28 21:39:21,747 INFO [coffee] E004_recursive h=5   MAPE=11.666% RMSE=33.7282 n=259
+2026-10-28 21:39:21,748 INFO [coffee] E004_recursive h=6   MAPE=13.328% RMSE=38.1254 n=258
+2026-10-28 21:39:21,748 INFO [coffee] E004_recursive h=7   MAPE=14.796% RMSE=42.5202 n=257
+2026-10-28 21:39:21,748 INFO [coffee] E004_recursive h=8   MAPE=16.125% RMSE=46.8767 n=256
+2026-10-28 21:39:21,749 INFO [coffee] E004_recursive h=all MAPE=10.353% RMSE=32.3512 n=2073
+2026-10-28 21:39:21,752 INFO [coffee] naive       h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 21:39:21,752 INFO E004_recursive done

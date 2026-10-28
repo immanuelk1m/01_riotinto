@@ -1,0 +1,27 @@
+2026-10-28 21:33:11,679 INFO E004_dirmo2 start: ['coffee']
+2026-10-28 21:33:11,736 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 21:33:13,986 INFO [coffee] dirmo2 common MI top30 (max=0.3030 min=0.0783): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4
+2026-10-28 21:33:14,678 INFO [coffee] origin 1/261 2021-10-17 (3s)
+2026-10-28 21:33:32,910 INFO [coffee] origin 26/261 2022-04-10 (21s)
+2026-10-28 21:33:50,743 INFO [coffee] origin 51/261 2022-10-02 (39s)
+2026-10-28 21:34:08,947 INFO [coffee] origin 76/261 2023-03-26 (57s)
+2026-10-28 21:34:27,667 INFO [coffee] origin 101/261 2023-09-17 (76s)
+2026-10-28 21:34:46,608 INFO [coffee] origin 126/261 2024-03-10 (95s)
+2026-10-28 21:35:05,885 INFO [coffee] origin 151/261 2024-09-01 (114s)
+2026-10-28 21:35:25,687 INFO [coffee] origin 176/261 2025-02-23 (134s)
+2026-10-28 21:35:47,001 INFO [coffee] origin 201/261 2025-08-17 (155s)
+2026-10-28 21:36:07,266 INFO [coffee] origin 226/261 2026-02-08 (176s)
+2026-10-28 21:36:28,022 INFO [coffee] origin 251/261 2026-08-02 (196s)
+2026-10-28 21:36:36,438 INFO [coffee] saved 2088 predictions (205s)
+2026-10-28 21:36:52,494 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 21:36:52,498 INFO [coffee] E004_dirmo2 h=1   MAPE=3.484% RMSE=10.6325 n=261
+2026-10-28 21:36:52,499 INFO [coffee] E004_dirmo2 h=2   MAPE=5.264% RMSE=15.8769 n=261
+2026-10-28 21:36:52,500 INFO [coffee] E004_dirmo2 h=3   MAPE=7.349% RMSE=21.0324 n=261
+2026-10-28 21:36:52,501 INFO [coffee] E004_dirmo2 h=4   MAPE=8.626% RMSE=23.8802 n=260
+2026-10-28 21:36:52,501 INFO [coffee] E004_dirmo2 h=5   MAPE=9.558% RMSE=25.8859 n=259
+2026-10-28 21:36:52,502 INFO [coffee] E004_dirmo2 h=6   MAPE=10.472% RMSE=27.9631 n=258
+2026-10-28 21:36:52,503 INFO [coffee] E004_dirmo2 h=7   MAPE=11.875% RMSE=31.8066 n=257
+2026-10-28 21:36:52,504 INFO [coffee] E004_dirmo2 h=8   MAPE=12.699% RMSE=33.8159 n=256
+2026-10-28 21:36:52,505 INFO [coffee] E004_dirmo2 h=all MAPE=8.647% RMSE=24.9171 n=2073
+2026-10-28 21:36:52,511 INFO [coffee] naive       h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 21:36:52,512 INFO E004_dirmo2 done

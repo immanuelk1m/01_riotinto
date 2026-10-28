@@ -1,0 +1,126 @@
+{
+  "commodity": "corn",
+  "n_candidates": 128,
+  "features": [
+    {
+      "name": "Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3",
+      "mean_mi": 0.29556188590028193
+    },
+    {
+      "name": "Com_Econ_US_exports_mom_lag_5",
+      "mean_mi": 0.1802642976634271
+    },
+    {
+      "name": "Com_Econ_US_imports_mom_lag_5",
+      "mean_mi": 0.1784514726688073
+    },
+    {
+      "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+      "mean_mi": 0.16991657892870177
+    },
+    {
+      "name": "Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.16722417362946912
+    },
+    {
+      "name": "Food_IGC_GMR_World_Maize_Closing_Stocks_Current_Forecast_MMT_lag_3",
+      "mean_mi": 0.15455178772000444
+    },
+    {
+      "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+      "mean_mi": 0.1458041240724427
+    },
+    {
+      "name": "Com_Econ_US_trade_balance_lag_5",
+      "mean_mi": 0.13210286010558242
+    },
+    {
+      "name": "tgt_logp",
+      "mean_mi": 0.13136812549345417
+    },
+    {
+      "name": "Com_USDA_WASDE_World_Corn_Production_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.1302729259179638
+    },
+    {
+      "name": "Com_EIA_US_Fuel_Ethanol_Production_Calendar_Month_Average_Bpd_lag_9",
+      "mean_mi": 0.12719035720888444
+    },
+    {
+      "name": "Com_USDA_WASDE_U_S_Corn_Production_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.12537904496201635
+    },
+    {
+      "name": "Com_USDA_WASDE_U_S_Corn_Yield_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.12530500053672788
+    },
+    {
+      "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+      "mean_mi": 0.11999782687192834
+    },
+    {
+      "name": "Com_USDA_WASDE_U_S_Corn_Ending_Stocks_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.11982727820664618
+    },
+    {
+      "name": "Com_Econ_DE_exports_mom_lag_6",
+      "mean_mi": 0.1179083497032763
+    },
+    {
+      "name": "Com_WorldBank_CMO_Monthly_Price_Dap_lag_1",
+      "mean_mi": 0.11682122719599641
+    },
+    {
+      "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+      "mean_mi": 0.1161282210246804
+    },
+    {
+      "name": "Com_Econ_US_cb_consumer_lag_0",
+      "mean_mi": 0.11580489600827126
+    },
+    {
+      "name": "Com_USDA_NASS_Quickstats_CORN_GRAIN_STOCKS_Measured_IN_BU_lag_5",
+      "mean_mi": 0.1156714215202192
+    },
+    {
+      "name": "Com_Conab_Brazil_Corn_Production_Estimate_Million_Tonnes_lag_0",
+      "mean_mi": 0.1142796674432463
+    },
+    {
+      "name": "Com_ICE_US_Dollar_Index_DXY_lag_1",
+      "mean_mi": 0.1119324110356062
+    },
+    {
+      "name": "Com_Fed_H10_EX_BRL_USD_lag_0",
+      "mean_mi": 0.11187381056905388
+    },
+    {
+      "name": "Com_Conab_Brazil_Corn_Second_Season_Production_Estimate_Million_Tonnes_lag_0",
+      "mean_mi": 0.11135519228839214
+    },
+    {
+      "name": "Com_USDA_WASDE_World_Corn_Ending_Stocks_Latest_Projected_Level_lag_0",
+      "mean_mi": 0.11104943571152176
+    },
+    {
+      "name": "Com_Econ_CN_imports_yoy_lag_2",
+      "mean_mi": 0.10759086379748362
+    },
+    {
+      "name": "Com_USDA_NASS_QuickStats_CORN_FOR_FUEL_ALCOHOL_USAGE_MEASURED_IN_BU_lag_5",
+      "mean_mi": 0.10691944358042277
+    },
+    {
+      "name": "usda_nass_monthly_us_corn_consumed_for_fuel_alcohol_bu_lag_5",
+      "mean_mi": 0.10691944358042277
+    },
+    {
+      "name": "Com_EPU_Gpr_Gpr_lag_1",
+      "mean_mi": 0.10657608475519081
+    },
+    {
+      "name": "bls_ppi_commodity_farm_products_corn_wpu012202_lag_2",
+      "mean_mi": 0.10624552569350532
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+2026-10-28 21:27:55,527 INFO E004_mimo start: ['corn']
+2026-10-28 21:27:55,587 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:27:58,872 INFO [corn] mimo common MI top30 (max=0.2956 min=0.1062): Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3, Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0
+2026-10-28 21:27:59,211 INFO [corn] origin 1/258 2021-11-07 (4s)
+2026-10-28 21:28:07,558 INFO [corn] origin 26/258 2022-05-01 (12s)
+2026-10-28 21:28:16,108 INFO [corn] origin 51/258 2022-10-23 (21s)
+2026-10-28 21:28:25,569 INFO [corn] origin 76/258 2023-04-16 (30s)
+2026-10-28 21:28:35,031 INFO [corn] origin 101/258 2023-10-08 (40s)
+2026-10-28 21:28:44,908 INFO [corn] origin 126/258 2024-03-31 (49s)
+2026-10-28 21:28:55,018 INFO [corn] origin 151/258 2024-09-22 (59s)
+2026-10-28 21:29:05,638 INFO [corn] origin 176/258 2025-03-16 (70s)
+2026-10-28 21:29:16,438 INFO [corn] origin 201/258 2025-09-07 (81s)
+2026-10-28 21:29:27,447 INFO [corn] origin 226/258 2026-03-01 (92s)
+2026-10-28 21:29:38,661 INFO [corn] origin 251/258 2026-08-23 (103s)
+2026-10-28 21:29:41,861 INFO [corn] saved 2064 predictions (106s)
+2026-10-28 21:29:59,295 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:29:59,298 INFO [corn] E004_mimo   h=1   MAPE=2.785% RMSE=19.5976 n=258
+2026-10-28 21:29:59,299 INFO [corn] E004_mimo   h=2   MAPE=3.567% RMSE=25.7883 n=258
+2026-10-28 21:29:59,299 INFO [corn] E004_mimo   h=3   MAPE=4.385% RMSE=29.4861 n=258
+2026-10-28 21:29:59,299 INFO [corn] E004_mimo   h=4   MAPE=5.120% RMSE=34.1713 n=257
+2026-10-28 21:29:59,300 INFO [corn] E004_mimo   h=5   MAPE=5.838% RMSE=38.1888 n=256
+2026-10-28 21:29:59,300 INFO [corn] E004_mimo   h=6   MAPE=6.174% RMSE=39.7004 n=255
+2026-10-28 21:29:59,300 INFO [corn] E004_mimo   h=7   MAPE=6.549% RMSE=42.1787 n=254
+2026-10-28 21:29:59,301 INFO [corn] E004_mimo   h=8   MAPE=6.868% RMSE=44.9356 n=253
+2026-10-28 21:29:59,301 INFO [corn] E004_mimo   h=all MAPE=5.152% RMSE=35.1603 n=2049
+2026-10-28 21:29:59,304 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:29:59,305 INFO E004_mimo done

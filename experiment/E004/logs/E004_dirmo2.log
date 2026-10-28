@@ -1,0 +1,145 @@
+2026-10-28 21:30:10,594 INFO E004_dirmo2 start: ['wti_crude_oil']
+2026-10-28 21:30:10,717 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 21:30:19,079 INFO [wti_crude_oil] dirmo2 common MI top30 (max=0.2341 min=0.1118): Com_RealEstateDev_Investment_YoY_China_lag_3, Com_DallasFed_DES_WTI_Price_Forecast_Median_USD_Bbl_lag_0, Macro_DallasFed_DES_Average_WTI_Price_Forecast_USD_Bbl_lag_0, eia_steo_quarterly_permian_cumulative_duc_wells_lag_2, eia_steo_quarterly_bakken_cumulative_duc_wells_lag_2
+2026-10-28 21:30:19,779 INFO [wti_crude_oil] origin 1/384 2019-06-09 (9s)
+2026-10-28 21:30:37,649 INFO [wti_crude_oil] origin 26/384 2019-12-01 (27s)
+2026-10-28 21:30:56,641 INFO [wti_crude_oil] origin 51/384 2020-05-24 (46s)
+2026-10-28 21:31:16,746 INFO [wti_crude_oil] origin 76/384 2020-11-15 (66s)
+2026-10-28 21:31:38,462 INFO [wti_crude_oil] origin 101/384 2021-05-09 (88s)
+2026-10-28 21:31:45,262 INFO E004_dirmo2 start: ['gold']
+2026-10-28 21:31:45,446 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 21:31:51,892 INFO E004_dirmo2 start: ['copper']
+2026-10-28 21:31:52,002 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 21:31:56,414 INFO [gold] dirmo2 common MI top30 (max=0.2239 min=0.1340): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_YoY_Pct_lag_2, Com_WGC_QTD_Gold_ETF_Asia_Holdings_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1
+2026-10-28 21:31:57,128 INFO [gold] origin 1/384 2019-06-02 (12s)
+2026-10-28 21:31:58,421 INFO [copper] dirmo2 common MI top30 (max=0.2142 min=0.1263): barrick_quarterly_attributable_copper_production_kt_lag_6, Com_LME_Cu_comm_long_lag_1, barrick_quarterly_attributable_copper_sales_kt_lag_6, Com_Antofagasta_Copper_Production_Quarterly_KT_lag_3, Com_LME_Cu_noncomm_short_lag_1
+2026-10-28 21:31:59,034 INFO [copper] origin 1/269 2021-08-22 (7s)
+2026-10-28 21:32:00,679 INFO [wti_crude_oil] origin 126/384 2021-10-31 (110s)
+2026-10-28 21:32:12,805 INFO E004_dirmo2 start: ['corn']
+2026-10-28 21:32:12,887 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:32:15,341 INFO [copper] origin 26/269 2022-02-13 (23s)
+2026-10-28 21:32:15,965 INFO [corn] dirmo2 common MI top30 (max=0.2956 min=0.1062): Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3, Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0
+2026-10-28 21:32:15,978 INFO [gold] origin 26/384 2019-11-24 (31s)
+2026-10-28 21:32:16,578 INFO [corn] origin 1/258 2021-11-07 (4s)
+2026-10-28 21:32:22,635 INFO [wti_crude_oil] origin 151/384 2022-04-24 (132s)
+2026-10-28 21:32:32,075 INFO [corn] origin 26/258 2022-05-01 (19s)
+2026-10-28 21:32:32,141 INFO [copper] origin 51/269 2022-08-07 (40s)
+2026-10-28 21:32:35,234 INFO [gold] origin 51/384 2020-05-17 (50s)
+2026-10-28 21:32:45,126 INFO [wti_crude_oil] origin 176/384 2022-10-16 (155s)
+2026-10-28 21:32:48,454 INFO [corn] origin 51/258 2022-10-23 (36s)
+2026-10-28 21:32:50,284 INFO [copper] origin 76/269 2023-01-29 (58s)
+2026-10-28 21:32:55,011 INFO [gold] origin 76/384 2020-11-08 (70s)
+2026-10-28 21:33:05,268 INFO [corn] origin 76/258 2023-04-16 (52s)
+2026-10-28 21:33:08,204 INFO [wti_crude_oil] origin 201/384 2023-04-09 (178s)
+2026-10-28 21:33:09,333 INFO [copper] origin 101/269 2023-07-23 (77s)
+2026-10-28 21:33:11,679 INFO E004_dirmo2 start: ['coffee']
+2026-10-28 21:33:11,736 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 21:33:13,986 INFO [coffee] dirmo2 common MI top30 (max=0.3030 min=0.0783): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4
+2026-10-28 21:33:14,678 INFO [coffee] origin 1/261 2021-10-17 (3s)
+2026-10-28 21:33:15,364 INFO [gold] origin 101/384 2021-05-02 (90s)
+2026-10-28 21:33:22,996 INFO [corn] origin 101/258 2023-10-08 (70s)
+2026-10-28 21:33:29,311 INFO [copper] origin 126/269 2024-01-14 (97s)
+2026-10-28 21:33:32,702 INFO [wti_crude_oil] origin 226/384 2023-10-01 (202s)
+2026-10-28 21:33:32,910 INFO [coffee] origin 26/261 2022-04-10 (21s)
+2026-10-28 21:33:37,272 INFO [gold] origin 126/384 2021-10-24 (112s)
+2026-10-28 21:33:41,535 INFO [corn] origin 126/258 2024-03-31 (89s)
+2026-10-28 21:33:49,117 INFO [copper] origin 151/269 2024-07-07 (117s)
+2026-10-28 21:33:50,743 INFO [coffee] origin 51/261 2022-10-02 (39s)
+2026-10-28 21:33:56,784 INFO [wti_crude_oil] origin 251/384 2024-03-24 (226s)
+2026-10-28 21:33:58,433 INFO [gold] origin 151/384 2022-04-17 (133s)
+2026-10-28 21:34:00,168 INFO [corn] origin 151/258 2024-09-22 (107s)
+2026-10-28 21:34:08,923 INFO [copper] origin 176/269 2024-12-29 (137s)
+2026-10-28 21:34:08,947 INFO [coffee] origin 76/261 2023-03-26 (57s)
+2026-10-28 21:34:19,380 INFO [corn] origin 176/258 2025-03-16 (127s)
+2026-10-28 21:34:20,143 INFO [gold] origin 176/384 2022-10-09 (155s)
+2026-10-28 21:34:21,501 INFO [wti_crude_oil] origin 276/384 2024-09-15 (251s)
+2026-10-28 21:34:27,667 INFO [coffee] origin 101/261 2023-09-17 (76s)
+2026-10-28 21:34:29,231 INFO [copper] origin 201/269 2025-06-22 (157s)
+2026-10-28 21:34:38,899 INFO [corn] origin 201/258 2025-09-07 (146s)
+2026-10-28 21:34:42,127 INFO [gold] origin 201/384 2023-04-02 (177s)
+2026-10-28 21:34:46,452 INFO [wti_crude_oil] origin 301/384 2025-03-09 (276s)
+2026-10-28 21:34:46,608 INFO [coffee] origin 126/261 2024-03-10 (95s)
+2026-10-28 21:34:49,556 INFO [copper] origin 226/269 2025-12-14 (178s)
+2026-10-28 21:34:58,690 INFO [corn] origin 226/258 2026-03-01 (166s)
+2026-10-28 21:35:04,402 INFO [gold] origin 226/384 2023-09-24 (199s)
+2026-10-28 21:35:05,885 INFO [coffee] origin 151/261 2024-09-01 (114s)
+2026-10-28 21:35:10,053 INFO [copper] origin 251/269 2026-06-07 (198s)
+2026-10-28 21:35:11,734 INFO [wti_crude_oil] origin 326/384 2025-08-31 (301s)
+2026-10-28 21:35:19,049 INFO [corn] origin 251/258 2026-08-23 (186s)
+2026-10-28 21:35:24,778 INFO [corn] saved 2064 predictions (192s)
+2026-10-28 21:35:25,038 INFO [copper] saved 2152 predictions (213s)
+2026-10-28 21:35:25,687 INFO [coffee] origin 176/261 2025-02-23 (134s)
+2026-10-28 21:35:27,335 INFO [gold] origin 251/384 2024-03-17 (222s)
+2026-10-28 21:35:38,455 INFO [wti_crude_oil] origin 351/384 2026-02-22 (328s)
+2026-10-28 21:35:40,584 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:35:40,586 INFO [corn] E004_dirmo2 h=1   MAPE=2.650% RMSE=18.9654 n=258
+2026-10-28 21:35:40,587 INFO [corn] E004_dirmo2 h=2   MAPE=3.453% RMSE=25.3559 n=258
+2026-10-28 21:35:40,587 INFO [corn] E004_dirmo2 h=3   MAPE=4.593% RMSE=29.9640 n=258
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=4   MAPE=5.179% RMSE=33.7963 n=257
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=5   MAPE=5.823% RMSE=37.2750 n=256
+2026-10-28 21:35:40,588 INFO [corn] E004_dirmo2 h=6   MAPE=6.134% RMSE=38.7552 n=255
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=7   MAPE=6.201% RMSE=38.9857 n=254
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=8   MAPE=6.544% RMSE=41.5154 n=253
+2026-10-28 21:35:40,589 INFO [corn] E004_dirmo2 h=all MAPE=5.064% RMSE=33.8274 n=2049
+2026-10-28 21:35:40,592 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:35:40,593 INFO E004_dirmo2 done
+2026-10-28 21:35:42,105 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:35:42,109 INFO [copper] E004_dirmo2 h=1   MAPE=2.437% RMSE=314.7823 n=269
+2026-10-28 21:35:42,111 INFO [copper] E004_dirmo2 h=2   MAPE=3.194% RMSE=412.8675 n=268
+2026-10-28 21:35:42,112 INFO [copper] E004_dirmo2 h=3   MAPE=4.189% RMSE=535.3224 n=267
+2026-10-28 21:35:42,113 INFO [copper] E004_dirmo2 h=4   MAPE=4.785% RMSE=596.1351 n=266
+2026-10-28 21:35:42,114 INFO [copper] E004_dirmo2 h=5   MAPE=5.417% RMSE=671.9854 n=265
+2026-10-28 21:35:42,115 INFO [copper] E004_dirmo2 h=6   MAPE=5.805% RMSE=723.5197 n=264
+2026-10-28 21:35:42,115 INFO [copper] E004_dirmo2 h=7   MAPE=6.562% RMSE=825.9393 n=263
+2026-10-28 21:35:42,116 INFO [copper] E004_dirmo2 h=8   MAPE=6.889% RMSE=870.5468 n=262
+2026-10-28 21:35:42,116 INFO [copper] E004_dirmo2 h=all MAPE=4.897% RMSE=643.3841 n=2124
+2026-10-28 21:35:42,119 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:35:42,120 INFO E004_dirmo2 done
+2026-10-28 21:35:47,001 INFO [coffee] origin 201/261 2025-08-17 (155s)
+2026-10-28 21:35:51,512 INFO [gold] origin 276/384 2024-09-08 (246s)
+2026-10-28 21:36:04,686 INFO [wti_crude_oil] origin 376/384 2026-08-16 (354s)
+2026-10-28 21:36:07,266 INFO [coffee] origin 226/261 2026-02-08 (176s)
+2026-10-28 21:36:13,045 INFO [wti_crude_oil] saved 3072 predictions (362s)
+2026-10-28 21:36:14,893 INFO [gold] origin 301/384 2025-03-02 (270s)
+2026-10-28 21:36:28,022 INFO [coffee] origin 251/261 2026-08-02 (196s)
+2026-10-28 21:36:36,438 INFO [coffee] saved 2088 predictions (205s)
+2026-10-28 21:36:38,923 INFO [gold] origin 326/384 2025-08-24 (294s)
+2026-10-28 21:36:40,800 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 21:36:40,806 INFO [wti_crude_oil] E004_dirmo2 h=1   MAPE=5.652% RMSE=5.6580 n=383
+2026-10-28 21:36:40,807 INFO [wti_crude_oil] E004_dirmo2 h=2   MAPE=7.827% RMSE=7.3240 n=382
+2026-10-28 21:36:40,807 INFO [wti_crude_oil] E004_dirmo2 h=3   MAPE=10.064% RMSE=9.2719 n=381
+2026-10-28 21:36:40,807 INFO [wti_crude_oil] E004_dirmo2 h=4   MAPE=11.415% RMSE=10.6334 n=380
+2026-10-28 21:36:40,808 INFO [wti_crude_oil] E004_dirmo2 h=5   MAPE=14.644% RMSE=14.0582 n=379
+2026-10-28 21:36:40,808 INFO [wti_crude_oil] E004_dirmo2 h=6   MAPE=15.815% RMSE=14.9837 n=378
+2026-10-28 21:36:40,809 INFO [wti_crude_oil] E004_dirmo2 h=7   MAPE=18.583% RMSE=17.3766 n=377
+2026-10-28 21:36:40,809 INFO [wti_crude_oil] E004_dirmo2 h=8   MAPE=19.920% RMSE=18.4206 n=376
+2026-10-28 21:36:40,809 INFO [wti_crude_oil] E004_dirmo2 h=all MAPE=12.961% RMSE=12.9565 n=3036
+2026-10-28 21:36:40,813 INFO [wti_crude_oil] naive       h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:36:40,813 INFO E004_dirmo2 done
+2026-10-28 21:36:52,494 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 21:36:52,498 INFO [coffee] E004_dirmo2 h=1   MAPE=3.484% RMSE=10.6325 n=261
+2026-10-28 21:36:52,499 INFO [coffee] E004_dirmo2 h=2   MAPE=5.264% RMSE=15.8769 n=261
+2026-10-28 21:36:52,500 INFO [coffee] E004_dirmo2 h=3   MAPE=7.349% RMSE=21.0324 n=261
+2026-10-28 21:36:52,501 INFO [coffee] E004_dirmo2 h=4   MAPE=8.626% RMSE=23.8802 n=260
+2026-10-28 21:36:52,501 INFO [coffee] E004_dirmo2 h=5   MAPE=9.558% RMSE=25.8859 n=259
+2026-10-28 21:36:52,502 INFO [coffee] E004_dirmo2 h=6   MAPE=10.472% RMSE=27.9631 n=258
+2026-10-28 21:36:52,503 INFO [coffee] E004_dirmo2 h=7   MAPE=11.875% RMSE=31.8066 n=257
+2026-10-28 21:36:52,504 INFO [coffee] E004_dirmo2 h=8   MAPE=12.699% RMSE=33.8159 n=256
+2026-10-28 21:36:52,505 INFO [coffee] E004_dirmo2 h=all MAPE=8.647% RMSE=24.9171 n=2073
+2026-10-28 21:36:52,511 INFO [coffee] naive       h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 21:36:52,512 INFO E004_dirmo2 done
+2026-10-28 21:37:05,130 INFO [gold] origin 351/384 2026-02-15 (320s)
+2026-10-28 21:37:30,092 INFO [gold] origin 376/384 2026-08-09 (345s)
+2026-10-28 21:37:38,007 INFO [gold] saved 3072 predictions (353s)
+2026-10-28 21:38:04,844 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 21:38:04,847 INFO [gold] E004_dirmo2 h=1   MAPE=1.927% RMSE=74.6435 n=383
+2026-10-28 21:38:04,848 INFO [gold] E004_dirmo2 h=2   MAPE=2.691% RMSE=106.4163 n=382
+2026-10-28 21:38:04,848 INFO [gold] E004_dirmo2 h=3   MAPE=3.388% RMSE=139.9749 n=381
+2026-10-28 21:38:04,849 INFO [gold] E004_dirmo2 h=4   MAPE=3.697% RMSE=156.1805 n=380
+2026-10-28 21:38:04,849 INFO [gold] E004_dirmo2 h=5   MAPE=4.130% RMSE=177.2872 n=379
+2026-10-28 21:38:04,849 INFO [gold] E004_dirmo2 h=6   MAPE=4.599% RMSE=194.5489 n=378
+2026-10-28 21:38:04,850 INFO [gold] E004_dirmo2 h=7   MAPE=5.281% RMSE=220.6943 n=377
+2026-10-28 21:38:04,850 INFO [gold] E004_dirmo2 h=8   MAPE=5.696% RMSE=236.9422 n=376
+2026-10-28 21:38:04,851 INFO [gold] E004_dirmo2 h=all MAPE=3.919% RMSE=171.1048 n=3036
+2026-10-28 21:38:04,854 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:38:04,854 INFO E004_dirmo2 done

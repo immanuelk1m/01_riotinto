@@ -1,0 +1,32 @@
+2026-10-28 21:27:55,436 INFO E004_direct start: ['wti_crude_oil']
+2026-10-28 21:27:55,573 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 21:28:04,226 INFO [wti_crude_oil] direct common MI top30 (max=0.2341 min=0.1118): Com_RealEstateDev_Investment_YoY_China_lag_3, Com_DallasFed_DES_WTI_Price_Forecast_Median_USD_Bbl_lag_0, Macro_DallasFed_DES_Average_WTI_Price_Forecast_USD_Bbl_lag_0, eia_steo_quarterly_permian_cumulative_duc_wells_lag_2, eia_steo_quarterly_bakken_cumulative_duc_wells_lag_2
+2026-10-28 21:28:05,224 INFO [wti_crude_oil] origin 1/384 2019-06-09 (10s)
+2026-10-28 21:28:30,914 INFO [wti_crude_oil] origin 26/384 2019-12-01 (35s)
+2026-10-28 21:28:58,477 INFO [wti_crude_oil] origin 51/384 2020-05-24 (63s)
+2026-10-28 21:29:27,153 INFO [wti_crude_oil] origin 76/384 2020-11-15 (92s)
+2026-10-28 21:29:57,818 INFO [wti_crude_oil] origin 101/384 2021-05-09 (122s)
+2026-10-28 21:30:29,278 INFO [wti_crude_oil] origin 126/384 2021-10-31 (154s)
+2026-10-28 21:31:01,285 INFO [wti_crude_oil] origin 151/384 2022-04-24 (186s)
+2026-10-28 21:31:35,082 INFO [wti_crude_oil] origin 176/384 2022-10-16 (220s)
+2026-10-28 21:32:10,434 INFO [wti_crude_oil] origin 201/384 2023-04-09 (255s)
+2026-10-28 21:32:45,730 INFO [wti_crude_oil] origin 226/384 2023-10-01 (290s)
+2026-10-28 21:33:22,839 INFO [wti_crude_oil] origin 251/384 2024-03-24 (327s)
+2026-10-28 21:34:00,942 INFO [wti_crude_oil] origin 276/384 2024-09-15 (366s)
+2026-10-28 21:34:39,250 INFO [wti_crude_oil] origin 301/384 2025-03-09 (404s)
+2026-10-28 21:35:18,262 INFO [wti_crude_oil] origin 326/384 2025-08-31 (443s)
+2026-10-28 21:35:59,375 INFO [wti_crude_oil] origin 351/384 2026-02-22 (484s)
+2026-10-28 21:36:40,500 INFO [wti_crude_oil] origin 376/384 2026-08-16 (525s)
+2026-10-28 21:36:54,586 INFO [wti_crude_oil] saved 3072 predictions (539s)
+2026-10-28 21:37:21,484 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 21:37:21,489 INFO [wti_crude_oil] E004_direct h=1   MAPE=5.367% RMSE=5.2486 n=383
+2026-10-28 21:37:21,490 INFO [wti_crude_oil] E004_direct h=2   MAPE=7.897% RMSE=7.3160 n=382
+2026-10-28 21:37:21,491 INFO [wti_crude_oil] E004_direct h=3   MAPE=9.141% RMSE=8.5454 n=381
+2026-10-28 21:37:21,493 INFO [wti_crude_oil] E004_direct h=4   MAPE=11.408% RMSE=10.6541 n=380
+2026-10-28 21:37:21,493 INFO [wti_crude_oil] E004_direct h=5   MAPE=13.599% RMSE=12.3803 n=379
+2026-10-28 21:37:21,494 INFO [wti_crude_oil] E004_direct h=6   MAPE=15.515% RMSE=14.0472 n=378
+2026-10-28 21:37:21,495 INFO [wti_crude_oil] E004_direct h=7   MAPE=17.458% RMSE=15.3651 n=377
+2026-10-28 21:37:21,495 INFO [wti_crude_oil] E004_direct h=8   MAPE=19.168% RMSE=16.6513 n=376
+2026-10-28 21:37:21,496 INFO [wti_crude_oil] E004_direct h=all MAPE=12.417% RMSE=11.8717 n=3036
+2026-10-28 21:37:21,499 INFO [wti_crude_oil] naive       h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:37:21,499 INFO E004_direct done

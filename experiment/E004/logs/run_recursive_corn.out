@@ -1,0 +1,27 @@
+2026-10-28 21:38:06,749 INFO E004_recursive start: ['corn']
+2026-10-28 21:38:06,835 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:38:11,129 INFO [corn] recursive common MI top30 (max=0.2956 min=0.1062): Food_IGC_GMR_World_Maize_Production_Current_Forecast_MMT_lag_3, Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_USDA_WASDE_U_S_Corn_Exports_Latest_Projected_Level_lag_0
+2026-10-28 21:38:11,260 INFO [corn] origin 1/258 2021-11-07 (5s)
+2026-10-28 21:38:15,177 INFO [corn] origin 26/258 2022-05-01 (8s)
+2026-10-28 21:38:19,923 INFO [corn] origin 51/258 2022-10-23 (13s)
+2026-10-28 21:38:24,690 INFO [corn] origin 76/258 2023-04-16 (18s)
+2026-10-28 21:38:28,890 INFO [corn] origin 101/258 2023-10-08 (22s)
+2026-10-28 21:38:33,424 INFO [corn] origin 126/258 2024-03-31 (27s)
+2026-10-28 21:38:37,708 INFO [corn] origin 151/258 2024-09-22 (31s)
+2026-10-28 21:38:41,606 INFO [corn] origin 176/258 2025-03-16 (35s)
+2026-10-28 21:38:45,439 INFO [corn] origin 201/258 2025-09-07 (39s)
+2026-10-28 21:38:49,270 INFO [corn] origin 226/258 2026-03-01 (43s)
+2026-10-28 21:38:53,146 INFO [corn] origin 251/258 2026-08-23 (46s)
+2026-10-28 21:38:54,257 INFO [corn] saved 2064 predictions (48s)
+2026-10-28 21:39:11,413 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:39:11,417 INFO [corn] E004_recursive h=1   MAPE=2.640% RMSE=18.9469 n=258
+2026-10-28 21:39:11,418 INFO [corn] E004_recursive h=2   MAPE=3.750% RMSE=27.6361 n=258
+2026-10-28 21:39:11,419 INFO [corn] E004_recursive h=3   MAPE=4.906% RMSE=34.0252 n=258
+2026-10-28 21:39:11,420 INFO [corn] E004_recursive h=4   MAPE=5.945% RMSE=40.7421 n=257
+2026-10-28 21:39:11,421 INFO [corn] E004_recursive h=5   MAPE=6.839% RMSE=46.9593 n=256
+2026-10-28 21:39:11,422 INFO [corn] E004_recursive h=6   MAPE=7.422% RMSE=49.5623 n=255
+2026-10-28 21:39:11,423 INFO [corn] E004_recursive h=7   MAPE=7.895% RMSE=53.6248 n=254
+2026-10-28 21:39:11,423 INFO [corn] E004_recursive h=8   MAPE=8.496% RMSE=57.1811 n=253
+2026-10-28 21:39:11,424 INFO [corn] E004_recursive h=all MAPE=5.974% RMSE=42.8574 n=2049
+2026-10-28 21:39:11,427 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:39:11,427 INFO E004_recursive done

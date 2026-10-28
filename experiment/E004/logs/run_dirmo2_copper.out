@@ -1,0 +1,27 @@
+2026-10-28 21:31:51,892 INFO E004_dirmo2 start: ['copper']
+2026-10-28 21:31:52,002 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 21:31:58,421 INFO [copper] dirmo2 common MI top30 (max=0.2142 min=0.1263): barrick_quarterly_attributable_copper_production_kt_lag_6, Com_LME_Cu_comm_long_lag_1, barrick_quarterly_attributable_copper_sales_kt_lag_6, Com_Antofagasta_Copper_Production_Quarterly_KT_lag_3, Com_LME_Cu_noncomm_short_lag_1
+2026-10-28 21:31:59,034 INFO [copper] origin 1/269 2021-08-22 (7s)
+2026-10-28 21:32:15,341 INFO [copper] origin 26/269 2022-02-13 (23s)
+2026-10-28 21:32:32,141 INFO [copper] origin 51/269 2022-08-07 (40s)
+2026-10-28 21:32:50,284 INFO [copper] origin 76/269 2023-01-29 (58s)
+2026-10-28 21:33:09,333 INFO [copper] origin 101/269 2023-07-23 (77s)
+2026-10-28 21:33:29,311 INFO [copper] origin 126/269 2024-01-14 (97s)
+2026-10-28 21:33:49,117 INFO [copper] origin 151/269 2024-07-07 (117s)
+2026-10-28 21:34:08,923 INFO [copper] origin 176/269 2024-12-29 (137s)
+2026-10-28 21:34:29,231 INFO [copper] origin 201/269 2025-06-22 (157s)
+2026-10-28 21:34:49,556 INFO [copper] origin 226/269 2025-12-14 (178s)
+2026-10-28 21:35:10,053 INFO [copper] origin 251/269 2026-06-07 (198s)
+2026-10-28 21:35:25,038 INFO [copper] saved 2152 predictions (213s)
+2026-10-28 21:35:42,105 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:35:42,109 INFO [copper] E004_dirmo2 h=1   MAPE=2.437% RMSE=314.7823 n=269
+2026-10-28 21:35:42,111 INFO [copper] E004_dirmo2 h=2   MAPE=3.194% RMSE=412.8675 n=268
+2026-10-28 21:35:42,112 INFO [copper] E004_dirmo2 h=3   MAPE=4.189% RMSE=535.3224 n=267
+2026-10-28 21:35:42,113 INFO [copper] E004_dirmo2 h=4   MAPE=4.785% RMSE=596.1351 n=266
+2026-10-28 21:35:42,114 INFO [copper] E004_dirmo2 h=5   MAPE=5.417% RMSE=671.9854 n=265
+2026-10-28 21:35:42,115 INFO [copper] E004_dirmo2 h=6   MAPE=5.805% RMSE=723.5197 n=264
+2026-10-28 21:35:42,115 INFO [copper] E004_dirmo2 h=7   MAPE=6.562% RMSE=825.9393 n=263
+2026-10-28 21:35:42,116 INFO [copper] E004_dirmo2 h=8   MAPE=6.889% RMSE=870.5468 n=262
+2026-10-28 21:35:42,116 INFO [copper] E004_dirmo2 h=all MAPE=4.897% RMSE=643.3841 n=2124
+2026-10-28 21:35:42,119 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:35:42,120 INFO E004_dirmo2 done

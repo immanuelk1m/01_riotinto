@@ -1,0 +1,27 @@
+2026-10-28 21:27:55,478 INFO E004_direct start: ['copper']
+2026-10-28 21:27:55,582 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 21:28:02,159 INFO [copper] direct common MI top30 (max=0.2142 min=0.1263): barrick_quarterly_attributable_copper_production_kt_lag_6, Com_LME_Cu_comm_long_lag_1, barrick_quarterly_attributable_copper_sales_kt_lag_6, Com_Antofagasta_Copper_Production_Quarterly_KT_lag_3, Com_LME_Cu_noncomm_short_lag_1
+2026-10-28 21:28:03,197 INFO [copper] origin 1/269 2021-08-22 (8s)
+2026-10-28 21:28:28,831 INFO [copper] origin 26/269 2022-02-13 (33s)
+2026-10-28 21:28:55,876 INFO [copper] origin 51/269 2022-08-07 (60s)
+2026-10-28 21:29:23,737 INFO [copper] origin 76/269 2023-01-29 (88s)
+2026-10-28 21:29:52,195 INFO [copper] origin 101/269 2023-07-23 (117s)
+2026-10-28 21:30:21,870 INFO [copper] origin 126/269 2024-01-14 (146s)
+2026-10-28 21:30:51,027 INFO [copper] origin 151/269 2024-07-07 (176s)
+2026-10-28 21:31:20,675 INFO [copper] origin 176/269 2024-12-29 (205s)
+2026-10-28 21:31:52,476 INFO [copper] origin 201/269 2025-06-22 (237s)
+2026-10-28 21:32:23,188 INFO [copper] origin 226/269 2025-12-14 (268s)
+2026-10-28 21:32:53,916 INFO [copper] origin 251/269 2026-06-07 (298s)
+2026-10-28 21:33:16,604 INFO [copper] saved 2152 predictions (321s)
+2026-10-28 21:33:34,429 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:33:34,431 INFO [copper] E004_direct h=1   MAPE=2.412% RMSE=308.2417 n=269
+2026-10-28 21:33:34,432 INFO [copper] E004_direct h=2   MAPE=3.375% RMSE=429.0090 n=268
+2026-10-28 21:33:34,432 INFO [copper] E004_direct h=3   MAPE=4.025% RMSE=514.5708 n=267
+2026-10-28 21:33:34,432 INFO [copper] E004_direct h=4   MAPE=4.767% RMSE=582.1766 n=266
+2026-10-28 21:33:34,433 INFO [copper] E004_direct h=5   MAPE=5.388% RMSE=661.0113 n=265
+2026-10-28 21:33:34,433 INFO [copper] E004_direct h=6   MAPE=5.909% RMSE=728.3933 n=264
+2026-10-28 21:33:34,433 INFO [copper] E004_direct h=7   MAPE=6.288% RMSE=791.5275 n=263
+2026-10-28 21:33:34,434 INFO [copper] E004_direct h=8   MAPE=6.954% RMSE=851.1256 n=262
+2026-10-28 21:33:34,434 INFO [copper] E004_direct h=all MAPE=4.878% RMSE=631.1743 n=2124
+2026-10-28 21:33:34,437 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:33:34,438 INFO E004_direct done

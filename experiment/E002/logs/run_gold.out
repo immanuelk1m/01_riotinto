@@ -1,0 +1,39 @@
+2026-10-28 20:08:32,311 INFO E002 start: ['gold']
+2026-10-28 20:08:32,456 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 20:08:33,449 INFO [gold] h=1 MI top30 (max=0.1282 min=0.0844): Com_US_Treasury_Total_Public_Debt_Outstanding_Trillion_USD_lag_0, Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Holdings_Tonnes_lag_1, Com_WGC_Quarterly_Gold_ETF_Switzerland_Holdings_Tonnes_lag_1, Com_Fed_H10_EX_CNY_USD_lag_0
+2026-10-28 20:08:34,371 INFO [gold] h=2 MI top30 (max=0.1325 min=0.0957): Com_statssa_za_mining_production_volume_index_sa_gold_lag_6, Com_WGC_Quarterly_Gold_ETF_Switzerland_Holdings_Tonnes_lag_1, Com_WGC_QTD_Gold_ETF_Asia_Net_Flows_Tonnes_lag_1, Com_WGC_Weekly_Gold_ETF_UK_Holdings_Tonnes_lag_1, Com_WGC_Quarterly_Gold_ETF_UK_Holdings_Tonnes_lag_1
+2026-10-28 20:08:35,229 INFO [gold] h=3 MI top30 (max=0.1824 min=0.1036): Com_statssa_za_mining_production_volume_index_sa_gold_lag_6, Com_WGC_QTD_Gold_ETF_India_Holdings_Tonnes_lag_1, Com_WGC_Quarterly_Gold_ETF_Switzerland_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1
+2026-10-28 20:08:36,095 INFO [gold] h=4 MI top30 (max=0.1969 min=0.1382): Com_WGC_QTD_Gold_ETF_India_Holdings_USD_lag_1, Com_WGC_QTD_Gold_ETF_India_Net_Flows_USD_lag_1, Com_WGC_Central_Banks_Dashboard_Uzbekistan_Gold_Reserves_Tonnes_lag_4, Com_WGC_QTD_Gold_ETF_Asia_Net_Flows_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_Thailand_Net_Flows_Pct_of_Holdings_lag_1
+2026-10-28 20:08:36,951 INFO [gold] h=5 MI top30 (max=0.2203 min=0.1562): Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1, customs_china_summary_trade_balance_usd_million_lag_3, Com_WGC_Quarterly_Gold_ETF_Japan_Holdings_Tonnes_lag_1, Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_WGC_Quarterly_Gold_ETF_US_Holdings_USD_lag_1
+2026-10-28 20:08:37,810 INFO [gold] h=6 MI top30 (max=0.3661 min=0.1644): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_WGC_Quarterly_Gold_ETF_India_Net_Flows_USD_lag_1, Com_WGC_QTD_Gold_ETF_Asia_Holdings_USD_lag_1, Com_WGC_Gold_Demand_Trends_Jewellery_Consumption_Tonnes_lag_4, Com_WGC_Quarterly_Gold_ETF_UAE_Holdings_USD_lag_1
+2026-10-28 20:08:38,676 INFO [gold] h=7 MI top30 (max=0.4042 min=0.2126): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_WGC_Gold_Demand_Trends_Recycled_Gold_Tonnes_lag_4, Com_WGC_Gold_Demand_Trends_Mine_Production_Tonnes_lag_4, Com_WGC_QTD_Gold_ETF_Asia_Holdings_USD_lag_1, Com_WGC_Quarterly_Gold_ETF_Hong_Kong_SAR_Holdings_USD_lag_1
+2026-10-28 20:08:39,544 INFO [gold] h=8 MI top30 (max=0.5205 min=0.2257): Macro_PBOC_China_Gold_Reserves_Value_Billion_USD_lag_2, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_YoY_Pct_lag_2, Macro_PBOC_China_Gold_Reserves_Million_Troy_Ounces_lag_2, Com_WGC_QTD_Gold_ETF_China_P_R_Mainland_Net_Flows_USD_lag_1, customs_china_summary_trade_balance_usd_million_lag_3
+2026-10-28 20:08:43,134 INFO [gold] origin 1/384 2019-06-02 (11s)
+2026-10-28 20:10:12,882 INFO [gold] origin 26/384 2019-11-24 (101s)
+2026-10-28 20:11:38,819 INFO [gold] origin 51/384 2020-05-17 (187s)
+2026-10-28 20:13:02,572 INFO [gold] origin 76/384 2020-11-08 (270s)
+2026-10-28 20:14:26,456 INFO [gold] origin 101/384 2021-05-02 (354s)
+2026-10-28 20:15:50,297 INFO [gold] origin 126/384 2021-10-24 (438s)
+2026-10-28 20:17:09,078 INFO [gold] origin 151/384 2022-04-17 (517s)
+2026-10-28 20:18:26,393 INFO [gold] origin 176/384 2022-10-09 (594s)
+2026-10-28 20:19:43,934 INFO [gold] origin 201/384 2023-04-02 (672s)
+2026-10-28 20:21:01,869 INFO [gold] origin 226/384 2023-09-24 (750s)
+2026-10-28 20:22:09,910 INFO [gold] origin 251/384 2024-03-17 (818s)
+2026-10-28 20:22:51,417 INFO [gold] origin 276/384 2024-09-08 (859s)
+2026-10-28 20:23:25,185 INFO [gold] origin 301/384 2025-03-02 (893s)
+2026-10-28 20:23:58,945 INFO [gold] origin 326/384 2025-08-24 (927s)
+2026-10-28 20:24:33,055 INFO [gold] origin 351/384 2026-02-15 (961s)
+2026-10-28 20:25:07,333 INFO [gold] origin 376/384 2026-08-09 (995s)
+2026-10-28 20:25:18,357 INFO [gold] saved 3072 predictions (1006s)
+2026-10-28 20:25:38,128 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 20:25:38,131 INFO [gold] E002        h=1   MAPE=1.836% RMSE=70.5898 n=383
+2026-10-28 20:25:38,132 INFO [gold] E002        h=2   MAPE=2.685% RMSE=108.0780 n=382
+2026-10-28 20:25:38,132 INFO [gold] E002        h=3   MAPE=3.168% RMSE=131.1967 n=381
+2026-10-28 20:25:38,132 INFO [gold] E002        h=4   MAPE=3.616% RMSE=158.2805 n=380
+2026-10-28 20:25:38,133 INFO [gold] E002        h=5   MAPE=4.240% RMSE=170.1697 n=379
+2026-10-28 20:25:38,133 INFO [gold] E002        h=6   MAPE=4.522% RMSE=178.1541 n=378
+2026-10-28 20:25:38,134 INFO [gold] E002        h=7   MAPE=5.089% RMSE=204.2854 n=377
+2026-10-28 20:25:38,134 INFO [gold] E002        h=8   MAPE=5.589% RMSE=223.7904 n=376
+2026-10-28 20:25:38,135 INFO [gold] E002        h=all MAPE=3.836% RMSE=162.3129 n=3036
+2026-10-28 20:25:38,138 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 20:25:38,138 INFO E002 done

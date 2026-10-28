@@ -308,7 +308,7 @@ def write_leaderboard(commodity, df):
         con.execute("""CREATE TABLE IF NOT EXISTS leaderboard(
             experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER,
             target_series TEXT, created_at TEXT, PRIMARY KEY(experiment, commodity, horizon))""")
-        for exp, col in ((EXP, "y_pred"), (f"{EXP}_naive", "last_price")):
+        for exp, col in ((EXP, "y_pred"), ("naive", "last_price")):
             groups = [(str(h), g) for h, g in df.groupby("horizon")] + [("all", df)]
             for h, g in groups:
                 mape, rmse, n = metrics(g, col)

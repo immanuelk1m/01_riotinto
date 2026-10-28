@@ -1,0 +1,982 @@
+{
+  "commodity": "coffee",
+  "n_candidates": 93,
+  "features": {
+    "1": [
+      {
+        "name": "Com_CFTC_Disaggregated_Combined_Coffee_C_Managed_Money_Net_Long_Positions_All_lag_0",
+        "mi": 0.07694246095270607
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.06998720726380414
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.0629555920083682
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Net_Positions_All_lag_0",
+        "mi": 0.054149401350424675
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.05258399749349252
+      },
+      {
+        "name": "Fin_Federal_Reserve_H10_Nominal_EME_Dollar_Index_Daily_lag_0",
+        "mi": 0.04647632003646818
+      },
+      {
+        "name": "Com_WorldBank_CMO_Monthly_Price_CoffeeRobusta_lag_1",
+        "mi": 0.046172956139336474
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.04589995910513345
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.045221138322989685
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.04405024424343562
+      },
+      {
+        "name": "Com_Econ_DE_trade_balance_lag_6",
+        "mi": 0.041900728920713615
+      },
+      {
+        "name": "Com_Econ_CN_cpi_yoy_lag_1",
+        "mi": 0.03931087064533134
+      },
+      {
+        "name": "Com_Econ_CN_exports_yoy_lag_2",
+        "mi": 0.0373240194802098
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Net_Positions_All_lag_0",
+        "mi": 0.03479373523130036
+      },
+      {
+        "name": "Com_BLS_CPI_Coffee_US_YoY_Pct_lag_3",
+        "mi": 0.03468132208780794
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_2_Year_Treasury_lag_0",
+        "mi": 0.034263670545414016
+      },
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.03261793089346643
+      },
+      {
+        "name": "nasa_power_daily_daklak_vn_precip_lag_1",
+        "mi": 0.03036862584892086
+      },
+      {
+        "name": "Com_Econ_US_ism_pmi_nonmfg_lag_1",
+        "mi": 0.029805288514422656
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury_lag_0",
+        "mi": 0.028922937604288546
+      },
+      {
+        "name": "Macro_FRED_US_10Y_Treasury_Yield_lag_0",
+        "mi": 0.028922937604288546
+      },
+      {
+        "name": "Com_MDIC_ComexStat_Brazil_Unroasted_Coffee_Exports_Tonnes_lag_1",
+        "mi": 0.028798362129860866
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.028053285760706093
+      },
+      {
+        "name": "Com_Investing_ICE_U_S_Dollar_Index_DXY_Daily_Change_Percent_lag_0",
+        "mi": 0.025618605509273085
+      },
+      {
+        "name": "Macro_Policyuncertainty_US_Daily_Trade_Policy_Uncertainty_Index_lag_0",
+        "mi": 0.02437311727820113
+      },
+      {
+        "name": "Macro_FRED_US_5Y5Y_Forward_Inflation_Expectation_Rate_lag_0",
+        "mi": 0.023647737440513517
+      },
+      {
+        "name": "Com_EPU_Epu_Gepu_Current_lag_1",
+        "mi": 0.023581295321390527
+      },
+      {
+        "name": "Com_Econ_US_real_pce_mom_lag_5",
+        "mi": 0.021975844576050285
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.02011889771406583
+      },
+      {
+        "name": "Com_Econ_US_federal_reserve_lag_0",
+        "mi": 0.01982786133155212
+      }
+    ],
+    "2": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.1557232819516785
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.13750189652741263
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.13454023066486398
+      },
+      {
+        "name": "Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4",
+        "mi": 0.10789200411863265
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.10108759409866952
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.07564277695256916
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.059507234344740034
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.05534501617150056
+      },
+      {
+        "name": "Com_Econ_US_real_pce_mom_lag_5",
+        "mi": 0.050677408112510314
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Net_Positions_All_lag_0",
+        "mi": 0.044324019608491305
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Short_Positions_All_lag_0",
+        "mi": 0.04225285076969332
+      },
+      {
+        "name": "Com_Econ_US_trade_balance_lag_5",
+        "mi": 0.04201529651932123
+      },
+      {
+        "name": "Fin_Federal_Reserve_H10_Nominal_EME_Dollar_Index_Daily_lag_0",
+        "mi": 0.04157727399796851
+      },
+      {
+        "name": "Com_ICE_Coffee_C_Certified_Stocks_Bags_lag_0",
+        "mi": 0.041527798244583414
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.03576358785782707
+      },
+      {
+        "name": "Com_BLS_CPI_Coffee_US_YoY_Pct_lag_3",
+        "mi": 0.03553889713715508
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.035494075318052154
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Consumer_Sentiment_lag_10",
+        "mi": 0.03486278077480964
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.034820604543902345
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.03369430675051399
+      },
+      {
+        "name": "Com_Fed_H10_EX_BRL_USD_lag_0",
+        "mi": 0.03168978299051872
+      },
+      {
+        "name": "Com_Econ_DE_imports_mom_lag_6",
+        "mi": 0.030102739485944774
+      },
+      {
+        "name": "Com_Econ_DE_trade_balance_lag_6",
+        "mi": 0.029542093314300022
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.028463793194884346
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Inflation_Expectation_lag_10",
+        "mi": 0.027077684503857835
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.026063069338420952
+      },
+      {
+        "name": "Com_Econ_US_ism_pmi_nonmfg_lag_1",
+        "mi": 0.02582790171647842
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.025788911872428155
+      },
+      {
+        "name": "nasa_power_daily_saopaulo_br_precip_lag_1",
+        "mi": 0.024917350762109436
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.0234382075107602
+      }
+    ],
+    "3": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.23986587779912094
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.22272884562827633
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.14324346112589348
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.13845408902960088
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.13649278098814266
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.13445055024222174
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.1324442941712256
+      },
+      {
+        "name": "Macro_ONS_UkCPIHFoodNonAlcoholicAnnualRatePct_lag_7",
+        "mi": 0.11250076924281949
+      },
+      {
+        "name": "Com_ICE_Coffee_C_Certified_Stocks_Bags_lag_0",
+        "mi": 0.1061007743940996
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.10590390102771297
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.10555401256759378
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury_lag_0",
+        "mi": 0.1030708873731001
+      },
+      {
+        "name": "Macro_FRED_US_10Y_Treasury_Yield_lag_0",
+        "mi": 0.1030708873731001
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.09227270823077527
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.09057093845694508
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.08912996983564003
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_2_Year_Treasury_lag_0",
+        "mi": 0.08484064001150404
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.08416287155859692
+      },
+      {
+        "name": "Com_Econ_US_ism_pmi_nonmfg_lag_1",
+        "mi": 0.0840871987361429
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.07663454504892808
+      },
+      {
+        "name": "wtui_monthly_global_world_trade_uncertainty_index_lag_1",
+        "mi": 0.07566923960958594
+      },
+      {
+        "name": "Com_MDIC_ComexStat_Brazil_Unroasted_Coffee_Exports_Tonnes_lag_1",
+        "mi": 0.07318312996978671
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAFH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.06936214462037249
+      },
+      {
+        "name": "Com_EPU_Gpr_Gpr_lag_1",
+        "mi": 0.06917842437494093
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_MoM_Pct_lag_3",
+        "mi": 0.06670022887730997
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.06390642609724795
+      },
+      {
+        "name": "Com_ICE_US_Dollar_Index_DXY_lag_1",
+        "mi": 0.06324916485050203
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Consumer_Sentiment_lag_10",
+        "mi": 0.05945768444278032
+      },
+      {
+        "name": "Com_Econ_DE_imports_mom_lag_6",
+        "mi": 0.058426372764898815
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.05823478647484093
+      }
+    ],
+    "4": [
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.2850686155621549
+      },
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.28293732937471594
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.2001315298061983
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.1820859657000642
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Short_Positions_All_lag_0",
+        "mi": 0.13132014557050775
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.11703414467996964
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.10722181577343992
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.1054260459932217
+      },
+      {
+        "name": "Macro_ONS_UkCPIHFoodNonAlcoholicAnnualRatePct_lag_7",
+        "mi": 0.10426066422861613
+      },
+      {
+        "name": "Com_WorldBank_CMO_Monthly_Price_CoffeeArabica_lag_1",
+        "mi": 0.10401555907639493
+      },
+      {
+        "name": "Com_EPU_Epu_Gepu_Current_lag_1",
+        "mi": 0.10303459855026986
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.09591370034414659
+      },
+      {
+        "name": "Com_BLS_CPI_All_Items_US_YoY_Pct_lag_3",
+        "mi": 0.09537890640043045
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.09484270049892496
+      },
+      {
+        "name": "Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3",
+        "mi": 0.09345420566975982
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.09038176323221014
+      },
+      {
+        "name": "Fin_Federal_Reserve_H10_Nominal_EME_Dollar_Index_Daily_lag_0",
+        "mi": 0.09022836012183344
+      },
+      {
+        "name": "Com_Econ_CN_exports_yoy_lag_2",
+        "mi": 0.08895468912025528
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_2_Year_Treasury_lag_0",
+        "mi": 0.08682477078564244
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.0843700845442763
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.07912511345553153
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.07870548510739228
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Inflation_Expectation_lag_10",
+        "mi": 0.07771073641789128
+      },
+      {
+        "name": "Com_BLS_Export_Price_Agricultural_Commodities_YoY_Pct_lag_3",
+        "mi": 0.076975041600861
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_MoM_Pct_lag_3",
+        "mi": 0.07528434316393584
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Consumer_Sentiment_lag_10",
+        "mi": 0.07495522770613583
+      },
+      {
+        "name": "Com_EPU_Epu_US_lag_1",
+        "mi": 0.07490444936305662
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.07351046852574106
+      },
+      {
+        "name": "Com_WorldBank_CMO_Monthly_Price_CoffeeRobusta_lag_1",
+        "mi": 0.07302341471569562
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.07282072544097273
+      }
+    ],
+    "5": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.3312532224222542
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.3126436416178975
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.2539521732738077
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.23354804069707358
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.2208785860531557
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.19999846767373786
+      },
+      {
+        "name": "Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4",
+        "mi": 0.18667095511999054
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.16900038246126048
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.16180222891563245
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.14255773958063012
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.14161514893918214
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAFH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.13579976601900423
+      },
+      {
+        "name": "Com_Fed_H10_EX_BRL_USD_lag_0",
+        "mi": 0.13352714870817994
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.13133240450370565
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.12453871155034424
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.12276143274896789
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Net_Positions_All_lag_0",
+        "mi": 0.11951181475219474
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.11794851516475413
+      },
+      {
+        "name": "Com_ICE_US_Dollar_Index_DXY_lag_1",
+        "mi": 0.11648851866547583
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.1149070918693118
+      },
+      {
+        "name": "Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3",
+        "mi": 0.11198808759428136
+      },
+      {
+        "name": "Com_Econ_DE_trade_balance_lag_6",
+        "mi": 0.10947554567906437
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.10742017689101768
+      },
+      {
+        "name": "Macro_ONS_UkCPIHFoodNonAlcoholicAnnualRatePct_lag_7",
+        "mi": 0.10607729939203203
+      },
+      {
+        "name": "Com_Econ_US_cb_consumer_lag_0",
+        "mi": 0.10554094212989096
+      },
+      {
+        "name": "Com_Econ_US_trade_balance_lag_5",
+        "mi": 0.10464380984715138
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.10306364620633168
+      },
+      {
+        "name": "Com_Econ_CN_exports_yoy_lag_2",
+        "mi": 0.10284446991702323
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.10234014965211635
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_YoY_Pct_lag_3",
+        "mi": 0.1018955293321211
+      }
+    ],
+    "6": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.4018198199362444
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.34864168745566326
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.22907371400631993
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.21997390547747475
+      },
+      {
+        "name": "Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3",
+        "mi": 0.21402587753325708
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.21078532931585992
+      },
+      {
+        "name": "Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4",
+        "mi": 0.20753617776474664
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.20624397906427117
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.1961788777402922
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.16382600399959868
+      },
+      {
+        "name": "Com_BLS_CPI_All_Items_US_YoY_Pct_lag_3",
+        "mi": 0.1532768831172575
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.1462764104211005
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_MoM_Pct_lag_3",
+        "mi": 0.14371548272943002
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.13194139309139352
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.13075974217614972
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.12758776541120787
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.12511662430757475
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.12260341319816614
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.11768845749551904
+      },
+      {
+        "name": "Com_FRED_Federal_Funds_Target_Range_Lower_Limit_lag_0",
+        "mi": 0.11699409676792749
+      },
+      {
+        "name": "Com_FRED_Federal_Funds_Target_Range_Upper_Limit_lag_0",
+        "mi": 0.11699409676792749
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury_lag_0",
+        "mi": 0.1163976153793338
+      },
+      {
+        "name": "Macro_FRED_US_10Y_Treasury_Yield_lag_0",
+        "mi": 0.1163976153793338
+      },
+      {
+        "name": "Com_Econ_DE_trade_balance_lag_6",
+        "mi": 0.11445920861557912
+      },
+      {
+        "name": "ico_monthly_colombian_milds_indicator_price_lag_7",
+        "mi": 0.11301244633724528
+      },
+      {
+        "name": "Com_BLS_Export_Price_Agricultural_Commodities_YoY_Pct_lag_3",
+        "mi": 0.1119639956170988
+      },
+      {
+        "name": "Fin_Federal_Reserve_H10_Nominal_EME_Dollar_Index_Daily_lag_0",
+        "mi": 0.11054578108869029
+      },
+      {
+        "name": "Com_Econ_US_trade_balance_lag_5",
+        "mi": 0.10724216364381833
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.10491032787277765
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.10482522588628074
+      }
+    ],
+    "7": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.46140549865232794
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.2937816569914995
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.26169929140780557
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.25573054533281736
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.2500738097190962
+      },
+      {
+        "name": "Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4",
+        "mi": 0.23970852484657845
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.23647703745627346
+      },
+      {
+        "name": "Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3",
+        "mi": 0.2210556287947858
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.21203883463032458
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.20926547574549526
+      },
+      {
+        "name": "Com_BLS_CPI_All_Items_US_YoY_Pct_lag_3",
+        "mi": 0.16852780473876905
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.16760689797939143
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.16407330154061395
+      },
+      {
+        "name": "Com_Econ_CN_exports_yoy_lag_2",
+        "mi": 0.16314636918793113
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_MoM_Pct_lag_3",
+        "mi": 0.15963964633083583
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.15940750006652937
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.155291183599084
+      },
+      {
+        "name": "Com_Fed_H10_EX_BRL_USD_lag_0",
+        "mi": 0.14867623772406713
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.1458572293743301
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.13946154245354636
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.13855756874812952
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.13698126307859626
+      },
+      {
+        "name": "Com_WorldBank_CMO_Monthly_Price_CoffeeRobusta_lag_1",
+        "mi": 0.13278217868429776
+      },
+      {
+        "name": "Com_Econ_US_cb_consumer_lag_0",
+        "mi": 0.1305146789176419
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury_lag_0",
+        "mi": 0.12625572999163603
+      },
+      {
+        "name": "Macro_FRED_US_10Y_Treasury_Yield_lag_0",
+        "mi": 0.12625572999163603
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_YoY_Pct_lag_3",
+        "mi": 0.1259786492429522
+      },
+      {
+        "name": "Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Short_Positions_All_lag_0",
+        "mi": 0.12209594027833592
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.12087958743883398
+      },
+      {
+        "name": "Com_Econ_EU_retail_sales_yoy_lag_5",
+        "mi": 0.11987761577729517
+      }
+    ],
+    "8": [
+      {
+        "name": "Com_Econ_US_exports_mom_lag_5",
+        "mi": 0.5181463163227598
+      },
+      {
+        "name": "Com_Econ_US_imports_mom_lag_5",
+        "mi": 0.38053603600136743
+      },
+      {
+        "name": "Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4",
+        "mi": 0.31923533452339825
+      },
+      {
+        "name": "customs_china_summary_trade_balance_usd_million_lag_3",
+        "mi": 0.30324705413095066
+      },
+      {
+        "name": "Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3",
+        "mi": 0.264118529328202
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.2469230518992056
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.231203113924642
+      },
+      {
+        "name": "fed_h10_nominal_broad_dollar_index_daily_lag_0",
+        "mi": 0.20492169646946756
+      },
+      {
+        "name": "Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4",
+        "mi": 0.20380015858026557
+      },
+      {
+        "name": "Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4",
+        "mi": 0.1955716683333364
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.19287504013054457
+      },
+      {
+        "name": "wui_monthly_global_world_uncertainty_index_lag_1",
+        "mi": 0.19124603050609945
+      },
+      {
+        "name": "Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2",
+        "mi": 0.1908201844166113
+      },
+      {
+        "name": "Com_BLS_CPI_All_Items_US_YoY_Pct_lag_3",
+        "mi": 0.17018229481047742
+      },
+      {
+        "name": "Com_Econ_CN_pmi_mfg_lag_0",
+        "mi": 0.16306421022244422
+      },
+      {
+        "name": "Com_BLS_CPI_Food_At_Home_US_YoY_Pct_lag_3",
+        "mi": 0.16272946624951512
+      },
+      {
+        "name": "Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury_lag_0",
+        "mi": 0.16220204714021724
+      },
+      {
+        "name": "Macro_FRED_US_10Y_Treasury_Yield_lag_0",
+        "mi": 0.16220204714021724
+      },
+      {
+        "name": "Com_ICE_US_Dollar_Index_DXY_lag_1",
+        "mi": 0.1543120256688666
+      },
+      {
+        "name": "tgt_logp",
+        "mi": 0.15333781099245858
+      },
+      {
+        "name": "Com_Econ_CN_retail_sales_yoy_lag_3",
+        "mi": 0.15127505703298505
+      },
+      {
+        "name": "Com_Econ_JP_retail_sales_yoy_lag_4",
+        "mi": 0.1503994051152091
+      },
+      {
+        "name": "Com_Econ_DE_exports_mom_lag_6",
+        "mi": 0.15005287155414404
+      },
+      {
+        "name": "bls_cpi_u_food_at_home_us_nsa_index_lag_2",
+        "mi": 0.14953645454364528
+      },
+      {
+        "name": "Macro_ONS_UkCPIHFoodNonAlcoholicAnnualRatePct_lag_7",
+        "mi": 0.14818390667739267
+      },
+      {
+        "name": "Com_BLS_Export_Price_Agricultural_Commodities_YoY_Pct_lag_3",
+        "mi": 0.14746067888604442
+      },
+      {
+        "name": "Com_USDA_ERS_Food_Expenditure_US_FAH_Sales_With_Taxes_Tips_Monthly_Million_USD_lag_2",
+        "mi": 0.14734953044346266
+      },
+      {
+        "name": "Com_FRED_University_Of_Michigan_Inflation_Expectation_lag_10",
+        "mi": 0.14585276436868932
+      },
+      {
+        "name": "Com_Econ_US_trade_balance_lag_5",
+        "mi": 0.14571932843765767
+      },
+      {
+        "name": "Com_Econ_CN_imports_yoy_lag_2",
+        "mi": 0.14255644069687357
+      }
+    ]
+  }
+}

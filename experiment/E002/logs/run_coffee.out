@@ -1,0 +1,34 @@
+2026-10-28 20:08:32,357 INFO E002 start: ['coffee']
+2026-10-28 20:08:32,401 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 20:08:32,600 INFO [coffee] h=1 MI top30 (max=0.0769 min=0.0198): Com_CFTC_Disaggregated_Combined_Coffee_C_Managed_Money_Net_Long_Positions_All_lag_0, Com_Econ_US_imports_mom_lag_5, customs_china_summary_trade_balance_usd_million_lag_3, Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Net_Positions_All_lag_0, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2
+2026-10-28 20:08:32,821 INFO [coffee] h=2 MI top30 (max=0.1557 min=0.0234): Com_Econ_US_exports_mom_lag_5, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4, Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4, Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity_lag_4, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2
+2026-10-28 20:08:33,013 INFO [coffee] h=3 MI top30 (max=0.2399 min=0.0582): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2, Com_ICO_World_All_Forms_Coffee_Exports_Million_60kg_Bags_lag_4, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2
+2026-10-28 20:08:33,207 INFO [coffee] h=4 MI top30 (max=0.2851 min=0.0728): Com_Econ_US_imports_mom_lag_5, Com_Econ_US_exports_mom_lag_5, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2, Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Short_Positions_All_lag_0
+2026-10-28 20:08:33,403 INFO [coffee] h=5 MI top30 (max=0.3313 min=0.1019): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Green_Coffee_Exports_Million_60kg_Bags_lag_2, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4
+2026-10-28 20:08:33,598 INFO [coffee] h=6 MI top30 (max=0.4018 min=0.1048): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3
+2026-10-28 20:08:33,792 INFO [coffee] h=7 MI top30 (max=0.4614 min=0.1199): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Total_Coffee_Exports_Million_60kg_Bags_lag_2, Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags_lag_2
+2026-10-28 20:08:33,984 INFO [coffee] h=8 MI top30 (max=0.5181 min=0.1426): Com_Econ_US_exports_mom_lag_5, Com_Econ_US_imports_mom_lag_5, Com_ICO_Robustas_Indicator_Price_US_Cents_Per_Lb_lag_4, customs_china_summary_trade_balance_usd_million_lag_3, Com_BLS_Core_PPI_Final_Demand_Less_Food_Energy_Trade_MoM_Pct_lag_3
+2026-10-28 20:08:37,002 INFO [coffee] origin 1/261 2021-10-17 (5s)
+2026-10-28 20:10:06,368 INFO [coffee] origin 26/261 2022-04-10 (94s)
+2026-10-28 20:11:18,571 INFO [coffee] origin 51/261 2022-10-02 (166s)
+2026-10-28 20:12:29,654 INFO [coffee] origin 76/261 2023-03-26 (237s)
+2026-10-28 20:13:40,896 INFO [coffee] origin 101/261 2023-09-17 (309s)
+2026-10-28 20:14:52,538 INFO [coffee] origin 126/261 2024-03-10 (380s)
+2026-10-28 20:16:04,372 INFO [coffee] origin 151/261 2024-09-01 (452s)
+2026-10-28 20:17:16,177 INFO [coffee] origin 176/261 2025-02-23 (524s)
+2026-10-28 20:18:28,189 INFO [coffee] origin 201/261 2025-08-17 (596s)
+2026-10-28 20:19:40,583 INFO [coffee] origin 226/261 2026-02-08 (668s)
+2026-10-28 20:20:53,886 INFO [coffee] origin 251/261 2026-08-02 (742s)
+2026-10-28 20:21:23,489 INFO [coffee] saved 2088 predictions (771s)
+2026-10-28 20:21:35,586 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 20:21:35,589 INFO [coffee] E002        h=1   MAPE=3.370% RMSE=9.9773 n=261
+2026-10-28 20:21:35,589 INFO [coffee] E002        h=2   MAPE=5.474% RMSE=16.7758 n=261
+2026-10-28 20:21:35,589 INFO [coffee] E002        h=3   MAPE=6.962% RMSE=20.3936 n=261
+2026-10-28 20:21:35,590 INFO [coffee] E002        h=4   MAPE=8.491% RMSE=24.3180 n=260
+2026-10-28 20:21:35,590 INFO [coffee] E002        h=5   MAPE=9.457% RMSE=26.2344 n=259
+2026-10-28 20:21:35,591 INFO [coffee] E002        h=6   MAPE=9.894% RMSE=28.1980 n=258
+2026-10-28 20:21:35,591 INFO [coffee] E002        h=7   MAPE=11.380% RMSE=31.2281 n=257
+2026-10-28 20:21:35,591 INFO [coffee] E002        h=8   MAPE=12.014% RMSE=32.9825 n=256
+2026-10-28 20:21:35,592 INFO [coffee] E002        h=all MAPE=8.362% RMSE=24.7929 n=2073
+2026-10-28 20:21:35,595 INFO [coffee] naive       h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 20:21:35,595 INFO E002 done

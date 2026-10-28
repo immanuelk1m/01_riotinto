@@ -1,0 +1,200 @@
+2026-10-28 15:13:14,647 INFO E001 start: ['copper']
+2026-10-28 15:13:14,766 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 15:13:15,178 INFO [copper] ELATE gen0 seed rmse=0.03504
+2026-10-28 15:13:20,154 INFO [copper] ELATE gen1 n=50 val_rmse=0.03051 best=0.03051 improved
+2026-10-28 15:13:24,445 INFO [copper] ELATE gen2 n=50 val_rmse=0.03282 best=0.03051 reverted
+2026-10-28 15:13:28,680 INFO [copper] ELATE gen3 n=50 val_rmse=0.03211 best=0.03051 reverted
+2026-10-28 15:13:33,563 INFO [copper] ELATE gen4 n=50 val_rmse=0.03129 best=0.03051 reverted
+2026-10-28 15:13:38,402 INFO [copper] ELATE gen5 n=50 val_rmse=0.03223 best=0.03051 reverted
+2026-10-28 15:13:43,442 INFO [copper] ELATE gen6 n=50 val_rmse=0.03151 best=0.03051 reverted
+2026-10-28 15:13:48,593 INFO [copper] ELATE gen7 n=50 val_rmse=0.03283 best=0.03051 reverted
+2026-10-28 15:13:52,903 INFO [copper] ELATE gen8 n=50 val_rmse=0.03045 best=0.03045 improved
+2026-10-28 15:13:57,789 INFO [copper] ELATE gen9 n=50 val_rmse=0.03162 best=0.03045 reverted
+2026-10-28 15:14:02,782 INFO [copper] ELATE gen10 n=50 val_rmse=0.03196 best=0.03045 reverted
+2026-10-28 15:14:02,785 INFO [copper] features: base=280 elate=50 total=330 (48s)
+2026-10-28 15:14:09,811 INFO [copper] origin 1/269 2021-08-22 (55s)
+2026-10-28 15:17:05,028 INFO [copper] origin 26/269 2022-02-13 (230s)
+2026-10-28 15:17:18,515 INFO E001 start: ['wti_crude_oil']
+2026-10-28 15:17:18,515 INFO E001 start: ['gold']
+2026-10-28 15:17:18,515 INFO E001 start: ['corn']
+2026-10-28 15:17:18,515 INFO E001 start: ['coffee']
+2026-10-28 15:17:18,576 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 15:17:18,584 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 15:17:18,685 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 15:17:18,776 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 15:17:18,925 INFO [coffee] ELATE gen0 seed rmse=0.02805
+2026-10-28 15:17:18,969 INFO [corn] ELATE gen0 seed rmse=0.04389
+2026-10-28 15:17:19,328 INFO [wti_crude_oil] ELATE gen0 seed rmse=0.04919
+2026-10-28 15:17:19,693 INFO [gold] ELATE gen0 seed rmse=0.01607
+2026-10-28 15:17:23,855 INFO [coffee] ELATE gen1 n=2 val_rmse=0.03031 best=0.02805 reverted
+2026-10-28 15:17:24,075 INFO [corn] ELATE gen1 n=50 val_rmse=0.04146 best=0.04146 improved
+2026-10-28 15:17:26,328 INFO [gold] ELATE gen1 n=2 val_rmse=0.01610 best=0.01607 reverted
+2026-10-28 15:17:26,980 INFO [wti_crude_oil] ELATE gen1 n=50 val_rmse=0.04575 best=0.04575 improved
+2026-10-28 15:17:27,388 INFO [coffee] ELATE gen2 n=2 val_rmse=0.03038 best=0.02805 reverted
+2026-10-28 15:17:29,376 INFO [corn] ELATE gen2 n=50 val_rmse=0.04196 best=0.04146 reverted
+2026-10-28 15:17:32,494 INFO [gold] ELATE gen2 n=50 val_rmse=0.01596 best=0.01596 improved
+2026-10-28 15:17:32,763 INFO [coffee] ELATE gen3 n=2 val_rmse=0.02848 best=0.02805 reverted
+2026-10-28 15:17:34,312 INFO [corn] ELATE gen3 n=50 val_rmse=0.04207 best=0.04146 reverted
+2026-10-28 15:17:35,893 INFO [wti_crude_oil] ELATE gen2 n=50 val_rmse=0.04665 best=0.04575 reverted
+2026-10-28 15:17:37,419 INFO [coffee] ELATE gen4 n=2 val_rmse=0.03075 best=0.02805 reverted
+2026-10-28 15:17:39,721 INFO [gold] ELATE gen3 n=50 val_rmse=0.01578 best=0.01578 improved
+2026-10-28 15:17:39,866 INFO [corn] ELATE gen4 n=50 val_rmse=0.04203 best=0.04146 reverted
+2026-10-28 15:17:41,395 INFO [coffee] ELATE gen5 n=50 val_rmse=0.02695 best=0.02695 improved
+2026-10-28 15:17:44,588 INFO [wti_crude_oil] ELATE gen3 n=50 val_rmse=0.04664 best=0.04575 reverted
+2026-10-28 15:17:45,612 INFO [corn] ELATE gen5 n=50 val_rmse=0.04253 best=0.04146 reverted
+2026-10-28 15:17:46,896 INFO [coffee] ELATE gen6 n=50 val_rmse=0.02737 best=0.02695 reverted
+2026-10-28 15:17:47,333 INFO [gold] ELATE gen4 n=50 val_rmse=0.01560 best=0.01560 improved
+2026-10-28 15:17:51,352 INFO [corn] ELATE gen6 n=50 val_rmse=0.04129 best=0.04129 improved
+2026-10-28 15:17:51,700 INFO [coffee] ELATE gen7 n=50 val_rmse=0.02740 best=0.02695 reverted
+2026-10-28 15:17:52,256 INFO [wti_crude_oil] ELATE gen4 n=50 val_rmse=0.04643 best=0.04575 reverted
+2026-10-28 15:17:55,250 INFO [gold] ELATE gen5 n=50 val_rmse=0.01602 best=0.01560 reverted
+2026-10-28 15:17:57,044 INFO [corn] ELATE gen7 n=50 val_rmse=0.04086 best=0.04086 improved
+2026-10-28 15:17:57,212 INFO [coffee] ELATE gen8 n=50 val_rmse=0.02806 best=0.02695 reverted
+2026-10-28 15:18:00,068 INFO [wti_crude_oil] ELATE gen5 n=50 val_rmse=0.04449 best=0.04449 improved
+2026-10-28 15:18:01,940 INFO [coffee] ELATE gen9 n=50 val_rmse=0.02938 best=0.02695 reverted
+2026-10-28 15:18:02,914 INFO [corn] ELATE gen8 n=50 val_rmse=0.04131 best=0.04086 reverted
+2026-10-28 15:18:02,935 INFO [gold] ELATE gen6 n=50 val_rmse=0.01579 best=0.01560 reverted
+2026-10-28 15:18:06,826 INFO [coffee] ELATE gen10 n=50 val_rmse=0.02901 best=0.02695 reverted
+2026-10-28 15:18:06,829 INFO [coffee] features: base=93 elate=50 total=143 (48s)
+2026-10-28 15:18:07,806 INFO [wti_crude_oil] ELATE gen6 n=50 val_rmse=0.04419 best=0.04419 improved
+2026-10-28 15:18:07,910 INFO [corn] ELATE gen9 n=50 val_rmse=0.04238 best=0.04086 reverted
+2026-10-28 15:18:09,663 INFO [gold] ELATE gen7 n=50 val_rmse=0.01655 best=0.01560 reverted
+2026-10-28 15:18:12,817 INFO [corn] ELATE gen10 n=50 val_rmse=0.04116 best=0.04086 reverted
+2026-10-28 15:18:12,819 INFO [corn] features: base=128 elate=50 total=178 (54s)
+2026-10-28 15:18:14,956 INFO [coffee] origin 1/261 2021-10-17 (56s)
+2026-10-28 15:18:15,470 INFO [wti_crude_oil] ELATE gen7 n=50 val_rmse=0.04482 best=0.04419 reverted
+2026-10-28 15:18:17,331 INFO [gold] ELATE gen8 n=50 val_rmse=0.01615 best=0.01560 reverted
+2026-10-28 15:18:21,292 INFO [corn] origin 1/258 2021-11-07 (63s)
+2026-10-28 15:18:24,057 INFO [wti_crude_oil] ELATE gen8 n=50 val_rmse=0.04423 best=0.04419 reverted
+2026-10-28 15:18:25,089 INFO [gold] ELATE gen9 n=50 val_rmse=0.01681 best=0.01560 reverted
+2026-10-28 15:18:31,615 INFO [wti_crude_oil] ELATE gen9 n=50 val_rmse=0.04562 best=0.04419 reverted
+2026-10-28 15:18:32,822 INFO [gold] ELATE gen10 n=50 val_rmse=0.01562 best=0.01560 reverted
+2026-10-28 15:18:32,824 INFO [gold] features: base=456 elate=50 total=506 (74s)
+2026-10-28 15:18:40,401 INFO [wti_crude_oil] ELATE gen10 n=50 val_rmse=0.04472 best=0.04419 reverted
+2026-10-28 15:18:40,404 INFO [wti_crude_oil] features: base=313 elate=50 total=363 (82s)
+2026-10-28 15:18:48,926 INFO [gold] origin 1/384 2019-06-02 (90s)
+2026-10-28 15:18:53,966 INFO [wti_crude_oil] origin 1/384 2019-06-09 (95s)
+2026-10-28 15:21:38,017 INFO [coffee] origin 26/261 2022-04-10 (260s)
+2026-10-28 15:22:04,517 INFO [corn] origin 26/258 2022-05-01 (286s)
+2026-10-28 15:22:06,649 INFO [copper] origin 51/269 2022-08-07 (532s)
+2026-10-28 15:24:34,800 INFO [wti_crude_oil] origin 26/384 2019-12-01 (436s)
+2026-10-28 15:25:03,564 INFO [coffee] origin 51/261 2022-10-02 (465s)
+2026-10-28 15:25:31,860 INFO [gold] origin 26/384 2019-11-24 (493s)
+2026-10-28 15:25:49,372 INFO [corn] origin 51/258 2022-10-23 (511s)
+2026-10-28 15:27:16,322 INFO [copper] origin 76/269 2023-01-29 (842s)
+2026-10-28 15:28:30,741 INFO [coffee] origin 76/261 2023-03-26 (672s)
+2026-10-28 15:29:36,641 INFO [corn] origin 76/258 2023-04-16 (738s)
+2026-10-28 15:30:24,386 INFO [wti_crude_oil] origin 51/384 2020-05-24 (786s)
+2026-10-28 15:31:59,224 INFO [coffee] origin 101/261 2023-09-17 (881s)
+2026-10-28 15:32:24,752 INFO [gold] origin 51/384 2020-05-17 (906s)
+2026-10-28 15:32:28,542 INFO [copper] origin 101/269 2023-07-23 (1154s)
+2026-10-28 15:33:23,684 INFO [corn] origin 101/258 2023-10-08 (965s)
+2026-10-28 15:35:29,602 INFO [coffee] origin 126/261 2024-03-10 (1091s)
+2026-10-28 15:36:18,944 INFO [wti_crude_oil] origin 76/384 2020-11-15 (1140s)
+2026-10-28 15:37:18,253 INFO [corn] origin 126/258 2024-03-31 (1200s)
+2026-10-28 15:37:41,606 INFO [copper] origin 126/269 2024-01-14 (1467s)
+2026-10-28 15:39:00,728 INFO [coffee] origin 151/261 2024-09-01 (1302s)
+2026-10-28 15:39:22,641 INFO [gold] origin 76/384 2020-11-08 (1324s)
+2026-10-28 15:41:10,262 INFO [corn] origin 151/258 2024-09-22 (1432s)
+2026-10-28 15:42:16,520 INFO [wti_crude_oil] origin 101/384 2021-05-09 (1498s)
+2026-10-28 15:42:35,319 INFO [coffee] origin 176/261 2025-02-23 (1517s)
+2026-10-28 15:42:54,575 INFO [copper] origin 151/269 2024-07-07 (1780s)
+2026-10-28 15:45:07,247 INFO [corn] origin 176/258 2025-03-16 (1669s)
+2026-10-28 15:46:11,447 INFO [coffee] origin 201/261 2025-08-17 (1733s)
+2026-10-28 15:46:26,872 INFO [gold] origin 101/384 2021-05-02 (1748s)
+2026-10-28 15:48:10,242 INFO [copper] origin 176/269 2024-12-29 (2096s)
+2026-10-28 15:48:15,159 INFO [wti_crude_oil] origin 126/384 2021-10-31 (1857s)
+2026-10-28 15:49:03,271 INFO [corn] origin 201/258 2025-09-07 (1905s)
+2026-10-28 15:49:50,065 INFO [coffee] origin 226/261 2026-02-08 (1952s)
+2026-10-28 15:53:03,224 INFO [corn] origin 226/258 2026-03-01 (2145s)
+2026-10-28 15:53:29,387 INFO [copper] origin 201/269 2025-06-22 (2415s)
+2026-10-28 15:53:30,848 INFO [coffee] origin 251/261 2026-08-02 (2172s)
+2026-10-28 15:53:37,120 INFO [gold] origin 126/384 2021-10-24 (2179s)
+2026-10-28 15:54:19,815 INFO [wti_crude_oil] origin 151/384 2022-04-24 (2221s)
+2026-10-28 15:55:01,748 INFO [coffee] saved 2088 predictions (2263s)
+2026-10-28 15:55:17,601 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 15:55:17,608 INFO [coffee] E001        h=1   MAPE=3.321% RMSE=10.0364 n=261
+2026-10-28 15:55:17,608 INFO [coffee] E001        h=2   MAPE=5.194% RMSE=15.5903 n=261
+2026-10-28 15:55:17,608 INFO [coffee] E001        h=3   MAPE=6.635% RMSE=19.8791 n=261
+2026-10-28 15:55:17,609 INFO [coffee] E001        h=4   MAPE=8.521% RMSE=23.7515 n=260
+2026-10-28 15:55:17,609 INFO [coffee] E001        h=5   MAPE=9.683% RMSE=26.7768 n=259
+2026-10-28 15:55:17,610 INFO [coffee] E001        h=6   MAPE=10.926% RMSE=30.8553 n=258
+2026-10-28 15:55:17,610 INFO [coffee] E001        h=7   MAPE=12.152% RMSE=34.0621 n=257
+2026-10-28 15:55:17,610 INFO [coffee] E001        h=8   MAPE=13.043% RMSE=36.4494 n=256
+2026-10-28 15:55:17,611 INFO [coffee] E001        h=all MAPE=8.663% RMSE=26.0724 n=2073
+2026-10-28 15:55:17,614 INFO [coffee] E001_naive  h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 15:55:17,614 INFO E001 done
+2026-10-28 15:56:51,027 INFO [corn] origin 251/258 2026-08-23 (2373s)
+2026-10-28 15:57:51,970 INFO [corn] saved 2064 predictions (2433s)
+2026-10-28 15:58:05,976 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 15:58:05,979 INFO [corn] E001        h=1   MAPE=2.400% RMSE=17.1769 n=258
+2026-10-28 15:58:05,979 INFO [corn] E001        h=2   MAPE=3.218% RMSE=23.3271 n=258
+2026-10-28 15:58:05,980 INFO [corn] E001        h=3   MAPE=4.224% RMSE=28.6804 n=258
+2026-10-28 15:58:05,980 INFO [corn] E001        h=4   MAPE=4.844% RMSE=31.9605 n=257
+2026-10-28 15:58:05,981 INFO [corn] E001        h=5   MAPE=5.978% RMSE=36.9050 n=256
+2026-10-28 15:58:05,982 INFO [corn] E001        h=6   MAPE=6.430% RMSE=38.9351 n=255
+2026-10-28 15:58:05,982 INFO [corn] E001        h=7   MAPE=6.332% RMSE=38.8117 n=254
+2026-10-28 15:58:05,982 INFO [corn] E001        h=8   MAPE=6.980% RMSE=42.8839 n=253
+2026-10-28 15:58:05,983 INFO [corn] E001        h=all MAPE=5.041% RMSE=33.3165 n=2049
+2026-10-28 15:58:05,987 INFO [corn] E001_naive  h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 15:58:05,987 INFO E001 done
+2026-10-28 15:58:49,462 INFO [copper] origin 226/269 2025-12-14 (2735s)
+2026-10-28 15:59:27,865 INFO [wti_crude_oil] origin 176/384 2022-10-16 (2529s)
+2026-10-28 15:59:46,755 INFO [gold] origin 151/384 2022-04-17 (2548s)
+2026-10-28 16:03:40,604 INFO [copper] origin 251/269 2026-06-07 (3026s)
+2026-10-28 16:03:52,878 INFO [wti_crude_oil] origin 201/384 2023-04-09 (2794s)
+2026-10-28 16:05:09,107 INFO [gold] origin 176/384 2022-10-09 (2871s)
+2026-10-28 16:07:12,007 INFO [copper] saved 2152 predictions (3237s)
+2026-10-28 16:07:25,205 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 16:07:25,208 INFO [copper] E001        h=1   MAPE=2.258% RMSE=290.0645 n=269
+2026-10-28 16:07:25,208 INFO [copper] E001        h=2   MAPE=3.091% RMSE=391.2514 n=268
+2026-10-28 16:07:25,209 INFO [copper] E001        h=3   MAPE=4.152% RMSE=517.6676 n=267
+2026-10-28 16:07:25,209 INFO [copper] E001        h=4   MAPE=4.968% RMSE=595.5227 n=266
+2026-10-28 16:07:25,209 INFO [copper] E001        h=5   MAPE=5.447% RMSE=664.7186 n=265
+2026-10-28 16:07:25,210 INFO [copper] E001        h=6   MAPE=6.065% RMSE=746.8750 n=264
+2026-10-28 16:07:25,210 INFO [copper] E001        h=7   MAPE=6.561% RMSE=814.7040 n=263
+2026-10-28 16:07:25,210 INFO [copper] E001        h=8   MAPE=7.502% RMSE=941.5959 n=262
+2026-10-28 16:07:25,211 INFO [copper] E001        h=all MAPE=4.991% RMSE=651.2173 n=2124
+2026-10-28 16:07:25,214 INFO [copper] E001_naive  h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 16:07:25,214 INFO E001 done
+2026-10-28 16:08:02,336 INFO [wti_crude_oil] origin 226/384 2023-10-01 (3044s)
+2026-10-28 16:09:47,663 INFO [gold] origin 201/384 2023-04-02 (3149s)
+2026-10-28 16:11:08,747 INFO [wti_crude_oil] origin 251/384 2024-03-24 (3230s)
+2026-10-28 16:13:57,483 INFO [gold] origin 226/384 2023-09-24 (3399s)
+2026-10-28 16:14:17,481 INFO [wti_crude_oil] origin 276/384 2024-09-15 (3419s)
+2026-10-28 16:17:28,510 INFO [wti_crude_oil] origin 301/384 2025-03-09 (3610s)
+2026-10-28 16:18:10,634 INFO [gold] origin 251/384 2024-03-17 (3652s)
+2026-10-28 16:20:45,579 INFO [wti_crude_oil] origin 326/384 2025-08-31 (3807s)
+2026-10-28 16:22:27,000 INFO [gold] origin 276/384 2024-09-08 (3908s)
+2026-10-28 16:24:07,707 INFO [wti_crude_oil] origin 351/384 2026-02-22 (4009s)
+2026-10-28 16:26:48,903 INFO [gold] origin 301/384 2025-03-02 (4170s)
+2026-10-28 16:27:31,046 INFO [wti_crude_oil] origin 376/384 2026-08-16 (4213s)
+2026-10-28 16:28:35,902 INFO [wti_crude_oil] saved 3072 predictions (4277s)
+2026-10-28 16:28:54,056 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 16:28:54,059 INFO [wti_crude_oil] E001        h=1   MAPE=5.253% RMSE=5.1189 n=383
+2026-10-28 16:28:54,060 INFO [wti_crude_oil] E001        h=2   MAPE=7.925% RMSE=6.9673 n=382
+2026-10-28 16:28:54,060 INFO [wti_crude_oil] E001        h=3   MAPE=9.692% RMSE=8.4229 n=381
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=4   MAPE=11.398% RMSE=10.0623 n=380
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=5   MAPE=13.262% RMSE=11.4845 n=379
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=6   MAPE=15.073% RMSE=12.6834 n=378
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=7   MAPE=16.527% RMSE=13.7435 n=377
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=8   MAPE=17.523% RMSE=14.4508 n=376
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=all MAPE=12.057% RMSE=10.8074 n=3036
+2026-10-28 16:28:54,066 INFO [wti_crude_oil] E001_naive  h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 16:28:54,066 INFO E001 done
+2026-10-28 16:31:11,955 INFO [gold] origin 326/384 2025-08-24 (4433s)
+2026-10-28 16:35:36,898 INFO [gold] origin 351/384 2026-02-15 (4698s)
+2026-10-28 16:40:05,216 INFO [gold] origin 376/384 2026-08-09 (4967s)
+2026-10-28 16:41:31,860 INFO [gold] saved 3072 predictions (5053s)
+2026-10-28 16:41:48,978 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 16:41:48,981 INFO [gold] E001        h=1   MAPE=1.789% RMSE=67.3560 n=383
+2026-10-28 16:41:48,981 INFO [gold] E001        h=2   MAPE=2.619% RMSE=107.8154 n=382
+2026-10-28 16:41:48,981 INFO [gold] E001        h=3   MAPE=3.325% RMSE=136.8552 n=381
+2026-10-28 16:41:48,982 INFO [gold] E001        h=4   MAPE=3.761% RMSE=157.5824 n=380
+2026-10-28 16:41:48,982 INFO [gold] E001        h=5   MAPE=4.282% RMSE=176.5146 n=379
+2026-10-28 16:41:48,982 INFO [gold] E001        h=6   MAPE=4.933% RMSE=203.6399 n=378
+2026-10-28 16:41:48,983 INFO [gold] E001        h=7   MAPE=5.406% RMSE=218.3272 n=377
+2026-10-28 16:41:48,983 INFO [gold] E001        h=8   MAPE=5.801% RMSE=239.2632 n=376
+2026-10-28 16:41:48,984 INFO [gold] E001        h=all MAPE=3.982% RMSE=171.9161 n=3036
+2026-10-28 16:41:48,987 INFO [gold] E001_naive  h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 16:41:48,987 INFO E001 done

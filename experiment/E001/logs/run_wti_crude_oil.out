@@ -1,0 +1,43 @@
+2026-10-28 15:17:18,515 INFO E001 start: ['wti_crude_oil']
+2026-10-28 15:17:18,685 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 15:17:19,328 INFO [wti_crude_oil] ELATE gen0 seed rmse=0.04919
+2026-10-28 15:17:26,980 INFO [wti_crude_oil] ELATE gen1 n=50 val_rmse=0.04575 best=0.04575 improved
+2026-10-28 15:17:35,893 INFO [wti_crude_oil] ELATE gen2 n=50 val_rmse=0.04665 best=0.04575 reverted
+2026-10-28 15:17:44,588 INFO [wti_crude_oil] ELATE gen3 n=50 val_rmse=0.04664 best=0.04575 reverted
+2026-10-28 15:17:52,256 INFO [wti_crude_oil] ELATE gen4 n=50 val_rmse=0.04643 best=0.04575 reverted
+2026-10-28 15:18:00,068 INFO [wti_crude_oil] ELATE gen5 n=50 val_rmse=0.04449 best=0.04449 improved
+2026-10-28 15:18:07,806 INFO [wti_crude_oil] ELATE gen6 n=50 val_rmse=0.04419 best=0.04419 improved
+2026-10-28 15:18:15,470 INFO [wti_crude_oil] ELATE gen7 n=50 val_rmse=0.04482 best=0.04419 reverted
+2026-10-28 15:18:24,057 INFO [wti_crude_oil] ELATE gen8 n=50 val_rmse=0.04423 best=0.04419 reverted
+2026-10-28 15:18:31,615 INFO [wti_crude_oil] ELATE gen9 n=50 val_rmse=0.04562 best=0.04419 reverted
+2026-10-28 15:18:40,401 INFO [wti_crude_oil] ELATE gen10 n=50 val_rmse=0.04472 best=0.04419 reverted
+2026-10-28 15:18:40,404 INFO [wti_crude_oil] features: base=313 elate=50 total=363 (82s)
+2026-10-28 15:18:53,966 INFO [wti_crude_oil] origin 1/384 2019-06-09 (95s)
+2026-10-28 15:24:34,800 INFO [wti_crude_oil] origin 26/384 2019-12-01 (436s)
+2026-10-28 15:30:24,386 INFO [wti_crude_oil] origin 51/384 2020-05-24 (786s)
+2026-10-28 15:36:18,944 INFO [wti_crude_oil] origin 76/384 2020-11-15 (1140s)
+2026-10-28 15:42:16,520 INFO [wti_crude_oil] origin 101/384 2021-05-09 (1498s)
+2026-10-28 15:48:15,159 INFO [wti_crude_oil] origin 126/384 2021-10-31 (1857s)
+2026-10-28 15:54:19,815 INFO [wti_crude_oil] origin 151/384 2022-04-24 (2221s)
+2026-10-28 15:59:27,865 INFO [wti_crude_oil] origin 176/384 2022-10-16 (2529s)
+2026-10-28 16:03:52,878 INFO [wti_crude_oil] origin 201/384 2023-04-09 (2794s)
+2026-10-28 16:08:02,336 INFO [wti_crude_oil] origin 226/384 2023-10-01 (3044s)
+2026-10-28 16:11:08,747 INFO [wti_crude_oil] origin 251/384 2024-03-24 (3230s)
+2026-10-28 16:14:17,481 INFO [wti_crude_oil] origin 276/384 2024-09-15 (3419s)
+2026-10-28 16:17:28,510 INFO [wti_crude_oil] origin 301/384 2025-03-09 (3610s)
+2026-10-28 16:20:45,579 INFO [wti_crude_oil] origin 326/384 2025-08-31 (3807s)
+2026-10-28 16:24:07,707 INFO [wti_crude_oil] origin 351/384 2026-02-22 (4009s)
+2026-10-28 16:27:31,046 INFO [wti_crude_oil] origin 376/384 2026-08-16 (4213s)
+2026-10-28 16:28:35,902 INFO [wti_crude_oil] saved 3072 predictions (4277s)
+2026-10-28 16:28:54,056 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 16:28:54,059 INFO [wti_crude_oil] E001        h=1   MAPE=5.253% RMSE=5.1189 n=383
+2026-10-28 16:28:54,060 INFO [wti_crude_oil] E001        h=2   MAPE=7.925% RMSE=6.9673 n=382
+2026-10-28 16:28:54,060 INFO [wti_crude_oil] E001        h=3   MAPE=9.692% RMSE=8.4229 n=381
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=4   MAPE=11.398% RMSE=10.0623 n=380
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=5   MAPE=13.262% RMSE=11.4845 n=379
+2026-10-28 16:28:54,061 INFO [wti_crude_oil] E001        h=6   MAPE=15.073% RMSE=12.6834 n=378
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=7   MAPE=16.527% RMSE=13.7435 n=377
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=8   MAPE=17.523% RMSE=14.4508 n=376
+2026-10-28 16:28:54,062 INFO [wti_crude_oil] E001        h=all MAPE=12.057% RMSE=10.8074 n=3036
+2026-10-28 16:28:54,066 INFO [wti_crude_oil] E001_naive  h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 16:28:54,066 INFO E001 done

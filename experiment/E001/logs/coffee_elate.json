@@ -1,0 +1,273 @@
+{
+  "commodity": "coffee",
+  "best_val_rmse": 0.02695076558824672,
+  "history": [
+    {
+      "generation": 0,
+      "n": 2,
+      "val_rmse": 0.02804752994669827
+    },
+    {
+      "generation": 1,
+      "n": 2,
+      "val_rmse": 0.030312784532222883,
+      "kept": false
+    },
+    {
+      "generation": 2,
+      "n": 2,
+      "val_rmse": 0.030376508766420913,
+      "kept": false
+    },
+    {
+      "generation": 3,
+      "n": 2,
+      "val_rmse": 0.028477951564974704,
+      "kept": false
+    },
+    {
+      "generation": 4,
+      "n": 2,
+      "val_rmse": 0.03074688759776065,
+      "kept": false
+    },
+    {
+      "generation": 5,
+      "n": 50,
+      "val_rmse": 0.02695076558824672,
+      "kept": true
+    },
+    {
+      "generation": 6,
+      "n": 50,
+      "val_rmse": 0.027374791732127923,
+      "kept": false
+    },
+    {
+      "generation": 7,
+      "n": 50,
+      "val_rmse": 0.027399841357584033,
+      "kept": false
+    },
+    {
+      "generation": 8,
+      "n": 50,
+      "val_rmse": 0.02806293588619017,
+      "kept": false
+    },
+    {
+      "generation": 9,
+      "n": 50,
+      "val_rmse": 0.0293764029362435,
+      "kept": false
+    },
+    {
+      "generation": 10,
+      "n": 50,
+      "val_rmse": 0.029013592201335793,
+      "kept": false
+    }
+  ],
+  "features": [
+    {
+      "name": "sub(z(8,z(4,tgt_r1)),Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Net_Positions_All_lag_0)",
+      "score": 0.04199009145707355
+    },
+    {
+      "name": "z(8,z(4,tgt_r1))",
+      "score": 0.038446650104305424
+    },
+    {
+      "name": "diff(1,z(8,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))",
+      "score": 0.03267226109860838
+    },
+    {
+      "name": "ratio(rmean(13,diff(1,z(8,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))),Com_Econ_US_core_retail_mom_lag_2)",
+      "score": 0.030629199974383958
+    },
+    {
+      "name": "sub(pct(8,lag(8,Com_Econ_JP_retail_sales_yoy_lag_4)),Macro_FRED_US_5Y5Y_Forward_Inflation_Expectation_Rate_lag_0)",
+      "score": 0.02914034126388304
+    },
+    {
+      "name": "diff(2,rmean(4,tgt_r1))",
+      "score": 0.028905663220567923
+    },
+    {
+      "name": "rstd(26,rmean(8,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)))))",
+      "score": 0.027638380679012975
+    },
+    {
+      "name": "rmean(8,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))",
+      "score": 0.02743343856110314
+    },
+    {
+      "name": "lag(1,pct(8,z(4,sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_FRED_Federal_Funds_Target_Range_Upper_Limit_lag_0))))",
+      "score": 0.021549896050500728
+    },
+    {
+      "name": "pct(4,rstd(8,rmean(26,Com_Econ_US_ism_pmi_nonmfg_lag_1)))",
+      "score": 0.019950759097171145
+    },
+    {
+      "name": "diff(4,sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0))",
+      "score": 0.01986473587030857
+    },
+    {
+      "name": "pct(2,Com_FRED_University_Of_Michigan_Inflation_Expectation_lag_10)",
+      "score": 0.017465834769263056
+    },
+    {
+      "name": "tgt_r1",
+      "score": 0.017330001413812524
+    },
+    {
+      "name": "lag(2,pct(1,z(4,tgt_r1)))",
+      "score": 0.01629358324583291
+    },
+    {
+      "name": "pct(2,rmean(8,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)))))",
+      "score": 0.01590890550740015
+    },
+    {
+      "name": "ratio(rmean(13,rmean(26,Com_Econ_CN_pmi_mfg_lag_0)),nasa_power_daily_espirito_br_precip_lag_1)",
+      "score": 0.01228219082981169
+    },
+    {
+      "name": "rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))",
+      "score": 0.011100013673081832
+    },
+    {
+      "name": "sub(diff(2,rstd(26,sub(pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))),sub(pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))",
+      "score": 0.010793550055214596
+    },
+    {
+      "name": "pct(1,pct(8,Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Long_Positions_All_lag_0))",
+      "score": 0.009797604640869595
+    },
+    {
+      "name": "pct(2,sub(sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0),pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)))))))",
+      "score": 0.00868366919101854
+    },
+    {
+      "name": "rmean(4,tgt_r1)",
+      "score": 0.007919790640138535
+    },
+    {
+      "name": "sub(sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0),pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))))",
+      "score": 0.006847979210431399
+    },
+    {
+      "name": "rmean(13,diff(1,z(8,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))))",
+      "score": 0.0054966568014711
+    },
+    {
+      "name": "ratio(pct(4,rstd(8,rmean(26,Com_Econ_US_ism_pmi_nonmfg_lag_1))),sub(z(8,z(4,tgt_r1)),Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Net_Positions_All_lag_0))",
+      "score": 0.002741208019850172
+    },
+    {
+      "name": "ratio(sub(pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))",
+      "score": 0.0012399445871032477
+    },
+    {
+      "name": "z(8,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))",
+      "score": 0.0011922472480436763
+    },
+    {
+      "name": "diff(4,pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))))",
+      "score": 0.000970572401618297
+    },
+    {
+      "name": "diff(2,rstd(26,sub(pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))))",
+      "score": 0.0003578421660954123
+    },
+    {
+      "name": "ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))",
+      "score": 0.0
+    },
+    {
+      "name": "rmean(4,z(4,tgt_r1))",
+      "score": 0.0
+    },
+    {
+      "name": "pct(8,Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Long_Positions_All_lag_0)",
+      "score": 0.0
+    },
+    {
+      "name": "pct(4,Com_BLS_Export_Price_Agricultural_Commodities_YoY_Pct_lag_3)",
+      "score": 0.0
+    },
+    {
+      "name": "rstd(8,rmean(26,Com_Econ_US_ism_pmi_nonmfg_lag_1))",
+      "score": 0.0
+    },
+    {
+      "name": "lag(8,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)))))",
+      "score": 0.0
+    },
+    {
+      "name": "ratio(ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)),sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0))",
+      "score": 0.0
+    },
+    {
+      "name": "rmean(4,sub(pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))",
+      "score": 0.0
+    },
+    {
+      "name": "rstd(4,z(8,z(4,tgt_r1)))",
+      "score": 0.0
+    },
+    {
+      "name": "ratio(diff(2,rmean(4,tgt_r1)),sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0))",
+      "score": 0.0
+    },
+    {
+      "name": "sub(rmean(4,z(4,tgt_r1)),Com_BLS_CPI_Food_At_Home_US_YoY_Pct_lag_3)",
+      "score": 0.0
+    },
+    {
+      "name": "ratio(tgt_r1,Macro_ONS_UkCPIHFoodNonAlcoholicAnnualRatePct_lag_7)",
+      "score": 0.0
+    },
+    {
+      "name": "z(4,ratio(diff(2,rmean(4,tgt_r1)),sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0)))",
+      "score": 0.0
+    },
+    {
+      "name": "diff(1,pct(4,Com_BLS_Export_Price_Agricultural_Commodities_YoY_Pct_lag_3))",
+      "score": 0.0
+    },
+    {
+      "name": "lag(1,diff(4,sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0)))",
+      "score": 0.0
+    },
+    {
+      "name": "rmean(4,diff(4,sub(rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))),Com_CBOE_VIX_Index_lag_0)))",
+      "score": 0.0
+    },
+    {
+      "name": "ratio(diff(4,pct(2,lag(4,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1)))))),rstd(26,rmean(8,pct(8,ratio(pct(1,z(4,tgt_r1)),z(4,tgt_r1))))))",
+      "score": 0.0
+    },
+    {
+      "name": "ratio(lag(8,Com_Econ_JP_retail_sales_yoy_lag_4),sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1))))",
+      "score": 0.0
+    },
+    {
+      "name": "diff(8,rstd(4,z(8,z(4,tgt_r1))))",
+      "score": 0.0
+    },
+    {
+      "name": "z(8,ratio(rmean(13,rmean(26,Com_Econ_CN_pmi_mfg_lag_0)),nasa_power_daily_espirito_br_precip_lag_1))",
+      "score": 0.0
+    },
+    {
+      "name": "pct(8,pct(1,pct(8,Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Long_Positions_All_lag_0)))",
+      "score": 0.0
+    },
+    {
+      "name": "pct(2,rstd(4,sub(rmean(4,tgt_r1),pct(1,z(4,tgt_r1)))))",
+      "score": 0.0
+    }
+  ]
+}

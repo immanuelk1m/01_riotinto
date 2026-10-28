@@ -1,0 +1,38 @@
+2026-10-28 15:17:18,515 INFO E001 start: ['corn']
+2026-10-28 15:17:18,584 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 15:17:18,969 INFO [corn] ELATE gen0 seed rmse=0.04389
+2026-10-28 15:17:24,075 INFO [corn] ELATE gen1 n=50 val_rmse=0.04146 best=0.04146 improved
+2026-10-28 15:17:29,376 INFO [corn] ELATE gen2 n=50 val_rmse=0.04196 best=0.04146 reverted
+2026-10-28 15:17:34,312 INFO [corn] ELATE gen3 n=50 val_rmse=0.04207 best=0.04146 reverted
+2026-10-28 15:17:39,866 INFO [corn] ELATE gen4 n=50 val_rmse=0.04203 best=0.04146 reverted
+2026-10-28 15:17:45,612 INFO [corn] ELATE gen5 n=50 val_rmse=0.04253 best=0.04146 reverted
+2026-10-28 15:17:51,352 INFO [corn] ELATE gen6 n=50 val_rmse=0.04129 best=0.04129 improved
+2026-10-28 15:17:57,044 INFO [corn] ELATE gen7 n=50 val_rmse=0.04086 best=0.04086 improved
+2026-10-28 15:18:02,914 INFO [corn] ELATE gen8 n=50 val_rmse=0.04131 best=0.04086 reverted
+2026-10-28 15:18:07,910 INFO [corn] ELATE gen9 n=50 val_rmse=0.04238 best=0.04086 reverted
+2026-10-28 15:18:12,817 INFO [corn] ELATE gen10 n=50 val_rmse=0.04116 best=0.04086 reverted
+2026-10-28 15:18:12,819 INFO [corn] features: base=128 elate=50 total=178 (54s)
+2026-10-28 15:18:21,292 INFO [corn] origin 1/258 2021-11-07 (63s)
+2026-10-28 15:22:04,517 INFO [corn] origin 26/258 2022-05-01 (286s)
+2026-10-28 15:25:49,372 INFO [corn] origin 51/258 2022-10-23 (511s)
+2026-10-28 15:29:36,641 INFO [corn] origin 76/258 2023-04-16 (738s)
+2026-10-28 15:33:23,684 INFO [corn] origin 101/258 2023-10-08 (965s)
+2026-10-28 15:37:18,253 INFO [corn] origin 126/258 2024-03-31 (1200s)
+2026-10-28 15:41:10,262 INFO [corn] origin 151/258 2024-09-22 (1432s)
+2026-10-28 15:45:07,247 INFO [corn] origin 176/258 2025-03-16 (1669s)
+2026-10-28 15:49:03,271 INFO [corn] origin 201/258 2025-09-07 (1905s)
+2026-10-28 15:53:03,224 INFO [corn] origin 226/258 2026-03-01 (2145s)
+2026-10-28 15:56:51,027 INFO [corn] origin 251/258 2026-08-23 (2373s)
+2026-10-28 15:57:51,970 INFO [corn] saved 2064 predictions (2433s)
+2026-10-28 15:58:05,976 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 15:58:05,979 INFO [corn] E001        h=1   MAPE=2.400% RMSE=17.1769 n=258
+2026-10-28 15:58:05,979 INFO [corn] E001        h=2   MAPE=3.218% RMSE=23.3271 n=258
+2026-10-28 15:58:05,980 INFO [corn] E001        h=3   MAPE=4.224% RMSE=28.6804 n=258
+2026-10-28 15:58:05,980 INFO [corn] E001        h=4   MAPE=4.844% RMSE=31.9605 n=257
+2026-10-28 15:58:05,981 INFO [corn] E001        h=5   MAPE=5.978% RMSE=36.9050 n=256
+2026-10-28 15:58:05,982 INFO [corn] E001        h=6   MAPE=6.430% RMSE=38.9351 n=255
+2026-10-28 15:58:05,982 INFO [corn] E001        h=7   MAPE=6.332% RMSE=38.8117 n=254
+2026-10-28 15:58:05,982 INFO [corn] E001        h=8   MAPE=6.980% RMSE=42.8839 n=253
+2026-10-28 15:58:05,983 INFO [corn] E001        h=all MAPE=5.041% RMSE=33.3165 n=2049
+2026-10-28 15:58:05,987 INFO [corn] E001_naive  h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 15:58:05,987 INFO E001 done

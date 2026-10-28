@@ -1,0 +1,34 @@
+2026-10-28 20:59:24,510 INFO E003_stability start: ['corn']
+2026-10-28 20:59:24,579 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 20:59:25,702 INFO [corn] stability h=1 selected 0/93 {'alpha': 0.0032479684653934087}: 
+2026-10-28 20:59:26,683 INFO [corn] stability h=2 selected 0/93 {'alpha': 0.006648480953162808}: 
+2026-10-28 20:59:27,670 INFO [corn] stability h=3 selected 1/93 {'alpha': 0.009601798561173313}: Com_USDA_FAS_ESR_401_Standard_OutstandingSales_MT_lag_1
+2026-10-28 20:59:28,527 INFO [corn] stability h=4 selected 2/93 {'alpha': 0.010375314107871467}: Com_USDA_FAS_ESR_401_Standard_OutstandingSales_MT_lag_1, Com_USDA_FAS_ESR_401_Standard_NextYearOutstandingSales_MT_lag_1
+2026-10-28 20:59:29,450 INFO [corn] stability h=5 selected 0/93 {'alpha': 0.022844214341589453}: 
+2026-10-28 20:59:30,354 INFO [corn] stability h=6 selected 0/93 {'alpha': 0.02593758192155375}: 
+2026-10-28 20:59:31,303 INFO [corn] stability h=7 selected 0/93 {'alpha': 0.02805659948131669}: 
+2026-10-28 20:59:32,223 INFO [corn] stability h=8 selected 0/93 {'alpha': 0.03059641792000642}: 
+2026-10-28 20:59:32,571 INFO [corn] origin 1/258 2021-11-07 (8s)
+2026-10-28 20:59:40,213 INFO [corn] origin 26/258 2022-05-01 (16s)
+2026-10-28 20:59:49,702 INFO [corn] origin 51/258 2022-10-23 (25s)
+2026-10-28 20:59:59,653 INFO [corn] origin 76/258 2023-04-16 (35s)
+2026-10-28 21:00:10,071 INFO [corn] origin 101/258 2023-10-08 (46s)
+2026-10-28 21:00:22,119 INFO [corn] origin 126/258 2024-03-31 (58s)
+2026-10-28 21:00:34,200 INFO [corn] origin 151/258 2024-09-22 (70s)
+2026-10-28 21:00:46,107 INFO [corn] origin 176/258 2025-03-16 (82s)
+2026-10-28 21:00:58,096 INFO [corn] origin 201/258 2025-09-07 (94s)
+2026-10-28 21:01:09,894 INFO [corn] origin 226/258 2026-03-01 (105s)
+2026-10-28 21:01:22,021 INFO [corn] origin 251/258 2026-08-23 (118s)
+2026-10-28 21:01:25,441 INFO [corn] saved 2064 predictions (121s)
+2026-10-28 21:01:45,154 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:01:45,157 INFO [corn] E003_stability h=1   MAPE=2.352% RMSE=17.1437 n=258
+2026-10-28 21:01:45,157 INFO [corn] E003_stability h=2   MAPE=3.180% RMSE=23.5406 n=258
+2026-10-28 21:01:45,157 INFO [corn] E003_stability h=3   MAPE=4.467% RMSE=29.4212 n=258
+2026-10-28 21:01:45,158 INFO [corn] E003_stability h=4   MAPE=5.728% RMSE=36.5570 n=257
+2026-10-28 21:01:45,158 INFO [corn] E003_stability h=5   MAPE=5.451% RMSE=35.9399 n=256
+2026-10-28 21:01:45,159 INFO [corn] E003_stability h=6   MAPE=5.911% RMSE=38.3262 n=255
+2026-10-28 21:01:45,159 INFO [corn] E003_stability h=7   MAPE=6.327% RMSE=41.6034 n=254
+2026-10-28 21:01:45,159 INFO [corn] E003_stability h=8   MAPE=6.725% RMSE=44.7788 n=253
+2026-10-28 21:01:45,160 INFO [corn] E003_stability h=all MAPE=5.009% RMSE=34.4925 n=2049
+2026-10-28 21:01:45,163 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:01:45,164 INFO E003_stability done

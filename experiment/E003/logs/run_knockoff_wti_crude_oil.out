@@ -1,0 +1,39 @@
+2026-10-28 20:59:24,521 INFO E003_knockoff start: ['wti_crude_oil']
+2026-10-28 20:59:24,947 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 21:03:56,835 INFO [wti_crude_oil] knockoff h=1 selected 0/157 {'s': 0.015555955493553097}: 
+2026-10-28 21:06:49,788 INFO [wti_crude_oil] knockoff h=2 selected 0/157 {'s': 0.015581019603904187}: 
+2026-10-28 21:09:20,499 INFO [wti_crude_oil] knockoff h=3 selected 0/158 {'s': 0.015452372292491742}: 
+2026-10-28 21:11:43,748 INFO [wti_crude_oil] knockoff h=4 selected 0/158 {'s': 0.015477107590117133}: 
+2026-10-28 21:13:57,615 INFO [wti_crude_oil] knockoff h=5 selected 0/158 {'s': 0.015502287436740373}: 
+2026-10-28 21:16:04,440 INFO [wti_crude_oil] knockoff h=6 selected 0/158 {'s': 0.015527789625865429}: 
+2026-10-28 21:17:53,582 INFO [wti_crude_oil] knockoff h=7 selected 0/158 {'s': 0.015554671923033109}: 
+2026-10-28 21:19:44,782 INFO [wti_crude_oil] knockoff h=8 selected 0/158 {'s': 0.01557994030594955}: 
+2026-10-28 21:19:44,783 INFO [wti_crude_oil] origin 1/384 2019-06-09 (1220s)
+2026-10-28 21:19:44,786 INFO [wti_crude_oil] origin 26/384 2019-12-01 (1220s)
+2026-10-28 21:19:44,789 INFO [wti_crude_oil] origin 51/384 2020-05-24 (1220s)
+2026-10-28 21:19:44,792 INFO [wti_crude_oil] origin 76/384 2020-11-15 (1220s)
+2026-10-28 21:19:44,796 INFO [wti_crude_oil] origin 101/384 2021-05-09 (1220s)
+2026-10-28 21:19:44,799 INFO [wti_crude_oil] origin 126/384 2021-10-31 (1220s)
+2026-10-28 21:19:44,802 INFO [wti_crude_oil] origin 151/384 2022-04-24 (1220s)
+2026-10-28 21:19:44,806 INFO [wti_crude_oil] origin 176/384 2022-10-16 (1220s)
+2026-10-28 21:19:44,820 INFO [wti_crude_oil] origin 201/384 2023-04-09 (1220s)
+2026-10-28 21:19:44,823 INFO [wti_crude_oil] origin 226/384 2023-10-01 (1220s)
+2026-10-28 21:19:44,826 INFO [wti_crude_oil] origin 251/384 2024-03-24 (1220s)
+2026-10-28 21:19:44,830 INFO [wti_crude_oil] origin 276/384 2024-09-15 (1220s)
+2026-10-28 21:19:44,833 INFO [wti_crude_oil] origin 301/384 2025-03-09 (1220s)
+2026-10-28 21:19:44,836 INFO [wti_crude_oil] origin 326/384 2025-08-31 (1220s)
+2026-10-28 21:19:44,840 INFO [wti_crude_oil] origin 351/384 2026-02-22 (1220s)
+2026-10-28 21:19:44,843 INFO [wti_crude_oil] origin 376/384 2026-08-16 (1220s)
+2026-10-28 21:19:44,867 INFO [wti_crude_oil] saved 3072 predictions (1220s)
+2026-10-28 21:20:01,974 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 21:20:01,976 INFO [wti_crude_oil] E003_knockoff h=1   MAPE=4.781% RMSE=4.5704 n=383
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=2   MAPE=6.906% RMSE=6.2688 n=382
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=3   MAPE=8.071% RMSE=7.1388 n=381
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=4   MAPE=9.266% RMSE=8.3302 n=380
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=5   MAPE=10.786% RMSE=9.4541 n=379
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=6   MAPE=11.789% RMSE=10.1649 n=378
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=7   MAPE=13.007% RMSE=10.9038 n=377
+2026-10-28 21:20:01,979 INFO [wti_crude_oil] E003_knockoff h=8   MAPE=14.187% RMSE=11.8016 n=376
+2026-10-28 21:20:01,979 INFO [wti_crude_oil] E003_knockoff h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:20:01,982 INFO [wti_crude_oil] naive       h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:20:01,983 INFO E003_knockoff done

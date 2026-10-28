@@ -1,0 +1,54 @@
+{
+  "commodity": "corn",
+  "method": "knockoff",
+  "horizons": {
+    "1": {
+      "n_candidates": 93,
+      "n_rows": 1028,
+      "s": 0.042656617436031205,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 93,
+      "n_rows": 1027,
+      "s": 0.04283766412108416,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 93,
+      "n_rows": 1026,
+      "s": 0.042878495486834214,
+      "features": []
+    },
+    "4": {
+      "n_candidates": 93,
+      "n_rows": 1025,
+      "s": 0.04282262730631546,
+      "features": []
+    },
+    "5": {
+      "n_candidates": 93,
+      "n_rows": 1024,
+      "s": 0.0428069781378708,
+      "features": []
+    },
+    "6": {
+      "n_candidates": 93,
+      "n_rows": 1023,
+      "s": 0.04280687964531508,
+      "features": []
+    },
+    "7": {
+      "n_candidates": 93,
+      "n_rows": 1022,
+      "s": 0.04282120096383075,
+      "features": []
+    },
+    "8": {
+      "n_candidates": 93,
+      "n_rows": 1021,
+      "s": 0.04286005955830677,
+      "features": []
+    }
+  }
+}

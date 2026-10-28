@@ -1,0 +1,34 @@
+2026-10-28 20:59:24,480 INFO E003_stability start: ['copper']
+2026-10-28 20:59:24,627 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 20:59:33,039 INFO [copper] stability h=1 selected 0/158 {'alpha': 0.002027516441153902}: 
+2026-10-28 20:59:40,178 INFO [copper] stability h=2 selected 0/158 {'alpha': 0.003288842637690812}: 
+2026-10-28 20:59:46,603 INFO [copper] stability h=3 selected 1/158 {'alpha': 0.00564054403449629}: Com_Cochilco_Refined_Copper_Export_Value_lag_6
+2026-10-28 20:59:51,900 INFO [copper] stability h=4 selected 1/158 {'alpha': 0.0076384498360121495}: Com_Cochilco_Refined_Copper_Export_Value_lag_6
+2026-10-28 20:59:56,828 INFO [copper] stability h=5 selected 1/158 {'alpha': 0.010458452610315683}: Com_Cochilco_Refined_Copper_Export_Value_lag_6
+2026-10-28 21:00:01,402 INFO [copper] stability h=6 selected 2/158 {'alpha': 0.012565917256753245}: Com_Cochilco_Refined_Copper_Export_Value_lag_6, Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6
+2026-10-28 21:00:05,064 INFO [copper] stability h=7 selected 2/158 {'alpha': 0.013651803143334187}: Com_Cochilco_Refined_Copper_Export_Value_lag_6, Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6
+2026-10-28 21:00:08,924 INFO [copper] stability h=8 selected 2/158 {'alpha': 0.012558703063779889}: Com_Cochilco_Refined_Copper_Export_Value_lag_6, Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6
+2026-10-28 21:00:10,344 INFO [copper] origin 1/269 2021-08-22 (46s)
+2026-10-28 21:00:47,511 INFO [copper] origin 26/269 2022-02-13 (83s)
+2026-10-28 21:01:24,323 INFO [copper] origin 51/269 2022-08-07 (120s)
+2026-10-28 21:01:56,342 INFO [copper] origin 76/269 2023-01-29 (152s)
+2026-10-28 21:02:27,139 INFO [copper] origin 101/269 2023-07-23 (183s)
+2026-10-28 21:02:57,057 INFO [copper] origin 126/269 2024-01-14 (213s)
+2026-10-28 21:03:25,453 INFO [copper] origin 151/269 2024-07-07 (241s)
+2026-10-28 21:03:54,348 INFO [copper] origin 176/269 2024-12-29 (270s)
+2026-10-28 21:04:23,238 INFO [copper] origin 201/269 2025-06-22 (299s)
+2026-10-28 21:04:52,226 INFO [copper] origin 226/269 2025-12-14 (328s)
+2026-10-28 21:05:20,909 INFO [copper] origin 251/269 2026-06-07 (356s)
+2026-10-28 21:05:41,694 INFO [copper] saved 2152 predictions (377s)
+2026-10-28 21:05:59,796 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:05:59,803 INFO [copper] E003_stability h=1   MAPE=2.093% RMSE=270.2531 n=269
+2026-10-28 21:05:59,804 INFO [copper] E003_stability h=2   MAPE=2.916% RMSE=375.1525 n=268
+2026-10-28 21:05:59,805 INFO [copper] E003_stability h=3   MAPE=4.402% RMSE=603.3833 n=267
+2026-10-28 21:05:59,805 INFO [copper] E003_stability h=4   MAPE=5.290% RMSE=714.3857 n=266
+2026-10-28 21:05:59,805 INFO [copper] E003_stability h=5   MAPE=5.881% RMSE=804.6960 n=265
+2026-10-28 21:05:59,806 INFO [copper] E003_stability h=6   MAPE=6.445% RMSE=846.3859 n=264
+2026-10-28 21:05:59,806 INFO [copper] E003_stability h=7   MAPE=6.932% RMSE=935.8554 n=263
+2026-10-28 21:05:59,806 INFO [copper] E003_stability h=8   MAPE=7.595% RMSE=997.0431 n=262
+2026-10-28 21:05:59,807 INFO [copper] E003_stability h=all MAPE=5.179% RMSE=733.2042 n=2124
+2026-10-28 21:05:59,810 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:05:59,811 INFO E003_stability done

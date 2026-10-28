@@ -1,0 +1,96 @@
+{
+  "commodity": "copper",
+  "method": "stability",
+  "horizons": {
+    "1": {
+      "n_candidates": 158,
+      "n_rows": 1076,
+      "alpha": 0.002027516441153902,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 158,
+      "n_rows": 1075,
+      "alpha": 0.003288842637690812,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 158,
+      "n_rows": 1074,
+      "alpha": 0.00564054403449629,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.61
+        }
+      ]
+    },
+    "4": {
+      "n_candidates": 158,
+      "n_rows": 1073,
+      "alpha": 0.0076384498360121495,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.67
+        }
+      ]
+    },
+    "5": {
+      "n_candidates": 158,
+      "n_rows": 1072,
+      "alpha": 0.010458452610315683,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.72
+        }
+      ]
+    },
+    "6": {
+      "n_candidates": 158,
+      "n_rows": 1071,
+      "alpha": 0.012565917256753245,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.72
+        },
+        {
+          "name": "Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6",
+          "score": 0.68
+        }
+      ]
+    },
+    "7": {
+      "n_candidates": 158,
+      "n_rows": 1070,
+      "alpha": 0.013651803143334187,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.77
+        },
+        {
+          "name": "Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6",
+          "score": 0.73
+        }
+      ]
+    },
+    "8": {
+      "n_candidates": 158,
+      "n_rows": 1069,
+      "alpha": 0.012558703063779889,
+      "features": [
+        {
+          "name": "Com_Cochilco_Refined_Copper_Export_Value_lag_6",
+          "score": 0.82
+        },
+        {
+          "name": "Com_Cochilco_Chile_Copper_Mine_Production_ChuquicamataRadomiroTomicMinistroHales_Monthly_kMT_Cu_lag_6",
+          "score": 0.79
+        }
+      ]
+    }
+  }
+}

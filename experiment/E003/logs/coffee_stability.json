@@ -1,0 +1,54 @@
+{
+  "commodity": "coffee",
+  "method": "stability",
+  "horizons": {
+    "1": {
+      "n_candidates": 60,
+      "n_rows": 1035,
+      "alpha": 0.002908167536895793,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 60,
+      "n_rows": 1034,
+      "alpha": 0.005768980655515491,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 60,
+      "n_rows": 1033,
+      "alpha": 0.008707455061502513,
+      "features": []
+    },
+    "4": {
+      "n_candidates": 60,
+      "n_rows": 1032,
+      "alpha": 0.010136823574240951,
+      "features": []
+    },
+    "5": {
+      "n_candidates": 60,
+      "n_rows": 1031,
+      "alpha": 0.011927842733208734,
+      "features": []
+    },
+    "6": {
+      "n_candidates": 60,
+      "n_rows": 1030,
+      "alpha": 0.013551223268295805,
+      "features": []
+    },
+    "7": {
+      "n_candidates": 60,
+      "n_rows": 1029,
+      "alpha": 0.01503018784443106,
+      "features": []
+    },
+    "8": {
+      "n_candidates": 60,
+      "n_rows": 1028,
+      "alpha": 0.01634013509456969,
+      "features": []
+    }
+  }
+}

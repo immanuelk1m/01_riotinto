@@ -1,0 +1,34 @@
+2026-10-28 20:59:24,539 INFO E003_knockoff start: ['corn']
+2026-10-28 20:59:24,755 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 21:00:35,138 INFO [corn] knockoff h=1 selected 0/93 {'s': 0.042656617436031205}: 
+2026-10-28 21:01:20,668 INFO [corn] knockoff h=2 selected 0/93 {'s': 0.04283766412108416}: 
+2026-10-28 21:01:55,940 INFO [corn] knockoff h=3 selected 0/93 {'s': 0.042878495486834214}: 
+2026-10-28 21:02:25,868 INFO [corn] knockoff h=4 selected 0/93 {'s': 0.04282262730631546}: 
+2026-10-28 21:02:55,472 INFO [corn] knockoff h=5 selected 0/93 {'s': 0.0428069781378708}: 
+2026-10-28 21:03:23,401 INFO [corn] knockoff h=6 selected 0/93 {'s': 0.04280687964531508}: 
+2026-10-28 21:03:48,242 INFO [corn] knockoff h=7 selected 0/93 {'s': 0.04282120096383075}: 
+2026-10-28 21:04:13,334 INFO [corn] knockoff h=8 selected 0/93 {'s': 0.04286005955830677}: 
+2026-10-28 21:04:13,336 INFO [corn] origin 1/258 2021-11-07 (289s)
+2026-10-28 21:04:13,343 INFO [corn] origin 26/258 2022-05-01 (289s)
+2026-10-28 21:04:13,346 INFO [corn] origin 51/258 2022-10-23 (289s)
+2026-10-28 21:04:13,361 INFO [corn] origin 76/258 2023-04-16 (289s)
+2026-10-28 21:04:13,367 INFO [corn] origin 101/258 2023-10-08 (289s)
+2026-10-28 21:04:13,374 INFO [corn] origin 126/258 2024-03-31 (289s)
+2026-10-28 21:04:13,377 INFO [corn] origin 151/258 2024-09-22 (289s)
+2026-10-28 21:04:13,380 INFO [corn] origin 176/258 2025-03-16 (289s)
+2026-10-28 21:04:13,384 INFO [corn] origin 201/258 2025-09-07 (289s)
+2026-10-28 21:04:13,387 INFO [corn] origin 226/258 2026-03-01 (289s)
+2026-10-28 21:04:13,390 INFO [corn] origin 251/258 2026-08-23 (289s)
+2026-10-28 21:04:13,425 INFO [corn] saved 2064 predictions (289s)
+2026-10-28 21:04:30,415 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=1   MAPE=2.352% RMSE=17.1437 n=258
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=2   MAPE=3.180% RMSE=23.5406 n=258
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=3   MAPE=4.124% RMSE=27.8386 n=258
+2026-10-28 21:04:30,419 INFO [corn] E003_knockoff h=4   MAPE=4.799% RMSE=32.2534 n=257
+2026-10-28 21:04:30,419 INFO [corn] E003_knockoff h=5   MAPE=5.451% RMSE=35.9399 n=256
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=6   MAPE=5.911% RMSE=38.3262 n=255
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=7   MAPE=6.327% RMSE=41.6034 n=254
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=8   MAPE=6.725% RMSE=44.7788 n=253
+2026-10-28 21:04:30,421 INFO [corn] E003_knockoff h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:04:30,424 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:04:30,424 INFO E003_knockoff done

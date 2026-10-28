@@ -1,0 +1,34 @@
+2026-10-28 20:59:24,402 INFO E003_knockoff start: ['copper']
+2026-10-28 20:59:24,595 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 21:03:42,297 INFO [copper] knockoff h=1 selected 0/158 {'s': 0.0213170568754578}: 
+2026-10-28 21:06:26,804 INFO [copper] knockoff h=2 selected 0/158 {'s': 0.02132154094364229}: 
+2026-10-28 21:08:50,875 INFO [copper] knockoff h=3 selected 4/158 {'s': 0.02132044693212802}: Com_BLS_Core_CPI_All_Items_Less_Food_Energy_US_NSA_YoY_Pct_lag_2, Com_BLS_CPI_All_Items_US_NSA_YoY_Pct_lag_2, Com_Cochilco_Refined_Copper_Export_Value_lag_6, Com_Fed_G17_G33611B_AutomobileBusiness_IP_Index_Monthly_lag_3
+2026-10-28 21:11:05,033 INFO [copper] knockoff h=4 selected 0/158 {'s': 0.021318677404039796}: 
+2026-10-28 21:13:09,824 INFO [copper] knockoff h=5 selected 0/158 {'s': 0.02131805343678834}: 
+2026-10-28 21:15:04,988 INFO [copper] knockoff h=6 selected 0/158 {'s': 0.02131474413208002}: 
+2026-10-28 21:16:46,463 INFO [copper] knockoff h=7 selected 0/158 {'s': 0.02131485047533652}: 
+2026-10-28 21:18:19,603 INFO [copper] knockoff h=8 selected 0/158 {'s': 0.02131736158389581}: 
+2026-10-28 21:18:19,688 INFO [copper] origin 1/269 2021-08-22 (1135s)
+2026-10-28 21:18:21,703 INFO [copper] origin 26/269 2022-02-13 (1137s)
+2026-10-28 21:18:23,994 INFO [copper] origin 51/269 2022-08-07 (1140s)
+2026-10-28 21:18:26,252 INFO [copper] origin 76/269 2023-01-29 (1142s)
+2026-10-28 21:18:28,510 INFO [copper] origin 101/269 2023-07-23 (1144s)
+2026-10-28 21:18:30,686 INFO [copper] origin 126/269 2024-01-14 (1146s)
+2026-10-28 21:18:32,674 INFO [copper] origin 151/269 2024-07-07 (1148s)
+2026-10-28 21:18:34,859 INFO [copper] origin 176/269 2024-12-29 (1150s)
+2026-10-28 21:18:37,188 INFO [copper] origin 201/269 2025-06-22 (1153s)
+2026-10-28 21:18:39,443 INFO [copper] origin 226/269 2025-12-14 (1155s)
+2026-10-28 21:18:41,744 INFO [copper] origin 251/269 2026-06-07 (1157s)
+2026-10-28 21:18:43,224 INFO [copper] saved 2152 predictions (1159s)
+2026-10-28 21:18:57,408 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:18:57,410 INFO [copper] E003_knockoff h=1   MAPE=2.093% RMSE=270.2531 n=269
+2026-10-28 21:18:57,411 INFO [copper] E003_knockoff h=2   MAPE=2.916% RMSE=375.1525 n=268
+2026-10-28 21:18:57,411 INFO [copper] E003_knockoff h=3   MAPE=4.801% RMSE=601.3637 n=267
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=4   MAPE=4.095% RMSE=521.7179 n=266
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=5   MAPE=4.645% RMSE=587.5589 n=265
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=6   MAPE=5.058% RMSE=638.4401 n=264
+2026-10-28 21:18:57,413 INFO [copper] E003_knockoff h=7   MAPE=5.539% RMSE=692.2671 n=263
+2026-10-28 21:18:57,413 INFO [copper] E003_knockoff h=8   MAPE=6.038% RMSE=746.5509 n=262
+2026-10-28 21:18:57,414 INFO [copper] E003_knockoff h=all MAPE=4.388% RMSE=573.0443 n=2124
+2026-10-28 21:18:57,418 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:18:57,418 INFO E003_knockoff done

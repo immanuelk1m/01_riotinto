@@ -1,0 +1,54 @@
+{
+  "commodity": "gold",
+  "method": "knockoff",
+  "horizons": {
+    "1": {
+      "n_candidates": 147,
+      "n_rows": 1534,
+      "s": 0.023571362962837034,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 147,
+      "n_rows": 1533,
+      "s": 0.023591574436603042,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 147,
+      "n_rows": 1532,
+      "s": 0.023613335986135305,
+      "features": []
+    },
+    "4": {
+      "n_candidates": 147,
+      "n_rows": 1531,
+      "s": 0.023634735381706178,
+      "features": []
+    },
+    "5": {
+      "n_candidates": 147,
+      "n_rows": 1530,
+      "s": 0.023653832753661796,
+      "features": []
+    },
+    "6": {
+      "n_candidates": 147,
+      "n_rows": 1529,
+      "s": 0.023673390732878663,
+      "features": []
+    },
+    "7": {
+      "n_candidates": 147,
+      "n_rows": 1528,
+      "s": 0.02369283018108936,
+      "features": []
+    },
+    "8": {
+      "n_candidates": 147,
+      "n_rows": 1527,
+      "s": 0.02371396239134066,
+      "features": []
+    }
+  }
+}

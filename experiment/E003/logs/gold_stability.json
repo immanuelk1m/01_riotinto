@@ -1,0 +1,68 @@
+{
+  "commodity": "gold",
+  "method": "stability",
+  "horizons": {
+    "1": {
+      "n_candidates": 147,
+      "n_rows": 1534,
+      "alpha": 0.001545162181340803,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 147,
+      "n_rows": 1533,
+      "alpha": 0.0029449354095129974,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 147,
+      "n_rows": 1532,
+      "alpha": 0.0044412560931343615,
+      "features": []
+    },
+    "4": {
+      "n_candidates": 147,
+      "n_rows": 1531,
+      "alpha": 0.005933045139503669,
+      "features": []
+    },
+    "5": {
+      "n_candidates": 147,
+      "n_rows": 1530,
+      "alpha": 0.005198585986527613,
+      "features": []
+    },
+    "6": {
+      "n_candidates": 147,
+      "n_rows": 1529,
+      "alpha": 0.005385015916074712,
+      "features": [
+        {
+          "name": "Com_Fed_H10_EX_TWD_USD_lag_0",
+          "score": 0.61
+        }
+      ]
+    },
+    "7": {
+      "n_candidates": 147,
+      "n_rows": 1528,
+      "alpha": 0.007214283385342235,
+      "features": []
+    },
+    "8": {
+      "n_candidates": 147,
+      "n_rows": 1527,
+      "alpha": 0.007173176235134034,
+      "features": [
+        {
+          "name": "Com_Fed_H10_EX_TWD_USD_lag_0",
+          "score": 0.64
+        },
+        {
+          "name": "Com_FRED_10_Year_Treasury_Inflation_Indexed_Security_Constant_Maturity_lag_0",
+          "score": 0.64
+        }
+      ]
+    }
+  }
+}

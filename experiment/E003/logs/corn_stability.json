@@ -1,0 +1,68 @@
+{
+  "commodity": "corn",
+  "method": "stability",
+  "horizons": {
+    "1": {
+      "n_candidates": 93,
+      "n_rows": 1028,
+      "alpha": 0.0032479684653934087,
+      "features": []
+    },
+    "2": {
+      "n_candidates": 93,
+      "n_rows": 1027,
+      "alpha": 0.006648480953162808,
+      "features": []
+    },
+    "3": {
+      "n_candidates": 93,
+      "n_rows": 1026,
+      "alpha": 0.009601798561173313,
+      "features": [
+        {
+          "name": "Com_USDA_FAS_ESR_401_Standard_OutstandingSales_MT_lag_1",
+          "score": 0.6
+        }
+      ]
+    },
+    "4": {
+      "n_candidates": 93,
+      "n_rows": 1025,
+      "alpha": 0.010375314107871467,
+      "features": [
+        {
+          "name": "Com_USDA_FAS_ESR_401_Standard_OutstandingSales_MT_lag_1",
+          "score": 0.76
+        },
+        {
+          "name": "Com_USDA_FAS_ESR_401_Standard_NextYearOutstandingSales_MT_lag_1",
+          "score": 0.6
+        }
+      ]
+    },
+    "5": {
+      "n_candidates": 93,
+      "n_rows": 1024,
+      "alpha": 0.022844214341589453,
+      "features": []
+    },
+    "6": {
+      "n_candidates": 93,
+      "n_rows": 1023,
+      "alpha": 0.02593758192155375,
+      "features": []
+    },
+    "7": {
+      "n_candidates": 93,
+      "n_rows": 1022,
+      "alpha": 0.02805659948131669,
+      "features": []
+    },
+    "8": {
+      "n_candidates": 93,
+      "n_rows": 1021,
+      "alpha": 0.03059641792000642,
+      "features": []
+    }
+  }
+}

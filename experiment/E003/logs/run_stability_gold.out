@@ -1,0 +1,39 @@
+2026-10-28 20:59:24,486 INFO E003_stability start: ['gold']
+2026-10-28 20:59:24,957 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 20:59:28,313 INFO [gold] stability h=1 selected 0/147 {'alpha': 0.001545162181340803}: 
+2026-10-28 20:59:30,821 INFO [gold] stability h=2 selected 0/147 {'alpha': 0.0029449354095129974}: 
+2026-10-28 20:59:32,776 INFO [gold] stability h=3 selected 0/147 {'alpha': 0.0044412560931343615}: 
+2026-10-28 20:59:35,022 INFO [gold] stability h=4 selected 0/147 {'alpha': 0.005933045139503669}: 
+2026-10-28 20:59:36,820 INFO [gold] stability h=5 selected 0/147 {'alpha': 0.005198585986527613}: 
+2026-10-28 20:59:38,875 INFO [gold] stability h=6 selected 1/147 {'alpha': 0.005385015916074712}: Com_Fed_H10_EX_TWD_USD_lag_0
+2026-10-28 20:59:40,840 INFO [gold] stability h=7 selected 0/147 {'alpha': 0.007214283385342235}: 
+2026-10-28 20:59:42,716 INFO [gold] stability h=8 selected 2/147 {'alpha': 0.007173176235134034}: Com_Fed_H10_EX_TWD_USD_lag_0, Com_FRED_10_Year_Treasury_Inflation_Indexed_Security_Constant_Maturity_lag_0
+2026-10-28 20:59:43,116 INFO [gold] origin 1/384 2019-06-02 (19s)
+2026-10-28 20:59:53,900 INFO [gold] origin 26/384 2019-11-24 (29s)
+2026-10-28 21:00:04,521 INFO [gold] origin 51/384 2020-05-17 (40s)
+2026-10-28 21:00:16,257 INFO [gold] origin 76/384 2020-11-08 (52s)
+2026-10-28 21:00:28,805 INFO [gold] origin 101/384 2021-05-02 (64s)
+2026-10-28 21:00:41,195 INFO [gold] origin 126/384 2021-10-24 (77s)
+2026-10-28 21:00:53,481 INFO [gold] origin 151/384 2022-04-17 (89s)
+2026-10-28 21:01:05,818 INFO [gold] origin 176/384 2022-10-09 (101s)
+2026-10-28 21:01:18,185 INFO [gold] origin 201/384 2023-04-02 (114s)
+2026-10-28 21:01:29,977 INFO [gold] origin 226/384 2023-09-24 (125s)
+2026-10-28 21:01:41,189 INFO [gold] origin 251/384 2024-03-17 (137s)
+2026-10-28 21:01:51,976 INFO [gold] origin 276/384 2024-09-08 (147s)
+2026-10-28 21:02:02,969 INFO [gold] origin 301/384 2025-03-02 (158s)
+2026-10-28 21:02:13,405 INFO [gold] origin 326/384 2025-08-24 (169s)
+2026-10-28 21:02:23,796 INFO [gold] origin 351/384 2026-02-15 (179s)
+2026-10-28 21:02:34,226 INFO [gold] origin 376/384 2026-08-09 (190s)
+2026-10-28 21:02:37,797 INFO [gold] saved 3072 predictions (193s)
+2026-10-28 21:03:07,237 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 21:03:07,242 INFO [gold] E003_stability h=1   MAPE=1.682% RMSE=65.8864 n=383
+2026-10-28 21:03:07,244 INFO [gold] E003_stability h=2   MAPE=2.436% RMSE=98.0439 n=382
+2026-10-28 21:03:07,245 INFO [gold] E003_stability h=3   MAPE=3.036% RMSE=123.9422 n=381
+2026-10-28 21:03:07,246 INFO [gold] E003_stability h=4   MAPE=3.505% RMSE=142.9067 n=380
+2026-10-28 21:03:07,247 INFO [gold] E003_stability h=5   MAPE=3.926% RMSE=158.7920 n=379
+2026-10-28 21:03:07,247 INFO [gold] E003_stability h=6   MAPE=4.506% RMSE=184.6399 n=378
+2026-10-28 21:03:07,248 INFO [gold] E003_stability h=7   MAPE=4.814% RMSE=194.0264 n=377
+2026-10-28 21:03:07,248 INFO [gold] E003_stability h=8   MAPE=5.284% RMSE=217.4892 n=376
+2026-10-28 21:03:07,249 INFO [gold] E003_stability h=all MAPE=3.642% RMSE=155.4554 n=3036
+2026-10-28 21:03:07,252 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:03:07,253 INFO E003_stability done

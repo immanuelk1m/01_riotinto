@@ -1,0 +1,180 @@
+2026-10-28 20:59:24,402 INFO E003_knockoff start: ['copper']
+2026-10-28 20:59:24,437 INFO E003_knockoff start: ['coffee']
+2026-10-28 20:59:24,454 INFO E003_knockoff start: ['gold']
+2026-10-28 20:59:24,521 INFO E003_knockoff start: ['wti_crude_oil']
+2026-10-28 20:59:24,535 INFO [coffee] price=Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 20:59:24,539 INFO E003_knockoff start: ['corn']
+2026-10-28 20:59:24,595 INFO [copper] price=Com_LME_Cu_Cash_Bid weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 20:59:24,755 INFO [corn] price=Com_Barchart_Cash_National_Corn_Index weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 20:59:24,947 INFO [wti_crude_oil] price=Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 20:59:25,029 INFO [gold] price=Com_LBMA_Gold_Price_PM_USD_V_0 weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 20:59:51,477 INFO [coffee] knockoff h=1 selected 0/60 {'s': 0.037465527701944425}: 
+2026-10-28 21:00:10,494 INFO [coffee] knockoff h=2 selected 0/60 {'s': 0.037503534961285105}: 
+2026-10-28 21:00:25,662 INFO [coffee] knockoff h=3 selected 0/60 {'s': 0.037552172441187595}: 
+2026-10-28 21:00:35,138 INFO [corn] knockoff h=1 selected 0/93 {'s': 0.042656617436031205}: 
+2026-10-28 21:00:37,324 INFO [coffee] knockoff h=4 selected 0/60 {'s': 0.03758864952753751}: 
+2026-10-28 21:00:48,105 INFO [coffee] knockoff h=5 selected 0/60 {'s': 0.03763330744703963}: 
+2026-10-28 21:00:57,414 INFO [coffee] knockoff h=6 selected 0/60 {'s': 0.03766065455170424}: 
+2026-10-28 21:01:04,206 INFO [coffee] knockoff h=7 selected 0/60 {'s': 0.03770114910790352}: 
+2026-10-28 21:01:11,720 INFO [coffee] knockoff h=8 selected 0/60 {'s': 0.03775326452229862}: 
+2026-10-28 21:01:11,721 INFO [coffee] origin 1/261 2021-10-17 (107s)
+2026-10-28 21:01:11,725 INFO [coffee] origin 26/261 2022-04-10 (107s)
+2026-10-28 21:01:11,729 INFO [coffee] origin 51/261 2022-10-02 (107s)
+2026-10-28 21:01:11,732 INFO [coffee] origin 76/261 2023-03-26 (107s)
+2026-10-28 21:01:11,748 INFO [coffee] origin 101/261 2023-09-17 (107s)
+2026-10-28 21:01:11,751 INFO [coffee] origin 126/261 2024-03-10 (107s)
+2026-10-28 21:01:11,754 INFO [coffee] origin 151/261 2024-09-01 (107s)
+2026-10-28 21:01:11,758 INFO [coffee] origin 176/261 2025-02-23 (107s)
+2026-10-28 21:01:11,762 INFO [coffee] origin 201/261 2025-08-17 (107s)
+2026-10-28 21:01:11,766 INFO [coffee] origin 226/261 2026-02-08 (107s)
+2026-10-28 21:01:11,770 INFO [coffee] origin 251/261 2026-08-02 (107s)
+2026-10-28 21:01:11,797 INFO [coffee] saved 2088 predictions (107s)
+2026-10-28 21:01:20,668 INFO [corn] knockoff h=2 selected 0/93 {'s': 0.04283766412108416}: 
+2026-10-28 21:01:32,365 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 21:01:32,369 INFO [coffee] E003_knockoff h=1   MAPE=3.247% RMSE=9.6682 n=261
+2026-10-28 21:01:32,370 INFO [coffee] E003_knockoff h=2   MAPE=5.022% RMSE=14.9366 n=261
+2026-10-28 21:01:32,371 INFO [coffee] E003_knockoff h=3   MAPE=6.465% RMSE=18.8987 n=261
+2026-10-28 21:01:32,372 INFO [coffee] E003_knockoff h=4   MAPE=7.828% RMSE=22.0145 n=260
+2026-10-28 21:01:32,373 INFO [coffee] E003_knockoff h=5   MAPE=8.815% RMSE=24.3773 n=259
+2026-10-28 21:01:32,374 INFO [coffee] E003_knockoff h=6   MAPE=9.783% RMSE=26.7764 n=258
+2026-10-28 21:01:32,375 INFO [coffee] E003_knockoff h=7   MAPE=10.611% RMSE=29.2087 n=257
+2026-10-28 21:01:32,376 INFO [coffee] E003_knockoff h=8   MAPE=11.499% RMSE=31.4947 n=256
+2026-10-28 21:01:32,376 INFO [coffee] E003_knockoff h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 21:01:32,380 INFO [coffee] naive       h=all MAPE=7.891% RMSE=23.1809 n=2073
+2026-10-28 21:01:32,381 INFO E003_knockoff done
+2026-10-28 21:01:55,940 INFO [corn] knockoff h=3 selected 0/93 {'s': 0.042878495486834214}: 
+2026-10-28 21:02:25,868 INFO [corn] knockoff h=4 selected 0/93 {'s': 0.04282262730631546}: 
+2026-10-28 21:02:55,472 INFO [corn] knockoff h=5 selected 0/93 {'s': 0.0428069781378708}: 
+2026-10-28 21:03:02,916 INFO [gold] knockoff h=1 selected 0/147 {'s': 0.023571362962837034}: 
+2026-10-28 21:03:23,401 INFO [corn] knockoff h=6 selected 0/93 {'s': 0.04280687964531508}: 
+2026-10-28 21:03:42,297 INFO [copper] knockoff h=1 selected 0/158 {'s': 0.0213170568754578}: 
+2026-10-28 21:03:48,242 INFO [corn] knockoff h=7 selected 0/93 {'s': 0.04282120096383075}: 
+2026-10-28 21:03:56,835 INFO [wti_crude_oil] knockoff h=1 selected 0/157 {'s': 0.015555955493553097}: 
+2026-10-28 21:04:13,334 INFO [corn] knockoff h=8 selected 0/93 {'s': 0.04286005955830677}: 
+2026-10-28 21:04:13,336 INFO [corn] origin 1/258 2021-11-07 (289s)
+2026-10-28 21:04:13,343 INFO [corn] origin 26/258 2022-05-01 (289s)
+2026-10-28 21:04:13,346 INFO [corn] origin 51/258 2022-10-23 (289s)
+2026-10-28 21:04:13,361 INFO [corn] origin 76/258 2023-04-16 (289s)
+2026-10-28 21:04:13,367 INFO [corn] origin 101/258 2023-10-08 (289s)
+2026-10-28 21:04:13,374 INFO [corn] origin 126/258 2024-03-31 (289s)
+2026-10-28 21:04:13,377 INFO [corn] origin 151/258 2024-09-22 (289s)
+2026-10-28 21:04:13,380 INFO [corn] origin 176/258 2025-03-16 (289s)
+2026-10-28 21:04:13,384 INFO [corn] origin 201/258 2025-09-07 (289s)
+2026-10-28 21:04:13,387 INFO [corn] origin 226/258 2026-03-01 (289s)
+2026-10-28 21:04:13,390 INFO [corn] origin 251/258 2026-08-23 (289s)
+2026-10-28 21:04:13,425 INFO [corn] saved 2064 predictions (289s)
+2026-10-28 21:04:30,415 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=1   MAPE=2.352% RMSE=17.1437 n=258
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=2   MAPE=3.180% RMSE=23.5406 n=258
+2026-10-28 21:04:30,418 INFO [corn] E003_knockoff h=3   MAPE=4.124% RMSE=27.8386 n=258
+2026-10-28 21:04:30,419 INFO [corn] E003_knockoff h=4   MAPE=4.799% RMSE=32.2534 n=257
+2026-10-28 21:04:30,419 INFO [corn] E003_knockoff h=5   MAPE=5.451% RMSE=35.9399 n=256
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=6   MAPE=5.911% RMSE=38.3262 n=255
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=7   MAPE=6.327% RMSE=41.6034 n=254
+2026-10-28 21:04:30,420 INFO [corn] E003_knockoff h=8   MAPE=6.725% RMSE=44.7788 n=253
+2026-10-28 21:04:30,421 INFO [corn] E003_knockoff h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:04:30,424 INFO [corn] naive       h=all MAPE=4.849% RMSE=33.7813 n=2049
+2026-10-28 21:04:30,424 INFO E003_knockoff done
+2026-10-28 21:05:22,493 INFO [gold] knockoff h=2 selected 0/147 {'s': 0.023591574436603042}: 
+2026-10-28 21:06:26,804 INFO [copper] knockoff h=2 selected 0/158 {'s': 0.02132154094364229}: 
+2026-10-28 21:06:49,788 INFO [wti_crude_oil] knockoff h=2 selected 0/157 {'s': 0.015581019603904187}: 
+2026-10-28 21:07:25,987 INFO [gold] knockoff h=3 selected 0/147 {'s': 0.023613335986135305}: 
+2026-10-28 21:08:50,875 INFO [copper] knockoff h=3 selected 4/158 {'s': 0.02132044693212802}: Com_BLS_Core_CPI_All_Items_Less_Food_Energy_US_NSA_YoY_Pct_lag_2, Com_BLS_CPI_All_Items_US_NSA_YoY_Pct_lag_2, Com_Cochilco_Refined_Copper_Export_Value_lag_6, Com_Fed_G17_G33611B_AutomobileBusiness_IP_Index_Monthly_lag_3
+2026-10-28 21:09:17,521 INFO [gold] knockoff h=4 selected 0/147 {'s': 0.023634735381706178}: 
+2026-10-28 21:09:20,499 INFO [wti_crude_oil] knockoff h=3 selected 0/158 {'s': 0.015452372292491742}: 
+2026-10-28 21:10:56,855 INFO [gold] knockoff h=5 selected 0/147 {'s': 0.023653832753661796}: 
+2026-10-28 21:11:05,033 INFO [copper] knockoff h=4 selected 0/158 {'s': 0.021318677404039796}: 
+2026-10-28 21:11:43,748 INFO [wti_crude_oil] knockoff h=4 selected 0/158 {'s': 0.015477107590117133}: 
+2026-10-28 21:12:34,454 INFO [gold] knockoff h=6 selected 0/147 {'s': 0.023673390732878663}: 
+2026-10-28 21:13:09,824 INFO [copper] knockoff h=5 selected 0/158 {'s': 0.02131805343678834}: 
+2026-10-28 21:13:57,615 INFO [wti_crude_oil] knockoff h=5 selected 0/158 {'s': 0.015502287436740373}: 
+2026-10-28 21:14:11,625 INFO [gold] knockoff h=7 selected 0/147 {'s': 0.02369283018108936}: 
+2026-10-28 21:15:04,988 INFO [copper] knockoff h=6 selected 0/158 {'s': 0.02131474413208002}: 
+2026-10-28 21:15:42,500 INFO [gold] knockoff h=8 selected 0/147 {'s': 0.02371396239134066}: 
+2026-10-28 21:15:42,501 INFO [gold] origin 1/384 2019-06-02 (978s)
+2026-10-28 21:15:42,508 INFO [gold] origin 26/384 2019-11-24 (978s)
+2026-10-28 21:15:42,511 INFO [gold] origin 51/384 2020-05-17 (978s)
+2026-10-28 21:15:42,527 INFO [gold] origin 76/384 2020-11-08 (978s)
+2026-10-28 21:15:42,530 INFO [gold] origin 101/384 2021-05-02 (978s)
+2026-10-28 21:15:42,534 INFO [gold] origin 126/384 2021-10-24 (978s)
+2026-10-28 21:15:42,537 INFO [gold] origin 151/384 2022-04-17 (978s)
+2026-10-28 21:15:42,540 INFO [gold] origin 176/384 2022-10-09 (978s)
+2026-10-28 21:15:42,544 INFO [gold] origin 201/384 2023-04-02 (978s)
+2026-10-28 21:15:42,548 INFO [gold] origin 226/384 2023-09-24 (978s)
+2026-10-28 21:15:42,556 INFO [gold] origin 251/384 2024-03-17 (978s)
+2026-10-28 21:15:42,560 INFO [gold] origin 276/384 2024-09-08 (978s)
+2026-10-28 21:15:42,563 INFO [gold] origin 301/384 2025-03-02 (978s)
+2026-10-28 21:15:42,567 INFO [gold] origin 326/384 2025-08-24 (978s)
+2026-10-28 21:15:42,570 INFO [gold] origin 351/384 2026-02-15 (978s)
+2026-10-28 21:15:42,573 INFO [gold] origin 376/384 2026-08-09 (978s)
+2026-10-28 21:15:42,599 INFO [gold] saved 3072 predictions (978s)
+2026-10-28 21:16:03,476 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 21:16:03,479 INFO [gold] E003_knockoff h=1   MAPE=1.682% RMSE=65.8864 n=383
+2026-10-28 21:16:03,479 INFO [gold] E003_knockoff h=2   MAPE=2.436% RMSE=98.0439 n=382
+2026-10-28 21:16:03,479 INFO [gold] E003_knockoff h=3   MAPE=3.036% RMSE=123.9422 n=381
+2026-10-28 21:16:03,480 INFO [gold] E003_knockoff h=4   MAPE=3.505% RMSE=142.9067 n=380
+2026-10-28 21:16:03,480 INFO [gold] E003_knockoff h=5   MAPE=3.926% RMSE=158.7920 n=379
+2026-10-28 21:16:03,481 INFO [gold] E003_knockoff h=6   MAPE=4.435% RMSE=175.9608 n=378
+2026-10-28 21:16:03,481 INFO [gold] E003_knockoff h=7   MAPE=4.814% RMSE=194.0264 n=377
+2026-10-28 21:16:03,481 INFO [gold] E003_knockoff h=8   MAPE=5.217% RMSE=210.8011 n=376
+2026-10-28 21:16:03,482 INFO [gold] E003_knockoff h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:16:03,485 INFO [gold] naive       h=all MAPE=3.625% RMSE=153.0423 n=3036
+2026-10-28 21:16:03,485 INFO E003_knockoff done
+2026-10-28 21:16:04,440 INFO [wti_crude_oil] knockoff h=6 selected 0/158 {'s': 0.015527789625865429}: 
+2026-10-28 21:16:46,463 INFO [copper] knockoff h=7 selected 0/158 {'s': 0.02131485047533652}: 
+2026-10-28 21:17:53,582 INFO [wti_crude_oil] knockoff h=7 selected 0/158 {'s': 0.015554671923033109}: 
+2026-10-28 21:18:19,603 INFO [copper] knockoff h=8 selected 0/158 {'s': 0.02131736158389581}: 
+2026-10-28 21:18:19,688 INFO [copper] origin 1/269 2021-08-22 (1135s)
+2026-10-28 21:18:21,703 INFO [copper] origin 26/269 2022-02-13 (1137s)
+2026-10-28 21:18:23,994 INFO [copper] origin 51/269 2022-08-07 (1140s)
+2026-10-28 21:18:26,252 INFO [copper] origin 76/269 2023-01-29 (1142s)
+2026-10-28 21:18:28,510 INFO [copper] origin 101/269 2023-07-23 (1144s)
+2026-10-28 21:18:30,686 INFO [copper] origin 126/269 2024-01-14 (1146s)
+2026-10-28 21:18:32,674 INFO [copper] origin 151/269 2024-07-07 (1148s)
+2026-10-28 21:18:34,859 INFO [copper] origin 176/269 2024-12-29 (1150s)
+2026-10-28 21:18:37,188 INFO [copper] origin 201/269 2025-06-22 (1153s)
+2026-10-28 21:18:39,443 INFO [copper] origin 226/269 2025-12-14 (1155s)
+2026-10-28 21:18:41,744 INFO [copper] origin 251/269 2026-06-07 (1157s)
+2026-10-28 21:18:43,224 INFO [copper] saved 2152 predictions (1159s)
+2026-10-28 21:18:57,408 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 21:18:57,410 INFO [copper] E003_knockoff h=1   MAPE=2.093% RMSE=270.2531 n=269
+2026-10-28 21:18:57,411 INFO [copper] E003_knockoff h=2   MAPE=2.916% RMSE=375.1525 n=268
+2026-10-28 21:18:57,411 INFO [copper] E003_knockoff h=3   MAPE=4.801% RMSE=601.3637 n=267
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=4   MAPE=4.095% RMSE=521.7179 n=266
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=5   MAPE=4.645% RMSE=587.5589 n=265
+2026-10-28 21:18:57,412 INFO [copper] E003_knockoff h=6   MAPE=5.058% RMSE=638.4401 n=264
+2026-10-28 21:18:57,413 INFO [copper] E003_knockoff h=7   MAPE=5.539% RMSE=692.2671 n=263
+2026-10-28 21:18:57,413 INFO [copper] E003_knockoff h=8   MAPE=6.038% RMSE=746.5509 n=262
+2026-10-28 21:18:57,414 INFO [copper] E003_knockoff h=all MAPE=4.388% RMSE=573.0443 n=2124
+2026-10-28 21:18:57,418 INFO [copper] naive       h=all MAPE=4.228% RMSE=555.7276 n=2124
+2026-10-28 21:18:57,418 INFO E003_knockoff done
+2026-10-28 21:19:44,782 INFO [wti_crude_oil] knockoff h=8 selected 0/158 {'s': 0.01557994030594955}: 
+2026-10-28 21:19:44,783 INFO [wti_crude_oil] origin 1/384 2019-06-09 (1220s)
+2026-10-28 21:19:44,786 INFO [wti_crude_oil] origin 26/384 2019-12-01 (1220s)
+2026-10-28 21:19:44,789 INFO [wti_crude_oil] origin 51/384 2020-05-24 (1220s)
+2026-10-28 21:19:44,792 INFO [wti_crude_oil] origin 76/384 2020-11-15 (1220s)
+2026-10-28 21:19:44,796 INFO [wti_crude_oil] origin 101/384 2021-05-09 (1220s)
+2026-10-28 21:19:44,799 INFO [wti_crude_oil] origin 126/384 2021-10-31 (1220s)
+2026-10-28 21:19:44,802 INFO [wti_crude_oil] origin 151/384 2022-04-24 (1220s)
+2026-10-28 21:19:44,806 INFO [wti_crude_oil] origin 176/384 2022-10-16 (1220s)
+2026-10-28 21:19:44,820 INFO [wti_crude_oil] origin 201/384 2023-04-09 (1220s)
+2026-10-28 21:19:44,823 INFO [wti_crude_oil] origin 226/384 2023-10-01 (1220s)
+2026-10-28 21:19:44,826 INFO [wti_crude_oil] origin 251/384 2024-03-24 (1220s)
+2026-10-28 21:19:44,830 INFO [wti_crude_oil] origin 276/384 2024-09-15 (1220s)
+2026-10-28 21:19:44,833 INFO [wti_crude_oil] origin 301/384 2025-03-09 (1220s)
+2026-10-28 21:19:44,836 INFO [wti_crude_oil] origin 326/384 2025-08-31 (1220s)
+2026-10-28 21:19:44,840 INFO [wti_crude_oil] origin 351/384 2026-02-22 (1220s)
+2026-10-28 21:19:44,843 INFO [wti_crude_oil] origin 376/384 2026-08-16 (1220s)
+2026-10-28 21:19:44,867 INFO [wti_crude_oil] saved 3072 predictions (1220s)
+2026-10-28 21:20:01,974 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 21:20:01,976 INFO [wti_crude_oil] E003_knockoff h=1   MAPE=4.781% RMSE=4.5704 n=383
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=2   MAPE=6.906% RMSE=6.2688 n=382
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=3   MAPE=8.071% RMSE=7.1388 n=381
+2026-10-28 21:20:01,977 INFO [wti_crude_oil] E003_knockoff h=4   MAPE=9.266% RMSE=8.3302 n=380
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=5   MAPE=10.786% RMSE=9.4541 n=379
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=6   MAPE=11.789% RMSE=10.1649 n=378
+2026-10-28 21:20:01,978 INFO [wti_crude_oil] E003_knockoff h=7   MAPE=13.007% RMSE=10.9038 n=377
+2026-10-28 21:20:01,979 INFO [wti_crude_oil] E003_knockoff h=8   MAPE=14.187% RMSE=11.8016 n=376
+2026-10-28 21:20:01,979 INFO [wti_crude_oil] E003_knockoff h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:20:01,982 INFO [wti_crude_oil] naive       h=all MAPE=9.831% RMSE=8.8711 n=3036
+2026-10-28 21:20:01,983 INFO E003_knockoff done

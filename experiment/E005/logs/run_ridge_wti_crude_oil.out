@@ -1,0 +1,22 @@
+2026-10-28 12:56:36,386 INFO E005_ridge start: ['wti_crude_oil']
+2026-10-28 12:56:36,750 INFO [wti_crude_oil] ridge weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 12:56:37,386 INFO [wti_crude_oil] candidates: 323 (levels + chg4) from 313 raw
+2026-10-28 12:56:55,800 INFO [wti_crude_oil] ridge origin 1/384 2019-06-09 (19s)
+2026-10-28 12:57:26,521 INFO [wti_crude_oil] ridge origin 26/384 2019-12-01 (50s)
+2026-10-28 12:58:09,895 INFO [wti_crude_oil] ridge origin 51/384 2020-05-24 (94s)
+2026-10-28 12:58:42,200 INFO [wti_crude_oil] ridge origin 76/384 2020-11-15 (126s)
+2026-10-28 12:59:10,931 INFO [wti_crude_oil] ridge origin 101/384 2021-05-09 (155s)
+2026-10-28 12:59:36,293 INFO [wti_crude_oil] ridge origin 126/384 2021-10-31 (180s)
+2026-10-28 13:00:02,409 INFO [wti_crude_oil] ridge origin 151/384 2022-04-24 (206s)
+2026-10-28 13:00:25,038 INFO [wti_crude_oil] ridge origin 176/384 2022-10-16 (229s)
+2026-10-28 13:00:47,223 INFO [wti_crude_oil] ridge origin 201/384 2023-04-09 (251s)
+2026-10-28 13:01:09,017 INFO [wti_crude_oil] ridge origin 226/384 2023-10-01 (273s)
+2026-10-28 13:01:31,892 INFO [wti_crude_oil] ridge origin 251/384 2024-03-24 (296s)
+2026-10-28 13:01:55,457 INFO [wti_crude_oil] ridge origin 276/384 2024-09-15 (319s)
+2026-10-28 13:02:17,366 INFO [wti_crude_oil] ridge origin 301/384 2025-03-09 (341s)
+2026-10-28 13:02:41,140 INFO [wti_crude_oil] ridge origin 326/384 2025-08-31 (365s)
+2026-10-28 13:02:54,500 INFO [wti_crude_oil] ridge origin 351/384 2026-02-22 (378s)
+2026-10-28 13:03:19,954 INFO [wti_crude_oil] ridge origin 376/384 2026-08-16 (404s)
+2026-10-28 13:03:29,975 INFO [wti_crude_oil] saved 3072 predictions (414s)
+2026-10-28 13:04:16,627 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 13:04:16,634 INFO E005_ridge done

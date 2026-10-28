@@ -1,0 +1,39 @@
+{
+  "commodity": "wti_crude_oil",
+  "method": "combo",
+  "n_candidates": 323,
+  "horizons": {
+    "1": {
+      "n_pos": 162,
+      "n_neg": 161
+    },
+    "2": {
+      "n_pos": 173,
+      "n_neg": 150
+    },
+    "3": {
+      "n_pos": 172,
+      "n_neg": 151
+    },
+    "4": {
+      "n_pos": 176,
+      "n_neg": 147
+    },
+    "5": {
+      "n_pos": 175,
+      "n_neg": 148
+    },
+    "6": {
+      "n_pos": 174,
+      "n_neg": 149
+    },
+    "7": {
+      "n_pos": 174,
+      "n_neg": 149
+    },
+    "8": {
+      "n_pos": 183,
+      "n_neg": 140
+    }
+  }
+}

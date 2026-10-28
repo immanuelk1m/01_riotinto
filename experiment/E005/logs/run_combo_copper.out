@@ -1,0 +1,17 @@
+2026-10-28 12:56:36,459 INFO E005_combo start: ['copper']
+2026-10-28 12:56:36,725 INFO [copper] combo weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 12:56:37,179 INFO [copper] candidates: 314 (levels + chg4) from 280 raw
+2026-10-28 12:56:37,359 INFO [copper] combo origin 1/269 2021-08-22 (1s)
+2026-10-28 12:56:40,540 INFO [copper] combo origin 26/269 2022-02-13 (4s)
+2026-10-28 12:56:43,929 INFO [copper] combo origin 51/269 2022-08-07 (7s)
+2026-10-28 12:56:47,783 INFO [copper] combo origin 76/269 2023-01-29 (11s)
+2026-10-28 12:56:52,995 INFO [copper] combo origin 101/269 2023-07-23 (17s)
+2026-10-28 12:56:57,132 INFO [copper] combo origin 126/269 2024-01-14 (21s)
+2026-10-28 12:57:01,427 INFO [copper] combo origin 151/269 2024-07-07 (25s)
+2026-10-28 12:57:06,909 INFO [copper] combo origin 176/269 2024-12-29 (30s)
+2026-10-28 12:57:11,723 INFO [copper] combo origin 201/269 2025-06-22 (35s)
+2026-10-28 12:57:16,048 INFO [copper] combo origin 226/269 2025-12-14 (40s)
+2026-10-28 12:57:21,163 INFO [copper] combo origin 251/269 2026-06-07 (45s)
+2026-10-28 12:57:24,738 INFO [copper] saved 2152 predictions (48s)
+2026-10-28 12:58:33,793 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 12:58:33,800 INFO E005_combo done

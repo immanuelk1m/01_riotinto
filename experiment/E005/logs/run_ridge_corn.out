@@ -1,0 +1,17 @@
+2026-10-28 12:56:36,385 INFO E005_ridge start: ['corn']
+2026-10-28 12:56:36,726 INFO [corn] ridge weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 12:56:36,975 INFO [corn] candidates: 185 (levels + chg4) from 128 raw
+2026-10-28 12:56:45,292 INFO [corn] ridge origin 1/258 2021-11-07 (9s)
+2026-10-28 12:56:59,005 INFO [corn] ridge origin 26/258 2022-05-01 (23s)
+2026-10-28 12:57:24,911 INFO [corn] ridge origin 51/258 2022-10-23 (49s)
+2026-10-28 12:57:49,514 INFO [corn] ridge origin 76/258 2023-04-16 (73s)
+2026-10-28 12:58:08,407 INFO [corn] ridge origin 101/258 2023-10-08 (92s)
+2026-10-28 12:58:24,441 INFO [corn] ridge origin 126/258 2024-03-31 (108s)
+2026-10-28 12:58:39,949 INFO [corn] ridge origin 151/258 2024-09-22 (124s)
+2026-10-28 12:58:53,641 INFO [corn] ridge origin 176/258 2025-03-16 (137s)
+2026-10-28 12:59:07,833 INFO [corn] ridge origin 201/258 2025-09-07 (151s)
+2026-10-28 12:59:20,039 INFO [corn] ridge origin 226/258 2026-03-01 (164s)
+2026-10-28 12:59:31,225 INFO [corn] ridge origin 251/258 2026-08-23 (175s)
+2026-10-28 12:59:31,974 INFO [corn] saved 2064 predictions (176s)
+2026-10-28 13:00:10,276 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 13:00:10,283 INFO E005_ridge done

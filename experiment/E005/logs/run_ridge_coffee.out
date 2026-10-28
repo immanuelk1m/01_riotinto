@@ -1,0 +1,17 @@
+2026-10-28 12:56:36,396 INFO E005_ridge start: ['coffee']
+2026-10-28 12:56:36,743 INFO [coffee] ridge weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 12:56:36,873 INFO [coffee] candidates: 116 (levels + chg4) from 93 raw
+2026-10-28 12:56:43,485 INFO [coffee] ridge origin 1/261 2021-10-17 (7s)
+2026-10-28 12:56:53,036 INFO [coffee] ridge origin 26/261 2022-04-10 (17s)
+2026-10-28 12:57:09,200 INFO [coffee] ridge origin 51/261 2022-10-02 (33s)
+2026-10-28 12:57:26,980 INFO [coffee] ridge origin 76/261 2023-03-26 (51s)
+2026-10-28 12:57:43,841 INFO [coffee] ridge origin 101/261 2023-09-17 (67s)
+2026-10-28 12:57:57,346 INFO [coffee] ridge origin 126/261 2024-03-10 (81s)
+2026-10-28 12:58:11,415 INFO [coffee] ridge origin 151/261 2024-09-01 (95s)
+2026-10-28 12:58:23,100 INFO [coffee] ridge origin 176/261 2025-02-23 (107s)
+2026-10-28 12:58:34,337 INFO [coffee] ridge origin 201/261 2025-08-17 (118s)
+2026-10-28 12:58:44,444 INFO [coffee] ridge origin 226/261 2026-02-08 (128s)
+2026-10-28 12:58:54,782 INFO [coffee] ridge origin 251/261 2026-08-02 (138s)
+2026-10-28 12:58:59,812 INFO [coffee] saved 2088 predictions (143s)
+2026-10-28 12:59:47,938 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 12:59:47,943 INFO E005_ridge done

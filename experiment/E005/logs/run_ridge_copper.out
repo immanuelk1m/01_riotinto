@@ -1,0 +1,17 @@
+2026-10-28 12:56:36,385 INFO E005_ridge start: ['copper']
+2026-10-28 12:56:36,741 INFO [copper] ridge weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 12:56:37,499 INFO [copper] candidates: 314 (levels + chg4) from 280 raw
+2026-10-28 12:56:53,346 INFO [copper] ridge origin 1/269 2021-08-22 (17s)
+2026-10-28 12:57:15,657 INFO [copper] ridge origin 26/269 2022-02-13 (39s)
+2026-10-28 12:57:51,456 INFO [copper] ridge origin 51/269 2022-08-07 (75s)
+2026-10-28 12:58:21,035 INFO [copper] ridge origin 76/269 2023-01-29 (105s)
+2026-10-28 12:58:45,432 INFO [copper] ridge origin 101/269 2023-07-23 (129s)
+2026-10-28 12:59:07,483 INFO [copper] ridge origin 126/269 2024-01-14 (151s)
+2026-10-28 12:59:26,731 INFO [copper] ridge origin 151/269 2024-07-07 (170s)
+2026-10-28 12:59:47,495 INFO [copper] ridge origin 176/269 2024-12-29 (191s)
+2026-10-28 13:00:06,689 INFO [copper] ridge origin 201/269 2025-06-22 (210s)
+2026-10-28 13:00:24,764 INFO [copper] ridge origin 226/269 2025-12-14 (228s)
+2026-10-28 13:00:42,651 INFO [copper] ridge origin 251/269 2026-06-07 (246s)
+2026-10-28 13:00:52,357 INFO [copper] saved 2152 predictions (256s)
+2026-10-28 13:01:27,411 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 13:01:27,417 INFO E005_ridge done

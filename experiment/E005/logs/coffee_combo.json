@@ -1,0 +1,39 @@
+{
+  "commodity": "coffee",
+  "method": "combo",
+  "n_candidates": 116,
+  "horizons": {
+    "1": {
+      "n_pos": 59,
+      "n_neg": 57
+    },
+    "2": {
+      "n_pos": 58,
+      "n_neg": 58
+    },
+    "3": {
+      "n_pos": 59,
+      "n_neg": 57
+    },
+    "4": {
+      "n_pos": 58,
+      "n_neg": 58
+    },
+    "5": {
+      "n_pos": 60,
+      "n_neg": 56
+    },
+    "6": {
+      "n_pos": 60,
+      "n_neg": 56
+    },
+    "7": {
+      "n_pos": 60,
+      "n_neg": 56
+    },
+    "8": {
+      "n_pos": 60,
+      "n_neg": 56
+    }
+  }
+}

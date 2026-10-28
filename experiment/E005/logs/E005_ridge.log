@@ -1,0 +1,95 @@
+2026-10-28 12:56:36,385 INFO E005_ridge start: ['copper']
+2026-10-28 12:56:36,385 INFO E005_ridge start: ['corn']
+2026-10-28 12:56:36,386 INFO E005_ridge start: ['wti_crude_oil']
+2026-10-28 12:56:36,396 INFO E005_ridge start: ['coffee']
+2026-10-28 12:56:36,405 INFO E005_ridge start: ['gold']
+2026-10-28 12:56:36,726 INFO [corn] ridge weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 12:56:36,741 INFO [copper] ridge weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 12:56:36,743 INFO [coffee] ridge weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 12:56:36,750 INFO [wti_crude_oil] ridge weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 12:56:36,801 INFO [gold] ridge weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 12:56:36,873 INFO [coffee] candidates: 116 (levels + chg4) from 93 raw
+2026-10-28 12:56:36,975 INFO [corn] candidates: 185 (levels + chg4) from 128 raw
+2026-10-28 12:56:37,386 INFO [wti_crude_oil] candidates: 323 (levels + chg4) from 313 raw
+2026-10-28 12:56:37,499 INFO [copper] candidates: 314 (levels + chg4) from 280 raw
+2026-10-28 12:56:37,605 INFO [gold] candidates: 317 (levels + chg4) from 456 raw
+2026-10-28 12:56:43,485 INFO [coffee] ridge origin 1/261 2021-10-17 (7s)
+2026-10-28 12:56:45,292 INFO [corn] ridge origin 1/258 2021-11-07 (9s)
+2026-10-28 12:56:53,036 INFO [coffee] ridge origin 26/261 2022-04-10 (17s)
+2026-10-28 12:56:53,346 INFO [copper] ridge origin 1/269 2021-08-22 (17s)
+2026-10-28 12:56:55,800 INFO [wti_crude_oil] ridge origin 1/384 2019-06-09 (19s)
+2026-10-28 12:56:58,596 INFO [gold] ridge origin 1/384 2019-06-02 (22s)
+2026-10-28 12:56:59,005 INFO [corn] ridge origin 26/258 2022-05-01 (23s)
+2026-10-28 12:57:09,200 INFO [coffee] ridge origin 51/261 2022-10-02 (33s)
+2026-10-28 12:57:15,657 INFO [copper] ridge origin 26/269 2022-02-13 (39s)
+2026-10-28 12:57:24,911 INFO [corn] ridge origin 51/258 2022-10-23 (49s)
+2026-10-28 12:57:26,521 INFO [wti_crude_oil] ridge origin 26/384 2019-12-01 (50s)
+2026-10-28 12:57:26,980 INFO [coffee] ridge origin 76/261 2023-03-26 (51s)
+2026-10-28 12:57:27,322 INFO [gold] ridge origin 26/384 2019-11-24 (51s)
+2026-10-28 12:57:43,841 INFO [coffee] ridge origin 101/261 2023-09-17 (67s)
+2026-10-28 12:57:49,514 INFO [corn] ridge origin 76/258 2023-04-16 (73s)
+2026-10-28 12:57:51,456 INFO [copper] ridge origin 51/269 2022-08-07 (75s)
+2026-10-28 12:57:57,346 INFO [coffee] ridge origin 126/261 2024-03-10 (81s)
+2026-10-28 12:58:07,019 INFO [gold] ridge origin 51/384 2020-05-17 (91s)
+2026-10-28 12:58:08,407 INFO [corn] ridge origin 101/258 2023-10-08 (92s)
+2026-10-28 12:58:09,895 INFO [wti_crude_oil] ridge origin 51/384 2020-05-24 (94s)
+2026-10-28 12:58:11,415 INFO [coffee] ridge origin 151/261 2024-09-01 (95s)
+2026-10-28 12:58:21,035 INFO [copper] ridge origin 76/269 2023-01-29 (105s)
+2026-10-28 12:58:23,100 INFO [coffee] ridge origin 176/261 2025-02-23 (107s)
+2026-10-28 12:58:24,441 INFO [corn] ridge origin 126/258 2024-03-31 (108s)
+2026-10-28 12:58:34,337 INFO [coffee] ridge origin 201/261 2025-08-17 (118s)
+2026-10-28 12:58:39,580 INFO [gold] ridge origin 76/384 2020-11-08 (123s)
+2026-10-28 12:58:39,949 INFO [corn] ridge origin 151/258 2024-09-22 (124s)
+2026-10-28 12:58:42,200 INFO [wti_crude_oil] ridge origin 76/384 2020-11-15 (126s)
+2026-10-28 12:58:44,444 INFO [coffee] ridge origin 226/261 2026-02-08 (128s)
+2026-10-28 12:58:45,432 INFO [copper] ridge origin 101/269 2023-07-23 (129s)
+2026-10-28 12:58:53,641 INFO [corn] ridge origin 176/258 2025-03-16 (137s)
+2026-10-28 12:58:54,782 INFO [coffee] ridge origin 251/261 2026-08-02 (138s)
+2026-10-28 12:58:59,812 INFO [coffee] saved 2088 predictions (143s)
+2026-10-28 12:59:05,886 INFO [gold] ridge origin 101/384 2021-05-02 (149s)
+2026-10-28 12:59:07,483 INFO [copper] ridge origin 126/269 2024-01-14 (151s)
+2026-10-28 12:59:07,833 INFO [corn] ridge origin 201/258 2025-09-07 (151s)
+2026-10-28 12:59:10,931 INFO [wti_crude_oil] ridge origin 101/384 2021-05-09 (155s)
+2026-10-28 12:59:20,039 INFO [corn] ridge origin 226/258 2026-03-01 (164s)
+2026-10-28 12:59:26,731 INFO [copper] ridge origin 151/269 2024-07-07 (170s)
+2026-10-28 12:59:31,225 INFO [corn] ridge origin 251/258 2026-08-23 (175s)
+2026-10-28 12:59:31,252 INFO [gold] ridge origin 126/384 2021-10-24 (175s)
+2026-10-28 12:59:31,974 INFO [corn] saved 2064 predictions (176s)
+2026-10-28 12:59:36,293 INFO [wti_crude_oil] ridge origin 126/384 2021-10-31 (180s)
+2026-10-28 12:59:47,495 INFO [copper] ridge origin 176/269 2024-12-29 (191s)
+2026-10-28 12:59:47,938 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 12:59:47,943 INFO E005_ridge done
+2026-10-28 12:59:56,702 INFO [gold] ridge origin 151/384 2022-04-17 (200s)
+2026-10-28 13:00:02,409 INFO [wti_crude_oil] ridge origin 151/384 2022-04-24 (206s)
+2026-10-28 13:00:06,689 INFO [copper] ridge origin 201/269 2025-06-22 (210s)
+2026-10-28 13:00:10,276 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 13:00:10,283 INFO E005_ridge done
+2026-10-28 13:00:17,771 INFO [gold] ridge origin 176/384 2022-10-09 (221s)
+2026-10-28 13:00:24,764 INFO [copper] ridge origin 226/269 2025-12-14 (228s)
+2026-10-28 13:00:25,038 INFO [wti_crude_oil] ridge origin 176/384 2022-10-16 (229s)
+2026-10-28 13:00:38,390 INFO [gold] ridge origin 201/384 2023-04-02 (242s)
+2026-10-28 13:00:42,651 INFO [copper] ridge origin 251/269 2026-06-07 (246s)
+2026-10-28 13:00:47,223 INFO [wti_crude_oil] ridge origin 201/384 2023-04-09 (251s)
+2026-10-28 13:00:52,357 INFO [copper] saved 2152 predictions (256s)
+2026-10-28 13:00:59,318 INFO [gold] ridge origin 226/384 2023-09-24 (263s)
+2026-10-28 13:01:09,017 INFO [wti_crude_oil] ridge origin 226/384 2023-10-01 (273s)
+2026-10-28 13:01:20,935 INFO [gold] ridge origin 251/384 2024-03-17 (285s)
+2026-10-28 13:01:27,411 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 13:01:27,417 INFO E005_ridge done
+2026-10-28 13:01:31,892 INFO [wti_crude_oil] ridge origin 251/384 2024-03-24 (296s)
+2026-10-28 13:01:43,610 INFO [gold] ridge origin 276/384 2024-09-08 (307s)
+2026-10-28 13:01:55,457 INFO [wti_crude_oil] ridge origin 276/384 2024-09-15 (319s)
+2026-10-28 13:02:05,516 INFO [gold] ridge origin 301/384 2025-03-02 (329s)
+2026-10-28 13:02:17,366 INFO [wti_crude_oil] ridge origin 301/384 2025-03-09 (341s)
+2026-10-28 13:02:28,966 INFO [gold] ridge origin 326/384 2025-08-24 (353s)
+2026-10-28 13:02:41,140 INFO [wti_crude_oil] ridge origin 326/384 2025-08-31 (365s)
+2026-10-28 13:02:42,677 INFO [gold] ridge origin 351/384 2026-02-15 (366s)
+2026-10-28 13:02:54,500 INFO [wti_crude_oil] ridge origin 351/384 2026-02-22 (378s)
+2026-10-28 13:03:07,425 INFO [gold] ridge origin 376/384 2026-08-09 (391s)
+2026-10-28 13:03:18,742 INFO [gold] saved 3072 predictions (402s)
+2026-10-28 13:03:19,954 INFO [wti_crude_oil] ridge origin 376/384 2026-08-16 (404s)
+2026-10-28 13:03:29,975 INFO [wti_crude_oil] saved 3072 predictions (414s)
+2026-10-28 13:04:06,168 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 13:04:06,175 INFO E005_ridge done
+2026-10-28 13:04:16,627 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 13:04:16,634 INFO E005_ridge done

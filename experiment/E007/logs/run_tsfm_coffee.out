@@ -1,0 +1,18 @@
+2026-10-28 15:01:22,415 INFO E007_tsfm start: ['coffee']
+2026-10-28 15:01:22,582 INFO [coffee] tsfm weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+Loading weights:   0%|          | 0/143 [00:00<?, ?it/s]Loading weights: 100%|██████████| 143/143 [00:00<00:00, 11102.62it/s]
+2026-10-28 15:02:29,088 INFO [coffee] tsfm features=30 (67s)
+2026-10-28 15:02:56,460 INFO [coffee] tsfm origin 1/261 2021-10-17 (94s)
+2026-10-28 15:04:21,849 INFO [coffee] tsfm origin 26/261 2022-04-10 (179s)
+2026-10-28 15:05:04,153 INFO [coffee] tsfm origin 51/261 2022-10-02 (222s)
+2026-10-28 15:07:11,079 INFO [coffee] tsfm origin 76/261 2023-03-26 (349s)
+2026-10-28 15:07:46,909 INFO [coffee] tsfm origin 101/261 2023-09-17 (384s)
+2026-10-28 15:09:58,278 INFO [coffee] tsfm origin 126/261 2024-03-10 (516s)
+2026-10-28 15:10:47,184 INFO [coffee] tsfm origin 151/261 2024-09-01 (565s)
+2026-10-28 15:11:15,470 INFO [coffee] tsfm origin 176/261 2025-02-23 (593s)
+2026-10-28 15:13:30,276 INFO [coffee] tsfm origin 201/261 2025-08-17 (728s)
+2026-10-28 15:15:24,784 INFO [coffee] tsfm origin 226/261 2026-02-08 (842s)
+2026-10-28 15:16:25,256 INFO [coffee] tsfm origin 251/261 2026-08-02 (903s)
+2026-10-28 15:17:01,129 INFO [coffee] saved 2088 predictions (939s)
+2026-10-28 15:18:14,386 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 15:18:14,394 INFO E007_tsfm done

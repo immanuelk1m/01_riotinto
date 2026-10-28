@@ -1,0 +1,18 @@
+2026-10-28 14:58:05,240 INFO E007_tsfm start: ['corn']
+2026-10-28 14:58:05,413 INFO [corn] tsfm weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+Loading weights:   0%|          | 0/143 [00:00<?, ?it/s]Loading weights: 100%|██████████| 143/143 [00:00<00:00, 5709.63it/s]
+2026-10-28 14:59:10,589 INFO [corn] tsfm features=30 (65s)
+2026-10-28 14:59:34,902 INFO [corn] tsfm origin 1/258 2021-11-07 (90s)
+2026-10-28 15:00:15,295 INFO [corn] tsfm origin 26/258 2022-05-01 (130s)
+2026-10-28 15:01:51,857 INFO [corn] tsfm origin 51/258 2022-10-23 (227s)
+2026-10-28 15:02:44,425 INFO [corn] tsfm origin 76/258 2023-04-16 (279s)
+2026-10-28 15:04:30,519 INFO [corn] tsfm origin 101/258 2023-10-08 (385s)
+2026-10-28 15:05:23,434 INFO [corn] tsfm origin 126/258 2024-03-31 (438s)
+2026-10-28 15:07:21,443 INFO [corn] tsfm origin 151/258 2024-09-22 (556s)
+2026-10-28 15:08:43,232 INFO [corn] tsfm origin 176/258 2025-03-16 (638s)
+2026-10-28 15:09:49,340 INFO [corn] tsfm origin 201/258 2025-09-07 (704s)
+2026-10-28 15:10:44,228 INFO [corn] tsfm origin 226/258 2026-03-01 (759s)
+2026-10-28 15:11:59,945 INFO [corn] tsfm origin 251/258 2026-08-23 (835s)
+2026-10-28 15:12:21,801 INFO [corn] saved 2064 predictions (857s)
+2026-10-28 15:13:59,749 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 15:13:59,756 INFO E007_tsfm done

@@ -1,0 +1,17 @@
+2026-10-28 15:08:29,446 INFO E007_purged start: ['coffee']
+2026-10-28 15:08:29,602 INFO [coffee] purged weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 15:08:29,614 INFO [coffee] purged features=30 (0s)
+2026-10-28 15:09:10,629 INFO [coffee] purged origin 1/261 2021-10-17 (41s)
+2026-10-28 15:09:25,748 INFO [coffee] purged origin 26/261 2022-04-10 (56s)
+2026-10-28 15:10:06,193 INFO [coffee] purged origin 51/261 2022-10-02 (97s)
+2026-10-28 15:12:50,930 INFO [coffee] purged origin 76/261 2023-03-26 (261s)
+2026-10-28 15:13:59,394 INFO [coffee] purged origin 101/261 2023-09-17 (330s)
+2026-10-28 15:16:02,310 INFO [coffee] purged origin 126/261 2024-03-10 (453s)
+2026-10-28 15:17:04,714 INFO [coffee] purged origin 151/261 2024-09-01 (515s)
+2026-10-28 15:17:50,640 INFO [coffee] purged origin 176/261 2025-02-23 (561s)
+2026-10-28 15:19:05,478 INFO [coffee] purged origin 201/261 2025-08-17 (636s)
+2026-10-28 15:21:01,919 INFO [coffee] purged origin 226/261 2026-02-08 (752s)
+2026-10-28 15:21:55,366 INFO [coffee] purged origin 251/261 2026-08-02 (806s)
+2026-10-28 15:22:28,867 INFO [coffee] saved 2088 predictions (839s)
+2026-10-28 15:23:15,097 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 15:23:15,102 INFO E007_purged done

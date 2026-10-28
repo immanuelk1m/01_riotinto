@@ -1,0 +1,17 @@
+2026-10-28 14:52:49,962 INFO E007_robust start: ['copper']
+2026-10-28 14:52:50,236 INFO [copper] robust weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+2026-10-28 14:52:50,245 INFO [copper] robust features=30 (0s)
+2026-10-28 14:53:33,439 INFO [copper] robust origin 1/269 2021-08-22 (43s)
+2026-10-28 14:53:33,478 INFO [copper] robust origin 26/269 2022-02-13 (44s)
+2026-10-28 14:54:21,741 INFO [copper] robust origin 51/269 2022-08-07 (92s)
+2026-10-28 14:55:06,041 INFO [copper] robust origin 76/269 2023-01-29 (136s)
+2026-10-28 14:56:03,475 INFO [copper] robust origin 101/269 2023-07-23 (194s)
+2026-10-28 14:56:51,677 INFO [copper] robust origin 126/269 2024-01-14 (242s)
+2026-10-28 14:58:16,109 INFO [copper] robust origin 151/269 2024-07-07 (326s)
+2026-10-28 14:59:11,701 INFO [copper] robust origin 176/269 2024-12-29 (382s)
+2026-10-28 15:00:13,637 INFO [copper] robust origin 201/269 2025-06-22 (444s)
+2026-10-28 15:01:12,228 INFO [copper] robust origin 226/269 2025-12-14 (502s)
+2026-10-28 15:02:24,985 INFO [copper] robust origin 251/269 2026-06-07 (575s)
+2026-10-28 15:03:35,665 INFO [copper] saved 2152 predictions (646s)
+2026-10-28 15:04:53,161 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 15:04:53,170 INFO E007_robust done

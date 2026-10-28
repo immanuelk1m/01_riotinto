@@ -1,0 +1,17 @@
+2026-10-28 14:44:08,577 INFO E007_shallow start: ['corn']
+2026-10-28 14:44:08,909 INFO [corn] shallow weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 14:44:08,929 INFO [corn] shallow features=30 (0s)
+2026-10-28 14:44:20,127 INFO [corn] shallow origin 1/258 2021-11-07 (12s)
+2026-10-28 14:44:47,168 INFO [corn] shallow origin 26/258 2022-05-01 (39s)
+2026-10-28 14:45:25,307 INFO [corn] shallow origin 51/258 2022-10-23 (77s)
+2026-10-28 14:46:03,965 INFO [corn] shallow origin 76/258 2023-04-16 (115s)
+2026-10-28 14:46:44,744 INFO [corn] shallow origin 101/258 2023-10-08 (156s)
+2026-10-28 14:47:26,824 INFO [corn] shallow origin 126/258 2024-03-31 (198s)
+2026-10-28 14:47:58,833 INFO [corn] shallow origin 151/258 2024-09-22 (230s)
+2026-10-28 14:48:30,501 INFO [corn] shallow origin 176/258 2025-03-16 (262s)
+2026-10-28 14:49:11,166 INFO [corn] shallow origin 201/258 2025-09-07 (303s)
+2026-10-28 14:49:52,337 INFO [corn] shallow origin 226/258 2026-03-01 (344s)
+2026-10-28 14:50:14,865 INFO [corn] shallow origin 251/258 2026-08-23 (366s)
+2026-10-28 14:50:14,972 INFO [corn] saved 2064 predictions (366s)
+2026-10-28 14:51:50,455 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 14:51:50,470 INFO E007_shallow done

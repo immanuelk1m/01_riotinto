@@ -1,0 +1,22 @@
+2026-10-28 14:33:16,991 INFO E007_anomaly start: ['wti_crude_oil']
+2026-10-28 14:33:17,384 INFO [wti_crude_oil] anomaly weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 14:33:17,416 INFO [wti_crude_oil] anomaly features=33 (0s)
+2026-10-28 14:34:20,371 INFO [wti_crude_oil] anomaly origin 1/384 2019-06-09 (63s)
+2026-10-28 14:34:20,400 INFO [wti_crude_oil] anomaly origin 26/384 2019-12-01 (63s)
+2026-10-28 14:35:29,118 INFO [wti_crude_oil] anomaly origin 51/384 2020-05-24 (132s)
+2026-10-28 14:36:38,869 INFO [wti_crude_oil] anomaly origin 76/384 2020-11-15 (202s)
+2026-10-28 14:37:49,823 INFO [wti_crude_oil] anomaly origin 101/384 2021-05-09 (273s)
+2026-10-28 14:39:08,054 INFO [wti_crude_oil] anomaly origin 126/384 2021-10-31 (351s)
+2026-10-28 14:40:30,003 INFO [wti_crude_oil] anomaly origin 151/384 2022-04-24 (433s)
+2026-10-28 14:41:53,372 INFO [wti_crude_oil] anomaly origin 176/384 2022-10-16 (516s)
+2026-10-28 14:43:23,575 INFO [wti_crude_oil] anomaly origin 201/384 2023-04-09 (607s)
+2026-10-28 14:44:54,176 INFO [wti_crude_oil] anomaly origin 226/384 2023-10-01 (697s)
+2026-10-28 14:46:28,317 INFO [wti_crude_oil] anomaly origin 251/384 2024-03-24 (791s)
+2026-10-28 14:48:04,374 INFO [wti_crude_oil] anomaly origin 276/384 2024-09-15 (887s)
+2026-10-28 14:49:42,597 INFO [wti_crude_oil] anomaly origin 301/384 2025-03-09 (986s)
+2026-10-28 14:51:29,721 INFO [wti_crude_oil] anomaly origin 326/384 2025-08-31 (1093s)
+2026-10-28 14:53:09,558 INFO [wti_crude_oil] anomaly origin 351/384 2026-02-22 (1193s)
+2026-10-28 14:54:42,166 INFO [wti_crude_oil] anomaly origin 376/384 2026-08-16 (1285s)
+2026-10-28 14:54:42,296 INFO [wti_crude_oil] saved 3072 predictions (1285s)
+2026-10-28 14:56:27,427 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 14:56:27,437 INFO E007_anomaly done

@@ -1,0 +1,17 @@
+2026-10-28 15:03:20,440 INFO E007_purged start: ['corn']
+2026-10-28 15:03:20,693 INFO [corn] purged weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 15:03:20,702 INFO [corn] purged features=30 (0s)
+2026-10-28 15:03:59,412 INFO [corn] purged origin 1/258 2021-11-07 (39s)
+2026-10-28 15:04:52,412 INFO [corn] purged origin 26/258 2022-05-01 (92s)
+2026-10-28 15:06:46,363 INFO [corn] purged origin 51/258 2022-10-23 (206s)
+2026-10-28 15:08:43,572 INFO [corn] purged origin 76/258 2023-04-16 (323s)
+2026-10-28 15:10:40,659 INFO [corn] purged origin 101/258 2023-10-08 (440s)
+2026-10-28 15:12:00,713 INFO [corn] purged origin 126/258 2024-03-31 (520s)
+2026-10-28 15:14:30,206 INFO [corn] purged origin 151/258 2024-09-22 (670s)
+2026-10-28 15:15:45,444 INFO [corn] purged origin 176/258 2025-03-16 (745s)
+2026-10-28 15:17:18,078 INFO [corn] purged origin 201/258 2025-09-07 (838s)
+2026-10-28 15:18:29,872 INFO [corn] purged origin 226/258 2026-03-01 (909s)
+2026-10-28 15:19:45,723 INFO [corn] purged origin 251/258 2026-08-23 (985s)
+2026-10-28 15:19:57,422 INFO [corn] saved 2064 predictions (997s)
+2026-10-28 15:21:01,444 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 15:21:01,452 INFO E007_purged done

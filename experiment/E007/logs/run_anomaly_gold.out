@@ -1,0 +1,22 @@
+2026-10-28 14:33:17,499 INFO E007_anomaly start: ['gold']
+2026-10-28 14:33:17,922 INFO [gold] anomaly weeks=1990-01-07..2026-10-04 N=1918 first_origin=2019-06-02 (idx 1534) origins=384
+2026-10-28 14:33:17,952 INFO [gold] anomaly features=33 (0s)
+2026-10-28 14:34:45,999 INFO [gold] anomaly origin 1/384 2019-06-02 (89s)
+2026-10-28 14:34:46,042 INFO [gold] anomaly origin 26/384 2019-11-24 (89s)
+2026-10-28 14:37:09,016 INFO [gold] anomaly origin 51/384 2020-05-17 (232s)
+2026-10-28 14:39:39,351 INFO [gold] anomaly origin 76/384 2020-11-08 (382s)
+2026-10-28 14:42:17,457 INFO [gold] anomaly origin 101/384 2021-05-02 (540s)
+2026-10-28 14:44:01,899 INFO [gold] anomaly origin 126/384 2021-10-24 (644s)
+2026-10-28 14:45:39,082 INFO [gold] anomaly origin 151/384 2022-04-17 (742s)
+2026-10-28 14:47:21,877 INFO [gold] anomaly origin 176/384 2022-10-09 (844s)
+2026-10-28 14:50:25,308 INFO [gold] anomaly origin 201/384 2023-04-02 (1028s)
+2026-10-28 14:52:43,931 INFO [gold] anomaly origin 226/384 2023-09-24 (1166s)
+2026-10-28 14:54:37,874 INFO [gold] anomaly origin 251/384 2024-03-17 (1280s)
+2026-10-28 14:56:15,983 INFO [gold] anomaly origin 276/384 2024-09-08 (1378s)
+2026-10-28 14:57:47,960 INFO [gold] anomaly origin 301/384 2025-03-02 (1470s)
+2026-10-28 14:59:33,595 INFO [gold] anomaly origin 326/384 2025-08-24 (1576s)
+2026-10-28 15:02:04,271 INFO [gold] anomaly origin 351/384 2026-02-15 (1727s)
+2026-10-28 15:05:54,787 INFO [gold] anomaly origin 376/384 2026-08-09 (1957s)
+2026-10-28 15:06:57,068 INFO [gold] saved 3072 predictions (2020s)
+2026-10-28 15:08:45,204 INFO [gold] saved gold.mp4 (384 frames)
+2026-10-28 15:08:45,214 INFO E007_anomaly done

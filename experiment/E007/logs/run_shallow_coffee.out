@@ -1,0 +1,17 @@
+2026-10-28 14:47:47,848 INFO E007_shallow start: ['coffee']
+2026-10-28 14:47:48,160 INFO [coffee] shallow weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 14:47:48,183 INFO [coffee] shallow features=30 (0s)
+2026-10-28 14:47:58,805 INFO [coffee] shallow origin 1/261 2021-10-17 (11s)
+2026-10-28 14:47:58,869 INFO [coffee] shallow origin 26/261 2022-04-10 (11s)
+2026-10-28 14:48:10,307 INFO [coffee] shallow origin 51/261 2022-10-02 (22s)
+2026-10-28 14:48:27,891 INFO [coffee] shallow origin 76/261 2023-03-26 (40s)
+2026-10-28 14:48:40,645 INFO [coffee] shallow origin 101/261 2023-09-17 (53s)
+2026-10-28 14:48:57,479 INFO [coffee] shallow origin 126/261 2024-03-10 (70s)
+2026-10-28 14:49:10,209 INFO [coffee] shallow origin 151/261 2024-09-01 (82s)
+2026-10-28 14:49:24,671 INFO [coffee] shallow origin 176/261 2025-02-23 (97s)
+2026-10-28 14:49:45,751 INFO [coffee] shallow origin 201/261 2025-08-17 (118s)
+2026-10-28 14:50:31,752 INFO [coffee] shallow origin 226/261 2026-02-08 (164s)
+2026-10-28 14:51:08,195 INFO [coffee] shallow origin 251/261 2026-08-02 (200s)
+2026-10-28 14:51:29,324 INFO [coffee] saved 2088 predictions (221s)
+2026-10-28 14:52:59,806 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 14:52:59,820 INFO E007_shallow done

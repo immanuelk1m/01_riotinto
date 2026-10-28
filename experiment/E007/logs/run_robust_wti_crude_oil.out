@@ -1,0 +1,22 @@
+2026-10-28 14:33:17,738 INFO E007_robust start: ['wti_crude_oil']
+2026-10-28 14:33:17,996 INFO [wti_crude_oil] robust weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 14:33:18,007 INFO [wti_crude_oil] robust features=30 (0s)
+2026-10-28 14:34:05,582 INFO [wti_crude_oil] robust origin 1/384 2019-06-09 (48s)
+2026-10-28 14:34:05,640 INFO [wti_crude_oil] robust origin 26/384 2019-12-01 (48s)
+2026-10-28 14:35:45,263 INFO [wti_crude_oil] robust origin 51/384 2020-05-24 (148s)
+2026-10-28 14:36:36,369 INFO [wti_crude_oil] robust origin 76/384 2020-11-15 (199s)
+2026-10-28 14:38:18,647 INFO [wti_crude_oil] robust origin 101/384 2021-05-09 (301s)
+2026-10-28 14:39:21,009 INFO [wti_crude_oil] robust origin 126/384 2021-10-31 (363s)
+2026-10-28 14:40:22,151 INFO [wti_crude_oil] robust origin 151/384 2022-04-24 (424s)
+2026-10-28 14:41:33,370 INFO [wti_crude_oil] robust origin 176/384 2022-10-16 (496s)
+2026-10-28 14:42:40,460 INFO [wti_crude_oil] robust origin 201/384 2023-04-09 (563s)
+2026-10-28 14:43:42,589 INFO [wti_crude_oil] robust origin 226/384 2023-10-01 (625s)
+2026-10-28 14:44:44,538 INFO [wti_crude_oil] robust origin 251/384 2024-03-24 (687s)
+2026-10-28 14:45:50,313 INFO [wti_crude_oil] robust origin 276/384 2024-09-15 (753s)
+2026-10-28 14:46:54,710 INFO [wti_crude_oil] robust origin 301/384 2025-03-09 (817s)
+2026-10-28 14:48:06,178 INFO [wti_crude_oil] robust origin 326/384 2025-08-31 (888s)
+2026-10-28 14:49:17,561 INFO [wti_crude_oil] robust origin 351/384 2026-02-22 (960s)
+2026-10-28 14:50:35,286 INFO [wti_crude_oil] robust origin 376/384 2026-08-16 (1038s)
+2026-10-28 14:50:35,513 INFO [wti_crude_oil] saved 3072 predictions (1038s)
+2026-10-28 14:52:45,204 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 14:52:45,227 INFO E007_robust done

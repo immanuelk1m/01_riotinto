@@ -1,0 +1,17 @@
+2026-10-28 15:14:23,552 INFO E007_anomaly start: ['coffee']
+2026-10-28 15:14:23,719 INFO [coffee] anomaly weeks=2001-11-11..2026-10-11 N=1301 first_origin=2021-10-17 (idx 1040) origins=261
+2026-10-28 15:14:23,747 INFO [coffee] anomaly features=33 (0s)
+2026-10-28 15:15:32,995 INFO [coffee] anomaly origin 1/261 2021-10-17 (69s)
+2026-10-28 15:15:33,032 INFO [coffee] anomaly origin 26/261 2022-04-10 (69s)
+2026-10-28 15:16:43,164 INFO [coffee] anomaly origin 51/261 2022-10-02 (140s)
+2026-10-28 15:18:16,205 INFO [coffee] anomaly origin 76/261 2023-03-26 (233s)
+2026-10-28 15:19:30,710 INFO [coffee] anomaly origin 101/261 2023-09-17 (307s)
+2026-10-28 15:20:54,632 INFO [coffee] anomaly origin 126/261 2024-03-10 (391s)
+2026-10-28 15:21:47,814 INFO [coffee] anomaly origin 151/261 2024-09-01 (444s)
+2026-10-28 15:23:13,385 INFO [coffee] anomaly origin 176/261 2025-02-23 (530s)
+2026-10-28 15:24:15,546 INFO [coffee] anomaly origin 201/261 2025-08-17 (592s)
+2026-10-28 15:25:06,415 INFO [coffee] anomaly origin 226/261 2026-02-08 (643s)
+2026-10-28 15:25:54,395 INFO [coffee] anomaly origin 251/261 2026-08-02 (691s)
+2026-10-28 15:26:46,035 INFO [coffee] saved 2088 predictions (742s)
+2026-10-28 15:27:29,207 INFO [coffee] saved coffee.mp4 (261 frames)
+2026-10-28 15:27:29,212 INFO E007_anomaly done

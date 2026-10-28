@@ -1,0 +1,17 @@
+2026-10-28 15:04:58,881 INFO E007_robust start: ['corn']
+2026-10-28 15:04:59,124 INFO [corn] robust weeks=2002-02-17..2026-10-11 N=1287 first_origin=2021-11-07 (idx 1029) origins=258
+2026-10-28 15:04:59,134 INFO [corn] robust features=30 (0s)
+2026-10-28 15:05:40,252 INFO [corn] robust origin 1/258 2021-11-07 (41s)
+2026-10-28 15:06:54,735 INFO [corn] robust origin 26/258 2022-05-01 (116s)
+2026-10-28 15:08:55,078 INFO [corn] robust origin 51/258 2022-10-23 (236s)
+2026-10-28 15:10:39,855 INFO [corn] robust origin 76/258 2023-04-16 (341s)
+2026-10-28 15:12:54,843 INFO [corn] robust origin 101/258 2023-10-08 (476s)
+2026-10-28 15:14:30,728 INFO [corn] robust origin 126/258 2024-03-31 (572s)
+2026-10-28 15:15:51,909 INFO [corn] robust origin 151/258 2024-09-22 (653s)
+2026-10-28 15:17:21,488 INFO [corn] robust origin 176/258 2025-03-16 (743s)
+2026-10-28 15:18:40,724 INFO [corn] robust origin 201/258 2025-09-07 (822s)
+2026-10-28 15:19:27,111 INFO [corn] robust origin 226/258 2026-03-01 (868s)
+2026-10-28 15:20:25,108 INFO [corn] robust origin 251/258 2026-08-23 (926s)
+2026-10-28 15:20:32,159 INFO [corn] saved 2064 predictions (933s)
+2026-10-28 15:21:25,578 INFO [corn] saved corn.mp4 (258 frames)
+2026-10-28 15:21:25,584 INFO E007_robust done

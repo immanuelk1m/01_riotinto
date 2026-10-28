@@ -1,0 +1,18 @@
+2026-10-28 14:48:42,106 INFO E007_tsfm start: ['copper']
+2026-10-28 14:48:42,346 INFO [copper] tsfm weeks=2001-01-07..2026-10-11 N=1345 first_origin=2021-08-22 (idx 1076) origins=269
+Loading weights:   0%|          | 0/143 [00:00<?, ?it/s]Loading weights:  87%|████████▋ | 125/143 [00:00<00:00, 1224.46it/s]Loading weights: 100%|██████████| 143/143 [00:00<00:00, 1376.36it/s]
+2026-10-28 14:50:12,191 INFO [copper] tsfm features=30 (90s)
+2026-10-28 14:50:43,233 INFO [copper] tsfm origin 1/269 2021-08-22 (121s)
+2026-10-28 14:50:43,311 INFO [copper] tsfm origin 26/269 2022-02-13 (121s)
+2026-10-28 14:51:17,588 INFO [copper] tsfm origin 51/269 2022-08-07 (155s)
+2026-10-28 14:51:53,918 INFO [copper] tsfm origin 76/269 2023-01-29 (192s)
+2026-10-28 14:52:24,898 INFO [copper] tsfm origin 101/269 2023-07-23 (223s)
+2026-10-28 14:52:57,437 INFO [copper] tsfm origin 126/269 2024-01-14 (255s)
+2026-10-28 14:53:26,889 INFO [copper] tsfm origin 151/269 2024-07-07 (285s)
+2026-10-28 14:53:58,618 INFO [copper] tsfm origin 176/269 2024-12-29 (317s)
+2026-10-28 14:54:32,067 INFO [copper] tsfm origin 201/269 2025-06-22 (350s)
+2026-10-28 14:55:13,973 INFO [copper] tsfm origin 226/269 2025-12-14 (392s)
+2026-10-28 14:56:02,706 INFO [copper] tsfm origin 251/269 2026-06-07 (441s)
+2026-10-28 14:56:42,868 INFO [copper] saved 2152 predictions (481s)
+2026-10-28 14:58:00,207 INFO [copper] saved copper.mp4 (269 frames)
+2026-10-28 14:58:00,222 INFO E007_tsfm done

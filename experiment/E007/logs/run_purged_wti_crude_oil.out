@@ -1,0 +1,22 @@
+2026-10-28 14:33:17,271 INFO E007_purged start: ['wti_crude_oil']
+2026-10-28 14:33:17,537 INFO [wti_crude_oil] purged weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
+2026-10-28 14:33:17,548 INFO [wti_crude_oil] purged features=30 (0s)
+2026-10-28 14:33:57,225 INFO [wti_crude_oil] purged origin 1/384 2019-06-09 (40s)
+2026-10-28 14:33:57,254 INFO [wti_crude_oil] purged origin 26/384 2019-12-01 (40s)
+2026-10-28 14:35:22,397 INFO [wti_crude_oil] purged origin 51/384 2020-05-24 (125s)
+2026-10-28 14:36:22,687 INFO [wti_crude_oil] purged origin 76/384 2020-11-15 (185s)
+2026-10-28 14:38:08,346 INFO [wti_crude_oil] purged origin 101/384 2021-05-09 (291s)
+2026-10-28 14:39:08,377 INFO [wti_crude_oil] purged origin 126/384 2021-10-31 (351s)
+2026-10-28 14:40:15,541 INFO [wti_crude_oil] purged origin 151/384 2022-04-24 (418s)
+2026-10-28 14:41:11,051 INFO [wti_crude_oil] purged origin 176/384 2022-10-16 (474s)
+2026-10-28 14:42:08,441 INFO [wti_crude_oil] purged origin 201/384 2023-04-09 (531s)
+2026-10-28 14:43:06,280 INFO [wti_crude_oil] purged origin 226/384 2023-10-01 (589s)
+2026-10-28 14:44:04,914 INFO [wti_crude_oil] purged origin 251/384 2024-03-24 (648s)
+2026-10-28 14:45:07,015 INFO [wti_crude_oil] purged origin 276/384 2024-09-15 (710s)
+2026-10-28 14:46:13,654 INFO [wti_crude_oil] purged origin 301/384 2025-03-09 (776s)
+2026-10-28 14:47:21,491 INFO [wti_crude_oil] purged origin 326/384 2025-08-31 (844s)
+2026-10-28 14:48:29,707 INFO [wti_crude_oil] purged origin 351/384 2026-02-22 (912s)
+2026-10-28 14:49:36,402 INFO [wti_crude_oil] purged origin 376/384 2026-08-16 (979s)
+2026-10-28 14:49:36,627 INFO [wti_crude_oil] saved 3072 predictions (979s)
+2026-10-28 14:51:55,010 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
+2026-10-28 14:51:55,031 INFO E007_purged done

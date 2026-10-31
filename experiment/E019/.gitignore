@@ -1,0 +1,6 @@
+data/
+inputs/
+logs/
+results/
+__pycache__/
+leaderboard.sqlite

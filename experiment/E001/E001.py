@@ -42,7 +42,6 @@ DSN = "dbname=commodity"
 
 # commodity -> (ml panel, daily price series in public.value)
 TARGETS = {
-    "wti_crude_oil": ("wti_crude_oil", "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel"),
     "copper": ("copper", "Com_LME_Cu_Cash_Bid"),
     "gold": ("gold", "Com_LBMA_Gold_Price_PM_USD_V_0"),
     "corn": ("corn", "Com_Barchart_Cash_National_Corn_Index"),

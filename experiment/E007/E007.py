@@ -54,7 +54,6 @@ LOG_DIR, RES_DIR, DATA_DIR, FEAT_DIR = (EXP_DIR / d for d in ("logs", "results",
 LEADERBOARD = ROOT / "leaderboard.sqlite"
 
 TARGETS = {
-    "wti_crude_oil": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
     "copper": "Com_LME_Cu_Cash_Bid",
     "gold": "Com_LBMA_Gold_Price_PM_USD_V_0",
     "corn": "Com_Barchart_Cash_National_Corn_Index",

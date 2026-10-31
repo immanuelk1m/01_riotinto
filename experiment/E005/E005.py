@@ -47,11 +47,11 @@ DSN = "dbname=commodity"
 
 # commodity -> (ml panel, daily price series in public.value)
 TARGETS = {
-    "wti_crude_oil": ("wti_crude_oil", "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel"),
     "copper": ("copper", "Com_LME_Cu_Cash_Bid"),
     "gold": ("gold", "Com_LBMA_Gold_Price_PM_USD_V_0"),
     "corn": ("corn", "Com_Barchart_Cash_National_Corn_Index"),
     "coffee": ("coffee", "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag"),
+    "wheat": ("wheat", "Com_Barchart_Cash_Soft_Red_Wheat_Index"),
 }
 H = 8
 TRAIN_FRAC = 0.8

@@ -4,6 +4,12 @@
 **Date:** 2026-10-31
 **Status:** complete — literature verified; E018, E019, E020 and E021 implemented and evaluated
 
+**Protocol:** design and evaluation follow [`PROTOCOL.md`](../../../PROTOCOL.md)
+(gates A-E). Re-audited under Gate E, `E019_cap` is **non-transfer**: its margin
+interval includes zero (-0.00001 to 0.00050 in capped-APE units) even though 11 of 16
+decisive 26-week blocks beat persistence. No experiment in this study is state of the
+art, and none is described that way.
+
 ## Executive summary
 
 Round 1 (`regime-transfer-20261031`) found that no direction met the five transfer
@@ -36,6 +42,10 @@ expanding the panel from six commodities to 730 weekly series from the local
 database: the validation-to-outer rank correlation became measurable at 0.263, yet
 only 9 of 730 series certified an edge at alpha 0.05 and the mean gains still
 disagreed in sign (validation -0.004, outer +0.003).
+
+**Verdict: no SOTA.** Every direction in E018-E021 lands within 0.03 MAPE of
+persistence, none passes Gate E, and the largest observed margin (E019 `cap`, -0.021
+MAPE) has an interval that contains zero.
 
 The measured reason is not the rule but the evidence: per-commodity weekly evidence
 carries an effect of 0.02–0.12 percentage points against 1.5 pp weekly noise

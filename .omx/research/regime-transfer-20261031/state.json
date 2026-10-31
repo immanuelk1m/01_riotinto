@@ -1,0 +1,22 @@
+{
+  "id": "regime-transfer-20261031",
+  "goal": "Find 2024+ literature-backed methods whose internal validation gains transfer to the immediately following commodity-forecast block, then run causal Colab experiments.",
+  "status": "complete",
+  "mode": "auto",
+  "iteration": 1,
+  "maxIterations": 10,
+  "stages": [
+    {"id": 1, "name": "online time-series and delayed feedback", "status": "complete"},
+    {"id": 2, "name": "representation and domain generalization", "status": "complete"},
+    {"id": 3, "name": "weather and climate robustness", "status": "complete"},
+    {"id": 4, "name": "physics and scientific ML adaptation", "status": "complete"},
+    {"id": 5, "name": "temporal model selection and aggregation", "status": "complete"},
+    {"id": 6, "name": "repository feasibility mapping", "status": "complete"},
+    {"id": 7, "name": "E015-E017 implementation and Colab evaluation", "status": "complete", "completedAt": "2026-10-31T09:43:31+09:00"}
+  ],
+  "verification": {"status": "passed", "conflicts": []},
+  "createdAt": "2026-10-31T01:20:00+09:00",
+  "updatedAt": "2026-10-31T09:43:31+09:00",
+  "completedAt": "2026-10-31T09:43:31+09:00",
+  "result": "No direction met all five transfer criteria. E015 frozen candidate passed the accuracy, block-transfer, and commodity-safety thresholds, but the existing deploy gate reversed the gain."
+}

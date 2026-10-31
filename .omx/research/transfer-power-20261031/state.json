@@ -1,0 +1,31 @@
+{
+  "id": "transfer-power-20261031",
+  "goal": "2024+ 문헌으로 '내부 검증 개선이 다음 평가 블록으로 전이되지 않는' 문제를 재조사하고, 고른 실험 방향을 실험별 tmux 세션·pane별 1방향으로 colab CLI에 할당해 실행한다.",
+  "status": "complete",
+  "mode": "auto",
+  "iteration": 2,
+  "maxIterations": 10,
+  "stages": [
+    {"id": 1, "name": "literature: sequential inference, selective conformal, online FDR", "status": "complete"},
+    {"id": 2, "name": "literature: weather/climate, physics ML, representation learning", "status": "complete"},
+    {"id": 3, "name": "E018 anytime-valid gate implementation and evaluation (3 directions, Colab panes)", "status": "complete"},
+    {"id": 4, "name": "E019 cross-sectional online FDR implementation and evaluation (3 directions, Colab panes)", "status": "complete"},
+    {"id": 5, "name": "report + transfer contract written to .omx/research", "status": "complete"},
+    {"id": 6, "name": "E020 model-side experiment", "status": "descoped", "note": "power is the binding constraint (0.02pp effect vs 1.5pp weekly noise); model capacity cannot fix it. Replaced by panel expansion via the local commodity DB as future work."}
+  ],
+  "panes": {
+    "E018": {"tmux": "E018", "session_dir": "experiment/E018", "panes": {"0": "eproc", "1": "cs_weight", "2": "smcs"}, "colab_sessions": ["e018-eproc", "e018-cs_weight", "e018-smcs"], "result_mape": 6.194, "deploy_rate": 0.0},
+    "E019": {"tmux": "E019", "session_dir": "experiment/E019", "panes": {"0": "ebh", "1": "cap", "2": "pool"}, "colab_sessions": ["e019-ebh", "e019-cap", "e019-pool"], "result_mape": {"ebh": 6.194, "cap": 6.173, "pool": 6.194}, "deploy_rate": {"ebh": 0.0, "cap": 0.105, "pool": 0.0}}
+  },
+  "key_finding": "E018: every anytime-valid gate refuses to deploy (0.0%), scoring 6.194 vs the E015 gate's 6.218 — decision rules cannot manufacture power. E019 cap: 6.173 beats persistence by 0.021 at a 10.5% deploy rate, but 27% of deployed commodity-weeks were worse against a 10% target, so it fails the predeclared contract. The binding constraint is the size of the evidence base, not the rule or the model.",
+  "verification": {"status": "passed", "conflicts": []},
+  "artifacts": {
+    "report": ".omx/research/transfer-power-20261031/report.md",
+    "colab_cli_docs": ".omx/docs/colab-cli.md",
+    "experiments": ["experiment/E018", "experiment/E019"],
+    "leaderboard_rows": {"E018": 324, "E019": 324}
+  },
+  "createdAt": "2026-10-31T10:08:00+09:00",
+  "updatedAt": "2026-10-31T10:58:00+09:00",
+  "completedAt": "2026-10-31T10:58:00+09:00"
+}

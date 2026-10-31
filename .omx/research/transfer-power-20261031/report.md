@@ -2,7 +2,7 @@
 
 **Session ID:** `transfer-power-20261031`
 **Date:** 2026-10-31
-**Status:** complete — literature verified, E018 and E019 implemented and evaluated on Colab, E020 de-scoped with rationale
+**Status:** complete — literature verified; E018, E019, E020 and E021 implemented and evaluated
 
 ## Executive summary
 
@@ -26,6 +26,16 @@ the study to beat persistence (6.173 vs 6.194), yet 27% of its deployed
 commodity-weeks were worse than persistence against a 10% target, so it fails the
 predeclared contract: the aggregate gain is carried by a minority of large wins,
 not by a calibrated decision rule.
+
+Two further experiments closed the loop in the same round. E020 changed the
+deployed model instead of the rule (regime-window refits, test-time adaptation) and
+moved raw MAPE by up to 0.13 points, so the model-side lever is measurable — but
+every direction still ended at 6.195-6.201 against persistence's 6.194, i.e.
+detectably different and not useful. E021 attacked the evidence base directly by
+expanding the panel from six commodities to 730 weekly series from the local
+database: the validation-to-outer rank correlation became measurable at 0.263, yet
+only 9 of 730 series certified an edge at alpha 0.05 and the mean gains still
+disagreed in sign (validation -0.004, outer +0.003).
 
 The measured reason is not the rule but the evidence: per-commodity weekly evidence
 carries an effect of 0.02–0.12 percentage points against 1.5 pp weekly noise
@@ -110,34 +120,45 @@ target. The next rule must control risk directly (e.g. conformal risk control on
 the per-week loss difference) instead of the quantile of recent means; a
 post-hoc quantile threshold is a picker, not a guarantee.
 
-## E020 de-scoped (with rationale), future work
+## Implemented this round: E020 model-side adaptation
 
-The survey selected a model-side experiment (E020) with three directions:
-`tfps` pattern-specific experts, `tta` past-only test-time adaptation, `steer`
-representation steering. After E018 and E019 it is **not** scheduled as a model
-variant, for two evidence-based reasons:
+Same protocol as E014/E015 (six commodities, expanding 80% origins, 26-week refits,
+ERM penalty zero), changing only what the deployed model is trained on.
 
-1. The binding constraint measured here is the evidence base, not the model.
-   A 0.02-0.12 percentage-point effect against 1.5 pp weekly noise needs roughly
-   20,000 weekly observations; retraining a GRU differently cannot change that
-   arithmetic, and the three round-1 model-side ablations (E013, E014, E017) all
-   landed inside the same noise band.
-2. `E019_cap` already produced the round's only positive signal (6.173 versus
-   6.194 persistence) and failed its contract on the deployed-worse rate, which
-   is a calibration defect in the decision rule, not a capacity defect in the
-   model. Fixing risk control is cheaper and strictly more informative than
-   another architecture.
+| Direction | Rule | Deployed MAPE | Candidate | Raw |
+| --- | --- | --- | --- | --- |
+| `base` | refit on every mature row (E015-fresh control) | 6.195 | 6.206 | 6.628 |
+| `recent` | refit on the last 156 mature rows only | 6.201 | 6.227 | 6.757 |
+| `tta` | refit on all rows, then continue 5 epochs on the last 52 | 6.196 | 6.206 | 6.626 |
+| naive | persistence | 6.194 | — | — |
 
-Replacement priority for the next round: **expand the panel** using the local
-`commodity` database (11,844 inventoried series, 4 public tables). The database is
-reachable only from the Mac mini, so preparation and replay stay local while only
-genuine GPU training would use Colab. Concretely:
+Reading: the model-side lever is real and measurable (raw MAPE spans 6.626-6.757),
+unlike the decision-rule lever, but no direction beats persistence. `recent`
+training is the worst of the three on both candidate and raw, which is evidence
+against the "recent regime is more relevant" assumption on this panel.
 
-- select every weekly-resolvable price series with at least ~250 weeks of history,
-  build the same bounded weekly difference for a cheap per-series candidate, and
-  re-run the E019 family at the larger multiplicity;
-- only if the expanded panel certifies an edge does a model-side (E020) direction
-  become worth GPU time.
+## Implemented this round: E021 panel expansion
+
+Every weekly-resolvable price series in the local `commodity` database with at
+least 250 weeks of history: **730 series**. Per series, the repository's expanding
+walk-forward protocol with a cheap multi-output ridge candidate (four lagged weekly
+returns plus a 52-week level z-score), internal validation = three expanding folds
+inside the first 80%.
+
+| Direction | Deploy rate | Series certified at alpha=0.05 | Validation-to-outer rank correlation |
+| --- | --- | --- | --- |
+| `ridge` (per series) | 0.0026 | 9 / 730 | **0.263** |
+| `ebh` (cross-series e-BH, 0.10) | 0.000 | 9 / 730 | 0.263 |
+| `pooled` | 0.000 | 9 / 730 | 0.263 |
+| mean gain | — | validation **-0.0038**, outer **+0.0028** | — |
+
+Reading: expanding the panel by 120x makes the validation-to-outer relationship
+measurable (rank correlation 0.263 instead of ~0 across six commodities) — the
+first genuinely positive methodological result of the study — but the effect is
+still too small to certify: 1.2% of series reject the no-edge null, and the mean
+gains disagree in sign, which is what a near-zero true effect looks like. The
+cross-series e-BH cannot fire at all with 730 units and e-values of order 1-2,
+because its smallest threshold is m/alpha = 7300.
 
 ## Predeclared success contract
 

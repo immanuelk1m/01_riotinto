@@ -68,7 +68,12 @@ a two-series result clears the gates.
 | round | panel | directions | tests under Holm |
 |---|---|---|---|
 | E022–E026 (closed) | 15 series in 5 sector panels | 25 | 25 |
-| E027 (open) | `corn`, `coffee_r` | 3 | 9 (direction × statement) |
+| E027 (closed 2026-11-01) | `corn`, `coffee_r` | 3 | 9 (direction × statement) |
+
+E027 result: **0 of 9 pass Holm**; the best development-window statement (`gbrt_cc` coffee,
+p = 0.007 vs α₁ = 0.00556) falls back to −0.0006 on the sealed block. See
+[`E027/RESULTS.md`](E027/RESULTS.md). The panel stays two series; the only open path is
+the forward evaluation registered there.
 
 Accepted costs, stated before E027 was run:
 

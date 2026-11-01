@@ -1,0 +1,17 @@
+"""E027 entry shim: `python E027.py prepare` on the mini, `python E027.py <direction>` on Colab."""
+import pathlib
+import sys
+
+BASE = pathlib.Path(__file__).resolve().parent
+for candidate in (BASE, BASE.parent, BASE.parent.parent):
+    sys.path.insert(0, str(candidate))
+
+from _exo import engine  # noqa: E402
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        raise SystemExit("usage: E027.py prepare | <direction> [--limit=N]")
+    if sys.argv[1] == "prepare":
+        engine.prepare(BASE)
+    else:
+        raise SystemExit(engine.run(BASE, " ".join(sys.argv[1:])))

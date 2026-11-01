@@ -314,13 +314,17 @@ def write_leaderboard(commodity, df):
         con.execute("""CREATE TABLE IF NOT EXISTS leaderboard(
             experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER,
             target_series TEXT, created_at TEXT, PRIMARY KEY(experiment, commodity, horizon))""")
+        if "max_ape_pct" not in [row[1] for row in con.execute("PRAGMA table_info(leaderboard)")]:
+            con.execute("ALTER TABLE leaderboard ADD COLUMN max_ape_pct REAL")
         for exp, col in ((EXP, "y_pred"), ("naive", "last_price")):
             groups = [(str(h), g) for h, g in df.groupby("horizon")] + [("all", df)]
             for h, g in groups:
                 mape, rmse, n = metrics(g, col)
+                scored = g.dropna(subset=["y_true"])
+                peak = float(((scored[col] - scored.y_true).abs() / scored.y_true.abs() * 100).max())
                 assert np.isfinite(mape) and np.isfinite(rmse)
-                con.execute("INSERT OR REPLACE INTO leaderboard VALUES (?,?,?,?,?,?,?,?)",
-                            (exp, commodity, h, mape, rmse, n, TARGETS[commodity], now))
+                con.execute("INSERT OR REPLACE INTO leaderboard(experiment, commodity, horizon, mape, rmse, n, target_series, created_at, max_ape_pct) VALUES (?,?,?,?,?,?,?,?,?)",
+                            (exp, commodity, h, mape, rmse, n, TARGETS[commodity], now, peak))
                 if exp == EXP or h == "all":
                     log.info("[%s] %-11s h=%-3s MAPE=%.3f%% RMSE=%.4f n=%d", commodity, exp, h, mape, rmse, n)
 

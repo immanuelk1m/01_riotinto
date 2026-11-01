@@ -246,12 +246,16 @@ def evaluate(results, decisions, prefix):
             choice = cand if deployed else np.zeros_like(cand)
             for h, tgt, c, p in zip(group.horizon, target, cand, choice):
                 records.append(dict(experiment=f'{prefix}_deployed', series=series, horizon=int(h),
-                                    mape=float(capped_ape(np.array([p]), np.array([tgt]))[0] * 100)))
+                                    mape=float(capped_ape(np.array([p]), np.array([tgt]))[0] * 100),
+                                    max_ape_pct=float(np.abs(np.expm1(p - tgt)) * 100)))
                 records.append(dict(experiment=f'{prefix}_candidate', series=series, horizon=int(h),
-                                    mape=float(capped_ape(np.array([c]), np.array([tgt]))[0] * 100)))
+                                    mape=float(capped_ape(np.array([c]), np.array([tgt]))[0] * 100),
+                                    max_ape_pct=float(np.abs(np.expm1(c - tgt)) * 100)))
                 records.append(dict(experiment=f'{prefix}_persistence', series=series, horizon=int(h),
-                                    mape=float(capped_ape(np.array([0.0]), np.array([tgt]))[0] * 100)))
-        records.append(dict(experiment=f'{prefix}_validation', series=series, horizon=0, mape=float(val_gain)))
+                                    mape=float(capped_ape(np.array([0.0]), np.array([tgt]))[0] * 100),
+                                    max_ape_pct=float(np.abs(np.expm1(-tgt)) * 100)))
+        records.append(dict(experiment=f'{prefix}_validation', series=series, horizon=0, mape=float(val_gain),
+                            max_ape_pct=float('nan')))
     return pd.DataFrame(records)
 
 
@@ -292,11 +296,15 @@ def run(direction, directory=DATA, db=None, limit=None):
     (BASE / 'results').mkdir(parents=True, exist_ok=True)
     frame.to_parquet(BASE / 'results' / f'{direction}_scores.parquet', index=False)
     with closing(sqlite3.connect(db or BASE.parents[1] / 'leaderboard.sqlite', timeout=60)) as con, con:
-        con.execute('CREATE TABLE IF NOT EXISTS leaderboard(experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER, target_series TEXT, created_at TEXT, PRIMARY KEY(experiment,commodity,horizon))')
+        con.execute('CREATE TABLE IF NOT EXISTS leaderboard(experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER, target_series TEXT, created_at TEXT, max_ape_pct REAL, PRIMARY KEY(experiment,commodity,horizon))')
+        if 'max_ape_pct' not in [row[1] for row in con.execute('PRAGMA table_info(leaderboard)')]:
+            con.execute('ALTER TABLE leaderboard ADD COLUMN max_ape_pct REAL')
         scored = frame[~frame.experiment.str.endswith('_validation')]
-        agg = scored.groupby(['experiment', 'series']).mape.mean()
-        rows = [(exp, series, 'all', float(v), float('nan'), 0, series, '') for (exp, series), v in agg.items()]
-        con.executemany('INSERT OR REPLACE INTO leaderboard VALUES (?,?,?,?,?,?,?,?)', rows)
+        agg = scored.groupby(['experiment', 'series']).agg(
+            mape=('mape', 'mean'), max_ape_pct=('max_ape_pct', 'max'))
+        rows = [(exp, series, 'all', float(row.mape), float('nan'), 0, series, '', float(row.max_ape_pct))
+                for (exp, series), row in agg.iterrows()]
+        con.executemany('INSERT OR REPLACE INTO leaderboard(experiment, commodity, horizon, mape, rmse, n, target_series, created_at, max_ape_pct) VALUES (?,?,?,?,?,?,?,?,?)', rows)
     log.info('%s summary: %s', direction, json.dumps(summary))
     return summary
 

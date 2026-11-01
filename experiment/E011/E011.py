@@ -182,12 +182,16 @@ def write_leaderboard(input_dir, output_dir, database):
         for exp, col in ((EXP, "y_pred"), (EXP + "_equal", "y_equal"), (EXP + "_raw", "y_raw")):
             for horizon, group in [(str(h), g) for h, g in frame.groupby("horizon")] + [("all", frame)]:
                 mape, rmse, n = metrics(group, col)
+                scored = group.dropna(subset=["y_true"])
+                peak = float(((scored[col] - scored.y_true).abs() / scored.y_true.abs() * 100).max())
                 if not n or not np.isfinite([mape, rmse]).all():
                     raise ValueError("Invalid metrics")
-                records.append((exp, commodity, horizon, mape, rmse, n, TARGETS[commodity], now))
+                records.append((exp, commodity, horizon, mape, rmse, n, TARGETS[commodity], now, peak))
     with sqlite3.connect(database, timeout=60) as con:
         con.execute("CREATE TABLE IF NOT EXISTS leaderboard(experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER, target_series TEXT, created_at TEXT, PRIMARY KEY(experiment, commodity, horizon))")
-        con.executemany("INSERT OR REPLACE INTO leaderboard VALUES (?,?,?,?,?,?,?,?)", records)
+        if "max_ape_pct" not in [row[1] for row in con.execute("PRAGMA table_info(leaderboard)")]:
+            con.execute("ALTER TABLE leaderboard ADD COLUMN max_ape_pct REAL")
+        con.executemany("INSERT OR REPLACE INTO leaderboard(experiment, commodity, horizon, mape, rmse, n, target_series, created_at, max_ape_pct) VALUES (?,?,?,?,?,?,?,?,?)", records)
 
 
 def main():

@@ -339,16 +339,20 @@ def write_leaderboard(frames):
         for exp, col in ((EXP, "y_pred"), (EXP + "_candidate", "y_cand"), (EXP + "_raw", "y_raw"), ("naive", "last_price")):
             for h, g in [(str(h), g) for h, g in df.groupby("horizon")] + [("all", df)]:
                 mape, rmse, n = metrics(g, col)
+                scored = g.dropna(subset=["y_true"])
+                peak = float(((scored[col] - scored.y_true).abs() / scored.y_true.abs() * 100).max())
                 if n == 0 or not np.isfinite([mape, rmse]).all():
                     raise ValueError(f"{commodity}: invalid metrics")
-                records.append((exp, commodity, h, mape, rmse, n, TARGETS[commodity], now))
+                records.append((exp, commodity, h, mape, rmse, n, TARGETS[commodity], now, peak))
                 if h == "all":
                     log.info("[%s] %s MAPE=%.4f RMSE=%.4f n=%d", commodity, exp, mape, rmse, n)
     with sqlite3.connect(LEADERBOARD, timeout=60) as con:
         con.execute("""CREATE TABLE IF NOT EXISTS leaderboard(
             experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER,
             target_series TEXT, created_at TEXT, PRIMARY KEY(experiment, commodity, horizon))""")
-        con.executemany("INSERT OR REPLACE INTO leaderboard VALUES (?,?,?,?,?,?,?,?)", records)
+        if "max_ape_pct" not in [row[1] for row in con.execute("PRAGMA table_info(leaderboard)")]:
+            con.execute("ALTER TABLE leaderboard ADD COLUMN max_ape_pct REAL")
+        con.executemany("INSERT OR REPLACE INTO leaderboard(experiment, commodity, horizon, mape, rmse, n, target_series, created_at, max_ape_pct) VALUES (?,?,?,?,?,?,?,?,?)", records)
 
 
 def configure(direction):

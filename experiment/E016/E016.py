@@ -186,12 +186,15 @@ def leaderboard(direction, db=None, input_dir=INPUT):
             for h, group in [(str(h), g) for h, g in df.groupby('horizon')] + [('all', df)]:
                 g = group.dropna(subset=['y_true'])
                 err = g[col] - g.y_true
+                peak = float((err.abs() / g.y_true.abs() * 100).max())
                 records.append((f'E016_{direction}{suffix}', c, h,
                                 float((err.abs() / g.y_true).mean() * 100), float(np.sqrt((err**2).mean())),
-                                len(g), TARGETS[c], datetime.now().isoformat(timespec='seconds')))
+                                len(g), TARGETS[c], datetime.now().isoformat(timespec='seconds'), peak))
     with closing(sqlite3.connect(db or BASE.parents[1] / 'leaderboard.sqlite', timeout=60)) as con, con:
         con.execute('CREATE TABLE IF NOT EXISTS leaderboard(experiment TEXT, commodity TEXT, horizon TEXT, mape REAL, rmse REAL, n INTEGER, target_series TEXT, created_at TEXT, PRIMARY KEY(experiment,commodity,horizon))')
-        con.executemany('INSERT OR REPLACE INTO leaderboard VALUES (?,?,?,?,?,?,?,?)', records)
+        if 'max_ape_pct' not in [row[1] for row in con.execute('PRAGMA table_info(leaderboard)')]:
+            con.execute('ALTER TABLE leaderboard ADD COLUMN max_ape_pct REAL')
+        con.executemany('INSERT OR REPLACE INTO leaderboard(experiment, commodity, horizon, mape, rmse, n, target_series, created_at, max_ape_pct) VALUES (?,?,?,?,?,?,?,?,?)', records)
 
 
 def main():

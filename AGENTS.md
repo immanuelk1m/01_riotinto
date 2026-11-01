@@ -33,6 +33,11 @@ colab stop -s <session>           # 수동 정리
 - 하네스는 `experiment/<EXP>/colab_runs/<tag>/{logs,results}/` 로만 내려받고 **정규 경로를 덮어쓰지 않는다**.
 - 검증 후 정규 경로로 옮길 때만 `--promote`.
 - `leaderboard.sqlite` 반영은 로컬 단계로 남긴다 (Colab 세션 안의 `/content/leaderboard.sqlite` 는 휘발성).
+- `leaderboard.max_ape_pct` = 그 행(experiment × commodity × horizon)을 만든 TSCV 셀 중 **최악 단일 APE%**,
+  상한 없음. `mape`(평균, E021·E022+는 100% 캡)와 스케일이 다르므로 **위험도 지표**로만 읽는다.
+  E021은 전체 origin, E022+는 dev 구간(sealed 52 origin 제외) 셀이며 `mape`도 같은 셀집합이다.
+  E001–E011 행은 예측 아티팩트가 없어 NULL이고, E012–E020은 `tools/leaderboard_max_ape.py backfill`로
+  아티팩트에서 복원했다(재계산 평균==저장 `mape`·`rmse`·`n` 게이트 통과분만).
 
 ## 4. 세션 위생
 

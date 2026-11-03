@@ -1,15 +1,35 @@
-"""Shared engine for the E022-E026 exogenous-variable round.
+"""Shared engine for the exogenous-variable rounds — v2, constant-free.
 
-Runs on the Colab VM (fit/predict) and on the Mac mini (``prepare`` only, which
-needs the local ``commodity`` Postgres database).  Every direction is a
-pre-registered combination of (target panel, exogenous set, model family); the
-engine only *audits* candidates against persistence (Gate A), it does not
-deploy anything.
+What changed against v1 and why
+-------------------------------
+Every literal that could change a fitted object is gone; the survivors live in
+``_exo/params.py`` with a source and a rationale, and ``tools/params_lint.py``
+fails the build if a new one appears.  Concretely, v1 decided results with:
+
+* ``_pick(pattern, min_rows=120)`` — a regex plus a recency filter
+  (``>= '2024-06-01'``) plus a ``(rows, last_dt)`` tie-break that *chose which
+  physical series represented a commodity*.  That is a research degree of freedom
+  larger than any hyper-parameter, so v2 refuses to guess: ``prepare`` accepts
+  only an explicit ``col_name`` per key.
+* ``ridge(lam=1.0)``, ``lasso(alpha=1e-3)``, ``pcr(k=3)``, ``gbrt`` (five
+  settings), ``rf`` (three), ``mlp`` (three plus a random early-stopping split)
+  and ``combo`` (an unvalidated equal-weight blend).  Those models are deleted;
+  ``RETAINED_MODELS`` is the complete list of what may run.
+* ``np.clip(pred, ±0.5)`` — a silent ±65 % return cap that only ever helped the
+  candidate.  The protocol's capped APE already bounds the loss, so v2 removes it
+  and reports the uncapped worst cell instead.
+* ``ffill(limit=8)`` — an arbitrary carry horizon.  A forecaster holds the last
+  published value until the next print, which is ``ffill()`` without a limit and
+  therefore needs no constant.
+* ``_zscore(window=52)`` — a one-year rolling window.  v2 uses an expanding
+  z-score, which has no window length at all.
+* ``_ols(lam=1e-6)`` — a numerical jitter with a magic size.  v2 uses
+  ``np.linalg.lstsq``, which is parameter-free and handles rank deficiency by
+  minimum norm instead of by a hand-picked ridge.
 """
 from __future__ import annotations
 
 import json
-import math
 import os
 import re
 import sys
@@ -20,29 +40,19 @@ import pandas as pd
 
 if __package__:
     from .leaderboard import write as write_leaderboard
+    from .params import P, PARAMS_HASH, PARAMS_VERSION
 else:  # executed as a plain script
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from leaderboard import write as write_leaderboard
+    from params import P, PARAMS_HASH, PARAMS_VERSION
 
-CAP = 1.0
-H = 8
-LAGS = 4
-TRAIN_FRAC = 0.70
-MIN_TRAIN = 100
-MIN_WEEKS = 200
-BLOCK = 26
-BOOT = 1000
-REFIT_EVERY = 4
-MAX_WEEKS = 1040
-SEALED_ORIGINS = 52
-ALPHA = 0.05
-BIG = 1e9
+#: the complete set of models that may run.  ``adl`` is a closed-form OLS on a
+#: declared design matrix; ``persistence`` forecasts a zero log-return.  Neither
+#: carries a free parameter, so neither can be tuned into a win.
+RETAINED_MODELS = ("persistence", "adl")
 
-#: Default evaluation grid.  A round may override it through a "design" object in its
-#: config.json; the keys are the only ones changed between rounds, so a re-run without
-#: a "design" block reproduces the E022-E026 settings exactly.
-DESIGN = dict(train_frac=TRAIN_FRAC, refit_every=REFIT_EVERY, block=BLOCK,
-              sealed_origins=SEALED_ORIGINS)
+#: keys a round must not override; the evaluation grid is registered, not per-round
+FORBIDDEN_KEYS = ("design",)
 
 
 # --------------------------------------------------------------------------- io
@@ -57,46 +67,13 @@ def _weekly(frame: pd.DataFrame) -> pd.Series:
     return series.resample("W-SUN").last().dropna()
 
 
-def _pick(cur, pattern: str, min_rows: int = 120):
-    """Pick the longest, most recent series matching a regex.
-
-    Two steps on purpose: the regex is evaluated on the (small) manifest only, so a
-    pattern that matches nothing cannot trigger a nested-loop scan of ``value``.
-    """
-    cur.execute(
-        """
-        select col_name, name_en, ingest_lag_days
-        from public.value_manifest
-        where lower(coalesce(name_en, col_name)) ~ %s
-        limit 200
-        """,
-        (pattern,),
-    )
-    candidates = cur.fetchall()
-    if not candidates:
-        return None
-    names = [row[0] for row in candidates]
-    cur.execute(
-        """
-        select col_name, count(*) n, min(dt), max(dt)
-        from public.value
-        where col_name = any(%s)
-        group by 1
-        having count(*) >= %s
-        """,
-        (names, min_rows),
-    )
-    stats = {row[0]: row[1:] for row in cur.fetchall()}
-    rows = [
-        (col, name_en, lag, *stats[col])
-        for col, name_en, lag in candidates
-        if col in stats
-    ]
-    if not rows:
-        return None
-    rows = [r for r in rows if str(r[5]) >= '2024-06-01'] or rows
-    rows.sort(key=lambda r: (r[3], r[5]), reverse=True)
-    return rows[0]
+def _col_name(entry) -> str | None:
+    """A config entry must name its series; a pattern is documentation only."""
+    if isinstance(entry, str):
+        return entry
+    if isinstance(entry, dict):
+        return entry.get("col_name") or None
+    return None
 
 
 def prepare(base: Path) -> dict:
@@ -107,22 +84,32 @@ def prepare(base: Path) -> dict:
     data = base / "data"
     (data / "targets").mkdir(parents=True, exist_ok=True)
     (data / "exog").mkdir(parents=True, exist_ok=True)
-    manifest = {"targets": {}, "exog": {}}
+    manifest = {"targets": {}, "exog": {}, "params_hash": PARAMS_HASH}
     with psycopg.connect("dbname=commodity") as con, con.cursor() as cur:
         for kind, store in (("targets", "targets"), ("exog", "exog")):
-            for key, pattern in cfg[kind].items():
-                row = _pick(cur, pattern)
-                if row is None:
-                    print(f"[prepare] MISS {kind}:{key} pattern={pattern}", flush=True)
-                    continue
-                col, name_en, lag_days, n, first, last = row
+            for key, entry in cfg[kind].items():
+                col = _col_name(entry)
+                if not col:
+                    raise SystemExit(
+                        f"[prepare] {kind}:{key} has no explicit col_name. "
+                        f"Run tools/resolve_series.py once and paste the column into config.json; "
+                        f"the v1 regex selector is gone on purpose."
+                    )
                 cur.execute(
-                    "select dt, value from public.value where col_name = %s order by dt",
+                    "select name_en, ingest_lag_days from public.value_manifest where col_name = %s",
                     (col,),
+                )
+                meta = cur.fetchone()
+                if meta is None:
+                    print(f"[prepare] MISS {kind}:{key} col_name={col}", flush=True)
+                    continue
+                name_en, lag_days = meta
+                cur.execute(
+                    "select dt, value from public.value where col_name = %s order by dt", (col,)
                 )
                 frame = pd.DataFrame(cur.fetchall(), columns=["dt", "value"])
                 series = _weekly(frame)
-                if len(series) < MIN_WEEKS and kind == "targets":
+                if kind == "targets" and len(series) < P.MIN_WEEKS:
                     print(f"[prepare] SHORT {kind}:{key} weeks={len(series)}", flush=True)
                     continue
                 if kind == "targets" and (series <= 0).any():
@@ -136,7 +123,7 @@ def prepare(base: Path) -> dict:
                     col_name=col,
                     name_en=name_en,
                     ingest_lag_days=lag_days,
-                    lag_weeks=int(math.ceil((lag_days if lag_days is not None else 3) / 7.0)),
+                    lag_weeks=int(np.ceil((lag_days or 0) / 7.0)),
                     weeks=int(len(series)),
                     first=str(series.index[0].date()),
                     last=str(series.index[-1].date()),
@@ -159,7 +146,7 @@ def load(base: Path):
         frame = pd.read_parquet(data / "targets" / row["file"])
         series = pd.Series(
             frame.value.to_numpy(), index=pd.DatetimeIndex(frame.week), name=key
-        ).iloc[-MAX_WEEKS:]
+        ).iloc[-int(P.MAX_WEEKS):]
         targets[key] = series
     for key, row in manifest["exog"].items():
         frame = pd.read_parquet(data / "exog" / row["file"])
@@ -172,10 +159,11 @@ def load(base: Path):
 
 # ----------------------------------------------------------------------- design
 
-def _zscore(values: np.ndarray, window: int = 52) -> np.ndarray:
-    series = pd.Series(values)
-    mean = series.rolling(window, min_periods=max(12, window // 2)).mean()
-    std = series.rolling(window, min_periods=max(12, window // 2)).std()
+def _expanding_z(values: np.ndarray) -> np.ndarray:
+    """z-score on all history to date; no window length to choose."""
+    series = pd.Series(np.asarray(values, dtype=float))
+    mean = series.expanding(min_periods=P.Z_MIN_OBS).mean()
+    std = series.expanding(min_periods=P.Z_MIN_OBS).std()
     return ((series - mean) / std.replace(0.0, np.nan)).to_numpy()
 
 
@@ -186,152 +174,91 @@ def features(price: pd.Series, exog: dict, keys: list[str]):
     ret = np.diff(logp, prepend=np.nan)
 
     cols, names = [], []
-    for lag in range(1, LAGS + 1):
+    for lag in range(1, int(P.LAGS) + 1):
         cols.append(np.roll(ret, lag))
         names.append(f"ret_lag{lag}")
-    cols.append(_zscore(logp))
-    names.append("level_z52")
+    cols.append(_expanding_z(logp))
+    names.append("level_z")
 
     for key in keys:
         if key not in exog:
             continue
         series, lag_weeks = exog[key]
-        aligned = series.reindex(index).ffill(limit=8).shift(lag_weeks)
-        values = aligned.to_numpy(dtype=float)
+        # the last published value is what a forecaster holds until the next print, so
+        # carry it forward without a horizon and then delay it by the availability lag
+        carried = series.reindex(index).ffill().shift(lag_weeks)
+        values = carried.to_numpy(dtype=float)
         safe = _safe(key)
-        cols.append(_zscore(values))
-        names.append(f"{safe}_z52")
+        cols.append(_expanding_z(values))
+        names.append(f"{safe}_z")
         cols.append(np.diff(values, prepend=np.nan))
         names.append(f"{safe}_d1")
-        cols.append(pd.Series(values).diff(4).to_numpy())
-        names.append(f"{safe}_d4")
 
     X = np.column_stack(cols) if cols else np.zeros((len(index), 0))
     return X, names
 
 
 def targets(logp: np.ndarray) -> np.ndarray:
-    return np.column_stack([np.roll(logp, -h) - logp for h in range(1, H + 1)])
+    return np.column_stack([np.roll(logp, -h) - logp for h in range(1, int(P.H) + 1)])
 
 
 # ----------------------------------------------------------------------- models
 
-def _ols(X: np.ndarray, Y: np.ndarray, lam: float = 1e-6) -> np.ndarray:
-    X1 = np.column_stack([np.ones(len(X)), X])
-    gram = X1.T @ X1 + lam * np.eye(X1.shape[1])
-    gram[0, 0] -= lam
-    return np.linalg.solve(gram, X1.T @ Y)
+def _ols(X: np.ndarray, Y: np.ndarray) -> np.ndarray:
+    """Minimum-norm least squares: no penalty to tune and no jitter to pick."""
+    design = np.column_stack([np.ones(len(X)), X])
+    beta, *_ = np.linalg.lstsq(design, Y, rcond=None)
+    return beta
 
 
 def _apply(beta: np.ndarray, X: np.ndarray) -> np.ndarray:
     return np.column_stack([np.ones(len(X)), X]) @ beta
 
 
-def _pcr3(X: np.ndarray, Y: np.ndarray, k: int = 3) -> tuple[np.ndarray, np.ndarray]:
-    mu, sd = X.mean(0), X.std(0)
-    sd[sd == 0] = 1.0
-    Z = (X - mu) / sd
-    U, S, Vt = np.linalg.svd(Z, full_matrices=False)
-    comp = Z @ Vt[:k].T
-    beta = _ols(comp, Y)
-    return comp, beta, (mu, sd, Vt[:k], beta)
-
-
-def _pcr3_apply(state, X: np.ndarray) -> np.ndarray:
-    mu, sd, V, beta = state
-    Z = (X - mu) / sd
-    return _apply(beta, Z @ V.T)
-
-
-def _model_fit_predict(name: str, Xtr, Ytr, Xte):
-    """Return (1, H) predictions for the next origin."""
-    if name in ("adl", "ols", "arimax", "varx", "midas"):
+def fit_predict(model: str, Xtr: np.ndarray, Ytr: np.ndarray, Xte: np.ndarray) -> np.ndarray:
+    """Return (n, H) predictions for the next origin(s)."""
+    if model == "persistence":
+        return np.zeros((len(Xte), Ytr.shape[1]))
+    if model == "adl":
         return _apply(_ols(Xtr, Ytr), Xte)
-    if name == "ridge":
-        return _apply(_ols(Xtr, Ytr, lam=1.0), Xte)
-    if name == "pcr":
-        _, _, state = _pcr3(Xtr, Ytr)
-        return _pcr3_apply(state, Xte)
-    if name == "lasso":
-        from sklearn.linear_model import Lasso
-
-        preds = []
-        for h in range(Ytr.shape[1]):
-            model = Lasso(alpha=1e-3, max_iter=3000, fit_intercept=True)
-            model.fit(Xtr, Ytr[:, h])
-            preds.append(model.predict(Xte))
-        return np.column_stack(preds)
-    if name == "gbrt":
-        from sklearn.ensemble import HistGradientBoostingRegressor
-
-        preds = []
-        for h in range(Ytr.shape[1]):
-            model = HistGradientBoostingRegressor(
-                max_iter=100, learning_rate=0.06, max_depth=3,
-                min_samples_leaf=20, l2_regularization=1.0, random_state=0,
-            )
-            model.fit(Xtr, Ytr[:, h])
-            preds.append(model.predict(Xte))
-        return np.column_stack(preds)
-    if name == "rf":
-        from sklearn.ensemble import RandomForestRegressor
-
-        model = RandomForestRegressor(
-            n_estimators=80, max_depth=5, min_samples_leaf=10,
-            n_jobs=2, random_state=0,
-        )
-        model.fit(Xtr, Ytr)
-        return model.predict(Xte)
-    if name == "mlp":
-        from sklearn.neural_network import MLPRegressor
-
-        model = MLPRegressor(
-            hidden_layer_sizes=(32,), alpha=1e-3, max_iter=400,
-            early_stopping=True, random_state=0,
-        )
-        model.fit(Xtr, Ytr)
-        return model.predict(Xte)
-    if name == "combo":
-        parts = [
-            _model_fit_predict("adl", Xtr, Ytr, Xte),
-            _model_fit_predict("gbrt", Xtr, Ytr, Xte),
-            _model_fit_predict("rf", Xtr, Ytr, Xte),
-        ]
-        return np.mean(parts, axis=0)
-    raise ValueError(f"unknown model {name}")
+    raise ValueError(
+        f"model {model!r} is not retained; allowed: {RETAINED_MODELS}. "
+        f"A model with a free parameter cannot enter this pipeline (see _exo/params.py)."
+    )
 
 
 # ------------------------------------------------------------------- walk and audit
 
-def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
-                 train_frac: float = TRAIN_FRAC, refit_every: int = REFIT_EVERY):
+def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str):
     logp = np.log(price.to_numpy(dtype=float))
     X, names = features(price, exog, keys)
     Y = targets(logp)
     ok = np.isfinite(X).all(1) & np.isfinite(Y).all(1) & np.isfinite(logp)
     valid = np.flatnonzero(ok)
-    if len(valid) < MIN_TRAIN + 40:
+    # a training window plus one complete horizon set, nothing more
+    if len(valid) < int(P.MIN_TRAIN) + int(P.H):
         return None
     n = len(logp)
-    first = int(math.floor(train_frac * valid.max()))
+    usable = set(valid.tolist())
+    first = int(valid[min(len(valid) - 1, int(round(P.TRAIN_FRAC * len(valid))))])
     rows = []
-    for t in range(first, n, int(refit_every)):
-        if t not in set(valid.tolist()):
+    for t in range(first, n, int(P.REFIT_EVERY)):
+        if t not in usable:
             continue
         train = valid[valid < t]
-        if len(train) < MIN_TRAIN:
+        if len(train) < int(P.MIN_TRAIN):
             continue
         try:
-            pred = _model_fit_predict(model, X[train], Y[train], X[t : t + 1])[0]
+            pred = fit_predict(model, X[train], Y[train], X[t : t + 1])[0]
         except Exception as exc:  # noqa: BLE001 - one bad fit must not kill a direction
             print(f"[walk] fit failed t={t}: {exc}", flush=True)
             continue
-        for h in range(1, H + 1):
+        for h in range(1, int(P.H) + 1):
             if t + h >= n:
                 continue
             rows.append(
                 dict(origin=int(t), horizon=h, target_logret=float(Y[t, h - 1]),
-                     fc=float(np.clip(pred[h - 1], -0.5, 0.5)))
+                     fc=float(pred[h - 1]))
             )
     if not rows:
         return None
@@ -340,29 +267,29 @@ def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
 
 def score(cells: pd.DataFrame) -> pd.DataFrame:
     cells = cells.copy()
-    cells["ape_pers"] = np.minimum(CAP, np.abs(np.expm1(cells.target_logret)))
-    cells["ape_cand"] = np.minimum(CAP, np.abs(np.expm1(cells.fc - cells.target_logret)))
+    cells["ape_pers"] = np.minimum(P.CAP, np.abs(np.expm1(cells.target_logret)))
+    cells["ape_cand"] = np.minimum(P.CAP, np.abs(np.expm1(cells.fc - cells.target_logret)))
     cells["d"] = cells.ape_pers - cells.ape_cand          # >0 means candidate better
-    cells["mape_pers"] = cells.ape_pers * 100.0
-    cells["mape_cand"] = cells.ape_cand * 100.0
-    # uncapped twins, so the leaderboard can report the worst single cell instead of
-    # a maximum clipped at 100 % (see _exo/leaderboard.py)
-    cells["ape_pers_raw"] = np.abs(np.expm1(cells.target_logret)) * 100.0
-    cells["ape_cand_raw"] = np.abs(np.expm1(cells.fc - cells.target_logret)) * 100.0
+    cells["mape_pers"] = cells.ape_pers * P.PCT
+    cells["mape_cand"] = cells.ape_cand * P.PCT
+    # uncapped twins, so the leaderboard can report the worst single cell
+    cells["ape_pers_raw"] = np.abs(np.expm1(cells.target_logret)) * P.PCT
+    cells["ape_cand_raw"] = np.abs(np.expm1(cells.fc - cells.target_logret)) * P.PCT
     return cells
 
 
-def block_bootstrap(dev: pd.DataFrame, block: int = BLOCK, draws: int = BOOT, seed: int = 0):
-    """Resample 26-week *calendar* blocks of origins and pool their cells.
+def block_bootstrap(dev: pd.DataFrame, block: int | None = None, draws: int | None = None,
+                    seed: int | None = None):
+    """Resample calendar blocks of origins and pool their cells.
 
-    The earlier version counted distinct origins and sliced them as if they were
-    consecutive weeks.  On a sparse origin grid (refit every 4 weeks, series with
-    different start dates) 171 distinct origins span 602 weeks, so that version
-    reported 6 blocks where 18 exist and returned a CI that was too narrow - enough
-    to turn gbrt_agri into a false PASS in its ``*_audit.md``.  Blocking has to use the
-    calendar index (``origin // block``), which is also what
-    ``experiment/LEADERBOARD_exogenous_2026.md`` recomputes.
+    Blocking uses the calendar index (``origin // block``), not the count of
+    distinct origins: on a sparse grid (refit every 4 weeks) counting origins
+    reported 6 blocks where 18 exist and produced intervals narrow enough to turn
+    a false result into a PASS.
     """
+    block = int(P.BLOCK if block is None else block)
+    draws = int(P.BOOT if draws is None else draws)
+    seed = int(P.SEED if seed is None else seed)
     frame = dev.assign(_blk=(dev.origin // block).astype(int))
     groups = [g.d.to_numpy(dtype=float) for _, g in frame.groupby("_blk")]
     n_blocks = len(groups)
@@ -376,17 +303,18 @@ def block_bootstrap(dev: pd.DataFrame, block: int = BLOCK, draws: int = BOOT, se
         means[b] = np.concatenate([groups[i] for i in pick]).mean()
     return dict(
         mean=float(dev.d.mean()),
-        lo=float(np.quantile(means, ALPHA / 2)),
-        hi=float(np.quantile(means, 1 - ALPHA / 2)),
+        lo=float(np.quantile(means, P.ALPHA / 2)),
+        hi=float(np.quantile(means, 1 - P.ALPHA / 2)),
         blocks=n_blocks,
     )
 
 
-def audit(cells: pd.DataFrame, sealed_cut: int, block: int = BLOCK) -> dict:
+def audit(cells: pd.DataFrame, sealed_cut: int, block: int | None = None) -> dict:
     dev = cells[cells.origin < sealed_cut]
     sealed = cells[cells.origin >= sealed_cut]
     boot = block_bootstrap(dev, block=block)
-    blocks = dev.assign(block=(dev.origin // block)).groupby("block").d.mean()
+    block_size = int(P.BLOCK if block is None else block)
+    blocks = dev.assign(block=(dev.origin // block_size)).groupby("block").d.mean()
     per_series = dev.groupby("series").agg(
         n=("d", "size"), mean_d=("d", "mean"),
         mape_pers=("mape_pers", "mean"), mape_cand=("mape_cand", "mean"),
@@ -428,7 +356,8 @@ def markdown(direction: str, audit_row: dict) -> str:
         f"{audit_row['frac_series_positive']:.3f}; worst series {audit_row['worst_series_delta']:.6f}\n"
         f"- **Gate A: {'PASS' if audit_row['eligible'] else 'FAIL'}**\n"
         f"- sealed block (not used for eligibility): mean d {audit_row['sealed']['mean_d']:.6f}, "
-        f"MAPE {audit_row['sealed']['mape_pers']:.3f} vs {audit_row['sealed']['mape_cand']:.3f}\n\n"
+        f"MAPE {audit_row['sealed']['mape_pers']:.3f} vs {audit_row['sealed']['mape_cand']:.3f}\n"
+        f"- params: v{PARAMS_VERSION} `{PARAMS_HASH}`\n\n"
         "| series | n | mean d | MAPE pers | MAPE cand |\n|---|---|---|---|---|\n"
     )
     body = "".join(
@@ -448,15 +377,21 @@ def run(base: Path, spec: str) -> int:
     for part in parts[1:]:
         if part.startswith("--limit"):
             limit = int(part.split("=", 1)[1]) if "=" in part else None
+
+    for key in FORBIDDEN_KEYS:
+        if key in cfg:
+            raise SystemExit(
+                f"config.json carries a {key!r} block. The evaluation grid is registered in "
+                f"_exo/params.py, not per round; register it and bump PARAMS_VERSION instead."
+            )
     direction = next((d for d in cfg["directions"] if d["name"] == name), None)
     if direction is None:
         raise SystemExit(f"unknown direction {name}; known: {[d['name'] for d in cfg['directions']]}")
-
-    # A round may pre-register its evaluation grid (E027 widens the walk-forward to buy
-    # blocks).  Absent a "design" block the round keeps the E022-E026 settings exactly.
-    design = {**DESIGN, **cfg.get("design", {})}
-    block = int(design["block"])
-    sealed_origins = int(design["sealed_origins"])
+    if direction["model"] not in RETAINED_MODELS:
+        raise SystemExit(
+            f"direction {name} asks for model {direction['model']!r}, which is not retained "
+            f"({RETAINED_MODELS})."
+        )
 
     targets_all, exog_all = load(base)
     keys = [k for k in direction["targets"] if k in targets_all]
@@ -472,9 +407,7 @@ def run(base: Path, spec: str) -> int:
 
     frames = []
     for key in keys:
-        cells = walk_forward(targets_all[key], exog_all, exog_keys, direction["model"],
-                             train_frac=float(design["train_frac"]),
-                             refit_every=int(design["refit_every"]))
+        cells = walk_forward(targets_all[key], exog_all, exog_keys, direction["model"])
         if cells is None or cells.empty:
             print(f"[run] no cells for {key}", flush=True)
             continue
@@ -486,10 +419,11 @@ def run(base: Path, spec: str) -> int:
 
     cells = score(pd.concat(frames, ignore_index=True))
     cells["direction"] = name
-    sealed_cut = int(cells.origin.max()) - sealed_origins
-    row = audit(cells, sealed_cut, block=block)
+    sealed_cut = int(cells.origin.max()) - int(P.SEALED_ORIGINS)
+    row = audit(cells, sealed_cut)
     row.update(direction=name, model=direction["model"], exog=exog_keys,
-               targets=keys, experiment=cfg["experiment"], design=design)
+               targets=keys, experiment=cfg["experiment"],
+               params_version=PARAMS_VERSION, params_hash=PARAMS_HASH)
 
     out = base / "results"
     out.mkdir(parents=True, exist_ok=True)

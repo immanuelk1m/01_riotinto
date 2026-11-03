@@ -84,7 +84,10 @@ def classify(row: sqlite3.Row | tuple, columns: list[str]) -> dict:
         status = "diverged"
         reason = DIVERGED[experiment]
     elif PERSISTENCE.match(experiment):
-        status = "ok"  # a baseline has no fitted object
+        # a baseline has no fitted object, but a v1 baseline sits on the v1 origin grid and
+        # therefore cannot be compared with a clean-pipeline candidate: quote the v2 baseline
+        status = "retired-heuristic"
+        reason = "v1 evaluation grid; the baseline is not comparable with the clean pipeline"
     else:
         status = "retired-heuristic"
         reason = "produced by a model with an unregistered free parameter, or by the v1 pipeline"

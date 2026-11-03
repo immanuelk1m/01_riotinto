@@ -31,9 +31,24 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:115:0",
+   "id": "_exo/engine.py:120:7.0",
    "file": "_exo/engine.py",
-   "line": 115,
+   "line": 120,
+   "col": 48,
+   "value": 7.0,
+   "kind": "inline",
+   "func": "prepare",
+   "call": null,
+   "argname": null,
+   "text": "else int(np.ceil(lag_days / 7.0))",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/engine.py:130:0",
+   "file": "_exo/engine.py",
+   "line": 130,
    "col": 52,
    "value": 0,
    "kind": "compare",
@@ -46,39 +61,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:126:0",
+   "id": "_exo/engine.py:144:0",
    "file": "_exo/engine.py",
-   "line": 126,
-   "col": 55,
-   "value": 0,
-   "kind": "inline",
-   "func": "prepare",
-   "call": null,
-   "argname": null,
-   "text": "lag_weeks=int(np.ceil((lag_days or 0) / 7.0)),",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "_exo/engine.py:126:7.0",
-   "file": "_exo/engine.py",
-   "line": 126,
-   "col": 60,
-   "value": 7.0,
-   "kind": "inline",
-   "func": "prepare",
-   "call": null,
-   "argname": null,
-   "text": "lag_weeks=int(np.ceil((lag_days or 0) / 7.0)),",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "_exo/engine.py:128:0",
-   "file": "_exo/engine.py",
-   "line": 128,
+   "line": 144,
    "col": 43,
    "value": 0,
    "kind": "inline",
@@ -91,9 +76,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:129:1",
+   "id": "_exo/engine.py:145:1",
    "file": "_exo/engine.py",
-   "line": 129,
+   "line": 145,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -106,9 +91,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:137:2",
+   "id": "_exo/engine.py:153:2",
    "file": "_exo/engine.py",
-   "line": 137,
+   "line": 153,
    "col": 68,
    "value": 2,
    "kind": "inline",
@@ -121,9 +106,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:167:0.0",
+   "id": "_exo/engine.py:183:0.0",
    "file": "_exo/engine.py",
-   "line": 167,
+   "line": 183,
    "col": 42,
    "value": 0.0,
    "kind": "call_arg",
@@ -136,39 +121,39 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:177:1",
+   "id": "_exo/engine.py:194:1",
    "file": "_exo/engine.py",
-   "line": 177,
+   "line": 194,
    "col": 21,
    "value": 1,
    "kind": "call_arg",
    "func": "features",
    "call": "range",
    "argname": "#0",
-   "text": "for lag in range(1, int(P.LAGS) + 1):",
+   "text": "for lag in range(1, lags + 1):",
    "class": "code",
    "disposition": "allowed structural literal",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:177:1",
+   "id": "_exo/engine.py:194:1",
    "file": "_exo/engine.py",
-   "line": 177,
-   "col": 38,
+   "line": 194,
+   "col": 31,
    "value": 1,
    "kind": "inline",
    "func": "features",
    "call": null,
    "argname": null,
-   "text": "for lag in range(1, int(P.LAGS) + 1):",
+   "text": "for lag in range(1, lags + 1):",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:197:0",
+   "id": "_exo/engine.py:214:0",
    "file": "_exo/engine.py",
-   "line": 197,
+   "line": 214,
    "col": 65,
    "value": 0,
    "kind": "inline",
@@ -181,9 +166,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:202:1",
+   "id": "_exo/engine.py:219:1",
    "file": "_exo/engine.py",
-   "line": 202,
+   "line": 219,
    "col": 68,
    "value": 1,
    "kind": "call_arg",
@@ -196,9 +181,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:202:1",
+   "id": "_exo/engine.py:219:1",
    "file": "_exo/engine.py",
-   "line": 202,
+   "line": 219,
    "col": 82,
    "value": 1,
    "kind": "inline",
@@ -211,9 +196,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:221:1",
+   "id": "_exo/engine.py:238:1",
    "file": "_exo/engine.py",
-   "line": 221,
+   "line": 238,
    "col": 45,
    "value": 1,
    "kind": "inline",
@@ -226,9 +211,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:236:1",
+   "id": "_exo/engine.py:254:1",
    "file": "_exo/engine.py",
-   "line": 236,
+   "line": 254,
    "col": 28,
    "value": 1,
    "kind": "call_arg",
@@ -241,9 +226,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:236:1",
+   "id": "_exo/engine.py:254:1",
    "file": "_exo/engine.py",
-   "line": 236,
+   "line": 254,
    "col": 52,
    "value": 1,
    "kind": "call_arg",
@@ -256,9 +241,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:243:1",
+   "id": "_exo/engine.py:261:1",
    "file": "_exo/engine.py",
-   "line": 243,
+   "line": 261,
    "col": 39,
    "value": 1,
    "kind": "inline",
@@ -271,9 +256,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:252:1",
+   "id": "_exo/engine.py:270:1",
    "file": "_exo/engine.py",
-   "line": 252,
+   "line": 270,
    "col": 68,
    "value": 1,
    "kind": "inline",
@@ -286,9 +271,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:252:0",
+   "id": "_exo/engine.py:270:0",
    "file": "_exo/engine.py",
-   "line": 252,
+   "line": 270,
    "col": 72,
    "value": 0,
    "kind": "inline",
@@ -301,9 +286,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:256:1",
+   "id": "_exo/engine.py:274:1",
    "file": "_exo/engine.py",
-   "line": 256,
+   "line": 274,
    "col": 23,
    "value": 1,
    "kind": "call_arg",
@@ -316,9 +301,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:256:1",
+   "id": "_exo/engine.py:274:1",
    "file": "_exo/engine.py",
-   "line": 256,
+   "line": 274,
    "col": 37,
    "value": 1,
    "kind": "inline",
@@ -331,9 +316,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:260:1",
+   "id": "_exo/engine.py:278:1",
    "file": "_exo/engine.py",
-   "line": 260,
+   "line": 278,
    "col": 76,
    "value": 1,
    "kind": "inline",
@@ -346,9 +331,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:261:1",
+   "id": "_exo/engine.py:279:1",
    "file": "_exo/engine.py",
-   "line": 261,
+   "line": 279,
    "col": 39,
    "value": 1,
    "kind": "inline",
@@ -361,9 +346,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:296:2",
+   "id": "_exo/engine.py:314:2",
    "file": "_exo/engine.py",
-   "line": 296,
+   "line": 314,
    "col": 18,
    "value": 2,
    "kind": "compare",
@@ -376,9 +361,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:302:0",
+   "id": "_exo/engine.py:320:0",
    "file": "_exo/engine.py",
-   "line": 302,
+   "line": 320,
    "col": 28,
    "value": 0,
    "kind": "call_arg",
@@ -391,9 +376,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:306:2",
+   "id": "_exo/engine.py:324:2",
    "file": "_exo/engine.py",
-   "line": 306,
+   "line": 324,
    "col": 46,
    "value": 2,
    "kind": "inline",
@@ -406,9 +391,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:307:1",
+   "id": "_exo/engine.py:325:1",
    "file": "_exo/engine.py",
-   "line": 307,
+   "line": 325,
    "col": 36,
    "value": 1,
    "kind": "inline",
@@ -421,9 +406,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:307:2",
+   "id": "_exo/engine.py:325:2",
    "file": "_exo/engine.py",
-   "line": 307,
+   "line": 325,
    "col": 50,
    "value": 2,
    "kind": "inline",
@@ -436,9 +421,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:330:0",
+   "id": "_exo/engine.py:348:0",
    "file": "_exo/engine.py",
-   "line": 330,
+   "line": 348,
    "col": 39,
    "value": 0,
    "kind": "compare",
@@ -451,9 +436,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:333:0",
+   "id": "_exo/engine.py:351:0",
    "file": "_exo/engine.py",
-   "line": 333,
+   "line": 351,
    "col": 56,
    "value": 0,
    "kind": "compare",
@@ -466,9 +451,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:335:0",
+   "id": "_exo/engine.py:353:0",
    "file": "_exo/engine.py",
-   "line": 335,
+   "line": 353,
    "col": 37,
    "value": 0,
    "kind": "compare",
@@ -481,9 +466,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:335:0",
+   "id": "_exo/engine.py:353:0",
    "file": "_exo/engine.py",
-   "line": 335,
+   "line": 353,
    "col": 56,
    "value": 0,
    "kind": "compare",
@@ -496,9 +481,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:342:6",
+   "id": "_exo/engine.py:360:6",
    "file": "_exo/engine.py",
-   "line": 342,
+   "line": 360,
    "col": 36,
    "value": 6,
    "kind": "call_arg",
@@ -511,9 +496,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:365:1",
+   "id": "_exo/engine.py:383:1",
    "file": "_exo/engine.py",
-   "line": 365,
+   "line": 383,
    "col": 67,
    "value": 1,
    "kind": "inline",
@@ -526,9 +511,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:375:0",
+   "id": "_exo/engine.py:393:0",
    "file": "_exo/engine.py",
-   "line": 375,
+   "line": 393,
    "col": 17,
    "value": 0,
    "kind": "inline",
@@ -541,9 +526,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:377:1",
+   "id": "_exo/engine.py:396:1",
    "file": "_exo/engine.py",
-   "line": 377,
+   "line": 396,
    "col": 22,
    "value": 1,
    "kind": "inline",
@@ -556,9 +541,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:379:1",
+   "id": "_exo/engine.py:398:1",
    "file": "_exo/engine.py",
-   "line": 379,
+   "line": 398,
    "col": 40,
    "value": 1,
    "kind": "call_arg",
@@ -571,9 +556,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:379:1",
+   "id": "_exo/engine.py:398:1",
    "file": "_exo/engine.py",
-   "line": 379,
+   "line": 398,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -586,9 +571,39 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:440:2",
+   "id": "_exo/engine.py:400:1",
    "file": "_exo/engine.py",
-   "line": 440,
+   "line": 400,
+   "col": 39,
+   "value": 1,
+   "kind": "call_arg",
+   "func": "run",
+   "call": "split",
+   "argname": "#1",
+   "text": "lags = int(part.split(\"=\", 1)[1])",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "_exo/engine.py:400:1",
+   "file": "_exo/engine.py",
+   "line": 400,
+   "col": 42,
+   "value": 1,
+   "kind": "inline",
+   "func": "run",
+   "call": null,
+   "argname": null,
+   "text": "lags = int(part.split(\"=\", 1)[1])",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/engine.py:468:2",
+   "file": "_exo/engine.py",
+   "line": 468,
    "col": 67,
    "value": 2,
    "kind": "inline",
@@ -601,9 +616,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:444:1",
+   "id": "_exo/engine.py:472:1",
    "file": "_exo/engine.py",
-   "line": 444,
+   "line": 472,
    "col": 68,
    "value": 1,
    "kind": "inline",
@@ -616,9 +631,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:454:2",
+   "id": "_exo/engine.py:487:2",
    "file": "_exo/engine.py",
-   "line": 454,
+   "line": 487,
    "col": 81,
    "value": 2,
    "kind": "inline",
@@ -631,9 +646,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:455:0",
+   "id": "_exo/engine.py:488:0",
    "file": "_exo/engine.py",
-   "line": 455,
+   "line": 488,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -886,9 +901,54 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:114:0.7",
+   "id": "_exo/params.py:114:2",
    "file": "_exo/params.py",
    "line": 114,
+   "col": 9,
+   "value": 2,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "(2, 4, 8), \"declared\",",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/params.py:114:4",
+   "file": "_exo/params.py",
+   "line": 114,
+   "col": 12,
+   "value": 4,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "(2, 4, 8), \"declared\",",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/params.py:114:8",
+   "file": "_exo/params.py",
+   "line": 114,
+   "col": 15,
+   "value": 8,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "(2, 4, 8), \"declared\",",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/params.py:120:0.7",
+   "file": "_exo/params.py",
+   "line": 120,
    "col": 8,
    "value": 0.7,
    "kind": "call_arg",
@@ -901,9 +961,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:120:4",
+   "id": "_exo/params.py:126:4",
    "file": "_exo/params.py",
-   "line": 120,
+   "line": 126,
    "col": 8,
    "value": 4,
    "kind": "call_arg",
@@ -916,9 +976,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:125:100",
+   "id": "_exo/params.py:131:100",
    "file": "_exo/params.py",
-   "line": 125,
+   "line": 131,
    "col": 8,
    "value": 100,
    "kind": "call_arg",
@@ -931,9 +991,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:129:200",
+   "id": "_exo/params.py:135:200",
    "file": "_exo/params.py",
-   "line": 129,
+   "line": 135,
    "col": 8,
    "value": 200,
    "kind": "call_arg",
@@ -946,9 +1006,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:134:1040",
+   "id": "_exo/params.py:140:1040",
    "file": "_exo/params.py",
-   "line": 134,
+   "line": 140,
    "col": 8,
    "value": 1040,
    "kind": "call_arg",
@@ -961,9 +1021,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:139:1e-06",
+   "id": "_exo/params.py:145:1e-06",
    "file": "_exo/params.py",
-   "line": 139,
+   "line": 145,
    "col": 8,
    "value": 1e-06,
    "kind": "call_arg",
@@ -976,9 +1036,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:144:1e-09",
+   "id": "_exo/params.py:150:1e-09",
    "file": "_exo/params.py",
-   "line": 144,
+   "line": 150,
    "col": 8,
    "value": 1e-09,
    "kind": "call_arg",
@@ -991,9 +1051,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:148:1000",
+   "id": "_exo/params.py:154:1000",
    "file": "_exo/params.py",
-   "line": 148,
+   "line": 154,
    "col": 8,
    "value": 1000,
    "kind": "call_arg",
@@ -1006,9 +1066,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:175:16",
+   "id": "_exo/params.py:190:16",
    "file": "_exo/params.py",
-   "line": 175,
+   "line": 190,
    "col": 64,
    "value": 16,
    "kind": "inline",
@@ -1021,9 +1081,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:188:1",
+   "id": "_exo/params.py:203:1",
    "file": "_exo/params.py",
-   "line": 188,
+   "line": 203,
    "col": 67,
    "value": 1,
    "kind": "inline",
@@ -1036,9 +1096,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:188:0",
+   "id": "_exo/params.py:203:0",
    "file": "_exo/params.py",
-   "line": 188,
+   "line": 203,
    "col": 81,
    "value": 0,
    "kind": "inline",
@@ -2566,9 +2626,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:90:40",
+   "id": "tools/leaderboard_lint.py:92:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 90,
+   "line": 92,
    "col": 25,
    "value": 40,
    "kind": "inline",
@@ -2581,9 +2641,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:92:40",
+   "id": "tools/leaderboard_lint.py:94:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 92,
+   "line": 94,
    "col": 21,
    "value": 40,
    "kind": "compare",
@@ -2596,9 +2656,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:93:40",
+   "id": "tools/leaderboard_lint.py:95:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 93,
+   "line": 95,
    "col": 37,
    "value": 40,
    "kind": "inline",
@@ -2611,9 +2671,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:99:1",
+   "id": "tools/leaderboard_lint.py:101:1",
    "file": "tools/leaderboard_lint.py",
-   "line": 99,
+   "line": 101,
    "col": 11,
    "value": 1,
    "kind": "inline",
@@ -2626,9 +2686,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:99:0",
+   "id": "tools/leaderboard_lint.py:101:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 99,
+   "line": 101,
    "col": 28,
    "value": 0,
    "kind": "inline",
@@ -3361,9 +3421,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:123:60",
+   "id": "tools/leaderboard_migrate_v2.py:126:60",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 123,
+   "line": 126,
    "col": 43,
    "value": 60,
    "kind": "inline",
@@ -3376,9 +3436,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:125:0",
+   "id": "tools/leaderboard_migrate_v2.py:128:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 125,
+   "line": 128,
    "col": 16,
    "value": 0,
    "kind": "inline",
@@ -3391,9 +3451,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:129:0",
+   "id": "tools/leaderboard_migrate_v2.py:132:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 129,
+   "line": 132,
    "col": 15,
    "value": 0,
    "kind": "inline",
@@ -3406,9 +3466,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:131:1",
+   "id": "tools/leaderboard_migrate_v2.py:134:1",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 131,
+   "line": 134,
    "col": 17,
    "value": 1,
    "kind": "inline",
@@ -3421,9 +3481,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:134:0",
+   "id": "tools/leaderboard_migrate_v2.py:137:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 134,
+   "line": 137,
    "col": 15,
    "value": 0,
    "kind": "inline",
@@ -3436,9 +3496,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:136:0",
+   "id": "tools/leaderboard_migrate_v2.py:139:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 136,
+   "line": 139,
    "col": 69,
    "value": 0,
    "kind": "inline",
@@ -3451,9 +3511,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:142:0",
+   "id": "tools/leaderboard_migrate_v2.py:145:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 142,
+   "line": 145,
    "col": 58,
    "value": 0,
    "kind": "call_arg",
@@ -3466,9 +3526,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:142:1",
+   "id": "tools/leaderboard_migrate_v2.py:145:1",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 142,
+   "line": 145,
    "col": 63,
    "value": 1,
    "kind": "inline",
@@ -3481,9 +3541,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:155:0",
+   "id": "tools/leaderboard_migrate_v2.py:158:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 155,
+   "line": 158,
    "col": 77,
    "value": 0,
    "kind": "inline",
@@ -3496,9 +3556,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_migrate_v2.py:161:0",
+   "id": "tools/leaderboard_migrate_v2.py:164:0",
    "file": "tools/leaderboard_migrate_v2.py",
-   "line": 161,
+   "line": 164,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -3929,25 +3989,430 @@
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:31:1",
+   "file": "tools/round_summary.py",
+   "line": 31,
+   "col": 40,
+   "value": 1,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "ROOT = Path(__file__).resolve().parents[1]",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:32:0",
+   "file": "tools/round_summary.py",
+   "line": 32,
+   "col": 16,
+   "value": 0,
+   "kind": "call_arg",
+   "func": null,
+   "call": "insert",
+   "argname": "#0",
+   "text": "sys.path.insert(0, str(ROOT))",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:44:0",
+   "file": "tools/round_summary.py",
+   "line": 44,
+   "col": 28,
+   "value": 0,
+   "kind": "call_arg",
+   "func": "bootstrap",
+   "call": "integers",
+   "argname": "#0",
+   "text": "pick = rng.integers(0, len(groups), size=len(groups))",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:48:2",
+   "file": "tools/round_summary.py",
+   "line": 48,
+   "col": 46,
+   "value": 2,
+   "kind": "inline",
+   "func": "bootstrap",
+   "call": null,
+   "argname": null,
+   "text": "lo=float(np.quantile(draws, P.ALPHA / 2)),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:49:1",
+   "file": "tools/round_summary.py",
+   "line": 49,
+   "col": 36,
+   "value": 1,
+   "kind": "inline",
+   "func": "bootstrap",
+   "call": null,
+   "argname": null,
+   "text": "hi=float(np.quantile(draws, 1 - P.ALPHA / 2)),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:49:2",
+   "file": "tools/round_summary.py",
+   "line": 49,
+   "col": 50,
+   "value": 2,
+   "kind": "inline",
+   "func": "bootstrap",
+   "call": null,
+   "argname": null,
+   "text": "hi=float(np.quantile(draws, 1 - P.ALPHA / 2)),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:50:0",
+   "file": "tools/round_summary.py",
+   "line": 50,
+   "col": 26,
+   "value": 0,
+   "kind": "compare",
+   "func": "bootstrap",
+   "call": null,
+   "argname": null,
+   "text": "p=float((draws <= 0).mean()),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:65:0",
+   "file": "tools/round_summary.py",
+   "line": 65,
+   "col": 51,
+   "value": 0,
+   "kind": "inline",
+   "func": "collect",
+   "call": null,
+   "argname": null,
+   "text": "direction=str(cells.direction.iloc[0]),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:86:1",
+   "file": "tools/round_summary.py",
+   "line": 86,
+   "col": 46,
+   "value": 1,
+   "kind": "inline",
+   "func": "holm",
+   "call": null,
+   "argname": null,
+   "text": "for rank, row in enumerate(ordered, start=1):",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:88:1",
+   "file": "tools/round_summary.py",
+   "line": 88,
+   "col": 48,
+   "value": 1,
+   "kind": "inline",
+   "func": "holm",
+   "call": null,
+   "argname": null,
+   "text": "row[\"holm_alpha\"] = alpha / (m - rank + 1)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:90:0",
+   "file": "tools/round_summary.py",
+   "line": 90,
+   "col": 47,
+   "value": 0,
+   "kind": "compare",
+   "func": "holm",
+   "call": null,
+   "argname": null,
+   "text": "row[\"raw_pass\"] = bool(row[\"mean_d\"] > 0 and row[\"ci_low\"] > 0)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:90:0",
+   "file": "tools/round_summary.py",
+   "line": 90,
+   "col": 69,
+   "value": 0,
+   "kind": "compare",
+   "func": "holm",
+   "call": null,
+   "argname": null,
+   "text": "row[\"raw_pass\"] = bool(row[\"mean_d\"] > 0 and row[\"ci_low\"] > 0)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:103:0",
+   "file": "tools/round_summary.py",
+   "line": 103,
+   "col": 20,
+   "value": 0,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "print(f\"{header[0]:<18}{header[1]:>6}{header[2]:>7}{header[3]:>5}{header[4]:>5}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:103:1",
+   "file": "tools/round_summary.py",
+   "line": 103,
+   "col": 35,
+   "value": 1,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "print(f\"{header[0]:<18}{header[1]:>6}{header[2]:>7}{header[3]:>5}{header[4]:>5}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:103:2",
+   "file": "tools/round_summary.py",
+   "line": 103,
+   "col": 49,
+   "value": 2,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "print(f\"{header[0]:<18}{header[1]:>6}{header[2]:>7}{header[3]:>5}{header[4]:>5}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:103:3",
+   "file": "tools/round_summary.py",
+   "line": 103,
+   "col": 63,
+   "value": 3,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "print(f\"{header[0]:<18}{header[1]:>6}{header[2]:>7}{header[3]:>5}{header[4]:>5}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:103:4",
+   "file": "tools/round_summary.py",
+   "line": 103,
+   "col": 77,
+   "value": 4,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "print(f\"{header[0]:<18}{header[1]:>6}{header[2]:>7}{header[3]:>5}{header[4]:>5}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:104:5",
+   "file": "tools/round_summary.py",
+   "line": 104,
+   "col": 20,
+   "value": 5,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[5]:>10}{header[6]:>10}{header[7]:>10}{header[8]:>20}{header[9]:>8}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:104:6",
+   "file": "tools/round_summary.py",
+   "line": 104,
+   "col": 35,
+   "value": 6,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[5]:>10}{header[6]:>10}{header[7]:>10}{header[8]:>20}{header[9]:>8}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:104:7",
+   "file": "tools/round_summary.py",
+   "line": 104,
+   "col": 50,
+   "value": 7,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[5]:>10}{header[6]:>10}{header[7]:>10}{header[8]:>20}{header[9]:>8}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:104:8",
+   "file": "tools/round_summary.py",
+   "line": 104,
+   "col": 65,
+   "value": 8,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[5]:>10}{header[6]:>10}{header[7]:>10}{header[8]:>20}{header[9]:>8}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:104:9",
+   "file": "tools/round_summary.py",
+   "line": 104,
+   "col": 80,
+   "value": 9,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[5]:>10}{header[6]:>10}{header[7]:>10}{header[8]:>20}{header[9]:>8}\"",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:105:10",
+   "file": "tools/round_summary.py",
+   "line": 105,
+   "col": 20,
+   "value": 10,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[10]:>9}{header[11]:>7}\")",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:105:11",
+   "file": "tools/round_summary.py",
+   "line": 105,
+   "col": 35,
+   "value": 11,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "f\"{header[10]:>9}{header[11]:>7}\")",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:111:1",
+   "file": "tools/round_summary.py",
+   "line": 111,
+   "col": 17,
+   "value": 1,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "passed = sum(1 for row in rows if row[\"holm_pass\"])",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:115:1",
+   "file": "tools/round_summary.py",
+   "line": 115,
+   "col": 59,
+   "value": 1,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "Path(args.json).write_text(json.dumps(rows, indent=1))",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "tools/round_summary.py:117:0",
+   "file": "tools/round_summary.py",
+   "line": 117,
+   "col": 11,
+   "value": 0,
+   "kind": "inline",
+   "func": "main",
+   "call": null,
+   "argname": null,
+   "text": "return 0",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
   }
  ],
  "summary": {
   "by_kind": {
-   "call_arg": 65,
-   "inline": 161,
-   "compare": 29,
+   "call_arg": 68,
+   "inline": 186,
+   "compare": 32,
    "constant": 5,
    "default_arg": 2
   },
   "by_class": {
-   "code": 228,
+   "code": 259,
    "formatting": 5,
    "registered": 19,
    "fixture": 10
   },
   "by_file": {
    "_exo/engine.py": {
-    "call_arg": 10,
+    "call_arg": 11,
     "inline": 27,
     "compare": 6
    },
@@ -3957,7 +4422,7 @@
    },
    "_exo/params.py": {
     "call_arg": 19,
-    "inline": 3
+    "inline": 6
    },
    "experiment/E022/E022.py": {
     "call_arg": 1,
@@ -4037,6 +4502,11 @@
    "tools/retire_experiment.py": {
     "inline": 2,
     "constant": 1
+   },
+   "tools/round_summary.py": {
+    "inline": 22,
+    "call_arg": 2,
+    "compare": 3
    }
   }
  },

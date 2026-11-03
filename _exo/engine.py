@@ -183,14 +183,15 @@ def _expanding_z(values: np.ndarray) -> np.ndarray:
     return ((series - mean) / std.replace(0.0, np.nan)).to_numpy()
 
 
-def features(price: pd.Series, exog: dict, keys: list[str]):
+def features(price: pd.Series, exog: dict, keys: list[str], lags: int | None = None):
     """Causal design matrix on the target's weekly grid (availability lag applied)."""
     index = price.index
     logp = np.log(price.to_numpy(dtype=float))
     ret = np.diff(logp, prepend=np.nan)
 
+    lags = int(P.LAGS if lags is None else lags)
     cols, names = [], []
-    for lag in range(1, int(P.LAGS) + 1):
+    for lag in range(1, lags + 1):
         cols.append(np.roll(ret, lag))
         names.append(f"ret_lag{lag}")
     cols.append(_expanding_z(logp))
@@ -245,9 +246,10 @@ def fit_predict(model: str, Xtr: np.ndarray, Ytr: np.ndarray, Xte: np.ndarray) -
 
 # ------------------------------------------------------------------- walk and audit
 
-def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str):
+def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
+                 lags: int | None = None):
     logp = np.log(price.to_numpy(dtype=float))
-    X, names = features(price, exog, keys)
+    X, names = features(price, exog, keys, lags=lags)
     Y = targets(logp)
     ok = np.isfinite(X).all(1) & np.isfinite(Y).all(1) & np.isfinite(logp)
     valid = np.flatnonzero(ok)
@@ -390,9 +392,17 @@ def run(base: Path, spec: str) -> int:
     parts = spec.split()
     name = parts[0]
     limit = None
+    lags = None
     for part in parts[1:]:
         if part.startswith("--limit"):
             limit = int(part.split("=", 1)[1]) if "=" in part else None
+        if part.startswith("--lags"):
+            lags = int(part.split("=", 1)[1])
+    if lags is not None and lags not in P.SENSITIVITY_LAGS:
+        raise SystemExit(
+            f"--lags={lags} is not on the registered swing grid {P.SENSITIVITY_LAGS}. "
+            f"A lag count outside the grid is an unregistered degree of freedom."
+        )
 
     for key in FORBIDDEN_KEYS:
         if key in cfg:
@@ -432,7 +442,7 @@ def run(base: Path, spec: str) -> int:
 
     frames = []
     for key in keys:
-        cells = walk_forward(targets_all[key], exog_all, exog_keys, direction["model"])
+        cells = walk_forward(targets_all[key], exog_all, exog_keys, direction["model"], lags=lags)
         if cells is None or cells.empty:
             print(f"[run] no cells for {key}", flush=True)
             continue
@@ -447,10 +457,12 @@ def run(base: Path, spec: str) -> int:
     sealed_cut = int(cells.origin.max()) - int(P.SEALED_ORIGINS)
     row = audit(cells, sealed_cut)
     row.update(direction=name, model=direction["model"], exog=exog_keys,
-               targets=keys, experiment=cfg["experiment"],
+               targets=keys, experiment=cfg["experiment"], lags=int(P.LAGS if lags is None else lags),
+               sensitivity=swing,
                params_version=PARAMS_VERSION, params_hash=PARAMS_HASH)
 
-    out = base / "results"
+    swing = lags is not None and lags != int(P.LAGS)
+    out = base / "results" / (f"sensitivity/lags_{lags}" if swing else Path())
     out.mkdir(parents=True, exist_ok=True)
     cells.to_parquet(out / f"{name}_cells.parquet", index=False)
     (out / f"{name}_audit.json").write_text(json.dumps(row, indent=2, default=float))
@@ -458,7 +470,9 @@ def run(base: Path, spec: str) -> int:
 
     dev = cells[cells.origin < sealed_cut]
     ledger_db = Path(os.environ.get("EXO_LEADERBOARD", base.parents[1] / "leaderboard.sqlite"))
-    if limit and "EXO_LEADERBOARD" not in os.environ:
+    if swing:
+        print(f"[ledger] skipped (sensitivity swing LAGS={lags})", flush=True)
+    elif limit and "EXO_LEADERBOARD" not in os.environ:
         print("[ledger] skipped (--limit: partial panel)", flush=True)
     else:
         col_names = {key: meta["col_name"] for key, meta in

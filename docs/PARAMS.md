@@ -11,6 +11,7 @@ pipeline uses appears here with its source; anything not in this table cannot ru
 | `MIN_TRAIN` | `100` | declared | Minimum training window in weeks before the first forecast is issued. |
 | `MIN_WEEKS` | `200` | declared | A target panel needs at least 200 weekly observations (≈ 4 years) to be in the study at all. |
 | `REFIT_EVERY` | `4` | declared | Refit cadence in weeks. Weekly refits add no information at weekly resolution and multiply the compute by four. |
+| `SENSITIVITY_LAGS` | `(2, 4, 8)` | declared | The registered swing grid for LAGS (docs/SENSITIVITY.md). A run may only use a lag count from this tuple, and a swing run is written outside the leaderboard by construction, so a sensitivity value can never become a ranking. |
 | `TRAIN_FRAC` | `0.7` | declared | Warm-up fraction of the walk-forward: the first 70 % of the usable origin grid is in-sample, the rest is walk-forward. Declared in the round's README before the run. |
 | `H` | `8` | definitional | The repository's registered horizon grid h = 1..8 weeks (PROTOCOL.md §5.1 cell definition); a different grid is a different experiment, not a tuning knob. |
 | `PCT` | `100.0` | definitional | Percent conversion of a fraction. |
@@ -25,4 +26,4 @@ pipeline uses appears here with its source; anything not in this table cannot ru
 | `SAFETY_TOL` | `0.05` | protocol | PROTOCOL.md §6.1 item 4: no single series may regress by more than 0.05 MAPE. |
 | `SEALED_ORIGINS` | `52` | protocol | PROTOCOL.md §4.2: the most recent 52 weeks of mature targets are sealed. |
 
-`PARAMS_VERSION = 2.0`, `PARAMS_HASH = d7721b4d7a5a8d63`
+`PARAMS_VERSION = 2.0`, `PARAMS_HASH = bed9c9b38fdadba8`

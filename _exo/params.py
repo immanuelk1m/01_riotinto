@@ -110,6 +110,12 @@ REGISTRY: dict[str, Param] = {
         "One month of weekly lags of the target log-return (and of the exogenous "
         "changes). Swing-tested over {2,4,8} in docs/SENSITIVITY.md.",
     ),
+    "SENSITIVITY_LAGS": Param(
+        (2, 4, 8), "declared",
+        "The registered swing grid for LAGS (docs/SENSITIVITY.md). A run may only use a lag "
+        "count from this tuple, and a swing run is written outside the leaderboard by "
+        "construction, so a sensitivity value can never become a ranking.",
+    ),
     "TRAIN_FRAC": Param(
         0.70, "declared",
         "Warm-up fraction of the walk-forward: the first 70 % of the usable origin grid "
@@ -162,10 +168,19 @@ class _Access(dict):
 P = _Access({name: param.value for name, param in REGISTRY.items()})
 
 
+#: analysis and instrumentation entries: they are registered and linted like everything else,
+#: but they cannot change a registered cell, so they stay out of the provenance hash
+NOT_MODELLING = ("SENSITIVITY_LAGS",)
+
+
 def canonical() -> str:
-    """Stable JSON of the registry, used for the hash and for provenance."""
+    """Stable JSON of the modelling registry, used for the hash and for provenance."""
     return json.dumps(
-        {name: {"value": p.value, "source": p.source} for name, p in sorted(REGISTRY.items())},
+        {
+            name: {"value": p.value, "source": p.source}
+            for name, p in sorted(REGISTRY.items())
+            if name not in NOT_MODELLING
+        },
         sort_keys=True,
         separators=(",", ":"),
     )

@@ -72,7 +72,9 @@
     "bdi": {
       "pattern": "baltic dry index",
       "col_name": "barchart_com.BDI.BI",
-      "name_en": "Baltic Dry Index"
+      "name_en": "Baltic Dry Index",
+      "lag_weeks": 1,
+      "note": "The manifest records no ingest lag for this series. The Baltic Dry Index is published daily, so one week is a conservative real-time assumption; declaring it here keeps the assumption visible instead of letting an unknown lag behave as instantaneous."
     },
     "copper_3m": {
       "pattern": "lme copper official prices 3-month futures bid",

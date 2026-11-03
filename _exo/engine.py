@@ -104,6 +104,21 @@ def prepare(base: Path) -> dict:
                     print(f"[prepare] MISS {kind}:{key} col_name={col}", flush=True)
                     continue
                 name_en, lag_days = meta
+                # An unknown ingest lag is not zero: assuming same-week availability can only
+                # manufacture an edge. v1 silently defaulted to 3 days; v2 refuses and asks for
+                # the lag to be declared on the series itself.
+                declared_lag_weeks = entry.get("lag_weeks") if isinstance(entry, dict) else None
+                if lag_days is None and declared_lag_weeks is None:
+                    raise SystemExit(
+                        f"[prepare] {kind}:{key} ({col}) has no ingest_lag_days and no declared "
+                        f"lag_weeks. Add \"lag_weeks\": <n> with a rationale to config.json — an "
+                        f"unknown publication lag cannot be treated as instantaneous."
+                    )
+                lag_weeks = (
+                    int(declared_lag_weeks)
+                    if declared_lag_weeks is not None
+                    else int(np.ceil(lag_days / 7.0))
+                )
                 cur.execute(
                     "select dt, value from public.value where col_name = %s order by dt", (col,)
                 )
@@ -123,7 +138,8 @@ def prepare(base: Path) -> dict:
                     col_name=col,
                     name_en=name_en,
                     ingest_lag_days=lag_days,
-                    lag_weeks=int(np.ceil((lag_days or 0) / 7.0)),
+                    lag_weeks=lag_weeks,
+                    lag_source="config" if declared_lag_weeks is not None else "manifest",
                     weeks=int(len(series)),
                     first=str(series.index[0].date()),
                     last=str(series.index[-1].date()),
@@ -131,7 +147,7 @@ def prepare(base: Path) -> dict:
                 )
                 print(
                     f"[prepare] {kind}:{key} <- {col} weeks={len(series)} "
-                    f"lag={lag_days}d ({manifest[store][key]['lag_weeks']}w)",
+                    f"lag={lag_days}d ({lag_weeks}w, {manifest[store][key]['lag_source']})",
                     flush=True,
                 )
     (data / "manifest.json").write_text(json.dumps(manifest, indent=2))

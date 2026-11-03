@@ -398,6 +398,7 @@ def run(base: Path, spec: str) -> int:
             limit = int(part.split("=", 1)[1]) if "=" in part else None
         if part.startswith("--lags"):
             lags = int(part.split("=", 1)[1])
+    swing = lags is not None and lags != int(P.LAGS)
     if lags is not None and lags not in P.SENSITIVITY_LAGS:
         raise SystemExit(
             f"--lags={lags} is not on the registered swing grid {P.SENSITIVITY_LAGS}. "
@@ -461,7 +462,6 @@ def run(base: Path, spec: str) -> int:
                sensitivity=swing,
                params_version=PARAMS_VERSION, params_hash=PARAMS_HASH)
 
-    swing = lags is not None and lags != int(P.LAGS)
     out = base / "results" / (f"sensitivity/lags_{lags}" if swing else Path())
     out.mkdir(parents=True, exist_ok=True)
     cells.to_parquet(out / f"{name}_cells.parquet", index=False)

@@ -131,8 +131,9 @@ def write(db: Path | str, experiment: str, cells: pd.DataFrame, col_names: dict[
     payload = rows(experiment, cells, col_names, None, "candidate", direction=direction,
                    params_hash=params_hash, status=status)
     if persistence and {"mape_pers", "ape_pers_raw"} <= set(cells.columns):
+        # a baseline has no direction: that is what marks it as the reference, not a candidate
         payload += rows(persistence, cells, col_names, None, "persistence",
-                        direction=direction, params_hash=params_hash, status=status)
+                        direction=None, params_hash=params_hash, status=status)
     con = sqlite3.connect(Path(db), timeout=60)
     try:
         con.execute("PRAGMA busy_timeout=60000")

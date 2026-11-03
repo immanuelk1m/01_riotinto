@@ -161,6 +161,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", default=str(ROOT / "leaderboard.sqlite"))
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--out", default=str(OUT))
     args = parser.parse_args()
 
     rendered = build(Path(args.db))
@@ -173,8 +174,9 @@ def main() -> int:
             return 1
         print("[report] current")
         return 0
-    OUT.write_text(rendered, encoding="utf-8")
-    print(f"[report] wrote {OUT.relative_to(ROOT)} ({len(rendered.splitlines())} lines)")
+    out = Path(args.out)
+    out.write_text(rendered, encoding="utf-8")
+    print(f"[report] wrote {out} ({len(rendered.splitlines())} lines)")
     return 0
 
 

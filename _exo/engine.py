@@ -439,7 +439,8 @@ def run(base: Path, spec: str) -> int:
         col_names = {key: meta["col_name"] for key, meta in
                      json.loads((base / "data" / "manifest.json").read_text())["targets"].items()}
         written = write_leaderboard(ledger_db, f"{cfg['experiment']}_{name}", dev, col_names,
-                                    persistence=f"{cfg['experiment']}_persistence")
+                                    persistence=f"{cfg['experiment']}_persistence",
+                                    direction=name)
         print(f"[ledger] {written} rows -> {ledger_db}", flush=True)
     print(json.dumps({k: v for k, v in row.items() if k != "per_series"}, indent=2, default=float), flush=True)
     return 0

@@ -30,3 +30,16 @@ Zhang et al. 2026: macro augmentation loses to the random walk at 1–5 days): m
 directions fail Gate A. The honest output is the audit table plus a statement of
 which exogenous axes carry measurable information. A failing direction is not a
 result and is not reported as one.
+
+---
+
+## Under the constant-free pipeline (v2, 2026-11-03)
+
+This experiment was re-registered in [`../FAMILY_v2.md`](../FAMILY_v2.md) after Gate F
+removed every direction whose model carries a free parameter. What remains here is the
+ADL subset; `lasso`, `pcr`, `gbrt` and `combo` are listed under
+`retired_directions` in `config.json` and in [`../RETIRED.md`](../RETIRED.md).
+
+The series are no longer resolved by a regex at prepare time: `config.json` now names
+the `col_name` that the v1 selector happened to pick, and a direction refuses to run if
+a declared series is missing from the panel.

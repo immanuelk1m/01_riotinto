@@ -1,0 +1,124 @@
+{
+  "experiment": "E024",
+  "title": "Exogenous predictors for the agricultural panel (Gate A audit round)",
+  "targets": {
+    "wheat": "^barchart cash soft red wheat index$",
+    "corn": "^barchart cash national corn index$",
+    "soybean": "^barchart cash national soybean index$",
+    "rice": "rice.*price",
+    "coffee_r": "cepea/esalq robusta",
+    "sugar": "white sugar price index"
+  },
+  "exog": {
+    "oni": "oceanic nino index",
+    "soi": "southern oscillation index",
+    "rain": "houston.*precipitation",
+    "brl": "u\\.s\\. dollar / brazilian real",
+    "dollar": "nominal advanced foreign economies dollar index",
+    "crude": "cushing wti spot price",
+    "bdi": "^baltic dry index$",
+    "fertilizer": "fertilizer.*price",
+    "corn_basis": "u\\.s\\. corn basis index$"
+  },
+  "directions": [
+    {
+      "name": "adl_parity_fx",
+      "model": "adl",
+      "targets": [
+        "corn",
+        "soybean",
+        "wheat"
+      ],
+      "exog": [
+        "brl",
+        "dollar"
+      ]
+    },
+    {
+      "name": "adl_enso",
+      "model": "adl",
+      "targets": [
+        "coffee_r",
+        "sugar",
+        "rice"
+      ],
+      "exog": [
+        "oni",
+        "soi"
+      ]
+    },
+    {
+      "name": "arimax_rain",
+      "model": "adl",
+      "targets": [
+        "corn",
+        "soybean",
+        "wheat",
+        "rice"
+      ],
+      "exog": [
+        "rain",
+        "crude"
+      ]
+    },
+    {
+      "name": "lasso_agri",
+      "model": "lasso",
+      "targets": [
+        "corn",
+        "soybean",
+        "wheat",
+        "coffee_r",
+        "cocoa",
+        "sugar"
+      ],
+      "exog": [
+        "oni",
+        "soi",
+        "rain",
+        "brl",
+        "dollar",
+        "crude",
+        "bdi",
+        "fertilizer"
+      ]
+    },
+    {
+      "name": "gbrt_agri",
+      "model": "gbrt",
+      "targets": [
+        "corn",
+        "soybean",
+        "wheat",
+        "coffee_r",
+        "cocoa",
+        "sugar"
+      ],
+      "exog": [
+        "oni",
+        "soi",
+        "rain",
+        "brl",
+        "dollar",
+        "crude",
+        "bdi",
+        "fertilizer"
+      ]
+    },
+    {
+      "name": "combo_agri",
+      "model": "combo",
+      "targets": [
+        "corn",
+        "soybean",
+        "coffee_r"
+      ],
+      "exog": [
+        "oni",
+        "brl",
+        "crude",
+        "bdi"
+      ]
+    }
+  ]
+}

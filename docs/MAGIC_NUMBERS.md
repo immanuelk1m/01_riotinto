@@ -5,20 +5,23 @@ Decisions are declared in [`params_decisions.json`](params_decisions.json).
 
 ## Totals
 
-- numeric literals scanned: **2820**
-- knob candidates (`constant` / `call_arg` / `default_arg`): **655**
+- numeric literals scanned: **262**
+- knob candidates (`constant` / `call_arg` / `default_arg`): **72**
 
 | literal role | count |
 |---|---|
-| `inline` | 1959 |
-| `call_arg` | 538 |
-| `compare` | 206 |
-| `constant` | 90 |
-| `default_arg` | 27 |
+| `inline` | 161 |
+| `call_arg` | 65 |
+| `compare` | 29 |
+| `constant` | 5 |
+| `default_arg` | 2 |
 
 | classification | count |
 |---|---|
-| `undecided` | 2820 |
+| `code` | 228 |
+| `registered` | 19 |
+| `fixture` | 10 |
+| `formatting` | 5 |
 
 ## Knob candidates
 
@@ -27,735 +30,102 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 
 | file:line | value | role | site | class | disposition |
 |---|---|---|---|---|---|
-| `_exo/engine.py:24` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `_exo/engine.py:27` | `1.0` | constant | `CAP` | undecided | undecided |
-| `_exo/engine.py:28` | `8` | constant | `H` | undecided | undecided |
-| `_exo/engine.py:29` | `4` | constant | `LAGS` | undecided | undecided |
-| `_exo/engine.py:30` | `0.7` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `_exo/engine.py:31` | `100` | constant | `MIN_TRAIN` | undecided | undecided |
-| `_exo/engine.py:32` | `200` | constant | `MIN_WEEKS` | undecided | undecided |
-| `_exo/engine.py:33` | `26` | constant | `BLOCK` | undecided | undecided |
-| `_exo/engine.py:34` | `1000` | constant | `BOOT` | undecided | undecided |
-| `_exo/engine.py:35` | `4` | constant | `REFIT_EVERY` | undecided | undecided |
-| `_exo/engine.py:36` | `1040` | constant | `MAX_WEEKS` | undecided | undecided |
-| `_exo/engine.py:37` | `52` | constant | `SEALED_ORIGINS` | undecided | undecided |
-| `_exo/engine.py:38` | `0.05` | constant | `ALPHA` | undecided | undecided |
-| `_exo/engine.py:39` | `1000000000.0` | constant | `BIG` | undecided | undecided |
-| `_exo/engine.py:60` | `120` | default_arg | `cur` | undecided | undecided |
-| `_exo/engine.py:175` | `52` | default_arg | `values` | undecided | undecided |
-| `_exo/engine.py:177` | `12` | call_arg | `max(#0)` | undecided | undecided |
-| `_exo/engine.py:178` | `12` | call_arg | `max(#0)` | undecided | undecided |
-| `_exo/engine.py:179` | `0.0` | call_arg | `replace(#0)` | undecided | undecided |
-| `_exo/engine.py:189` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `_exo/engine.py:206` | `4` | call_arg | `diff(#0)` | undecided | undecided |
-| `_exo/engine.py:214` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `_exo/engine.py:219` | `1e-06` | default_arg | `X` | undecided | undecided |
-| `_exo/engine.py:230` | `3` | default_arg | `X` | undecided | undecided |
-| `_exo/engine.py:231` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `_exo/engine.py:231` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `_exo/engine.py:311` | `1` | call_arg | `all(#0)` | undecided | undecided |
-| `_exo/engine.py:311` | `1` | call_arg | `all(#0)` | undecided | undecided |
-| `_exo/engine.py:329` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `_exo/engine.py:334` | `0.5` | call_arg | `clip(#2)` | undecided | undecided |
-| `_exo/engine.py:355` | `0` | default_arg | `draws` | undecided | undecided |
-| `_exo/engine.py:375` | `0` | call_arg | `integers(#0)` | undecided | undecided |
-| `_exo/engine.py:414` | `6` | call_arg | `round(#0)` | undecided | undecided |
-| `_exo/engine.py:450` | `1` | call_arg | `split(#1)` | undecided | undecided |
-| `experiment/E001/E001.py:50` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E001/E001.py:51` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E001/E001.py:52` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E001/E001.py:135` | `0.0` | constant | `g` | undecided | undecided |
-| `experiment/E001/E001.py:155` | `4` | call_arg | `array_split(#1)` | undecided | undecided |
-| `experiment/E001/E001.py:158` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:158` | `4` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E001/E001.py:164` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:167` | `1` | call_arg | `max(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:216` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:217` | `0` | constant | `tries` | undecided | undecided |
-| `experiment/E001/E001.py:224` | `2` | call_arg | `min(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:263` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:277` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E001/E001.py:279` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E002/E002.py:48` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E002/E002.py:49` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E002/E002.py:50` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E002/E002.py:51` | `30` | constant | `TOP_K` | undecided | undecided |
-| `experiment/E002/E002.py:125` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E002/E002.py:129` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E002/E002.py:142` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E002/E002.py:144` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:54` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E003/E003.py:55` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E003/E003.py:56` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E003/E003.py:106` | `0.0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:116` | `5` | call_arg | `TimeSeriesSplit(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:139` | `1.0` | call_arg | `min(#1)` | undecided | undecided |
-| `experiment/E003/E003.py:149` | `1` | call_arg | `max(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:183` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:187` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:203` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E003/E003.py:205` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:55` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E004/E004.py:56` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E004/E004.py:57` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E004/E004.py:58` | `30` | constant | `TOP_K` | undecided | undecided |
-| `experiment/E004/E004.py:111` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:112` | `0.0` | call_arg | `get(#1)` | undecided | undecided |
-| `experiment/E004/E004.py:123` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:131` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:136` | `0` | call_arg | `repeat(#2)` | undecided | undecided |
-| `experiment/E004/E004.py:141` | `1` | call_arg | `realised(#2)` | undecided | undecided |
-| `experiment/E004/E004.py:155` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:182` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:192` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:198` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E004/E004.py:202` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:56` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E005/E005.py:57` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E005/E005.py:58` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E005/E005.py:61` | `6` | call_arg | `logspace(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:61` | `29` | call_arg | `logspace(#2)` | undecided | undecided |
-| `experiment/E005/E005.py:124` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:131` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:132` | `0.0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E005/E005.py:133` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:133` | `1` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:134` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:134` | `1` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:135` | `0.0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E005/E005.py:136` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:136` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:136` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:152` | `0` | call_arg | `nanmean(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:152` | `0` | call_arg | `nanstd(#1)` | undecided | undecided |
-| `experiment/E005/E005.py:159` | `5` | call_arg | `TimeSeriesSplit(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:179` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:180` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:187` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E005/E005.py:195` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:56` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E006/E006.py:57` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E006/E006.py:58` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E006/E006.py:97` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:107` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:111` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:117` | `0.5` | constant | `w_part` | undecided | undecided |
-| `experiment/E006/E006.py:150` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:156` | `0.0` | call_arg | `append(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:167` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:168` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:186` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:219` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:228` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:231` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:264` | `1e-12` | call_arg | `max(#2)` | undecided | undecided |
-| `experiment/E006/E006.py:265` | `1e-300` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E006/E006.py:295` | `4` | call_arg | `round(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:296` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E006/E006.py:296` | `4` | call_arg | `round(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:62` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E007/E007.py:63` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E007/E007.py:64` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E007/E007.py:106` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:116` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:117` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:128` | `1` | call_arg | `diff(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:128` | `4` | call_arg | `diff(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:128` | `13` | call_arg | `diff(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:135` | `2` | call_arg | `array_split(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:136` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:142` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:142` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:142` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:142` | `1` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:143` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:144` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:145` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:159` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:159` | `256` | call_arg | `range(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:161` | `0` | call_arg | `max(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:168` | `0` | default_arg | `params` | undecided | undecided |
-| `experiment/E007/E007.py:173` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:189` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:189` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:189` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:191` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:191` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E007/E007.py:191` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E007/E007.py:200` | `0` | default_arg | `X` | undecided | undecided |
-| `experiment/E007/E007.py:211` | `0` | call_arg | `integers(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:241` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:252` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/E007.py:269` | `0.0` | constant | `p` | undecided | undecided |
-| `experiment/E007/E007.py:280` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E007/remote/poll.py:9` | `14` | call_arg | `ljust(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:81` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E008/E008.py:82` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:83` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E008/E008.py:84` | `42` | constant | `SEED` | undecided | undecided |
-| `experiment/E008/E008.py:135` | `156` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:137` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:137` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:138` | `13` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:155` | `0` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:156` | `0` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:234` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:235` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:241` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:241` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:242` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:242` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:242` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:244` | `1` | call_arg | `nanmean(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:245` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:245` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:245` | `1e-300` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:283` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:283` | `1` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:283` | `0` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:283` | `1` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:285` | `1e-300` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:285` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:285` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:286` | `1` | call_arg | `nanmean(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:288` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E008/E008.py:289` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:289` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E008/E008.py:289` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E008/E008.py:317` | `0` | constant | `n_train` | undecided | undecided |
-| `experiment/E008/remote/poll.py:9` | `14` | call_arg | `ljust(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:55` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:56` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:57` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:78` | `0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:80` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:80` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:81` | `1` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E009/E009.py:86` | `10` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E009/E009.py:87` | `1` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:119` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:128` | `1.0` | call_arg | `clip_grad_norm_(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:155` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:155` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:155` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E009/E009.py:157` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:159` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:160` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:161` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:161` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:161` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E009/E009.py:168` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:192` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:202` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E009/E009.py:235` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:54` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:55` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:56` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:81` | `0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:83` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:83` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:84` | `1` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E010/E010.py:89` | `10` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E010/E010.py:90` | `1` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:132` | `0` | call_arg | `measure(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:136` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:144` | `1.0` | call_arg | `clip_grad_norm_(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:168` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:168` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:168` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E010/E010.py:170` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:172` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:173` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:174` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:174` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:174` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:181` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:201` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E010/E010.py:221` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:231` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E010/E010.py:261` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:22` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E011/E011.py:42` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:51` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:54` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:65` | `2` | call_arg | `zeros(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:66` | `6` | call_arg | `zeros(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:94` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E011/E011.py:94` | `0.0001` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E011/E011.py:97` | `0.5` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E011/E011.py:98` | `2.0` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E011/E011.py:117` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E011/E011.py:147` | `1` | call_arg | `allclose(#1)` | undecided | undecided |
-| `experiment/E011/test_e011.py:16` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E011/test_e011.py:16` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E011/test_e011.py:47` | `0` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:47` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:47` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E012/E012.py:47` | `8` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:55` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:58` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:92` | `1e-300` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E012/E012.py:98` | `1.0` | call_arg | `minimum(#1)` | undecided | undecided |
-| `experiment/E012/E012.py:147` | `52` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E012/E012.py:147` | `26` | call_arg | `range(#2)` | undecided | undecided |
-| `experiment/E012/E012.py:151` | `52` | call_arg | `tail(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:18` | `90` | default_arg | `n` | undecided | undecided |
-| `experiment/E012/test_e012.py:21` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:21` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E012/test_e012.py:42` | `20` | call_arg | `synthetic(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:44` | `20` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:44` | `0` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E012/test_e012.py:48` | `1` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:48` | `1` | call_arg | `assert_allclose(#1)` | undecided | undecided |
-| `experiment/E012/test_e012.py:54` | `20` | call_arg | `synthetic(#0)` | undecided | undecided |
-| `experiment/E012/test_e012.py:82` | `90` | call_arg | `assertEqual(#1)` | undecided | undecided |
-| `experiment/E012/test_e012.py:89` | `90` | call_arg | `assertEqual(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:55` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:56` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:57` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:82` | `0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:84` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:84` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:85` | `1` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E013/E013.py:90` | `10` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E013/E013.py:91` | `1` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:107` | `2` | call_arg | `minimum(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:111` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:137` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:145` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:155` | `0` | call_arg | `measure(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:159` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:166` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:171` | `1.0` | call_arg | `clip_grad_norm_(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:195` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:195` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:195` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E013/E013.py:197` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:199` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:200` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:201` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:201` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:201` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:208` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:230` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:231` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:231` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:233` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E013/E013.py:243` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:257` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:268` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:312` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:369` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E013/E013.py:370` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E013/test_e013.py:19` | `0` | constant | `blocks` | undecided | undecided |
-| `experiment/E013/test_e013.py:73` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E013/test_e013.py:76` | `0.1` | call_arg | `environment_objective(#3)` | undecided | undecided |
-| `experiment/E013/test_e013.py:77` | `2.0` | call_arg | `tensor(#0)` | undecided | undecided |
-| `experiment/E013/test_e013.py:82` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E013/test_e013.py:89` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E014/E014.py:51` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E014/E014.py:52` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E014/analyze.py:36` | `0` | constant | `epoch_zero` | undecided | undecided |
-| `experiment/E014/remote/smoke.py:13` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E014/remote/smoke.py:34` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E014/remote/smoke.py:35` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E014/remote/smoke.py:43` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E014/test_e014.py:51` | `0` | constant | `blocks` | undecided | undecided |
-| `experiment/E014/test_e014.py:75` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E014/test_e014.py:76` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E014/test_e014.py:84` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E015/E015.py:57` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:58` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:59` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:84` | `0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:86` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:86` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:87` | `1` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E015/E015.py:92` | `10` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E015/E015.py:93` | `1` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:109` | `2` | call_arg | `minimum(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:113` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:139` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:147` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:157` | `0` | call_arg | `measure(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:161` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:168` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:173` | `1.0` | call_arg | `clip_grad_norm_(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:197` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:197` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:197` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E015/E015.py:199` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:201` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:202` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:203` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:203` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:203` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:227` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:237` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:259` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:260` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:260` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E015/E015.py:281` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:295` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:306` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:350` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:407` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E015/E015.py:408` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E015/remote/smoke.py:13` | `0` | call_arg | `get_device_name(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:19` | `0` | constant | `count` | undecided | undecided |
-| `experiment/E015/test_e015.py:30` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:41` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:45` | `80` | call_arg | `scaler(#1)` | undecided | undecided |
-| `experiment/E015/test_e015.py:54` | `3` | call_arg | `deployment_model(#5)` | undecided | undecided |
-| `experiment/E015/test_e015.py:69` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:74` | `3` | call_arg | `deployment_model(#5)` | undecided | undecided |
-| `experiment/E015/test_e015.py:84` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:85` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E015/test_e015.py:89` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E015/test_e015.py:91` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E015/test_e015.py:96` | `2` | call_arg | `deployment_model(#5)` | undecided | undecided |
-| `experiment/E015/test_e015.py:98` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E015/test_e015.py:112` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E016/E016.py:38` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E016/E016.py:38` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E016/E016.py:38` | `8` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E016/E016.py:46` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E016/E016.py:49` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E016/E016.py:69` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E016/E016.py:69` | `1.0` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E016/E016.py:92` | `1.0` | call_arg | `minimum(#1)` | undecided | undecided |
-| `experiment/E016/E016.py:93` | `1e-06` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E016/E016.py:96` | `26` | constant | `window` | undecided | undecided |
-| `experiment/E016/E016.py:128` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E016/E016.py:128` | `26` | call_arg | `range(#2)` | undecided | undecided |
-| `experiment/E016/E016.py:130` | `26` | call_arg | `tail(#0)` | undecided | undecided |
-| `experiment/E016/remote/smoke.py:3` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E016/runner.py:11` | `60` | default_arg | `` | undecided | undecided |
-| `experiment/E016/runner.py:11` | `5` | default_arg | `` | undecided | undecided |
-| `experiment/E016/runner.py:19` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E016/runner.py:42` | `240` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E016/runner.py:46` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:15` | `100` | default_arg | `n` | undecided | undecided |
-| `experiment/E016/test_e016.py:18` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:18` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E016/test_e016.py:42` | `100` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:42` | `0` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E016/test_e016.py:46` | `26` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:47` | `52` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:48` | `0` | call_arg | `between(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:48` | `1` | call_arg | `between(#1)` | undecided | undecided |
-| `experiment/E016/test_e016.py:50` | `100` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:53` | `20` | call_arg | `synthetic(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:73` | `70` | call_arg | `synthetic(#0)` | undecided | undecided |
-| `experiment/E016/test_e016.py:79` | `108` | call_arg | `assertEqual(#1)` | undecided | undecided |
-| `experiment/E016/test_e016.py:80` | `0` | call_arg | `assertEqual(#1)` | undecided | undecided |
-| `experiment/E017/E017.py:79` | `0` | call_arg | `max(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:108` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:132` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:133` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:133` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E017/E017.py:136` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E017/E017.py:150` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:164` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:175` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:209` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E017/E017.py:210` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:13` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:34` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:35` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:38` | `180` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:38` | `220` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:41` | `180` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:41` | `220` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/remote/smoke.py:56` | `2` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E017/test_e017.py:20` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E017/test_e017.py:26` | `200` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:26` | `300` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/test_e017.py:29` | `200` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:29` | `300` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/test_e017.py:43` | `200` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:43` | `300` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/test_e017.py:43` | `0` | call_arg | `fit_mapping(#3)` | undecided | undecided |
-| `experiment/E017/test_e017.py:45` | `301` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:45` | `300` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/test_e017.py:45` | `52` | call_arg | `fit_mapping(#3)` | undecided | undecided |
-| `experiment/E017/test_e017.py:54` | `0` | constant | `blocks` | undecided | undecided |
-| `experiment/E017/test_e017.py:82` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E017/test_e017.py:83` | `42` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E017/test_e017.py:85` | `300` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E017/test_e017.py:85` | `324` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:89` | `200` | call_arg | `fit_mapping(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:89` | `300` | call_arg | `fit_mapping(#2)` | undecided | undecided |
-| `experiment/E017/test_e017.py:90` | `200` | call_arg | `scaler(#1)` | undecided | undecided |
-| `experiment/E017/test_e017.py:91` | `1` | call_arg | `fit_model(#4)` | undecided | undecided |
-| `experiment/E018/E018.py:57` | `0.05` | constant | `ALPHA` | undecided | undecided |
-| `experiment/E018/E018.py:58` | `13` | constant | `MIN_LABELS` | undecided | undecided |
-| `experiment/E018/E018.py:59` | `1.0` | constant | `CAP` | undecided | undecided |
-| `experiment/E018/E018.py:60` | `0.5` | constant | `LAMBDA_MAX` | undecided | undecided |
-| `experiment/E018/E018.py:61` | `13` | constant | `SHRINK_MIN` | undecided | undecided |
-| `experiment/E018/E018.py:62` | `0.5` | constant | `SHRINK_FRACTION` | undecided | undecided |
-| `experiment/E018/E018.py:63` | `0.01` | constant | `EFFECT_SCALE` | undecided | undecided |
-| `experiment/E018/E018.py:70` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E018/E018.py:70` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E018/E018.py:70` | `8` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E018/E018.py:78` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E018/E018.py:81` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E018/E018.py:111` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E018/E018.py:194` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E018/E018.py:194` | `1.0` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E018/E018.py:227` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E018/E018.py:227` | `26` | call_arg | `range(#2)` | undecided | undecided |
-| `experiment/E018/remote/smoke.py:2` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E018/runner.py:12` | `60` | default_arg | `` | undecided | undecided |
-| `experiment/E018/runner.py:12` | `5` | default_arg | `` | undecided | undecided |
-| `experiment/E018/runner.py:20` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E018/runner.py:44` | `240` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E018/runner.py:49` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E018/test_e018.py:11` | `40` | default_arg | `origins` | undecided | undecided |
-| `experiment/E018/test_e018.py:11` | `0` | default_arg | `seed` | undecided | undecided |
-| `experiment/E018/test_e018.py:17` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E018/test_e018.py:17` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:19` | `100.0` | constant | `last` | undecided | undecided |
-| `experiment/E018/test_e018.py:20` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E018/test_e018.py:20` | `0.02` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:25` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E018/test_e018.py:25` | `0.005` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:26` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E018/test_e018.py:26` | `0.004` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:77` | `0.0` | call_arg | `assertGreaterEqual(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:78` | `1.0` | call_arg | `assertLess(#1)` | undecided | undecided |
-| `experiment/E018/test_e018.py:81` | `0` | call_arg | `assertLess(#1)` | undecided | undecided |
-| `experiment/E019/E019.py:51` | `0.1` | constant | `ALPHA_FDR` | undecided | undecided |
-| `experiment/E019/E019.py:52` | `13` | constant | `MIN_LABELS` | undecided | undecided |
-| `experiment/E019/E019.py:53` | `1.0` | constant | `CAP` | undecided | undecided |
-| `experiment/E019/E019.py:54` | `0.5` | constant | `LAMBDA_MAX` | undecided | undecided |
-| `experiment/E019/E019.py:55` | `26` | constant | `RECENT` | undecided | undecided |
-| `experiment/E019/E019.py:56` | `0.1` | constant | `ACI_GAMMA` | undecided | undecided |
-| `experiment/E019/E019.py:63` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E019/E019.py:63` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E019/E019.py:63` | `8` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E019/E019.py:71` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E019/E019.py:74` | `0` | call_arg | `gt(#0)` | undecided | undecided |
-| `experiment/E019/E019.py:100` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E019/E019.py:126` | `0` | constant | `best` | undecided | undecided |
-| `experiment/E019/E019.py:152` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E019/E019.py:175` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E019/E019.py:175` | `0.5` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E019/E019.py:216` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E019/E019.py:216` | `26` | call_arg | `range(#2)` | undecided | undecided |
-| `experiment/E019/remote/smoke.py:2` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E019/runner.py:12` | `60` | default_arg | `` | undecided | undecided |
-| `experiment/E019/runner.py:12` | `5` | default_arg | `` | undecided | undecided |
-| `experiment/E019/runner.py:20` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E019/runner.py:44` | `240` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E019/runner.py:49` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E019/test_e019.py:11` | `3` | default_arg | `commodities` | undecided | undecided |
-| `experiment/E019/test_e019.py:11` | `40` | default_arg | `origins` | undecided | undecided |
-| `experiment/E019/test_e019.py:11` | `0` | default_arg | `seed` | undecided | undecided |
-| `experiment/E019/test_e019.py:19` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E019/test_e019.py:19` | `9` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E019/test_e019.py:20` | `100.0` | constant | `last` | undecided | undecided |
-| `experiment/E019/test_e019.py:22` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E019/test_e019.py:22` | `0.02` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E019/test_e019.py:23` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E019/test_e019.py:23` | `0.01` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E019/test_e019.py:24` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/E019/test_e019.py:24` | `0.01` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/E019/test_e019.py:75` | `0` | call_arg | `eq(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:69` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:70` | `1` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:71` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:96` | `0` | call_arg | `fillna(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:98` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:98` | `0` | call_arg | `std(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:99` | `1` | call_arg | `where(#2)` | undecided | undecided |
-| `experiment/E020/E020.py:104` | `10` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E020/E020.py:105` | `1` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:121` | `2` | call_arg | `minimum(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:125` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:151` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:159` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:169` | `0` | call_arg | `measure(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:173` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:180` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:185` | `1.0` | call_arg | `clip_grad_norm_(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:209` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:209` | `0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:209` | `1` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E020/E020.py:211` | `1` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:213` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:214` | `1e-12` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:215` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:215` | `0` | call_arg | `sum(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:215` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:240` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:267` | `2` | call_arg | `set_num_threads(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:289` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:290` | `0` | call_arg | `mean(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:290` | `1e-12` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E020/E020.py:306` | `3` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:320` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:331` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:375` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:432` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E020/E020.py:433` | `0` | call_arg | `pop(#0)` | undecided | undecided |
-| `experiment/E020/remote/smoke.py:2` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E020/runner.py:12` | `60` | default_arg | `` | undecided | undecided |
-| `experiment/E020/runner.py:12` | `5` | default_arg | `` | undecided | undecided |
-| `experiment/E020/runner.py:20` | `10` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E020/runner.py:45` | `480` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E020/runner.py:50` | `30` | call_arg | `sleep(#0)` | undecided | undecided |
-| `experiment/E020/test_e020.py:14` | `0` | constant | `count` | undecided | undecided |
-| `experiment/E020/test_e020.py:41` | `10` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E020/test_e020.py:41` | `400` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E020/test_e020.py:46` | `10000` | call_arg | `window_rows(#1)` | undecided | undecided |
-| `experiment/E020/test_e020.py:75` | `0` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/E020/test_e020.py:80` | `200` | call_arg | `arange(#0)` | undecided | undecided |
-| `experiment/E020/test_e020.py:80` | `300` | call_arg | `arange(#1)` | undecided | undecided |
-| `experiment/E020/test_e020.py:84` | `2` | call_arg | `deployment_model(#5)` | undecided | undecided |
-| `experiment/E021/E021.py:44` | `8` | constant | `H` | undecided | undecided |
-| `experiment/E021/E021.py:45` | `4` | constant | `LAGS` | undecided | undecided |
-| `experiment/E021/E021.py:46` | `0.8` | constant | `TRAIN_FRAC` | undecided | undecided |
-| `experiment/E021/E021.py:47` | `250` | constant | `MIN_WEEKS` | undecided | undecided |
-| `experiment/E021/E021.py:48` | `0.05` | constant | `ALPHA` | undecided | undecided |
-| `experiment/E021/E021.py:49` | `0.1` | constant | `ALPHA_FDR` | undecided | undecided |
-| `experiment/E021/E021.py:50` | `13` | constant | `MIN_LABELS` | undecided | undecided |
-| `experiment/E021/E021.py:51` | `1.0` | constant | `CAP` | undecided | undecided |
-| `experiment/E021/E021.py:52` | `0.5` | constant | `LAMBDA_MAX` | undecided | undecided |
-| `experiment/E021/E021.py:53` | `1.0` | constant | `RIDGE_LAMBDA` | undecided | undecided |
-| `experiment/E021/E021.py:104` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:107` | `52` | call_arg | `rolling(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:108` | `1e-09` | call_arg | `maximum(#1)` | undecided | undecided |
-| `experiment/E021/E021.py:117` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:140` | `1` | call_arg | `any(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:140` | `1` | call_arg | `any(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:146` | `4` | call_arg | `array_split(#1)` | undecided | undecided |
-| `experiment/E021/E021.py:148` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:148` | `4` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/E021/E021.py:162` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/E021/E021.py:166` | `0.5` | call_arg | `clip(#2)` | undecided | undecided |
-| `experiment/E021/E021.py:181` | `0.0` | call_arg | `clip(#1)` | undecided | undecided |
-| `experiment/E021/E021.py:195` | `0` | constant | `best` | undecided | undecided |
-| `experiment/E021/E021.py:227` | `1e-300` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E021/E021.py:278` | `1` | call_arg | `max(#1)` | undecided | undecided |
-| `experiment/E022/E022.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E023/E023.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E024/E024.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E025/E025.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E026/E026.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/E027/E027.py:7` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:29` | `1.0` | constant | `CAP` | undecided | undecided |
-| `experiment/transfer_contract.py:30` | `26` | constant | `BLOCK` | undecided | undecided |
-| `experiment/transfer_contract.py:32` | `0.05` | constant | `SAFETY_TOL` | undecided | undecided |
-| `experiment/transfer_contract.py:33` | `0.1` | constant | `MIN_COVERAGE` | undecided | undecided |
-| `experiment/transfer_contract.py:57` | `2000` | default_arg | `block` | undecided | undecided |
-| `experiment/transfer_contract.py:57` | `42` | default_arg | `draws` | undecided | undecided |
-| `experiment/transfer_contract.py:57` | `0.95` | default_arg | `seed` | undecided | undecided |
-| `experiment/transfer_contract.py:113` | `0` | constant | `wins` | undecided | undecided |
-| `experiment/transfer_contract.py:116` | `0` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:181` | `3` | call_arg | `round(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:185` | `0` | call_arg | `default_rng(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:188` | `0.5` | default_arg | `noise_scale` | undecided | undecided |
-| `experiment/transfer_contract.py:188` | `0` | default_arg | `deploy_rate` | undecided | undecided |
-| `experiment/transfer_contract.py:193` | `1` | call_arg | `range(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:193` | `3` | call_arg | `range(#1)` | undecided | undecided |
-| `experiment/transfer_contract.py:194` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:194` | `0.02` | call_arg | `normal(#1)` | undecided | undecided |
-| `experiment/transfer_contract.py:198` | `0` | call_arg | `normal(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:204` | `0.004` | call_arg | `frame(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:204` | `0.6` | call_arg | `frame(#1)` | undecided | undecided |
-| `experiment/transfer_contract.py:204` | `1` | call_arg | `frame(#2)` | undecided | undecided |
-| `experiment/transfer_contract.py:205` | `0.12` | call_arg | `frame(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:205` | `0.6` | call_arg | `frame(#1)` | undecided | undecided |
-| `experiment/transfer_contract.py:205` | `2` | call_arg | `frame(#2)` | undecided | undecided |
-| `experiment/transfer_contract.py:206` | `0.004` | call_arg | `frame(#0)` | undecided | undecided |
-| `experiment/transfer_contract.py:206` | `0.02` | call_arg | `frame(#1)` | undecided | undecided |
-| `experiment/transfer_contract.py:206` | `3` | call_arg | `frame(#2)` | undecided | undecided |
-| `tools/leaderboard_from_cells.py:23` | `0` | call_arg | `insert(#0)` | undecided | undecided |
-| `tools/leaderboard_from_cells.py:27` | `52` | constant | `SEALED_ORIGINS` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:55` | `52` | constant | `SEALED_ORIGINS` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:61` | `1e-06` | constant | `TOL_ABS` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:62` | `1e-09` | constant | `TOL_REL` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:173` | `0.0` | constant | `worst` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:192` | `9` | call_arg | `round(#1)` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:231` | `9` | call_arg | `round(#1)` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:322` | `0.0` | call_arg | `matches(#1)` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:359` | `0.0` | constant | `peak` | undecided | undecided |
-| `tools/leaderboard_max_ape.py:362` | `9` | call_arg | `round(#1)` | undecided | undecided |
+| `_exo/engine.py:45` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `_exo/engine.py:167` | `0.0` | call_arg | `replace(#0)` | code | allowed structural literal |
+| `_exo/engine.py:177` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:202` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:236` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `_exo/engine.py:236` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `_exo/engine.py:256` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:302` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
+| `_exo/engine.py:342` | `6` | call_arg | `round(#0)` | formatting | display precision only |
+| `_exo/engine.py:379` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
+| `_exo/params.py:70` | `1.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:74` | `26` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:79` | `52` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:82` | `0.05` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:84` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:87` | `0.05` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:92` | `8` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:97` | `2` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:101` | `100.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:103` | `0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:109` | `4` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:114` | `0.7` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:120` | `4` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:125` | `100` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:129` | `200` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:134` | `1040` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:139` | `1e-06` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:144` | `1e-09` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:148` | `1000` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `experiment/E022/E022.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E023/E023.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E024/E024.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E025/E025.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E026/E026.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E027/E027.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:119` | `0` | constant | `wins` | code | allowed structural literal |
+| `experiment/transfer_contract.py:122` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:187` | `3` | call_arg | `round(#0)` | formatting | display precision only |
+| `experiment/transfer_contract.py:191` | `0` | call_arg | `default_rng(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:194` | `0.5` | default_arg | `noise_scale` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:194` | `0` | default_arg | `deploy_rate` | code | allowed structural literal |
+| `experiment/transfer_contract.py:199` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:199` | `3` | call_arg | `range(#1)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:200` | `0` | call_arg | `normal(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:200` | `0.02` | call_arg | `normal(#1)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:204` | `0` | call_arg | `normal(#0)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:210` | `0.004` | call_arg | `frame(#0)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:210` | `0.6` | call_arg | `frame(#1)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:210` | `1` | call_arg | `frame(#2)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:211` | `0.12` | call_arg | `frame(#0)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:211` | `0.6` | call_arg | `frame(#1)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:211` | `2` | call_arg | `frame(#2)` | code | allowed structural literal |
+| `experiment/transfer_contract.py:212` | `0.004` | call_arg | `frame(#0)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:212` | `0.02` | call_arg | `frame(#1)` | fixture | synthetic self-test input, not research data |
+| `experiment/transfer_contract.py:212` | `3` | call_arg | `frame(#2)` | fixture | synthetic self-test input, not research data |
+| `tools/leaderboard_from_cells.py:23` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/leaderboard_lint.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:44` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:177` | `0.0` | constant | `worst` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:196` | `9` | call_arg | `round(#1)` | formatting | display precision only |
+| `tools/leaderboard_max_ape.py:235` | `9` | call_arg | `round(#1)` | formatting | display precision only |
+| `tools/leaderboard_max_ape.py:326` | `0.0` | call_arg | `matches(#1)` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:363` | `0.0` | constant | `peak` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:366` | `9` | call_arg | `round(#1)` | formatting | display precision only |
+| `tools/leaderboard_migrate_v2.py:45` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/leaderboard_migrate_v2.py:142` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
+| `tools/leaderboard_report.py:70` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
+| `tools/params_lint.py:162` | `0` | constant | `count` | code | allowed structural literal |
+| `tools/params_lint.py:172` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
+| `tools/resolve_series.py:28` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/retire_experiment.py:302` | `0` | constant | `total` | code | allowed structural literal |
 
 ## Per file
 
 | file | constant | call_arg | default_arg | other |
 |---|---|---|---|---|
-| `_exo/engine.py` | 13 | 16 | 5 | 73 |
-| `_exo/leaderboard.py` | 0 | 0 | 0 | 3 |
-| `experiment/E001/E001.py` | 5 | 10 | 0 | 119 |
-| `experiment/E002/E002.py` | 4 | 4 | 0 | 61 |
-| `experiment/E003/E003.py` | 3 | 8 | 0 | 77 |
-| `experiment/E004/E004.py` | 4 | 11 | 0 | 81 |
-| `experiment/E005/E005.py` | 3 | 20 | 0 | 65 |
-| `experiment/E006/E006.py` | 4 | 16 | 0 | 123 |
-| `experiment/E007/E007.py` | 4 | 29 | 2 | 130 |
-| `experiment/E007/remote/poll.py` | 0 | 1 | 0 | 4 |
-| `experiment/E008/E008.py` | 4 | 30 | 0 | 133 |
-| `experiment/E008/remote/poll.py` | 0 | 1 | 0 | 4 |
-| `experiment/E009/E009.py` | 0 | 24 | 0 | 73 |
-| `experiment/E009/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E010/E010.py` | 0 | 26 | 0 | 85 |
-| `experiment/E010/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E011/E011.py` | 1 | 11 | 0 | 56 |
-| `experiment/E011/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E011/test_e011.py` | 0 | 3 | 0 | 11 |
-| `experiment/E012/E012.py` | 0 | 10 | 0 | 38 |
-| `experiment/E012/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E012/test_e012.py` | 0 | 10 | 1 | 21 |
-| `experiment/E013/E013.py` | 0 | 37 | 0 | 102 |
-| `experiment/E013/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E013/test_e013.py` | 1 | 5 | 0 | 40 |
-| `experiment/E014/E014.py` | 0 | 2 | 0 | 2 |
-| `experiment/E014/analyze.py` | 1 | 0 | 0 | 8 |
-| `experiment/E014/prepare.py` | 0 | 0 | 0 | 12 |
-| `experiment/E014/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E014/remote/smoke.py` | 0 | 4 | 0 | 16 |
-| `experiment/E014/test_e014.py` | 1 | 3 | 0 | 45 |
-| `experiment/E015/E015.py` | 0 | 37 | 0 | 104 |
-| `experiment/E015/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E015/remote/smoke.py` | 0 | 1 | 0 | 0 |
-| `experiment/E015/test_e015.py` | 1 | 13 | 0 | 45 |
-| `experiment/E016/E016.py` | 1 | 12 | 0 | 44 |
-| `experiment/E016/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E016/remote/smoke.py` | 0 | 1 | 0 | 0 |
-| `experiment/E016/runner.py` | 0 | 3 | 2 | 7 |
-| `experiment/E016/test_e016.py` | 0 | 13 | 1 | 18 |
-| `experiment/E017/E017.py` | 0 | 11 | 0 | 55 |
-| `experiment/E017/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E017/remote/smoke.py` | 0 | 8 | 0 | 25 |
-| `experiment/E017/test_e017.py` | 1 | 19 | 0 | 38 |
-| `experiment/E018/E018.py` | 7 | 10 | 0 | 38 |
-| `experiment/E018/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E018/remote/smoke.py` | 0 | 1 | 0 | 0 |
-| `experiment/E018/runner.py` | 0 | 3 | 2 | 7 |
-| `experiment/E018/test_e018.py` | 1 | 11 | 2 | 29 |
-| `experiment/E019/E019.py` | 7 | 11 | 0 | 41 |
-| `experiment/E019/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E019/remote/smoke.py` | 0 | 1 | 0 | 0 |
-| `experiment/E019/runner.py` | 0 | 3 | 2 | 7 |
-| `experiment/E019/test_e019.py` | 1 | 9 | 3 | 39 |
-| `experiment/E020/E020.py` | 0 | 37 | 0 | 106 |
-| `experiment/E020/remote/poll.py` | 0 | 0 | 0 | 1 |
-| `experiment/E020/remote/smoke.py` | 0 | 1 | 0 | 3 |
-| `experiment/E020/runner.py` | 0 | 3 | 2 | 10 |
-| `experiment/E020/test_e020.py` | 1 | 7 | 0 | 12 |
-| `experiment/E021/E021.py` | 11 | 14 | 0 | 57 |
+| `_exo/engine.py` | 0 | 10 | 0 | 33 |
+| `_exo/leaderboard.py` | 0 | 0 | 0 | 5 |
+| `_exo/params.py` | 0 | 19 | 0 | 3 |
 | `experiment/E022/E022.py` | 0 | 1 | 0 | 3 |
 | `experiment/E023/E023.py` | 0 | 1 | 0 | 3 |
 | `experiment/E024/E024.py` | 0 | 1 | 0 | 3 |
 | `experiment/E025/E025.py` | 0 | 1 | 0 | 3 |
 | `experiment/E026/E026.py` | 0 | 1 | 0 | 3 |
 | `experiment/E027/E027.py` | 0 | 1 | 0 | 3 |
-| `experiment/transfer_contract.py` | 5 | 17 | 5 | 30 |
-| `tools/leaderboard_from_cells.py` | 1 | 1 | 0 | 3 |
-| `tools/leaderboard_max_ape.py` | 5 | 4 | 0 | 35 |
+| `experiment/transfer_contract.py` | 1 | 18 | 2 | 32 |
+| `tools/check_all.py` | 0 | 0 | 0 | 8 |
+| `tools/leaderboard_from_cells.py` | 0 | 1 | 0 | 3 |
+| `tools/leaderboard_lint.py` | 0 | 1 | 0 | 16 |
+| `tools/leaderboard_max_ape.py` | 2 | 5 | 0 | 36 |
+| `tools/leaderboard_migrate_v2.py` | 0 | 2 | 0 | 13 |
+| `tools/leaderboard_report.py` | 0 | 1 | 0 | 5 |
+| `tools/params_lint.py` | 1 | 1 | 0 | 13 |
+| `tools/resolve_series.py` | 0 | 1 | 0 | 3 |
+| `tools/retire_experiment.py` | 1 | 0 | 0 | 2 |
 
 ## Experiment model fingerprints
 
@@ -765,27 +135,27 @@ search loop, or a module constant that changes the fitted object.
 
 | experiment | estimators | search / selection | module constants |
 |---|---|---|---|
-| `E001` | LGBMRegressor | array_split, choice | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E002` | LGBMRegressor | — | H=8, TRAIN_FRAC=0.8, SEED=42, TOP_K=30 |
-| `E003` | LGBMRegressor, Lasso, LassoCV | array_split, choice | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E004` | LGBMRegressor | — | H=8, TRAIN_FRAC=0.8, SEED=42, TOP_K=30 |
-| `E005` | Ridge | GridSearchCV | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E006` | LGBMRegressor | array_split | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E007` | LGBMRegressor | array_split | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E008` | LGBMRegressor | — | H=8, TRAIN_FRAC=0.8, SEED=42 |
-| `E009` | GRU | — | — |
-| `E010` | GRU | — | — |
-| `E011` | — | — | H=8 |
+| `E001` | — | — | — |
+| `E002` | — | — | — |
+| `E003` | — | — | — |
+| `E004` | — | — | — |
+| `E005` | — | — | — |
+| `E006` | — | — | — |
+| `E007` | — | — | — |
+| `E008` | — | — | — |
+| `E009` | — | — | — |
+| `E010` | — | — | — |
+| `E011` | — | — | — |
 | `E012` | — | — | — |
-| `E013` | GRU | — | — |
+| `E013` | — | — | — |
 | `E014` | — | — | — |
-| `E015` | GRU | — | — |
+| `E015` | — | — | — |
 | `E016` | — | — | — |
 | `E017` | — | — | — |
-| `E018` | — | — | ALPHA=0.05, MIN_LABELS=13, CAP=1.0, LAMBDA_MAX=0.5, SHRINK_MIN=13, SHRINK_FRACTION=0.5, EFFECT_SCALE=0.01 |
-| `E019` | — | — | ALPHA_FDR=0.1, MIN_LABELS=13, CAP=1.0, LAMBDA_MAX=0.5, RECENT=26, ACI_GAMMA=0.1 |
-| `E020` | GRU | — | — |
-| `E021` | — | array_split | H=8, LAGS=4, TRAIN_FRAC=0.8, MIN_WEEKS=250, ALPHA=0.05, ALPHA_FDR=0.1, MIN_LABELS=13, CAP=1.0, LAMBDA_MAX=0.5, RIDGE_LAMBDA=1.0 |
+| `E018` | — | — | — |
+| `E019` | — | — | — |
+| `E020` | — | — | — |
+| `E021` | — | — | — |
 | `E022` | — | — | — |
 | `E023` | — | — | — |
 | `E024` | — | — | — |

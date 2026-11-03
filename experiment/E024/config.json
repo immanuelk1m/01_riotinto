@@ -2,23 +2,83 @@
   "experiment": "E024",
   "title": "Exogenous predictors for the agricultural panel (Gate A audit round)",
   "targets": {
-    "wheat": "^barchart cash soft red wheat index$",
-    "corn": "^barchart cash national corn index$",
-    "soybean": "^barchart cash national soybean index$",
-    "rice": "rice.*price",
-    "coffee_r": "cepea/esalq robusta",
-    "sugar": "white sugar price index"
+    "wheat": {
+      "pattern": "^barchart cash soft red wheat index$",
+      "col_name": "Com_Barchart_Cash_Soft_Red_Wheat_Index",
+      "name_en": "Barchart Cash Soft Red Wheat Index"
+    },
+    "corn": {
+      "pattern": "^barchart cash national corn index$",
+      "col_name": "Com_Barchart_Cash_National_Corn_Index",
+      "name_en": "Barchart Cash National Corn Index"
+    },
+    "soybean": {
+      "pattern": "^barchart cash national soybean index$",
+      "col_name": "Com_Barchart_Cash_National_Soybean_Index",
+      "name_en": "Barchart Cash National Soybean Index"
+    },
+    "rice": {
+      "pattern": "rice.*price",
+      "col_name": "Food_FAO_All_Rice_Price_Index_Monthly",
+      "name_en": "FAO All Rice Price Index"
+    },
+    "coffee_r": {
+      "pattern": "cepea/esalq robusta",
+      "col_name": "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag",
+      "name_en": "CEPEA/ESALQ Robusta Coffee Price Index"
+    },
+    "sugar": {
+      "pattern": "white sugar price index",
+      "col_name": "isosugar_org_white_sugar_price_index_usd_per_tonne",
+      "name_en": "White Sugar Price Index"
+    }
   },
   "exog": {
-    "oni": "oceanic nino index",
-    "soi": "southern oscillation index",
-    "rain": "houston.*precipitation",
-    "brl": "u\\.s\\. dollar / brazilian real",
-    "dollar": "nominal advanced foreign economies dollar index",
-    "crude": "cushing wti spot price",
-    "bdi": "^baltic dry index$",
-    "fertilizer": "fertilizer.*price",
-    "corn_basis": "u\\.s\\. corn basis index$"
+    "oni": {
+      "pattern": "oceanic nino index",
+      "col_name": "Weather_NOAA_CPC_Oceanic_Nino_Index_ONI_Anomaly",
+      "name_en": "NOAA CPC Oceanic Nino Index anomaly"
+    },
+    "soi": {
+      "pattern": "southern oscillation index",
+      "col_name": "Weather_NOAA_CPC_Southern_Oscillation_Index_SOI",
+      "name_en": "NOAA CPC Southern Oscillation Index"
+    },
+    "rain": {
+      "pattern": "houston.*precipitation",
+      "col_name": "Weather_NOAA_NCEI_GHCND_Houston_Hobby_Airport_Daily_Precipitation",
+      "name_en": "NOAA NCEI GHCN-Daily Houston William P. Hobby Airport Daily Precipitation"
+    },
+    "brl": {
+      "pattern": "u\\.s\\. dollar / brazilian real",
+      "col_name": "Com_Fed_H10_EX_BRL_USD",
+      "name_en": "U.S. Dollar / Brazilian Real Exchange Rate"
+    },
+    "dollar": {
+      "pattern": "nominal advanced foreign economies dollar index",
+      "col_name": "Fin_Federal_Reserve_H10_Nominal_AFE_Dollar_Index_Daily",
+      "name_en": "Federal Reserve Nominal Advanced Foreign Economies Dollar Index"
+    },
+    "crude": {
+      "pattern": "cushing wti spot price",
+      "col_name": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
+      "name_en": "EIA Cushing WTI Spot Price Daily USD per Barrel"
+    },
+    "bdi": {
+      "pattern": "^baltic dry index$",
+      "col_name": "barchart_com.BDI.BI",
+      "name_en": "Baltic Dry Index"
+    },
+    "fertilizer": {
+      "pattern": "fertilizer.*price",
+      "col_name": "Com_WorldBank_CMO_Monthly_Price_Tsp",
+      "name_en": "World Bank Pink Sheet Monthly TSP Fertilizer Price"
+    },
+    "corn_basis": {
+      "pattern": "u\\.s\\. corn basis index$",
+      "col_name": "Com_Barchart_US_Corn_Basis_Index",
+      "name_en": "Barchart U.S. Corn Basis Index"
+    }
   },
   "directions": [
     {
@@ -48,7 +108,7 @@
       ]
     },
     {
-      "name": "arimax_rain",
+      "name": "adl_rain",
       "model": "adl",
       "targets": [
         "corn",
@@ -60,65 +120,25 @@
         "rain",
         "crude"
       ]
-    },
+    }
+  ],
+  "unavailable": {},
+  "retired_directions": [
     {
       "name": "lasso_agri",
       "model": "lasso",
-      "targets": [
-        "corn",
-        "soybean",
-        "wheat",
-        "coffee_r",
-        "cocoa",
-        "sugar"
-      ],
-      "exog": [
-        "oni",
-        "soi",
-        "rain",
-        "brl",
-        "dollar",
-        "crude",
-        "bdi",
-        "fertilizer"
-      ]
+      "reason": "model carries free parameters; see experiment/RETIRED.md"
     },
     {
       "name": "gbrt_agri",
       "model": "gbrt",
-      "targets": [
-        "corn",
-        "soybean",
-        "wheat",
-        "coffee_r",
-        "cocoa",
-        "sugar"
-      ],
-      "exog": [
-        "oni",
-        "soi",
-        "rain",
-        "brl",
-        "dollar",
-        "crude",
-        "bdi",
-        "fertilizer"
-      ]
+      "reason": "model carries free parameters; see experiment/RETIRED.md"
     },
     {
       "name": "combo_agri",
       "model": "combo",
-      "targets": [
-        "corn",
-        "soybean",
-        "coffee_r"
-      ],
-      "exog": [
-        "oni",
-        "brl",
-        "crude",
-        "bdi"
-      ]
+      "reason": "model carries free parameters; see experiment/RETIRED.md"
     }
-  ]
+  ],
+  "params_version": "2.0"
 }

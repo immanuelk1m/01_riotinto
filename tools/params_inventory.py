@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import ast
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,7 +82,8 @@ def scan(path: Path) -> list[dict]:
     def walk(node: ast.AST, parents: list[ast.AST], func: str | None) -> None:
         for child in ast.iter_child_nodes(node):
             if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                walk(child, parents + [node], child.name)
+                # keep the whole chain so a nested fixture helper still counts as a fixture
+                walk(child, parents + [node], f"{func}.{child.name}" if func else child.name)
                 continue
             if _is_number(child):
                 parent = node
@@ -174,12 +176,36 @@ def load_decisions() -> dict:
     return json.loads(DECISIONS.read_text(encoding="utf-8"))
 
 
+#: small structural literals that cannot change what is estimated
+STRUCTURAL = {0, 1, 2}
+
+
 def classify(rows: list[dict], decisions: dict) -> list[dict]:
+    """Label each literal by the same rules ``params_lint.py`` enforces.
+
+    ``decisions.json`` is an optional override; without it the classification is
+    derived, so the document cannot drift from the lint that gates the build.
+    """
     for row in rows:
         decision = decisions.get(row["id"], {})
-        row["class"] = decision.get("class", "undecided")
-        row["disposition"] = decision.get("disposition", "undecided")
-        row["note"] = decision.get("note", "")
+        if decision:
+            row["class"] = decision.get("class", "unreviewed")
+            row["disposition"] = decision.get("disposition", "unreviewed")
+            row["note"] = decision.get("note", "")
+            continue
+        if row["kind"] not in KNOB_KINDS:
+            row["class"], row["disposition"] = "code", "allowed (cannot change an estimate)"
+        elif row["file"].startswith("_exo/params.py"):
+            row["class"], row["disposition"] = "registered", "keep (has source + rationale)"
+        elif row["value"] in STRUCTURAL:
+            row["class"], row["disposition"] = "code", "allowed structural literal"
+        elif (row["func"] or "").startswith("_self_test"):
+            row["class"], row["disposition"] = "fixture", "synthetic self-test input, not research data"
+        elif row["call"] in ("round", "format"):
+            row["class"], row["disposition"] = "formatting", "display precision only"
+        else:
+            row["class"], row["disposition"] = "unreviewed", "params_lint violation"
+        row["note"] = ""
     return rows
 
 
@@ -287,7 +313,20 @@ def main() -> int:
     OUT_JSON.write_text(json.dumps(dict(rows=rows, summary=stats, fingerprints=prints), indent=1), encoding="utf-8")
     OUT_MD.write_text(markdown(rows, stats, prints), encoding="utf-8")
 
-    undecided = [r for r in knob_rows if r["class"] == "undecided"]
+    # the registry is the other half of the inventory: what *is* allowed
+    sys.path.insert(0, str(ROOT))
+    from _exo.params import describe  # noqa: E402
+
+    (ROOT / "docs" / "PARAMS.md").write_text(
+        "# Registered constants\n\n"
+        "Generated from `_exo/params.py` by `tools/params_inventory.py`. Every number the\n"
+        "pipeline uses appears here with its source; anything not in this table cannot run.\n\n"
+        + describe()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    undecided = [r for r in knob_rows if r["class"] == "unreviewed"]
     print(
         f"[inventory] {len(rows)} literals, {len(knob_rows)} knob candidates, "
         f"{len(undecided)} undecided -> docs/MAGIC_NUMBERS.md"

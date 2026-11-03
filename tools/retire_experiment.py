@@ -267,7 +267,7 @@ def apply_one(experiment: str, info: dict, commit: str, dry: bool) -> list[str]:
 
 
 def test_module() -> str:
-    cases = "\n".join(f'    ("{e}",),' for e in sorted(RETIREMENTS))
+    cases = "\n".join(f'    "{e}",' for e in sorted(RETIREMENTS))
     return f'''"""A retired experiment must refuse to run; the purge is otherwise cosmetic."""
 import importlib
 

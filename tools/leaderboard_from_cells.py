@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from _exo.leaderboard import write  # noqa: E402
-from _exo.params import P  # noqa: E402
+from _exo.params import P, PARAMS_HASH  # noqa: E402
 
 
 def main() -> int:
@@ -35,6 +35,7 @@ def main() -> int:
     base = ROOT / "experiment" / args.experiment
     manifest = json.loads((base / "data" / "manifest.json").read_text())
     col_names = {key: row["col_name"] for key, row in manifest["targets"].items()}
+    params_hash = manifest.get("params_hash", PARAMS_HASH)
 
     paths = sorted((base / "results").glob("*_cells.parquet"))
     if not paths:
@@ -51,7 +52,8 @@ def main() -> int:
                   f"(sealed {len(cells) - len(dev)}), series {sorted(dev.series.unique())}")
             continue
         written = write(ROOT / "leaderboard.sqlite", label, dev, col_names,
-                        persistence=f"{args.experiment}_persistence")
+                        persistence=f"{args.experiment}_persistence",
+                        direction=name, params_hash=params_hash)
         print(f"[ledger] {label}: {written} rows written")
     return 0
 

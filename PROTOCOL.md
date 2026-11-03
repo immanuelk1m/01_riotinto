@@ -1,6 +1,8 @@
 # Research Protocol
 
-**Version:** 1.0 (2026-10-31)
+**Version:** 1.1 (2026-11-03) — adds Gate F (constant discipline) and the v2
+leaderboard schema. Nothing in Gates A–E changed.
+**Superseded:** 1.0 (2026-10-31).
 **Scope:** every experiment under `experiment/`, every report under `.omx/research/`.
 **Status:** normative. Where this document conflicts with an experiment README or a
 report narrative, this document wins.
@@ -158,7 +160,47 @@ remembered.
 
 ---
 
-## 7. Reporting template
+## 7. Gate F — Constant discipline
+
+Gate E made the contract executable. Gate F makes the *search space* executable: a
+number that changes what is estimated is a degree of freedom, and an unregistered
+degree of freedom cannot be audited after the fact.
+
+7.1 **Every constant carries a source.** A number may enter the pipeline only through
+`_exo/params.py`, with a `source` of `protocol` (a clause of this document fixes it),
+`definitional` (forced by the meaning of the object) or `declared` (written down
+before the run, with a rationale). There is no fourth category. A constant whose
+origin is unknown cannot be represented in the registry at all, so it cannot be
+imported by accident.
+
+7.2 **No model with a free parameter may be ranked.** A direction may appear in the
+leaderboard as eligible only if its forecast comes from a model whose definition is
+fixed by this protocol or by a closed form with no penalty, no architecture and no
+search. A model whose result depends on a hand-set `alpha`, `k`, depth, learning rate
+or clip bound is **retired**: its rows are kept under `status = 'retired-heuristic'`
+and are never compared against persistence.
+
+7.3 **Declared constants must be shown not to matter.** A `declared` constant that
+could decide a conclusion requires a sensitivity table over a pre-declared grid,
+published with the result. A constant that does move the conclusion is a finding
+about fragility and is reported as one.
+
+7.4 **Nothing is rescued retroactively.** A constant can be promoted to `declared`
+only before the run it governs. Once a number has been observed, a post-hoc rationale
+is not a substitute for registration.
+
+7.5 **Direction names must name the estimator that ran.** A direction called
+`arimax_*` that fits an OLS is a false label and is renamed or removed.
+
+7.6 **The leaderboard records provenance.** In addition to §6.3, every row carries
+`params_hash`, `params_version`, `pipeline`, `aggregate` (1 for `horizon = 'all'`, so
+§5.1 is a filter rather than a memory), `window` (`dev`/`sealed`) and `status`.
+`tools/leaderboard_lint.py` fails when an eligible row lacks any of them, when a
+metric is not a MAPE, or when the migrated table lost a row.
+
+---
+
+## 8. Reporting template
 
 Every report contains:
 
@@ -176,7 +218,7 @@ There is no field for state-of-the-art claims.
 
 ---
 
-## 8. Anti-patterns
+## 9. Anti-patterns
 
 - Choosing a direction after reading the evaluation block.
 - Quoting a mechanism's published gain from a different signal regime without a Gate A

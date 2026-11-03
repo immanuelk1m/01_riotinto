@@ -463,8 +463,11 @@ def run(base: Path, spec: str) -> int:
     else:
         col_names = {key: meta["col_name"] for key, meta in
                      json.loads((base / "data" / "manifest.json").read_text())["targets"].items()}
+        # the baseline is scoped to the direction, not to the experiment: two directions in one
+        # experiment can score different panels, and a shared `_persistence` label then mixes a
+        # 2-series and a 3-series panel under one name (§5.3)
         written = write_leaderboard(ledger_db, f"{cfg['experiment']}_{name}", dev, col_names,
-                                    persistence=f"{cfg['experiment']}_persistence",
+                                    persistence=f"{cfg['experiment']}_{name}_persistence",
                                     direction=name)
         print(f"[ledger] {written} rows -> {ledger_db}", flush=True)
     print(json.dumps({k: v for k, v in row.items() if k != "per_series"}, indent=2, default=float), flush=True)

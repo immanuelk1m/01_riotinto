@@ -75,8 +75,10 @@ def main() -> int:
 
     if "leaderboard_archive" in tables:
         archived = q("select count(*) from leaderboard_archive")[0][0]
-        if archived != total:
+        if total < archived:
             issues.append(f"row loss: archive has {archived}, v2 has {total}")
+        elif total > archived:
+            print(f"  note: {total - archived} rows added since the migration (re-runs)")
     else:
         archived = None
 

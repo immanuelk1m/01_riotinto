@@ -52,7 +52,7 @@ def main() -> int:
                   f"(sealed {len(cells) - len(dev)}), series {sorted(dev.series.unique())}")
             continue
         written = write(ROOT / "leaderboard.sqlite", label, dev, col_names,
-                        persistence=f"{args.experiment}_persistence",
+                        persistence=f"{label}_persistence",
                         direction=name, params_hash=params_hash)
         print(f"[ledger] {label}: {written} rows written")
     return 0

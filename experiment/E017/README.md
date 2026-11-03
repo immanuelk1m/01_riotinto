@@ -47,3 +47,7 @@ The runner uploads the existing E014 data/features and E013 source as
 e013_core.py. Remote GPU training follows torch smoke. Downloads include curves,
 transfer CSV, summaries and six prediction parquets. The local leaderboard is
 experiment-local, preserving earlier experiment and naive rows.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: sheet-pool wrapper around the E013 GRU core. Removed constants: E013 constants; pooling weights. Reason: same wrapper as E014 over the same knob-carrying core. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

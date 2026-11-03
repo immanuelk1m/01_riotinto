@@ -22,3 +22,7 @@ Training curves include pooled loss, objective, environment risks and variance.
 Transfer CSV and JSON report gate-to-next-block behavior retrospectively only.
 Local test: `uv run python experiment/E013/test_e013.py`.
 Torch objective/epoch-zero smoke: `python test_e013.py --torch` on Colab.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: invariant-risk GRU core. Removed constants: GRU; environment split; penalty weight. Reason: the invariance penalty and the network are both free parameters. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

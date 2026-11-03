@@ -57,3 +57,7 @@ The runner uploads the immutable E015 frozen archive, runs the smoke and contrac
 tests inside Colab, launches the direction, polls, downloads artifacts, imports the
 leaderboard only after local validation, then stops the VM. Verify a failure with
 `colab exec -s <name> -f remote/poll.py`: `colab exec` does not propagate exit codes.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: e-process with shrunk cross-sectional weights. Removed constants: ALPHA = 0.05; MIN_LABELS = 13; SHRINK_MIN = 13; SHRINK_FRACTION = 0.5; EFFECT_SCALE = 0.01. Reason: five hand-set constants define the rule, including a shrinkage schedule. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

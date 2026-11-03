@@ -100,6 +100,16 @@ def check_file(path: Path) -> list[dict]:
     issues: list[dict] = []
     rel = str(path.relative_to(ROOT))
 
+    #: a date literal is a data filter only when it is compared against data; the same
+    #: literal starting a synthetic self-test frame is a fixture, not a degree of freedom
+    compared_dates = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Compare):
+            for operand in [node.left, *node.comparators]:
+                if isinstance(operand, ast.Constant) and isinstance(operand.value, str):
+                    if DATE.match(operand.value):
+                        compared_dates.add(id(operand))
+
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
             name = _call_name(node)
@@ -135,10 +145,11 @@ def check_file(path: Path) -> list[dict]:
                              detail=f"{target.id} = {node.value.value} — move it to _exo/params.py")
                     )
         if isinstance(node, ast.Constant) and isinstance(node.value, str) and DATE.match(node.value):
-            issues.append(
-                dict(file=rel, line=node.lineno, rule="hardcoded-date",
-                     detail=f"'{node.value}' as a data filter — resolve the series in config.json instead")
-            )
+            if id(node) in compared_dates:
+                issues.append(
+                    dict(file=rel, line=node.lineno, rule="hardcoded-date",
+                         detail=f"'{node.value}' as a data filter — resolve the series in config.json instead")
+                )
     return issues
 
 

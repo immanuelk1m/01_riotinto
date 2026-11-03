@@ -2,3 +2,4 @@ __pycache__/
 .omx/tmp/
 colab_runs/
 leaderboard.sqlite.bak-*
+.venv-linux/

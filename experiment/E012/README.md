@@ -44,3 +44,7 @@ pandas and pyarrow in the runtime. Then `S=e012 bash experiment/E012/pane.sh`
 launches the remote process, polls, downloads results/diagnostics and writes
 only the E012 and E012-equal leaderboard entries locally. The caller owns
 session allocation and shutdown. Use a fresh remote workspace for a new run.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: delayed fixed-share aggregation of E009/E010 forecasts. Removed constants: fixed-share learning rate and delay constants. Reason: the aggregation rate is a hand-set constant applied to knob-carrying inputs. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

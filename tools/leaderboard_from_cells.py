@@ -23,8 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from _exo.leaderboard import write  # noqa: E402
-
-SEALED_ORIGINS = 52
+from _exo.params import P  # noqa: E402
 
 
 def main() -> int:
@@ -44,7 +43,7 @@ def main() -> int:
     for path in paths:
         cells = pd.read_parquet(path)
         name = str(cells.direction.iloc[0])
-        cut = int(cells.origin.max()) - SEALED_ORIGINS
+        cut = int(cells.origin.max()) - P.SEALED_ORIGINS
         dev = cells[cells.origin < cut]
         label = f"{args.experiment}_{name}"
         if not args.apply:

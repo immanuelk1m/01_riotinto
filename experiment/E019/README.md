@@ -50,3 +50,7 @@ S=e019-ebh  DIRECTION=ebh  bash experiment/E019/pane.sh
 S=e019-cap  DIRECTION=cap  bash experiment/E019/pane.sh
 S=e019-pool DIRECTION=pool bash experiment/E019/pane.sh
 ```
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: adaptive-conformal (ACI) deployment rule. Removed constants: ACI_GAMMA = 0.10; LAMBDA_MAX = 0.5; MIN_LABELS = 13; RECENT = 26. Reason: the step size of the adaptive level is a hand-set constant; it is this rule that held the program's best legacy number (6.160). Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

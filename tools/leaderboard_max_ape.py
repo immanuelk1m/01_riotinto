@@ -41,6 +41,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from _exo.params import P  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 COLUMN = "max_ape_pct"
 
@@ -52,14 +56,14 @@ PERSISTENCE_NAMES = ("naive", "E015_naive")
 DEFAULT_EXPERIMENTS = tuple(f"E{n:03d}" for n in (12, 13, 14, 15, 16, 18, 19, 20))
 
 #: mirrors ``_exo/engine.py``; the gate still has to confirm the cut reproduces ``mape``
-SEALED_ORIGINS = 52
+SEALED_ORIGINS = P.SEALED_ORIGINS
 CELLS_GLOBS = (
     "experiment/{exp}/results/*_cells.parquet",
     "experiment/{exp}/colab_runs/*/results/*_cells.parquet",
 )
 
-TOL_ABS = 1e-6
-TOL_REL = 1e-9
+TOL_ABS = P.TOL_ABS
+TOL_REL = P.TOL_REL
 
 CACHE: dict[str, dict[str, pd.DataFrame]] = {}
 

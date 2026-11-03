@@ -135,6 +135,15 @@ REGISTRY: dict[str, Param] = {
         "History is truncated at 20 years so that a panel from 1970 and one from 2005 are "
         "scored on comparable sample sizes.",
     ),
+    "TOL_ABS": Param(
+        1e-6, "definitional",
+        "Float comparison tolerance when a tool re-derives a stored mean; it decides "
+        "whether arithmetic reproduces, not what is estimated.",
+    ),
+    "TOL_REL": Param(
+        1e-9, "definitional",
+        "Relative twin of TOL_ABS.",
+    ),
     "BOOT": Param(
         1000, "declared",
         "Bootstrap draws; 1000 resolves the 2.5 % quantile used by the interval.",

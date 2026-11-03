@@ -34,3 +34,7 @@ uv run python experiment/E021/E021.py pooled
 ```
 
 `--limit N` restricts the panel for a quick check. Summaries land in `logs/`.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: multi-output ridge over 730 series. Removed constants: RIDGE_LAMBDA = 1.0; LAGS = 4; MIN_WEEKS = 250. Reason: the ridge penalty is a constant, and this single experiment owns 53 % of the leaderboard rows. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

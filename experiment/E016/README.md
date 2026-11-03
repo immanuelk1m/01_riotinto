@@ -35,3 +35,7 @@ it. Do not edit a running runner. Leader owns tmux allocation.
 
 Source references: https://arxiv.org/abs/2403.14949,
 https://arxiv.org/abs/2412.08435, https://arxiv.org/abs/2410.23889.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: affine calibration of E014 forecasts. Removed constants: recent-26 and static-52 calibration windows on top of E014. Reason: it calibrates E014's GRU output and chooses the calibration window by hand. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

@@ -33,3 +33,7 @@ tmux send-keys -t E014-sheet-pool:0.0 'S=e014-erm DIRECTION=erm bash experiment/
 tmux send-keys -t E014-sheet-pool:0.1 'S=e014-inv01 DIRECTION=inv01 bash experiment/E014/pane.sh' Enter
 tmux send-keys -t E014-sheet-pool:0.2 'S=e014-inv1 DIRECTION=inv1 bash experiment/E014/pane.sh' Enter
 ```
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: sheet-pool wrapper around the E013 GRU core. Removed constants: E013 constants; pooling weights. Reason: it wraps the E013 GRU core and adds pooling weights. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

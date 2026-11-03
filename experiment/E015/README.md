@@ -36,3 +36,7 @@ Results retain the prediction and transfer schemas used by E013/E014. A
 namespaced E015_naive baseline avoids overwriting the shared naive rows.
 The launcher preserves a VM if downloads or local validation fail; it releases
 the VM only after complete artifacts pass local validation.
+
+## Retired 2026-11-03
+
+This experiment cannot run. Model: GRU pools with fresh/frozen/warm starts. Removed constants: GRU; start-up schedule. Reason: the start-up schedule and the network are free parameters. Implementation preserved at commit `2ca48e9`; rows kept in the leaderboard under `status = 'retired-heuristic'`. See [`../RETIRED.md`](../RETIRED.md).

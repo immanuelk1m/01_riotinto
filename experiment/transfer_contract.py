@@ -21,21 +21,22 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-CAP = 1.0
-BLOCK = 26
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from _exo.params import P  # noqa: E402  (the contract's numbers are protocol clauses)
+
 CRITICAL = {'margin', 'block', 'coverage', 'safety'}
-SAFETY_TOL = 0.05
-MIN_COVERAGE = 0.10
 
 
 def capped_ape(forecast, target):
     """Capped absolute percentage error; both inputs are prices."""
-    return np.minimum(CAP, np.abs(forecast / target - 1.0))
+    return np.minimum(P.CAP, np.abs(forecast / target - 1.0))
 
 
 def load_archive(directory):
@@ -54,8 +55,12 @@ def load_archive(directory):
     return out
 
 
-def block_bootstrap_ci(values, block=BLOCK, draws=2000, seed=42, level=0.95):
+def block_bootstrap_ci(values, block=None, draws=None, seed=None, level=None):
     """Moving-block bootstrap interval for the mean of an ordered daily/weekly series."""
+    block = int(P.BLOCK if block is None else block)
+    draws = int(P.BOOT if draws is None else draws)
+    seed = int(P.SEED if seed is None else seed)
+    level = float(1 - P.ALPHA if level is None else level)
     values = np.asarray(values, dtype=float)
     n = len(values)
     if n < block or n == 0:
@@ -104,12 +109,13 @@ def margin_item(table, deployed, paired_diff):
                 note='deployed must beat persistence and control with CI above zero')
 
 
-def block_item(deployed, block=BLOCK):
+def block_item(deployed, block=None):
     """Next-block win rate over consecutive 26-origin blocks.
 
     Origins where the rule falls back to persistence are ties, not losses; the rate is
     reported over decisive blocks with the tie count alongside.
     """
+    block = int(P.BLOCK if block is None else block)
     wins = ties = losses = 0
     for frame in deployed.values():
         origins = sorted(frame.origin.unique())
@@ -135,14 +141,14 @@ def coverage_item(table, deployed):
     deployed_origins = sum(frame.loc[frame.deploy, 'origin'].nunique() for frame in deployed.values()) \
         if all('deploy' in f for f in deployed.values()) else origins
     rate = deployed_origins / origins if origins else float('nan')
-    return dict(item='coverage', passed=bool(rate >= MIN_COVERAGE), coverage=rate, origins=origins)
+    return dict(item='coverage', passed=bool(rate >= P.MIN_COVERAGE), coverage=rate, origins=origins)
 
 
 def safety_item(table):
     if 'd_vs_control' not in table:
         return dict(item='safety', passed=None, note='no control archive supplied')
     worst = table.loc[table.d_vs_control.idxmin()]
-    return dict(item='safety', passed=bool(worst.d_vs_control > -SAFETY_TOL),
+    return dict(item='safety', passed=bool(worst.d_vs_control > -P.SAFETY_TOL),
                 worst_commodity=worst.commodity, worst_delta=float(worst.d_vs_control))
 
 

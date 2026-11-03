@@ -394,16 +394,25 @@ def run(base: Path, spec: str) -> int:
         )
 
     targets_all, exog_all = load(base)
-    keys = [k for k in direction["targets"] if k in targets_all]
+    # Silently dropping a declared target or regressor is a research degree of freedom:
+    # v1 skipped a missing exog with a log line, which is how E023's "basis" regressor
+    # never loaded and how a panel shrank without anyone noticing. Refuse instead.
+    missing_targets = [k for k in direction["targets"] if k not in targets_all]
+    missing_exog = [k for k in direction["exog"] if k not in exog_all]
+    if missing_targets or missing_exog:
+        raise SystemExit(
+            f"direction {name} declares series that the panel does not contain: "
+            f"targets={missing_targets} exog={missing_exog}. Run prepare again, or change the "
+            f"registration — a direction may not run on a different information set than the one "
+            f"it declares."
+        )
+    keys = list(direction["targets"])
     if limit:
         keys = keys[:limit]
     if not keys:
         raise SystemExit("no target panels available")
 
-    exog_keys = [k for k in direction["exog"] if k in exog_all]
-    missing = [k for k in direction["exog"] if k not in exog_all]
-    if missing:
-        print(f"[run] missing exog (skipped): {missing}", flush=True)
+    exog_keys = list(direction["exog"])
 
     frames = []
     for key in keys:

@@ -1,0 +1,16 @@
+[harness] bundle 0.2 MB
+[harness] creating session e024-combo_agri (gpu=none)
+COLAB-HARNESS-OK staged 30 entries
+[harness] launch [1/1] E024.py combo_agri
+[harness] state=running tag=combo_agri_1 (0.7 min)
+[harness] state=running tag=combo_agri_1 (1.2 min)
+[harness] state=running tag=combo_agri_1 (1.8 min)
+[harness] state=running tag=combo_agri_1 (2.3 min)
+[harness] state=running tag=combo_agri_1 (2.8 min)
+[harness] state=running tag=combo_agri_1 (3.3 min)
+[harness] state=running tag=combo_agri_1 (3.9 min)
+[harness] state=running tag=combo_agri_1 (4.4 min)
+[harness] state=done tag=combo_agri_1 (4.9 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E024/colab_runs/combo_agri
+[harness] session stopped: e024-combo_agri
+[harness] finished in 5.0 min

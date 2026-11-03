@@ -1,0 +1,156 @@
+{
+  "targets": {
+    "wheat": {
+      "col_name": "Com_Barchart_Cash_Soft_Red_Wheat_Index",
+      "name_en": "Barchart Cash Soft Red Wheat Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 1183,
+      "first": "2003-12-21",
+      "last": "2026-08-23",
+      "file": "wheat.parquet"
+    },
+    "corn": {
+      "col_name": "Com_Barchart_Cash_National_Corn_Index",
+      "name_en": "Barchart Cash National Corn Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 1289,
+      "first": "2002-02-17",
+      "last": "2026-11-01",
+      "file": "corn.parquet"
+    },
+    "soybean": {
+      "col_name": "Com_Barchart_Cash_National_Soybean_Index",
+      "name_en": "Barchart Cash National Soybean Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 1278,
+      "first": "2002-02-17",
+      "last": "2026-08-23",
+      "file": "soybean.parquet"
+    },
+    "rice": {
+      "col_name": "Food_FAO_All_Rice_Price_Index_Monthly",
+      "name_en": "FAO All Rice Price Index",
+      "ingest_lag_days": 40,
+      "lag_weeks": 6,
+      "weeks": 441,
+      "first": "1990-01-07",
+      "last": "2026-09-06",
+      "file": "rice.parquet"
+    },
+    "coffee_r": {
+      "col_name": "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag",
+      "name_en": "CEPEA/ESALQ Robusta Coffee Price Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 1299,
+      "first": "2001-11-11",
+      "last": "2026-11-01",
+      "file": "coffee_r.parquet"
+    },
+    "sugar": {
+      "col_name": "isosugar_org_white_sugar_price_index_usd_per_tonne",
+      "name_en": "White Sugar Price Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 546,
+      "first": "2016-05-08",
+      "last": "2026-10-18",
+      "file": "sugar.parquet"
+    }
+  },
+  "exog": {
+    "oni": {
+      "col_name": "Weather_NOAA_CPC_Oceanic_Nino_Index_ONI_Anomaly",
+      "name_en": "NOAA CPC Oceanic Nino Index anomaly",
+      "ingest_lag_days": 31,
+      "lag_weeks": 5,
+      "weeks": 920,
+      "first": "1950-01-01",
+      "last": "2026-08-02",
+      "file": "oni.parquet"
+    },
+    "soi": {
+      "col_name": "Weather_NOAA_CPC_Southern_Oscillation_Index_SOI",
+      "name_en": "NOAA CPC Southern Oscillation Index",
+      "ingest_lag_days": 31,
+      "lag_weeks": 5,
+      "weeks": 909,
+      "first": "1951-01-07",
+      "last": "2026-09-06",
+      "file": "soi.parquet"
+    },
+    "rain": {
+      "col_name": "Weather_NOAA_NCEI_GHCND_Houston_Hobby_Airport_Daily_Precipitation",
+      "name_en": "NOAA NCEI GHCN-Daily Houston William P. Hobby Airport Daily Precipitation",
+      "ingest_lag_days": 6,
+      "lag_weeks": 1,
+      "weeks": 4785,
+      "first": "1930-08-03",
+      "last": "2026-08-23",
+      "file": "rain.parquet"
+    },
+    "brl": {
+      "col_name": "Com_Fed_H10_EX_BRL_USD",
+      "name_en": "U.S. Dollar / Brazilian Real Exchange Rate",
+      "ingest_lag_days": 5,
+      "lag_weeks": 1,
+      "weeks": 1658,
+      "first": "1995-01-08",
+      "last": "2026-10-11",
+      "file": "brl.parquet"
+    },
+    "dollar": {
+      "col_name": "Fin_Federal_Reserve_H10_Nominal_AFE_Dollar_Index_Daily",
+      "name_en": "Federal Reserve Nominal Advanced Foreign Economies Dollar Index",
+      "ingest_lag_days": 5,
+      "lag_weeks": 1,
+      "weeks": 1084,
+      "first": "2006-01-08",
+      "last": "2026-10-11",
+      "file": "dollar.parquet"
+    },
+    "crude": {
+      "col_name": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
+      "name_en": "EIA Cushing WTI Spot Price Daily USD per Barrel",
+      "ingest_lag_days": 12,
+      "lag_weeks": 2,
+      "weeks": 2125,
+      "first": "1986-01-05",
+      "last": "2026-10-11",
+      "file": "crude.parquet"
+    },
+    "bdi": {
+      "col_name": "barchart_com.BDI.BI",
+      "name_en": "Baltic Dry Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 1382,
+      "first": "2000-01-09",
+      "last": "2026-09-27",
+      "file": "bdi.parquet"
+    },
+    "fertilizer": {
+      "col_name": "Com_WorldBank_CMO_Monthly_Price_Tsp",
+      "name_en": "World Bank Pink Sheet Monthly TSP Fertilizer Price",
+      "ingest_lag_days": 35,
+      "lag_weeks": 5,
+      "weeks": 801,
+      "first": "1960-01-03",
+      "last": "2026-09-06",
+      "file": "fertilizer.parquet"
+    },
+    "corn_basis": {
+      "col_name": "Com_Barchart_US_Corn_Basis_Index",
+      "name_en": "Barchart U.S. Corn Basis Index",
+      "ingest_lag_days": null,
+      "lag_weeks": 1,
+      "weeks": 661,
+      "first": "2014-01-05",
+      "last": "2026-08-30",
+      "file": "corn_basis.parquet"
+    }
+  }
+}

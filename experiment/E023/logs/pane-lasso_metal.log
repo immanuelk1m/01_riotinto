@@ -1,0 +1,8 @@
+[harness] bundle 0.2 MB
+[harness] creating session e023-lasso_metal (gpu=none)
+COLAB-HARNESS-OK staged 29 entries
+[harness] launch [1/1] E023.py lasso_metal
+[harness] state=done tag=lasso_metal_1 (0.7 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E023/colab_runs/lasso_metal
+[harness] session stopped: e023-lasso_metal
+[harness] finished in 0.9 min

@@ -1,0 +1,8 @@
+[harness] bundle 0.2 MB
+[harness] creating session e024-adl_parity_fx (gpu=none)
+COLAB-HARNESS-OK staged 30 entries
+[harness] launch [1/1] E024.py adl_parity_fx
+[harness] state=done tag=adl_parity_fx_1 (0.8 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E024/colab_runs/adl_parity_fx
+[harness] session stopped: e024-adl_parity_fx
+[harness] finished in 0.9 min

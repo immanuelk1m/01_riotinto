@@ -1,0 +1,8 @@
+[harness] bundle 0.2 MB
+[harness] creating session e025-lasso_gpr (gpu=none)
+COLAB-HARNESS-OK staged 27 entries
+[harness] launch [1/1] E025.py lasso_gpr
+[harness] state=done tag=lasso_gpr_1 (0.7 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E025/colab_runs/lasso_gpr
+[harness] session stopped: e025-lasso_gpr
+[harness] finished in 0.9 min

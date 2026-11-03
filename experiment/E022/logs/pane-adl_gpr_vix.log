@@ -1,0 +1,29 @@
+[harness] bundle 0.2 MB
+[harness] reusing session e022-adl_gpr_vix
+COLAB-HARNESS-OK staged 37 entries
+[harness] launch [1/1] E022.py adl_gpr_vix
+[harness] run incomplete; salvaging artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E022/colab_runs/adl_gpr_vix
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E022/colab_runs/adl_gpr_vix
+[harness] session stopped: e022-adl_gpr_vix
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sonet/Desktop/01_riotinto/_colab/job.py", line 324, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/sonet/Desktop/01_riotinto/_colab/job.py", line 320, in main
+    return args.func(args)
+           ~~~~~~~~~^^^^^^
+  File "/Users/sonet/Desktop/01_riotinto/_colab/job.py", line 234, in run_job
+    exec_code(session, launch_code(remote, args.exp, cmd, tag_cmd))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sonet/Desktop/01_riotinto/_colab/job.py", line 84, in exec_code
+    raise RuntimeError(f'remote execution failed: {last}')
+RuntimeError: remote execution failed: ---------------------------------------------------------------------------RuntimeError                              Traceback (most recent call last)/tmp/ipykernel_800/2311686957.py in <cell line: 0>()
+      4 done, failed = base / 'logs' / f'DONE_{tag}', base / 'logs' / f'FAILED_{tag}'
+      5 if done.exists() or failed.exists():
+----> 6     raise RuntimeError('stale sentinel for ' + tag)
+      7 shell = (f'python -u {exp}.py {cmd} > logs/run_{tag}.out 2>&1; rc=$?; '
+      8          f'if [ $rc -eq 0 ]; then touch logs/DONE_{tag}; else echo $rc > logs/FAILED_{tag}; fi')
+RuntimeError: stale sentinel for adl_gpr_vix_1
+

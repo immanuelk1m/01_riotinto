@@ -1,0 +1,19 @@
+[harness] bundle 0.2 MB
+[harness] creating session e022-combo_energy (gpu=none)
+COLAB-HARNESS-OK staged 30 entries
+[harness] launch [1/1] E022.py combo_energy
+[harness] state=running tag=combo_energy_1 (0.7 min)
+[harness] state=running tag=combo_energy_1 (1.2 min)
+[harness] state=running tag=combo_energy_1 (1.8 min)
+[harness] state=running tag=combo_energy_1 (2.5 min)
+[harness] state=running tag=combo_energy_1 (3.0 min)
+[harness] state=running tag=combo_energy_1 (3.5 min)
+[harness] state=running tag=combo_energy_1 (13.5 min)
+[harness] state=running tag=combo_energy_1 (14.1 min)
+[harness] state=running tag=combo_energy_1 (14.6 min)
+[harness] state=running tag=combo_energy_1 (15.1 min)
+[harness] state=running tag=combo_energy_1 (15.8 min)
+[harness] state=done tag=combo_energy_1 (16.3 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E022/colab_runs/combo_energy
+[harness] session stopped: e022-combo_energy
+[harness] finished in 16.9 min

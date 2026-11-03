@@ -1,0 +1,76 @@
+{
+  "experiment": "E025",
+  "title": "Risk and uncertainty embeddings (GPR/EPU) for liquid commodities (Gate A audit round)",
+  "targets": {
+    "wti": "cushing wti spot price",
+    "copper_cash": "lme copper official prices spot bid",
+    "gold": "^lbma gold price pm",
+    "soybean": "^barchart cash national soybean index$",
+    "coffee_r": "cepea/esalq robusta"
+  },
+  "exog": {
+    "gpr": "daily geopolitical risk index",
+    "gpr_act": "geopolitical risk acts index",
+    "gpr_threat": "geopolitical risk threats index",
+    "vix": "^cboe volatility index$",
+    "epu_cn": "china economic policy uncertainty",
+    "cot": "wti crude oil commercial net positions",
+    "dollar": "nominal advanced foreign economies dollar index"
+  },
+  "directions": [
+    {
+      "name": "lasso_gpr",
+      "model": "lasso",
+      "targets": [
+        "wti",
+        "copper_cash",
+        "gold",
+        "soybean"
+      ],
+      "exog": [
+        "gpr",
+        "gpr_act",
+        "gpr_threat",
+        "vix",
+        "epu_cn",
+        "dollar"
+      ]
+    },
+    {
+      "name": "pcr3_gpr",
+      "model": "pcr",
+      "targets": [
+        "wti",
+        "copper_cash",
+        "gold",
+        "soybean"
+      ],
+      "exog": [
+        "gpr",
+        "gpr_act",
+        "gpr_threat",
+        "vix",
+        "epu_cn",
+        "dollar"
+      ]
+    },
+    {
+      "name": "gbrt_gpr",
+      "model": "gbrt",
+      "targets": [
+        "wti",
+        "copper_cash",
+        "gold",
+        "soybean"
+      ],
+      "exog": [
+        "gpr",
+        "gpr_act",
+        "gpr_threat",
+        "vix",
+        "epu_cn",
+        "dollar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[harness] bundle 0.2 MB
+[harness] creating session e026-rf_broad (gpu=none)
+COLAB-HARNESS-OK staged 30 entries
+[harness] launch [1/1] E026.py rf_broad
+[harness] state=running tag=rf_broad_1 (0.9 min)
+[harness] state=running tag=rf_broad_1 (1.4 min)
+[harness] state=running tag=rf_broad_1 (1.9 min)
+[harness] state=running tag=rf_broad_1 (2.4 min)
+[harness] state=running tag=rf_broad_1 (3.0 min)
+[harness] state=done tag=rf_broad_1 (8.2 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E026/colab_runs/rf_broad
+[harness] session stopped: e026-rf_broad
+[harness] finished in 8.3 min

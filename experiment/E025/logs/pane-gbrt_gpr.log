@@ -1,0 +1,19 @@
+[harness] bundle 0.2 MB
+[harness] creating session e025-gbrt_gpr (gpu=none)
+COLAB-HARNESS-OK staged 27 entries
+[harness] launch [1/1] E025.py gbrt_gpr
+[harness] state=running tag=gbrt_gpr_1 (0.7 min)
+[harness] state=running tag=gbrt_gpr_1 (1.3 min)
+[harness] state=running tag=gbrt_gpr_1 (1.9 min)
+[harness] state=running tag=gbrt_gpr_1 (2.4 min)
+[harness] state=running tag=gbrt_gpr_1 (2.9 min)
+[harness] state=running tag=gbrt_gpr_1 (3.5 min)
+[harness] state=running tag=gbrt_gpr_1 (4.0 min)
+[harness] state=running tag=gbrt_gpr_1 (4.6 min)
+[harness] state=running tag=gbrt_gpr_1 (5.1 min)
+[harness] state=running tag=gbrt_gpr_1 (5.6 min)
+[harness] state=running tag=gbrt_gpr_1 (6.2 min)
+[harness] state=done tag=gbrt_gpr_1 (6.8 min)
+[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E025/colab_runs/gbrt_gpr
+[harness] session stopped: e025-gbrt_gpr
+[harness] finished in 6.9 min

@@ -1,0 +1,54 @@
+{
+  "n_cells": 1856,
+  "n_origins": 116,
+  "n_series": 2,
+  "mean_d": -0.0014198946987651494,
+  "ci_low": -0.0066535342804548165,
+  "ci_high": 0.003536066453128293,
+  "blocks": 19,
+  "block_win_rate": 0.5263157894736842,
+  "mape_pers": 6.1133433913868505,
+  "mape_cand": 6.255332861263366,
+  "frac_series_positive": 0.0,
+  "worst_series_delta": -0.002024735064285887,
+  "eligible": false,
+  "sealed": {
+    "n_cells": 216,
+    "mean_d": -0.007140663487082967,
+    "mape_pers": 5.90287651024604,
+    "mape_cand": 6.616942858954337
+  },
+  "per_series": {
+    "coffee_r": {
+      "n": 928,
+      "mean_d": -0.000815,
+      "mape_pers": 6.856492,
+      "mape_cand": 6.937997
+    },
+    "corn": {
+      "n": 928,
+      "mean_d": -0.002025,
+      "mape_pers": 5.370195,
+      "mape_cand": 5.572668
+    }
+  },
+  "direction": "adl_cc",
+  "model": "adl",
+  "exog": [
+    "oni",
+    "brl",
+    "crude",
+    "bdi"
+  ],
+  "targets": [
+    "corn",
+    "coffee_r"
+  ],
+  "experiment": "E027",
+  "design": {
+    "train_frac": 0.5,
+    "refit_every": 4,
+    "block": 26,
+    "sealed_origins": 52
+  }
+}

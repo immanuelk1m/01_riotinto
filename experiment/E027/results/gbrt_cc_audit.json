@@ -1,0 +1,58 @@
+{
+  "n_cells": 1856,
+  "n_origins": 116,
+  "n_series": 2,
+  "mean_d": 0.004870090806941763,
+  "ci_low": 0.0005723977499234031,
+  "ci_high": 0.009282598733330573,
+  "blocks": 19,
+  "block_win_rate": 0.7894736842105263,
+  "mape_pers": 6.1133433913868505,
+  "mape_cand": 5.626334310692673,
+  "frac_series_positive": 1.0,
+  "worst_series_delta": 0.003148108171389473,
+  "eligible": true,
+  "sealed": {
+    "n_cells": 216,
+    "mean_d": -0.00031830209419885853,
+    "mape_pers": 5.90287651024604,
+    "mape_cand": 5.9347067196659244
+  },
+  "per_series": {
+    "coffee_r": {
+      "n": 928,
+      "mean_d": 0.006592,
+      "mape_pers": 6.856492,
+      "mape_cand": 6.197285
+    },
+    "corn": {
+      "n": 928,
+      "mean_d": 0.003148,
+      "mape_pers": 5.370195,
+      "mape_cand": 5.055384
+    }
+  },
+  "direction": "gbrt_cc",
+  "model": "gbrt",
+  "exog": [
+    "oni",
+    "soi",
+    "rain",
+    "brl",
+    "dollar",
+    "crude",
+    "bdi",
+    "fertilizer"
+  ],
+  "targets": [
+    "corn",
+    "coffee_r"
+  ],
+  "experiment": "E027",
+  "design": {
+    "train_frac": 0.5,
+    "refit_every": 4,
+    "block": 26,
+    "sealed_origins": 52
+  }
+}

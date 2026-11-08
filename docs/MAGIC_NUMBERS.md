@@ -5,20 +5,20 @@ Decisions are declared in [`params_decisions.json`](params_decisions.json).
 
 ## Totals
 
-- numeric literals scanned: **468**
-- knob candidates (`constant` / `call_arg` / `default_arg`): **111**
+- numeric literals scanned: **482**
+- knob candidates (`constant` / `call_arg` / `default_arg`): **116**
 
 | literal role | count |
 |---|---|
-| `inline` | 309 |
-| `call_arg` | 102 |
+| `inline` | 318 |
+| `call_arg` | 106 |
 | `compare` | 48 |
-| `constant` | 6 |
+| `constant` | 7 |
 | `default_arg` | 3 |
 
 | classification | count |
 |---|---|
-| `code` | 427 |
+| `code` | 441 |
 | `registered` | 26 |
 | `fixture` | 10 |
 | `formatting` | 5 |
@@ -123,6 +123,11 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/transfer_contract.py:212` | `0.004` | call_arg | `frame(#0)` | fixture | synthetic self-test input, not research data |
 | `experiment/transfer_contract.py:212` | `0.02` | call_arg | `frame(#1)` | fixture | synthetic self-test input, not research data |
 | `experiment/transfer_contract.py:212` | `3` | call_arg | `frame(#2)` | fixture | synthetic self-test input, not research data |
+| `tools/evaluator_reimpl.py:27` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:40` | `0.0` | call_arg | `ape(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:60` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:71` | `0.0` | call_arg | `ape(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:76` | `0.0` | constant | `stat_gap` | code | allowed structural literal |
 | `tools/leaderboard_from_cells.py:23` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/leaderboard_lint.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/leaderboard_max_ape.py:44` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
@@ -158,6 +163,7 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/E028/E028.py` | 1 | 27 | 1 | 131 |
 | `experiment/transfer_contract.py` | 1 | 18 | 2 | 32 |
 | `tools/check_all.py` | 0 | 0 | 0 | 8 |
+| `tools/evaluator_reimpl.py` | 1 | 4 | 0 | 9 |
 | `tools/leaderboard_from_cells.py` | 0 | 1 | 0 | 3 |
 | `tools/leaderboard_lint.py` | 0 | 1 | 0 | 16 |
 | `tools/leaderboard_max_ape.py` | 2 | 5 | 0 | 36 |

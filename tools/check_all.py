@@ -11,6 +11,7 @@ below fails for a different reason, and all of them must pass:
 | `leaderboard_lint` | an eligible row lacks provenance, a metric is not a MAPE, or the migrated table lost a row |
 | `leaderboard_report --check` | `LEADERBOARD_*.md` disagrees with the database |
 | `pytest experiment/test_retired.py` | a retired experiment can still run |
+| `evaluator_reimpl --check` | the engine's cell APE or a statement MAPE disagrees with an evaluator written from PROTOCOL.md alone |
 
 Usage::
 
@@ -32,6 +33,7 @@ GATES = (
     ("leaderboard", [PY, "tools/leaderboard_lint.py"]),
     ("report", [PY, "tools/leaderboard_report.py", "--check"]),
     ("retired", [PY, "-m", "pytest", "experiment/test_retired.py", "-q"]),
+    ("evaluator", [PY, "tools/evaluator_reimpl.py", "--check"]),
 )
 
 

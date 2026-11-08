@@ -1,0 +1,115 @@
+{
+  "last_common_target": "2026-08-21",
+  "cutoff": "2025-06-29",
+  "params_hash": "a4c2dbada7829812",
+  "eia_sha256": {
+    "cl1": "fe40a6bfe9e1cc14a4349ceb64d225d5afaf7f750137e07a9f1681b42670ce8c",
+    "cl2": "d4b2510c4a40703eebcbae394517f500b22d60f23cd4595ca184792b9bc424d9"
+  },
+  "series": {
+    "gold": {
+      "col_name": "Com_LBMA_Gold_Price_PM_USD_V_0",
+      "rows": 14377,
+      "first": "1968-04-01",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 316,
+      "sha256": "22312fab4dbea2acd83ad8db75f07262a801150d5fba747b553be01186ec731a"
+    },
+    "copper": {
+      "col_name": "Com_LME_Cu_Cash_Bid",
+      "rows": 6184,
+      "first": "2001-01-02",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 328,
+      "sha256": "710f8d79148ad59154a6dca5789f08d1d92f1e5eb8a09983ef4ebaed1af68202"
+    },
+    "corn": {
+      "col_name": "Com_Barchart_Cash_National_Corn_Index",
+      "rows": 5857,
+      "first": "2002-02-15",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 333,
+      "sha256": "dd90c9046869d06f55bceb534a9cbab197b2530b2c301668347e421bfa0badcc"
+    },
+    "wheat": {
+      "col_name": "Com_Barchart_Cash_Soft_Red_Wheat_Index",
+      "rows": 5409,
+      "first": "2003-12-16",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 287,
+      "sha256": "c930b2ff35d65f75d873514901f5e10e7216f0f0ad6e88536c716c08621e77ca"
+    },
+    "coffee": {
+      "col_name": "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag",
+      "rows": 5841,
+      "first": "2001-11-08",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 334,
+      "sha256": "ea72b110eaf226f4f8cae16cc7935e8e7c9e5ae36da34890d4fcebc5bce7881c"
+    },
+    "wti": {
+      "col_name": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
+      "rows": 9577,
+      "first": "1986-01-02",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 318,
+      "sha256": "eb8236d5b35c07e85478d84072cd05e496a695894bd0e41f3836c2b4cd4da3ef"
+    },
+    "gold_am": {
+      "col_name": "Com_LBMA_Gold_Price_AM_USD_V_0",
+      "rows": 14527,
+      "first": "1968-01-02",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 318,
+      "sha256": "58e9f5a95485ec6d11661cb6c97dfb7790aaeef2225cdc289c7c3210df81a734"
+    },
+    "effr": {
+      "col_name": "Macro_NYFed_Effective_Federal_Funds_Rate_Pct",
+      "rows": 6280,
+      "first": "2000-07-03",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 323,
+      "sha256": "8eb08b314e0349b35fa55bf4fe81d9417fa5a1f818ec6dbc503aaf668afcb23e"
+    },
+    "cu_3m": {
+      "col_name": "Com_LME_Cu_3M_Bid",
+      "rows": 6183,
+      "first": "2001-01-02",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 328,
+      "sha256": "27364933821181f4876276d1c0be3d3ab9d258dd23596e12485ccc98bb1e9d4a"
+    },
+    "corn_basis": {
+      "col_name": "Com_Barchart_US_Corn_Basis_Index",
+      "rows": 2952,
+      "first": "2014-01-02",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 297,
+      "sha256": "960c4038cbdc57e53a33d87f96c3265f384e294ad99702ca151731002da3e480"
+    },
+    "brent": {
+      "col_name": "Com_EIA_Daily_Europe_Brent_Spot_Price_FOB_USD_Per_Barrel",
+      "rows": 9669,
+      "first": "1987-05-20",
+      "last": "2025-06-27",
+      "dropped_after_cutoff": 323,
+      "sha256": "317149379ec03a2c9d6bbd30da5a52cf823bce356a572ce74a4dd08ed15ea8fe"
+    },
+    "cl1": {
+      "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC1d.xls",
+      "rows": 10183,
+      "first": "1983-04-04",
+      "last": "2024-04-05",
+      "dropped_after_cutoff": 0,
+      "sha256": "9d67b63a6b86cd0066cf587d1a71f281fd352a87c7244f5b6bb52c05d2acb06f"
+    },
+    "cl2": {
+      "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC2d.xls",
+      "rows": 9594,
+      "first": "1985-01-02",
+      "last": "2024-04-05",
+      "dropped_after_cutoff": 0,
+      "sha256": "9c66ee09a8dc95fb14bbd13cc75bd572ea87a55310577b3dcf6c0f2ef9784d6d"
+    }
+  }
+}

@@ -33,7 +33,9 @@ import pandas as pd
 
 from .params import PARAMS_HASH, PARAMS_VERSION, PROTOCOL_VERSION
 
-EVALUATOR_VERSION = "cell-v2"
+#: cell-v3 (2026-11-08): persistence APE is |P_t/P_{t+h} - 1| as PROTOCOL §5.1 states; cell-v2 rows
+#: divided by P_t instead and are not comparable with cell-v3 rows (§5.3)
+EVALUATOR_VERSION = "cell-v3"
 COLUMN = "max_ape_pct"
 
 SCHEMA = """

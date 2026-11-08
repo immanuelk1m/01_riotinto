@@ -5,21 +5,21 @@ Decisions are declared in [`params_decisions.json`](params_decisions.json).
 
 ## Totals
 
-- numeric literals scanned: **293**
-- knob candidates (`constant` / `call_arg` / `default_arg`): **75**
+- numeric literals scanned: **468**
+- knob candidates (`constant` / `call_arg` / `default_arg`): **111**
 
 | literal role | count |
 |---|---|
-| `inline` | 186 |
-| `call_arg` | 68 |
-| `compare` | 32 |
-| `constant` | 5 |
-| `default_arg` | 2 |
+| `inline` | 309 |
+| `call_arg` | 102 |
+| `compare` | 48 |
+| `constant` | 6 |
+| `default_arg` | 3 |
 
 | classification | count |
 |---|---|
-| `code` | 259 |
-| `registered` | 19 |
+| `code` | 427 |
+| `registered` | 26 |
 | `fixture` | 10 |
 | `formatting` | 5 |
 
@@ -37,10 +37,10 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `_exo/engine.py:254` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
 | `_exo/engine.py:254` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
 | `_exo/engine.py:274` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `_exo/engine.py:320` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
-| `_exo/engine.py:360` | `6` | call_arg | `round(#0)` | formatting | display precision only |
-| `_exo/engine.py:398` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
+| `_exo/engine.py:322` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
+| `_exo/engine.py:362` | `6` | call_arg | `round(#0)` | formatting | display precision only |
 | `_exo/engine.py:400` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
+| `_exo/engine.py:402` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
 | `_exo/params.py:70` | `1.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:74` | `26` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:79` | `52` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
@@ -60,12 +60,48 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `_exo/params.py:145` | `1e-06` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:150` | `1e-09` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:154` | `1000` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:159` | `360` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:162` | `7` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:164` | `13` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:173` | `52` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:175` | `5` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:184` | `16` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:189` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `experiment/E022/E022.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E023/E023.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E024/E024.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E025/E025.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E026/E026.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E027/E027.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:28` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:54` | `1.0` | constant | `PRIMARY_ASYNC` | code | allowed structural literal |
+| `experiment/E028/E028.py:149` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:158` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:158` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:207` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:229` | `0.0` | default_arg | `c` | code | allowed structural literal |
+| `experiment/E028/E028.py:244` | `1.0` | call_arg | `minimum(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:250` | `1.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:261` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:275` | `0` | call_arg | `brentq(#1)` | code | allowed structural literal |
+| `experiment/E028/E028.py:275` | `1` | call_arg | `brentq(#2)` | code | allowed structural literal |
+| `experiment/E028/E028.py:384` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:426` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:432` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:490` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:493` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:525` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:539` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:583` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:584` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:584` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:603` | `0.0` | call_arg | `normal(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:638` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:720` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:721` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:722` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:736` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:833` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:119` | `0` | constant | `wins` | code | allowed structural literal |
 | `experiment/transfer_contract.py:122` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
@@ -93,9 +129,9 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `tools/leaderboard_max_ape.py:177` | `0.0` | constant | `worst` | code | allowed structural literal |
 | `tools/leaderboard_max_ape.py:196` | `9` | call_arg | `round(#1)` | formatting | display precision only |
 | `tools/leaderboard_max_ape.py:235` | `9` | call_arg | `round(#1)` | formatting | display precision only |
-| `tools/leaderboard_max_ape.py:326` | `0.0` | call_arg | `matches(#1)` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:363` | `0.0` | constant | `peak` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:366` | `9` | call_arg | `round(#1)` | formatting | display precision only |
+| `tools/leaderboard_max_ape.py:327` | `0.0` | call_arg | `matches(#1)` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:364` | `0.0` | constant | `peak` | code | allowed structural literal |
+| `tools/leaderboard_max_ape.py:367` | `9` | call_arg | `round(#1)` | formatting | display precision only |
 | `tools/leaderboard_migrate_v2.py:45` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/leaderboard_migrate_v2.py:145` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
 | `tools/leaderboard_report.py:70` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
@@ -112,13 +148,14 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 |---|---|---|---|---|
 | `_exo/engine.py` | 0 | 11 | 0 | 33 |
 | `_exo/leaderboard.py` | 0 | 0 | 0 | 5 |
-| `_exo/params.py` | 0 | 19 | 0 | 6 |
+| `_exo/params.py` | 0 | 26 | 0 | 14 |
 | `experiment/E022/E022.py` | 0 | 1 | 0 | 3 |
 | `experiment/E023/E023.py` | 0 | 1 | 0 | 3 |
 | `experiment/E024/E024.py` | 0 | 1 | 0 | 3 |
 | `experiment/E025/E025.py` | 0 | 1 | 0 | 3 |
 | `experiment/E026/E026.py` | 0 | 1 | 0 | 3 |
 | `experiment/E027/E027.py` | 0 | 1 | 0 | 3 |
+| `experiment/E028/E028.py` | 1 | 27 | 1 | 131 |
 | `experiment/transfer_contract.py` | 1 | 18 | 2 | 32 |
 | `tools/check_all.py` | 0 | 0 | 0 | 8 |
 | `tools/leaderboard_from_cells.py` | 0 | 1 | 0 | 3 |
@@ -166,3 +203,4 @@ search loop, or a module constant that changes the fitted object.
 | `E025` | — | — | — |
 | `E026` | — | — | — |
 | `E027` | — | — | — |
+| `E028` | — | array_split | PRIMARY_ASYNC=1.0 |

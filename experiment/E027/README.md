@@ -129,3 +129,19 @@ uv run python experiment/E027/E027.py prepare
 # Colab, one pane per direction
 uv run python -m _colab.job run --exp E027 --cmd "gbrt_cc" --include _exo
 ```
+
+## Amendment 1 — evaluator (declared 2026-11-08, before any forward target matured)
+
+The forward evaluation above is to be scored with evaluator **cell-v3**, not the cell-v2 code that
+produced the development and sealed numbers in `RESULTS.md`.
+
+- cell-v2 (`_exo/engine.py` until 2026-11-08) scored persistence as `|expm1(r)| = |P_{t+h}/P_t − 1|`
+  while scoring the candidate as `|P̂/P_{t+h} − 1|`; PROTOCOL §2.1/§5.1 define both against the
+  target, so persistence must be `|expm1(−r)|`. The mismatch inflated `d` in rising samples
+  (on `gbrt_cc` cells: mean d +0.00433 under cell-v2, +0.00390 under §5.1).
+- The forecasts, models, family size and decision rule of the forward test are unchanged. Only the
+  persistence APE formula changes, to the one the protocol already stated.
+- Timing: the first forward origin is 2026-11-02 and its h=1 target week ends 2026-11-08; no forward
+  target had been observed when this amendment was written.
+- The development and sealed numbers in `RESULTS.md` stay as run (cell-v2) and are not compared with
+  cell-v3 rows (§5.3).

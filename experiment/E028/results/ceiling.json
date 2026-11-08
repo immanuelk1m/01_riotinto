@@ -1,0 +1,208 @@
+{
+  "manifest": {
+    "last_common_target": "2026-08-21",
+    "cutoff": "2025-06-29",
+    "params_hash": "d7721b4d7a5a8d63",
+    "eia_sha256": {
+      "cl1": "fe40a6bfe9e1cc14a4349ceb64d225d5afaf7f750137e07a9f1681b42670ce8c",
+      "cl2": "d4b2510c4a40703eebcbae394517f500b22d60f23cd4595ca184792b9bc424d9"
+    },
+    "series": {
+      "gold": {
+        "col_name": "Com_LBMA_Gold_Price_PM_USD_V_0",
+        "rows": 14377,
+        "first": "1968-04-01",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 316
+      },
+      "copper": {
+        "col_name": "Com_LME_Cu_Cash_Bid",
+        "rows": 6184,
+        "first": "2001-01-02",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 328
+      },
+      "corn": {
+        "col_name": "Com_Barchart_Cash_National_Corn_Index",
+        "rows": 5857,
+        "first": "2002-02-15",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 333
+      },
+      "wheat": {
+        "col_name": "Com_Barchart_Cash_Soft_Red_Wheat_Index",
+        "rows": 5409,
+        "first": "2003-12-16",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 287
+      },
+      "coffee": {
+        "col_name": "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag",
+        "rows": 5841,
+        "first": "2001-11-08",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 334
+      },
+      "wti": {
+        "col_name": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
+        "rows": 9577,
+        "first": "1986-01-02",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 318
+      },
+      "gold_am": {
+        "col_name": "Com_LBMA_Gold_Price_AM_USD_V_0",
+        "rows": 14527,
+        "first": "1968-01-02",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 318
+      },
+      "effr": {
+        "col_name": "Macro_NYFed_Effective_Federal_Funds_Rate_Pct",
+        "rows": 6280,
+        "first": "2000-07-03",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 323
+      },
+      "cu_3m": {
+        "col_name": "Com_LME_Cu_3M_Bid",
+        "rows": 6183,
+        "first": "2001-01-02",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 328
+      },
+      "corn_basis": {
+        "col_name": "Com_Barchart_US_Corn_Basis_Index",
+        "rows": 2952,
+        "first": "2014-01-02",
+        "last": "2025-06-27",
+        "dropped_after_cutoff": 297
+      },
+      "cl1": {
+        "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC1d.xls",
+        "rows": 10183,
+        "first": "1983-04-04",
+        "last": "2024-04-05",
+        "dropped_after_cutoff": 0
+      },
+      "cl2": {
+        "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC2d.xls",
+        "rows": 9594,
+        "first": "1985-01-02",
+        "last": "2024-04-05",
+        "dropped_after_cutoff": 0
+      }
+    }
+  },
+  "window": {
+    "first_origin": "2014-01-05",
+    "last_origin": "2024-02-11"
+  },
+  "cells": {
+    "coffee": 4224,
+    "copper": 4224,
+    "corn": 4216,
+    "gold": 4224,
+    "wheat": 4216,
+    "wti": 4224
+  },
+  "cl_roll_at_rule_plus1_wide_spread": 0.7040816326530612,
+  "swing": {
+    "0.5": {
+      "strict": 0.39873461312975095,
+      "indicative": 0.08434500848396638,
+      "measured_part": 0.04450282177241031,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 1.2858732314291206
+    },
+    "1.0": {
+      "strict": 0.41632745419634976,
+      "indicative": 0.1145938706201132,
+      "measured_part": 0.06209566283900916,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 1.236208459672789
+    },
+    "2.0": {
+      "strict": 0.44883883117669077,
+      "indicative": 0.17014576829512396,
+      "measured_part": 0.09460703981935016,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 1.1444285071852824
+    }
+  },
+  "swing_futures_r2": {
+    "0.0": {
+      "strict": 0.41632745419634976,
+      "indicative": 0.1145938706201132,
+      "measured_part": 0.06209566283900916,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 1.236208459672789
+    },
+    "0.05": {
+      "strict": 0.4455624210250768,
+      "indicative": 0.16508612667529596,
+      "measured_part": 0.09133062966773622,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 1.15367784683111
+    },
+    "0.25": {
+      "strict": 0.5563808149893837,
+      "indicative": 0.35595791249089564,
+      "measured_part": 0.20214902363204307,
+      "unmeasured_weight": 0.3542317913573407,
+      "need_unmeasured": 0.8408363778605402
+    }
+  },
+  "pooled": {
+    "strict": 0.41632745419634976,
+    "indicative": 0.1145938706201132,
+    "measured_part": 0.06209566283900916,
+    "unmeasured_weight": 0.3542317913573407,
+    "need_unmeasured": 1.236208459672789
+  },
+  "pooled_mape_persistence": 5.573831733859277,
+  "series_weight": {
+    "coffee": 0.16412973184652668,
+    "copper": 0.12801733644306254,
+    "corn": 0.15903373743633037,
+    "gold": 0.08767494756729449,
+    "wheat": 0.19010205951081394,
+    "wti": 0.271042187195972
+  },
+  "rolling_52": {
+    "windows": 477,
+    "strict_max": 0.5075586016872262,
+    "strict_max_at": "2022-04-17",
+    "indicative_max": 0.25210589432702585,
+    "indicative_max_at": "2022-06-19",
+    "strict_median": 0.4187526309606497,
+    "indicative_median": 0.11854388367785512,
+    "worst": {
+      "start": "2022-04-17",
+      "strict": 0.5075586016872262,
+      "indicative": 0.2207891092631352,
+      "measured_part": 0.059504689502743936,
+      "unmeasured_weight": 0.4480539121844824,
+      "need_unmeasured": 0.9831301513463537
+    }
+  },
+  "gold_am_pm_share_of_daily_var": 0.36055725253371473,
+  "persistence_formula_gap": {
+    "ape_pers": {
+      "coffee": 5.488989047015902,
+      "copper": 4.281282554102889,
+      "corn": 5.318563754861174,
+      "gold": 2.932112430090205,
+      "wheat": 6.357581351840275,
+      "wti": 9.06446126524521
+    },
+    "ape_pers_engine": {
+      "coffee": 5.576945436116924,
+      "copper": 4.28681153477539,
+      "corn": 5.292759301039699,
+      "gold": 2.972784349159539,
+      "wheat": 6.3375610146813806,
+      "wti": 8.900822035722152
+    }
+  }
+}

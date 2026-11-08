@@ -283,6 +283,7 @@ def log_metrics(frame: pd.DataFrame, mape_col: str, raw_col: str, horizon: str, 
         # cells written before the engine stored the uncapped twins: rebuild them
         if not {"fc", "target_logret"} <= set(block.columns):
             raise KeyError("no raw APE available")
+        # these cells predate the raw twins, so they were scored by cell-v1/v2: keep that formula
         error = np.expm1(block.fc - block.target_logret) if raw_col == "ape_cand_raw" else np.expm1(block.target_logret)
         block = block.assign(_raw=np.abs(error) * 100.0)
         raw_col = "_raw"

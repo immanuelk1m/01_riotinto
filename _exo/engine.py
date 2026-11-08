@@ -285,13 +285,15 @@ def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
 
 def score(cells: pd.DataFrame) -> pd.DataFrame:
     cells = cells.copy()
-    cells["ape_pers"] = np.minimum(P.CAP, np.abs(np.expm1(cells.target_logret)))
+    # persistence forecasts P_t, so its APE is |P_t / P_{t+h} - 1| = |expm1(-r)| (§5.1); cell-v2
+    # used |expm1(r)| = |P_{t+h} / P_t - 1|, a different denominator from the candidate's
+    cells["ape_pers"] = np.minimum(P.CAP, np.abs(np.expm1(-cells.target_logret)))
     cells["ape_cand"] = np.minimum(P.CAP, np.abs(np.expm1(cells.fc - cells.target_logret)))
     cells["d"] = cells.ape_pers - cells.ape_cand          # >0 means candidate better
     cells["mape_pers"] = cells.ape_pers * P.PCT
     cells["mape_cand"] = cells.ape_cand * P.PCT
     # uncapped twins, so the leaderboard can report the worst single cell
-    cells["ape_pers_raw"] = np.abs(np.expm1(cells.target_logret)) * P.PCT
+    cells["ape_pers_raw"] = np.abs(np.expm1(-cells.target_logret)) * P.PCT
     cells["ape_cand_raw"] = np.abs(np.expm1(cells.fc - cells.target_logret)) * P.PCT
     return cells
 

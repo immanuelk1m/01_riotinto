@@ -38,7 +38,7 @@ from dataclasses import dataclass
 ALLOWED_SOURCES = ("protocol", "definitional", "declared")
 
 #: bump when a value changes; it is part of every leaderboard row
-PARAMS_VERSION = "2.0"
+PARAMS_VERSION = "2.1"
 
 #: the protocol revision these constants implement (PROTOCOL.md §0)
 PROTOCOL_VERSION = "1.1"
@@ -154,6 +154,41 @@ REGISTRY: dict[str, Param] = {
         1000, "declared",
         "Bootstrap draws; 1000 resolves the 2.5 % quantile used by the interval.",
     ),
+    # -- E028 structural decomposition (v2.1): forced by contract and day-count conventions --
+    "CARRY_DAYCOUNT": Param(
+        360, "definitional",
+        "USD money-market rates (EFFR) accrue actual/360, so a carry over d days is rate * d / 360.",
+    ),
+    "DAYS_PER_WEEK": Param(7, "definitional", "Calendar days in a week."),
+    "WEEKS_3M": Param(
+        13, "definitional",
+        "The LME 3-month prompt is three calendar months ahead, 52 / 4 = 13 weeks.",
+    ),
+    "CORN_MONTHS": Param(
+        (3, 5, 7, 9, 12), "definitional",
+        "CBOT corn contract months H K N U Z. Barchart's nearby rolls on the first trading day of "
+        "each (experiment/E028/CEILING.md §4: 32 of the 40 largest basis-index jumps, all 9 above 6 %).",
+    ),
+    # -- E028 analysis constants: they cannot change a cell, so they stay out of the hash --
+    "WEEKS_PER_YEAR": Param(52, "definitional", "Annualisation of a weekly Sharpe ratio."),
+    "COST_BPS": Param(
+        5, "declared",
+        "One-way trading cost in basis points for the E028 P&L check (liquid futures, with slippage). "
+        "Swing over COST_SWING.",
+    ),
+    "COST_SWING": Param(
+        (0, 5, 25), "declared",
+        "Registered cost grid for the E028 P&L check; 25 bp stands in for a physical basis trade.",
+    ),
+    "CSCV_SPLITS": Param(
+        16, "declared",
+        "Number of time partitions S for CSCV / PBO, the value used by Bailey, Borwein, Lopez de Prado "
+        "and Zhu (2014).",
+    ),
+    "PLANTED_R2": Param(
+        0.10, "declared",
+        "Share of one-week return variance planted as a known linear signal in leakage detector D2.",
+    ),
 }
 
 #: ``P["CAP"]`` and ``P.CAP`` both work; values are plain numbers
@@ -170,7 +205,8 @@ P = _Access({name: param.value for name, param in REGISTRY.items()})
 
 #: analysis and instrumentation entries: they are registered and linted like everything else,
 #: but they cannot change a registered cell, so they stay out of the provenance hash
-NOT_MODELLING = ("SENSITIVITY_LAGS",)
+NOT_MODELLING = ("SENSITIVITY_LAGS", "WEEKS_PER_YEAR", "COST_BPS", "COST_SWING", "CSCV_SPLITS",
+                 "PLANTED_R2")
 
 
 def canonical() -> str:

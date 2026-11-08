@@ -3,6 +3,7 @@ name = "01-riotinto"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "arch>=8.0.0",
     "imageio-ffmpeg>=0.6.0",
     "lightgbm>=4.7.0",
     "matplotlib>=3.11.2",
@@ -12,4 +13,9 @@ dependencies = [
     "pyarrow>=26.0.0",
     "scikit-learn>=1.9.1",
     "statsmodels>=0.15.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
 ]

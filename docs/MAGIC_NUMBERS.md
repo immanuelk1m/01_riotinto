@@ -5,20 +5,20 @@ Decisions are declared in [`params_decisions.json`](params_decisions.json).
 
 ## Totals
 
-- numeric literals scanned: **482**
-- knob candidates (`constant` / `call_arg` / `default_arg`): **116**
+- numeric literals scanned: **490**
+- knob candidates (`constant` / `call_arg` / `default_arg`): **117**
 
 | literal role | count |
 |---|---|
-| `inline` | 318 |
-| `call_arg` | 106 |
-| `compare` | 48 |
+| `inline` | 324 |
+| `call_arg` | 107 |
+| `compare` | 49 |
 | `constant` | 7 |
 | `default_arg` | 3 |
 
 | classification | count |
 |---|---|
-| `code` | 441 |
+| `code` | 449 |
 | `registered` | 26 |
 | `fixture` | 10 |
 | `formatting` | 5 |
@@ -101,7 +101,8 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/E028/E028.py:721` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
 | `experiment/E028/E028.py:722` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
 | `experiment/E028/E028.py:736` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:833` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:869` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:933` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:119` | `0` | constant | `wins` | code | allowed structural literal |
 | `experiment/transfer_contract.py:122` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
@@ -160,7 +161,7 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/E025/E025.py` | 0 | 1 | 0 | 3 |
 | `experiment/E026/E026.py` | 0 | 1 | 0 | 3 |
 | `experiment/E027/E027.py` | 0 | 1 | 0 | 3 |
-| `experiment/E028/E028.py` | 1 | 27 | 1 | 131 |
+| `experiment/E028/E028.py` | 1 | 28 | 1 | 138 |
 | `experiment/transfer_contract.py` | 1 | 18 | 2 | 32 |
 | `tools/check_all.py` | 0 | 0 | 0 | 8 |
 | `tools/evaluator_reimpl.py` | 1 | 4 | 0 | 9 |

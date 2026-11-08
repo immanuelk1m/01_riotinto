@@ -121,6 +121,38 @@ Gate A 불통과로 금지되는 것은 규칙·보정·적응 실험입니다(2
 52 origin은 6개 시리즈가 모두 최신인 발행 주만으로 셉니다.
 로그는 `forward/forward_<발행일>.csv`에 쌓이며, 추가만 하고 고치지 않습니다.
 
+**개정 3 (2026-11-08, 전방 목표가 하나도 성숙하기 전):** 이 시점에 DB는 2026-11-01 14:18 이후 갱신이 전혀 없습니다.
+전방 실현값은 하나도 불러오지 않았습니다.
+
+1. **입력 신선도.** 행의 신선도는 타깃만 보지 않고, 그 예측이 읽는 DB 입력 가운데 가장 오래된 것으로 잽니다.
+   - 입력은 gold EFFR, copper LME 3M, corn basis, wti Brent입니다.
+   - 발행 때 `input_stale_weeks`로 기록합니다.
+   - 2026-11-08 발행분에는 이 열이 없어 셈에서 빠집니다. 개정 2로도 이미 빠지는 발행입니다(wheat 11주).
+   - 그 발행의 corn struct는 08-24(10주 전) basis 위에서 나왔습니다. 이 결함을 찾은 것이 이 개정의 계기입니다.
+2. **origin 가격.** 발행 때 origin 주의 로그 가격 `logp`를 기록합니다.
+   실현 로그수익률은 평가 시점 DB 스냅샷의 목표 주 로그 가격에서 기록된 `logp`를 뺀 값입니다.
+3. **창.**
+   - 주마다 첫 발행만 씁니다.
+   - 6개 시리즈 모두 입력 포함 1주 이하로 신선한 발행 주만 셉니다.
+   - 처음부터 차례로 52개가 전방 창입니다.
+   - 52개 발행의 목표 주가 모두 DB에 들어온 뒤 `forward_eval`로 **한 번만** 평가합니다. 그 전에 `forward_eval`은 개수만 출력하고 손실은 계산하지 않습니다.
+   - 위 표의 2028-01-10은 DB가 매주 최신일 때 가장 이른 날짜입니다.
+4. **평가 내용.**
+   - 명제 5개에 DM-HLN과 Holm(라운드)을 적용합니다.
+   - Clark–West, GW, CT R², fut 대조를 함께 냅니다.
+   - pooled에는 Bonferroni를 적용합니다. m은 `results/program_family.json`의 130입니다.
+   - 판정은 아래 판정 규칙을 그대로 따릅니다.
+   - 전방 로그에는 fut·struct만 있으므로 SPA/MCS는 하지 않습니다.
+   - 목표 주에 DB 관측이 없는 셀(결과와 무관한 결측)은 빼고 개수를 보고합니다.
+5. **평가기 검증.** `forward_check`는 봉인 52 origin을 발행 로그 형태로 바꿔 넣습니다.
+   2026-11-08 Colab 실행에서 52 발행, 셀 해시 = `sealed.json`, MAPE 차이 0이었습니다.
+   같은 실행에서 바뀐 `forward`가 낸 48개 예측은 첫 발행과 같았습니다.
+6. **주간 실행.** `forward_weekly.sh`를 쓰며, launchd가 월요일 09:00 KST에 돌립니다.
+   - mini에서 `prepare full`을 돌립니다.
+   - 스냅샷이 그대로면 발행하지 않습니다. 같은 주가 다시 나오므로 신선도 규칙으로 어차피 빠지기 때문입니다.
+   - 바뀌었으면 Colab에서 `forward`를 돌립니다.
+   - 결과는 `forward/`에 추가하고, `forward/`와 `data/full`만 커밋합니다.
+
 ## 판정 규칙 (셋 중 하나만)
 
 1. 봉인 pooled d의 DM-HLN 단측 p가 Holm을 통과하지 못하면 → **"차이 검출 안 됨"**.
@@ -145,4 +177,10 @@ uv run python experiment/E028/E028.py prepare full                 # mini: 봉�
 uv run python -m _colab.job run --exp E028 --cmd sealed --include _exo --install arch
 uv run python experiment/E028/E028.py ledger                       # mini: leaderboard.sqlite 반영
 uv run python tools/check_all.py                                   # 셀 단위 재현 + 독립 평가기 대조 포함
+R=experiment/E028/results                                           # results/는 번들에 안 들어감
+uv run python -m _colab.job run --exp E028 --cmd forward_check --include _exo \
+  --include $R/sealed.json --include $R/sealed_cells.parquet --install arch   # 전방 평가기 = 봉인 평가기
+experiment/E028/forward_weekly.sh                                   # 매주 한 번 발행
+uv run python -m _colab.job run --exp E028 --cmd forward_eval --include _exo \
+  --include $R/program_family.json --install arch                   # 성숙 뒤 한 번
 ```

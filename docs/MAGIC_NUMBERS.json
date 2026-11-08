@@ -3946,9 +3946,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:800:0",
+   "id": "experiment/E028/E028.py:814:0",
    "file": "experiment/E028/E028.py",
-   "line": 800,
+   "line": 814,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -3961,9 +3961,129 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:809:1",
+   "id": "experiment/E028/E028.py:830:1",
    "file": "experiment/E028/E028.py",
-   "line": 809,
+   "line": 830,
+   "col": 94,
+   "value": 1,
+   "kind": "inline",
+   "func": "_qualifying",
+   "call": null,
+   "argname": null,
+   "text": "stale = log.reindex(columns=[\"stale_weeks\", \"input_stale_weeks\"]).fillna(np.inf).max(axis=1)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:831:1",
+   "file": "experiment/E028/E028.py",
+   "line": 831,
+   "col": 25,
+   "value": 1,
+   "kind": "compare",
+   "func": "_qualifying",
+   "call": null,
+   "argname": null,
+   "text": "fresh = log[stale <= 1].groupby(\"issue\").series.nunique()",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:857:2",
+   "file": "experiment/E028/E028.py",
+   "line": 857,
+   "col": 67,
+   "value": 2,
+   "kind": "inline",
+   "func": "_forward_eval",
+   "call": null,
+   "argname": null,
+   "text": "out[\"missing_cells\"] = int(cells.target_logret.isna().sum() // 2)   # a DB week with no fixing",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:869:1.0",
+   "file": "experiment/E028/E028.py",
+   "line": 869,
+   "col": 8,
+   "value": 1.0,
+   "kind": "call_arg",
+   "func": "_forward_eval",
+   "call": "min",
+   "argname": "#0",
+   "text": "1.0, out[\"statements\"][\"pooled\"][\"dm_hln\"][\"p\"] * family)",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:881:0",
+   "file": "experiment/E028/E028.py",
+   "line": 881,
+   "col": 11,
+   "value": 0,
+   "kind": "inline",
+   "func": "run_forward_eval",
+   "call": null,
+   "argname": null,
+   "text": "return 0",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:893:0",
+   "file": "experiment/E028/E028.py",
+   "line": 893,
+   "col": 52,
+   "value": 0,
+   "kind": "inline",
+   "func": "run_forward_check",
+   "call": null,
+   "argname": null,
+   "text": "log[\"stale_weeks\"] = log[\"input_stale_weeks\"] = 0",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:900:0",
+   "file": "experiment/E028/E028.py",
+   "line": 900,
+   "col": 11,
+   "value": 0,
+   "kind": "inline",
+   "func": "run_forward_check",
+   "call": null,
+   "argname": null,
+   "text": "return 0 if ok and gap <= P.TOL_ABS else 1",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:900:1",
+   "file": "experiment/E028/E028.py",
+   "line": 900,
+   "col": 45,
+   "value": 1,
+   "kind": "inline",
+   "func": "run_forward_check",
+   "call": null,
+   "argname": null,
+   "text": "return 0 if ok and gap <= P.TOL_ABS else 1",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:909:1",
+   "file": "experiment/E028/E028.py",
+   "line": 909,
    "col": 22,
    "value": 1,
    "kind": "inline",
@@ -3976,9 +4096,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:814:0",
+   "id": "experiment/E028/E028.py:914:0",
    "file": "experiment/E028/E028.py",
-   "line": 814,
+   "line": 914,
    "col": 56,
    "value": 0,
    "kind": "inline",
@@ -3991,9 +4111,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:833:1.0",
+   "id": "experiment/E028/E028.py:933:1.0",
    "file": "experiment/E028/E028.py",
-   "line": 833,
+   "line": 933,
    "col": 43,
    "value": 1.0,
    "kind": "call_arg",
@@ -4006,9 +4126,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:835:0",
+   "id": "experiment/E028/E028.py:935:0",
    "file": "experiment/E028/E028.py",
-   "line": 835,
+   "line": 935,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -4021,9 +4141,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:843:2",
+   "id": "experiment/E028/E028.py:944:2",
    "file": "experiment/E028/E028.py",
-   "line": 843,
+   "line": 944,
    "col": 23,
    "value": 2,
    "kind": "compare",
@@ -4036,9 +4156,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:843:1",
+   "id": "experiment/E028/E028.py:944:1",
    "file": "experiment/E028/E028.py",
-   "line": 843,
+   "line": 944,
    "col": 37,
    "value": 1,
    "kind": "inline",
@@ -4051,9 +4171,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:845:1",
+   "id": "experiment/E028/E028.py:946:1",
    "file": "experiment/E028/E028.py",
-   "line": 845,
+   "line": 946,
    "col": 16,
    "value": 1,
    "kind": "inline",
@@ -4066,9 +4186,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:846:2",
+   "id": "experiment/E028/E028.py:947:2",
    "file": "experiment/E028/E028.py",
-   "line": 846,
+   "line": 947,
    "col": 36,
    "value": 2,
    "kind": "inline",
@@ -4081,9 +4201,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:848:1",
+   "id": "experiment/E028/E028.py:949:1",
    "file": "experiment/E028/E028.py",
-   "line": 848,
+   "line": 949,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -7233,14 +7353,14 @@
  ],
  "summary": {
   "by_kind": {
-   "call_arg": 106,
-   "inline": 318,
-   "compare": 48,
+   "call_arg": 107,
+   "inline": 324,
+   "compare": 49,
    "constant": 7,
    "default_arg": 3
   },
   "by_class": {
-   "code": 441,
+   "code": 449,
    "formatting": 5,
    "registered": 26,
    "fixture": 10
@@ -7290,10 +7410,10 @@
     "inline": 2
    },
    "experiment/E028/E028.py": {
-    "call_arg": 27,
-    "inline": 115,
+    "call_arg": 28,
+    "inline": 121,
     "constant": 1,
-    "compare": 16,
+    "compare": 17,
     "default_arg": 1
    },
    "experiment/transfer_contract.py": {

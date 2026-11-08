@@ -778,8 +778,17 @@ def run_sealed(base: pathlib.Path) -> int:
     return 0
 
 
+#: DB inputs each forward forecast reads; a row is as stale as its oldest input (README 개정 3)
+INPUTS = dict(gold=("gold", "effr"), copper=("copper", "cu_3m"), corn=("corn", "corn_basis"),
+              wheat=("wheat",), coffee=("coffee",), wti=("wti", "brent"))
+
+
+def _weeks_before(later, earlier):
+    return (later - earlier).dt.days // P.DAYS_PER_WEEK
+
+
 def run_forward(base: pathlib.Path) -> int:
-    """Issue one forecast per series at its latest DB week; append-only log, evaluated once in 2028."""
+    """Issue one forecast per series at its latest DB week; append-only log, evaluated once (개정 3)."""
     data = _load(base, "full")
     cells = campaign_cells(data, ("fut", "struct"))
     issued = pd.Timestamp.now(tz="UTC")
@@ -788,16 +797,107 @@ def run_forward(base: pathlib.Path) -> int:
     snap = hashlib.sha256(json.dumps(json.loads(
         (base / "data" / "manifest_full.json").read_text())["series"], sort_keys=True).encode()).hexdigest()
     last = cells.groupby("series").week.transform("max")
-    rows = cells[cells.week == last].pivot_table(index=["series", "week", "horizon"], columns="model",
-                                                  values="fc").reset_index()
+    rows = cells[cells.week == last].pivot_table(index=["series", "week", "horizon", "logp"],
+                                                  columns="model", values="fc").reset_index()
+    oldest = {s: min(data[k].dt.max() for k in keys).to_period("W-SUN").end_time.normalize()
+              for s, keys in INPUTS.items()}
     rows["issued_utc"] = issued.isoformat(timespec="seconds")
-    rows["stale_weeks"] = ((week_now - rows.week).dt.days // P.DAYS_PER_WEEK).astype(int)
+    rows["stale_weeks"] = _weeks_before(week_now, rows.week).astype(int)
+    rows["input_stale_weeks"] = _weeks_before(week_now, rows.series.map(oldest)).astype(int)
     rows["code_sha256"], rows["data_sha256"], rows["params_hash"] = code, snap, PARAMS_HASH
     out = base / "results"
     out.mkdir(exist_ok=True)
     rows.to_csv(out / f"forward_{issued.date()}.csv", index=False)
     print(rows.to_string(index=False), flush=True)
+    issues = _qualifying(pd.concat([_forward_log(base), rows], ignore_index=True)).issue.nunique()
+    print(f"[forward] qualifying issues {issues}/{int(P.SEALED_ORIGINS)} (README 개정 2·3)", flush=True)
     return 0
+
+
+def _forward_log(base: pathlib.Path) -> pd.DataFrame:
+    paths = sorted((base / "forward").glob("forward_*.csv"))
+    return pd.concat([pd.read_csv(p, parse_dates=["week"]) for p in paths], ignore_index=True)
+
+
+def _qualifying(log: pd.DataFrame) -> pd.DataFrame:
+    """README 개정 2·3: the first issue of each week counts when all six series, inputs included, are at
+    most one week stale; the first 52 such issues are the forward window. Rows logged without
+    `input_stale_weeks` (the 2026-11-08 issue) never count. At most one week stale already puts every
+    target week after the issue time, so 개정 2's target-week rule needs no separate test."""
+    issued = pd.to_datetime(log.issued_utc, utc=True).dt.tz_localize(None)
+    log = log.assign(issued=issued, issue=pd.PeriodIndex(issued, freq="W-SUN").asi8)
+    log = log[log.issued == log.groupby("issue").issued.transform("min")]
+    stale = log.reindex(columns=["stale_weeks", "input_stale_weeks"]).fillna(np.inf).max(axis=1)
+    fresh = log[stale <= 1].groupby("issue").series.nunique()
+    keep = fresh[fresh == len(TARGETS)].index[:int(P.SEALED_ORIGINS)]
+    return log[log.issue.isin(keep)]
+
+
+def _result(base: pathlib.Path, name: str) -> pathlib.Path:
+    """results/ is not bundled; on the VM `--include experiment/E028/results/<name>` puts it here."""
+    local = base / "results" / name
+    return local if local.exists() else base / "experiment" / "E028" / "results" / name
+
+
+def _forward_eval(base: pathlib.Path, log: pd.DataFrame) -> dict:
+    """Score the logged forecasts against the current DB snapshot; counts only until all 52 matured."""
+    q = _qualifying(log)
+    frames = components(_load(base, "full"))
+    realised = pd.concat({s: f.logp for s, f in frames.items()}, names=["series", "target_week"])
+    q = q.assign(target_week=q.week + pd.to_timedelta(q.horizon * P.DAYS_PER_WEEK, unit="D"))
+    q = q.join(realised.rename("realised"), on=["series", "target_week"])
+    last = q.series.map({s: f.index.max() for s, f in frames.items()})
+    out = dict(issues=int(q.issue.nunique()), needed=int(P.SEALED_ORIGINS),
+               cells_matured=int((q.target_week <= last).sum()), cells=int(len(q)))
+    if out["issues"] < int(P.SEALED_ORIGINS) or out["cells_matured"] < out["cells"]:
+        return out                                     # no loss is computed before the window matures
+    cells = q.melt(id_vars=["series", "week", "horizon", "logp", "issue", "realised"],
+                   value_vars=["fut", "struct"], var_name="model", value_name="fc")
+    cells = cells.assign(origin=cells.issue, target_logret=cells.realised - cells.logp)
+    out["missing_cells"] = int(cells.target_logret.isna().sum() // 2)   # a DB week with no fixing
+    sc = {m: engine.score(g.dropna(subset=["target_logret"])) for m, g in cells.groupby("model")}
+    out["statements"] = {}
+    for name in STATEMENTS:
+        s = statement(sc["struct"], name)
+        d = s.groupby("origin").d.mean().to_numpy()
+        out["statements"][name] = dict(summary(s), dm_hln=dm_hln(d, int(P.H)), clark_west=clark_west(s),
+                                       giacomini_white=giacomini_white(d), ct_r2=ct_r2(s),
+                                       fut=summary(statement(sc["fut"], name)))
+    out["holm_round"] = holm({k: v["dm_hln"]["p"] for k, v in out["statements"].items()})
+    family = json.loads(_result(base, "program_family.json").read_text())["family"]
+    out["family"], out["pooled_p_bonferroni"] = family, min(
+        1.0, out["statements"]["pooled"]["dm_hln"]["p"] * family)
+    out["cells_sha256"] = _cells_sha(sc["struct"])
+    return out
+
+
+def run_forward_eval(base: pathlib.Path) -> int:
+    """The single forward evaluation (README 개정 3). Before maturity it prints counts and no losses."""
+    out = _forward_eval(base, _forward_log(base))
+    if "statements" in out:
+        _dump(base, "forward.json", out)
+    else:
+        print(f"[forward_eval] not matured: {out}", flush=True)
+    return 0
+
+
+def run_forward_check(base: pathlib.Path) -> int:
+    """Replay the sealed block as if each origin had been issued live; the forward evaluator must
+    reproduce sealed.json cell for cell before it is trusted with the real log."""
+    cells = pd.read_parquet(_result(base, "sealed_cells.parquet"))
+    sealed = json.loads(_result(base, "sealed.json").read_text())
+    c = cells[cells.model.isin(["fut", "struct"])]
+    log = c.pivot_table(index=["series", "week", "horizon", "logp"], columns="model",
+                        values="fc").reset_index()
+    log["issued_utc"] = log.week.dt.strftime("%Y-%m-%dT%H:%M:%S+00:00")   # inside the origin week
+    log["stale_weeks"] = log["input_stale_weeks"] = 0
+    out = _forward_eval(base, log)
+    got, want = out["statements"]["pooled"], sealed["statements"]["pooled"]
+    gap = max(abs(got[k] - want[k]) for k in ("mape_pers", "mape_cand", "reduction"))
+    ok = out["cells_sha256"] == sealed["cells_sha256"] and out["issues"] == sealed["n_sealed"]
+    print(f"[forward_check] issues {out['issues']}, sha {'==' if ok else '!='} sealed, max gap {gap:.1e}",
+          flush=True)
+    return 0 if ok and gap <= P.TOL_ABS else 1
 
 
 def run_ledger(base: pathlib.Path) -> int:
@@ -836,7 +936,8 @@ def run_ledger(base: pathlib.Path) -> int:
 
 
 COMMANDS = dict(ceiling=run_ceiling, detectors=run_detectors, dev=run_dev, sealed=run_sealed,
-                forward=run_forward, ledger=run_ledger)
+                forward=run_forward, forward_eval=run_forward_eval, forward_check=run_forward_check,
+                ledger=run_ledger)
 
 
 if __name__ == "__main__":

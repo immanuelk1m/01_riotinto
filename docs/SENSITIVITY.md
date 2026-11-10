@@ -8,10 +8,10 @@ registered *before* the numbers exist, so the analysis cannot be chosen after th
 
 `LAGS` is the only declared constant that changes the design matrix, so it is the one
 that gets a swing. Everything else in `_exo/params.py` is either a protocol clause
-(`CAP`, `BLOCK`, `SEALED_ORIGINS`, `ALPHA`, `MIN_COVERAGE`, `SAFETY_TOL`), forced by the
+(`CAP`, `BLOCK`, `TSCV_START`, `TSCV_END`, `ALPHA`, `MIN_COVERAGE`, `SAFETY_TOL`), forced by the
 object (`H`, `Z_MIN_OBS`, `PCT`, `SEED`) or a truncation rule that only decides which
-series are eligible at all (`MIN_WEEKS`, `MAX_WEEKS`, `MIN_TRAIN`, `TRAIN_FRAC`,
-`REFIT_EVERY`, `BOOT`) — those are reported as fixed design, not as sensitivity.
+series are eligible at all (`MIN_WEEKS`, `MAX_WEEKS`, `MIN_TRAIN`,
+`BOOT`) — those are reported as fixed design, not as sensitivity.
 
 | run | `LAGS` | expectation |
 |---|---|---|
@@ -37,7 +37,7 @@ length rather than about the exogenous information, and it is reported as such.
 A local run of the three E024 directions with `LAGS = 4` — identical data, a different
 pandas build from the Colab VM — gives:
 
-| direction | cells | MAPE persistence → candidate | mean d | 95 % interval | eligible |
+| direction | cells | MAPE naive forecast → candidate | mean d | 95 % interval | eligible |
 |---|---|---|---|---|---|
 | `adl_enso` | 1074 | 6.438 → 6.499 | −0.00061 | [−0.00337, +0.00256] | no |
 | `adl_parity_fx` | 1536 | 5.659 → 5.561 | +0.00098 | [−0.00081, +0.00298] | no |

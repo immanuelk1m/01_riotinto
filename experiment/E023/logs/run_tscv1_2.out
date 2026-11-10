@@ -1,0 +1,36 @@
+[run] copper_cash: 168 cells
+[run] aluminium: 168 cells
+[run] nickel: 168 cells
+[ledger] after --promote: tools/leaderboard_from_cells.py E023 --apply
+{
+  "n_cells": 504,
+  "n_origins": 21,
+  "n_series": 3,
+  "mean_d": -0.0036190052000592914,
+  "ci_low": -0.006978290928676228,
+  "ci_high": -0.00019530341006996916,
+  "blocks": 4,
+  "block_win_rate": 0.25,
+  "mape_pers": 4.465980399014652,
+  "mape_cand": 4.827880919020581,
+  "frac_series_positive": 0.0,
+  "worst_series_delta": -0.0077360915789079195,
+  "eligible": false,
+  "direction": "adl_basis_macro",
+  "model": "adl",
+  "exog": [
+    "copper_3m",
+    "dollar",
+    "bdi"
+  ],
+  "targets": [
+    "copper_cash",
+    "aluminium",
+    "nickel"
+  ],
+  "experiment": "E023",
+  "lags": 4,
+  "sensitivity": false,
+  "params_version": "3.0",
+  "params_hash": "7b9c91677bdc2917"
+}

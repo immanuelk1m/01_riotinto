@@ -1,7 +1,0 @@
-data/
-features/
-logs/
-results/
-e013_core.py
-__pycache__/
-leaderboard.sqlite

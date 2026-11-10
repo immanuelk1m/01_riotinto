@@ -3,7 +3,7 @@
 
 The markdown used to be written by hand, which is how a table ends up carrying
 numbers that no query reproduces.  This tool is the only writer: it reads
-``leaderboard.sqlite`` and emits the document, so the file is a view of the data
+the W&B ``ledger`` artifact and emits the document, so the file is a view of the data
 rather than a claim about it.
 
 It also applies PROTOCOL.md §5.1 and §5.3 structurally:
@@ -30,9 +30,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "experiment" / "LEADERBOARD_exogenous_2026.md"
+sys.path.insert(0, str(ROOT))
+
+from _exo.leaderboard import PROJECT, connect  # noqa: E402
 
 MEANING = {
-    "ok": "rankable: persistence baseline, or a candidate whose model has no free parameter",
+    "ok": "rankable: a candidate whose model has no free parameter",
     "retired-heuristic": "model carries an unregistered free parameter, or the v1 pipeline produced it "
                          "— kept for the record, never compared",
     "invalid": "the stored metric is not a MAPE (negative value, or `n = 0` cells)",
@@ -40,8 +43,8 @@ MEANING = {
 }
 
 
-def build(db: Path) -> str:
-    con = sqlite3.connect(db, timeout=30)
+def build() -> str:
+    con = connect()
     con.row_factory = sqlite3.Row
     q = lambda sql, *p: con.execute(sql, *p).fetchall()  # noqa: E731
 
@@ -50,16 +53,16 @@ def build(db: Path) -> str:
     lines = [
         "# Leaderboard — exogenous-variable round",
         "",
-        f"Generated from `leaderboard.sqlite` by `tools/leaderboard_report.py` at "
+        f"Generated from W&B artifact `{PROJECT}/ledger:latest` by `tools/leaderboard_report.py` at "
         f"{datetime.now().isoformat(timespec='seconds')}. Do not hand-edit.",
         "",
         "## What may be ranked",
         "",
         "Only `status = 'ok'` rows are compared to anything. A row is `ok` when its forecast",
-        "comes from a model with no free parameter — persistence, or closed-form ADL — produced",
-        "under registered constants (`_exo/params.py`). Every row that a hand-set constant or an",
-        "unregistered pipeline produced is kept in the same table under `retired-heuristic` and",
-        "is excluded from every table below. See `experiment/RETIRED.md` for the rule.",
+        "comes from a model with no free parameter — the naive forecast, or closed-form ADL — produced",
+        "under registered constants (`_exo/params.py`). Rows that a hand-set constant or an",
+        "unregistered pipeline produced (the v1 `legacy` pipeline) were removed from the ledger;",
+        "see `experiment/RETIRED.md` for the rule.",
         "",
         "## Row accounting",
         "",
@@ -98,73 +101,17 @@ def build(db: Path) -> str:
             "result to report.",
         ]
 
-    lines += [
-        "",
-        "## Persistence reference, one panel at a time (§5.3)",
-        "",
-        "Series sets of different sizes are never averaged together, so each panel is its own",
-        "table. These are the only numbers a future candidate is compared against.",
-        "",
-    ]
-    panels = q(
-        "select experiment, n_series, count(distinct commodity) series, count(*) rows_ "
-        "from leaderboard where status='ok' and direction is null group by 1,2 order by 1"
-    )
-    for panel in panels:
-        lines += [
-            f"### `{panel['experiment']}` — {panel['series']} series, n_series="
-            f"{panel['n_series'] or '— (v1 row)'}",
-            "",
-            "| commodity | horizon | MAPE | n |",
-            "|---|---|---|---|",
-        ]
-        for row in q(
-            "select commodity, horizon, mape, n from leaderboard "
-            "where status='ok' and direction is null and experiment=? and horizon<>'all' "
-            "order by commodity, cast(horizon as integer)",
-            (panel["experiment"],),
-        ):
-            lines.append(f"| `{row['commodity']}` | {row['horizon']} | {row['mape']:.3f} | {row['n']} |")
-        lines += [
-            "",
-            "| commodity | all horizons | MAPE | n |",
-            "|---|---|---|---|",
-        ]
-        for row in q(
-            "select commodity, mape, n from leaderboard "
-            "where status='ok' and direction is null and experiment=? and horizon='all' order by commodity",
-            (panel["experiment"],),
-        ):
-            lines.append(f"| `{row['commodity']}` | all | {row['mape']:.3f} | {row['n']} |")
-        lines.append("")
-
-    retired = q(
-        "select experiment, count(distinct direction) dirs, count(*) rows_ from leaderboard "
-        "where status='retired-heuristic' group by 1 order by 1"
-    )
-    lines += [
-        "## Retired rows, kept for the record",
-        "",
-        "Counted, never ranked. The numbers are in `leaderboard_archive` exactly as v1 wrote them.",
-        "",
-        "| experiment | directions | rows |",
-        "|---|---|---|",
-    ]
-    for row in retired:
-        lines.append(f"| `{row['experiment']}` | {row['dirs']} | {row['rows_']} |")
-
     con.close()
     return "\n".join(lines) + "\n"
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--db", default=str(ROOT / "leaderboard.sqlite"))
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--out", default=str(OUT))
     args = parser.parse_args()
 
-    rendered = build(Path(args.db))
+    rendered = build()
     if args.check:
         current = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
         body = "\n".join(line for line in current.splitlines() if not line.startswith("Generated from"))

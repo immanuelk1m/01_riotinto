@@ -1,23 +1,0 @@
-2026-10-28 14:33:17,627 INFO E007_tsfm start: ['wti_crude_oil']
-2026-10-28 14:33:18,077 INFO [wti_crude_oil] tsfm weeks=1990-01-07..2026-10-11 N=1919 first_origin=2019-06-09 (idx 1535) origins=384
-Loading weights:   0%|          | 0/143 [00:00<?, ?it/s]Loading weights: 100%|██████████| 143/143 [00:00<00:00, 1865.92it/s]
-2026-10-28 14:35:17,403 INFO [wti_crude_oil] tsfm features=30 (120s)
-2026-10-28 14:35:44,243 INFO [wti_crude_oil] tsfm origin 1/384 2019-06-09 (147s)
-2026-10-28 14:35:44,339 INFO [wti_crude_oil] tsfm origin 26/384 2019-12-01 (147s)
-2026-10-28 14:37:01,372 INFO [wti_crude_oil] tsfm origin 51/384 2020-05-24 (224s)
-2026-10-28 14:37:33,829 INFO [wti_crude_oil] tsfm origin 76/384 2020-11-15 (256s)
-2026-10-28 14:38:39,396 INFO [wti_crude_oil] tsfm origin 101/384 2021-05-09 (322s)
-2026-10-28 14:39:17,077 INFO [wti_crude_oil] tsfm origin 126/384 2021-10-31 (359s)
-2026-10-28 14:40:07,601 INFO [wti_crude_oil] tsfm origin 151/384 2022-04-24 (410s)
-2026-10-28 14:40:49,438 INFO [wti_crude_oil] tsfm origin 176/384 2022-10-16 (452s)
-2026-10-28 14:41:26,862 INFO [wti_crude_oil] tsfm origin 201/384 2023-04-09 (489s)
-2026-10-28 14:42:04,583 INFO [wti_crude_oil] tsfm origin 226/384 2023-10-01 (527s)
-2026-10-28 14:42:41,912 INFO [wti_crude_oil] tsfm origin 251/384 2024-03-24 (564s)
-2026-10-28 14:43:20,387 INFO [wti_crude_oil] tsfm origin 276/384 2024-09-15 (603s)
-2026-10-28 14:44:04,690 INFO [wti_crude_oil] tsfm origin 301/384 2025-03-09 (647s)
-2026-10-28 14:44:48,587 INFO [wti_crude_oil] tsfm origin 326/384 2025-08-31 (691s)
-2026-10-28 14:45:36,362 INFO [wti_crude_oil] tsfm origin 351/384 2026-02-22 (739s)
-2026-10-28 14:46:24,776 INFO [wti_crude_oil] tsfm origin 376/384 2026-08-16 (787s)
-2026-10-28 14:46:25,101 INFO [wti_crude_oil] saved 3072 predictions (787s)
-2026-10-28 14:48:35,780 INFO [wti_crude_oil] saved wti_crude_oil.mp4 (384 frames)
-2026-10-28 14:48:35,804 INFO E007_tsfm done

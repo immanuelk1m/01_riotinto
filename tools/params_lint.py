@@ -6,7 +6,7 @@ Three rules, all mechanical:
 1. **No knob-carrying estimator.**  Anything in ``ESTIMATORS`` (Lasso, Ridge, the
    boosting/forest/neural constructors, PCA, ARIMA, …) carries free parameters, so
    it may not be constructed anywhere in the research code.  The retained models
-   are the closed-form OLS/ADL and persistence, both in ``_exo/engine.py``.
+   are the closed-form OLS/ADL and the naive forecast (`persistence`), both in ``_exo/engine.py``.
 2. **No unregistered constant.**  A module-level ``NAME = <number>`` outside
    ``_exo/params.py`` is a research degree of freedom with no recorded origin.
 3. **No literal in a knob position.**  A numeric literal handed to a call that
@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGETS = (ROOT / "_exo", ROOT / "experiment", ROOT / "tools")
 
 #: infrastructure and the linters themselves are out of scope
-SKIP_PARTS = {"__pycache__", "colab_runs", "data", "results", "_colab"}
+SKIP_PARTS = {"__pycache__", "colab_runs", "data", "results"}
 SKIP_FILES = {"params.py", "params_lint.py", "params_inventory.py"}
 
 #: estimator constructors carrying free parameters — the purge list

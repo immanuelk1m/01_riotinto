@@ -1,5 +1,7 @@
 # Re-registration — E023/E024 under the constant-free pipeline (Gate C)
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 **Registered:** 2026-11-03, before the re-run.
 **Protocol:** [`PROTOCOL.md`](../PROTOCOL.md) v1.1, including the new Gate F.
 **Supersedes for this panel:** [`FAMILY.md`](FAMILY.md) (the 25-direction E022–E026 round).
@@ -10,7 +12,7 @@
 The E022–E027 round was audited against Gate F and 20 of its 25 directions were
 removed together with all 21 legacy experiments (E001–E021). The rule, stated once:
 
-> A direction may be ranked against persistence only if its forecast comes from a
+> A direction may be ranked against the naive forecast only if its forecast comes from a
 > model whose definition is fixed by the protocol or by a closed form with **no free
 > parameter**.
 
@@ -85,7 +87,7 @@ recomputed from the new cells in the report.
 ## 4. Decision rule (unchanged, Gate A)
 
 A direction is **eligible** only if, on the development window, the mean paired
-difference (persistence − candidate, capped APE) is positive with a 26-week
+difference (naive forecast − candidate, capped APE) is positive with a 26-week
 calendar-block bootstrap 95 % interval excluding zero, **and** the smallest p-value
 survives Holm at α₁ = 0.0100 across the five.
 

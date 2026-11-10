@@ -3,7 +3,7 @@
 The five items are evaluated from a predictions archive, so a report cannot claim a
 result the numbers do not support:
 
-  1. margin      deployed cell MAPE below persistence (and below the matched control),
+  1. margin      deployed cell MAPE below the naive forecast (and below the matched control),
                  with a paired 26-week block bootstrap interval excluding zero
   2. block       next-block win rate above 50%, computed per 26-week block
   3. coverage    deploy coverage at least 10% of origins
@@ -77,7 +77,7 @@ def block_bootstrap_ci(values, block=None, draws=None, seed=None, level=None):
 
 
 def cell_table(deployed, control=None):
-    """Per-commodity cell MAPE for deployed, persistence and (optionally) the control."""
+    """Per-commodity cell MAPE for deployed, the naive forecast and (optionally) the control."""
     rows = []
     for commodity, frame in deployed.items():
         base = capped_ape(frame.last_price, frame.y_true)
@@ -106,13 +106,13 @@ def margin_item(table, deployed, paired_diff):
     return dict(item='margin', passed=passed, ci_low=lo, ci_high=hi,
                 deployed=float(table.deployed.mean()), persistence=float(table.persistence.mean()),
                 control=float(table.control.mean()) if 'control' in table else None,
-                note='deployed must beat persistence and control with CI above zero')
+                note='deployed must beat the naive forecast and control with CI above zero')
 
 
 def block_item(deployed, block=None):
     """Next-block win rate over consecutive 26-origin blocks.
 
-    Origins where the rule falls back to persistence are ties, not losses; the rate is
+    Origins where the rule falls back to the naive forecast are ties, not losses; the rate is
     reported over decisive blocks with the tie count alongside.
     """
     block = int(P.BLOCK if block is None else block)
@@ -200,7 +200,7 @@ def _self_test():
                 truth_logret = rng.normal(0, 0.02)
                 truth = 100 * math.exp(truth_logret)
                 # deployed forecast tracks the truth with small noise; a non-deployed
-                # origin falls back to persistence (log return zero)
+                # origin falls back to the naive forecast (log return zero)
                 cand_logret = truth_logret + rng.normal(0, noise_scale) if deploy else 0.0
                 rows.append(dict(origin=origin, target_date=origin + pd.Timedelta(weeks=h), horizon=h,
                                  y_true=truth, last_price=100.0,
@@ -208,7 +208,7 @@ def _self_test():
         return pd.DataFrame(rows)
 
     good = {'x': frame(0.004, 0.6, 1)}         # deployed tracks the truth closely
-    bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than persistence
+    bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than the naive forecast
     sparse = {'x': frame(0.004, 0.02, 3)}      # almost never deploys
 
     good_items = {i['item']: i['passed'] for i in evaluate_frame(good)}

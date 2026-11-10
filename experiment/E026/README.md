@@ -1,5 +1,7 @@
 # E026 — pre-registration (exogenous-information round)
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 Gate C registration for this experiment. The round-level registration, the Gate B
 axis statement, the sealed-block rule and the family size (23 directions) are in
 [../FAMILY.md](../FAMILY.md); the full rationale and the literature provenance are
@@ -7,8 +9,8 @@ in [../E022/README.md](../E022/README.md).
 
 **Candidate:** the direction's exogenous model forecast.
 **Matched control:** E021 ridge (price-only), same walk-forward.
-**Baseline:** persistence (zero log-return).
-**Primary metric:** cell MAPE against persistence; Gate A on the paired capped-APE
+**Baseline:** naive forecast (zero log-return).
+**Primary metric:** cell MAPE against the naive forecast; Gate A on the paired capped-APE
 difference with a 26-week moving-block bootstrap 95% interval.
 **Sealed block:** most recent 52 origins, excluded from eligibility, reported once.
 **No deployment rule** is evaluated in this experiment.

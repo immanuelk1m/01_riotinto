@@ -1,4 +1,4 @@
-"""E0xx entry shim: `python E0xx.py prepare` on the mini, `python E0xx.py <direction>` on Colab."""
+"""E0xx entry shim: `python E0xx.py prepare`, `python E0xx.py <direction>`."""
 import pathlib
 import sys
 

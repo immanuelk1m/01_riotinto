@@ -2,14 +2,14 @@
 """One table for a registered family: paired difference, interval, one-sided p, Holm.
 
 This replaces the ad-hoc ``/tmp/lb*.py`` scripts that computed the round's p-values
-with their own hard-coded block, draw and sealed-window constants. Every number here
+with their own hard-coded block and draw constants. Every number here
 comes from ``_exo.params`` and from cells the engine wrote, so the table can be
 regenerated identically.
 
 The procedure is PROTOCOL 5.4/5.5:
 
-* paired difference ``d = capped APE(persistence) - capped APE(candidate)``;
-* 26-week calendar-block bootstrap of the development window, 1000 draws;
+* paired difference ``d = capped APE(naive forecast) - capped APE(candidate)``;
+* 26-week calendar-block bootstrap of the TSCV cells, 1000 draws;
 * one-sided ``p = P(mean d <= 0)`` under the bootstrap distribution;
 * Holm at the declared family level over the registered statements.
 
@@ -34,9 +34,9 @@ sys.path.insert(0, str(ROOT))
 from _exo.params import P  # noqa: E402
 
 
-def bootstrap(dev: pd.DataFrame) -> dict:
+def bootstrap(cells: pd.DataFrame) -> dict:
     """Calendar-block bootstrap of the mean paired difference and its one-sided p."""
-    frame = dev.assign(blk=(dev.origin // int(P.BLOCK)).astype(int))
+    frame = cells.assign(blk=(cells.origin // int(P.BLOCK)).astype(int))
     groups = [g.d.to_numpy(float) for _, g in frame.groupby("blk")]
     rng = np.random.default_rng(int(P.SEED))
     draws = np.empty(int(P.BOOT))
@@ -44,7 +44,7 @@ def bootstrap(dev: pd.DataFrame) -> dict:
         pick = rng.integers(0, len(groups), size=len(groups))
         draws[i] = np.concatenate([groups[j] for j in pick]).mean()
     return dict(
-        mean=float(dev.d.mean()),
+        mean=float(cells.d.mean()),
         lo=float(np.quantile(draws, P.ALPHA / 2)),
         hi=float(np.quantile(draws, 1 - P.ALPHA / 2)),
         p=float((draws <= 0).mean()),
@@ -57,25 +57,20 @@ def collect(experiments: list[str]) -> list[dict]:
     for experiment in experiments:
         for path in sorted((ROOT / "experiment" / experiment / "results").glob("*_cells.parquet")):
             cells = pd.read_parquet(path)
-            cut = int(cells.origin.max()) - int(P.SEALED_ORIGINS)
-            dev, sealed = cells[cells.origin < cut], cells[cells.origin >= cut]
-            stats = bootstrap(dev)
+            stats = bootstrap(cells)
             rows.append(dict(
                 experiment=experiment,
                 direction=str(cells.direction.iloc[0]),
-                series=int(dev.series.nunique()),
-                origins=int(dev.origin.nunique()),
+                series=int(cells.series.nunique()),
+                origins=int(cells.origin.nunique()),
                 blocks=stats["blocks"],
-                cells=int(len(dev)),
-                mape_pers=float(dev.mape_pers.mean()),
-                mape_cand=float(dev.mape_cand.mean()),
+                cells=int(len(cells)),
+                mape_pers=float(cells.mape_pers.mean()),
+                mape_cand=float(cells.mape_cand.mean()),
                 mean_d=stats["mean"],
                 ci_low=stats["lo"],
                 ci_high=stats["hi"],
                 p=stats["p"],
-                sealed_d=float(sealed.d.mean()) if len(sealed) else float("nan"),
-                sealed_mape_pers=float(sealed.mape_pers.mean()) if len(sealed) else float("nan"),
-                sealed_mape_cand=float(sealed.mape_cand.mean()) if len(sealed) else float("nan"),
             ))
     return rows
 
@@ -110,7 +105,6 @@ def main() -> int:
               f"{row['p']:>8.4f}{row['holm_alpha']:>9.4f}{'PASS' if row['holm_pass'] else 'fail':>7}")
     passed = sum(1 for row in rows if row["holm_pass"])
     print(f"\nm = {len(rows)} registered statements; Holm pass: {passed}")
-    print(f"sealed block: " + ", ".join(f"{r['direction']} {r['sealed_d']:+.5f}" for r in rows))
     if args.json:
         Path(args.json).write_text(json.dumps(rows, indent=1))
         print(f"[summary] wrote {args.json}")

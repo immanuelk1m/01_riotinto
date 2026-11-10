@@ -1,0 +1,43 @@
+오류: 작업=barchart_com 실행=barchart_com:79ef984a1a81bdb8 DB 적재 실패: Barchart non-derivative col_name='barchart_com.USTY10.RT' must be registered in value_manifest
+오류: 작업=barchart_com 실행=barchart_com:01d83d48a507822a DB 적재 실패: Barchart non-derivative col_name='barchart_com.USTY2.RT' must be registered in value_manifest
+오류: 작업=barchart_com 실행=barchart_com:7ee55f62b8bb69b9 DB 적재 실패: Barchart non-derivative col_name='barchart_com.CNCI' must be registered in value_manifest
+오류: 작업=barchart_com 실행=barchart_com:785abdcca1c2408c DB 적재 실패: Barchart non-derivative col_name='barchart_com.CNSI' must be registered in value_manifest
+오류: 작업=barchart_com 실행=barchart_com:0f833ee0e9becc11 DB 적재 실패: Barchart non-derivative col_name='barchart_com.CSWI' must be registered in value_manifest
+오류: 작업=barchart_com 실행=barchart_com:14e32ae4c341c38c DB 적재 실패: Barchart non-derivative col_name='barchart_com.ZCBAUS.CM' must be registered in value_manifest
+오류: 작업=lbma_org_uk 핸들러=lbma_org_uk 파라미터=['gold_am', 0]: 403 Client Error: Forbidden for url: https://prices.lbma.org.uk/json/gold_am.json
+경고: 작업=lbma_org_uk 스킵 후 다음 작업으로 진행합니다. (상세: .main.log)
+경고: 스케일 이상치 1건을 적재에서 제외했습니다.
+  Com_LME_Com_LME_Aluminium_Monthly_Average_Futures_0 2026-09-04: -4 (인접 중앙값 -463, 배율 0.008639, 표본 8)
+경고: 스케일 이상치 4건을 적재에서 제외했습니다.
+  Com_LME_Ni_MAF_noncomm_long 2026-09-04: 58 (인접 중앙값 5, 배율 11.6, 표본 8) — 직전 4기간 합 59과 일치: 누적 열 오독 의심
+  Com_LME_Ni_MAF_noncomm_long 2026-09-11: 58 (인접 중앙값 5, 배율 11.6, 표본 8) — 직전 4기간 합 59과 일치: 누적 열 오독 의심
+  Com_LME_Ni_MAF_noncomm_long 2026-09-18: 58 (인접 중앙값 5, 배율 11.6, 표본 8) — 직전 4기간 합 59과 일치: 누적 열 오독 의심
+  Com_LME_Ni_MAF_noncomm_long 2026-09-25: 58 (인접 중앙값 5, 배율 11.6, 표본 8) — 직전 4기간 합 59과 일치: 누적 열 오독 의심
+경고: 스케일 이상치 2건을 적재에서 제외했습니다.
+  Com_LME_Com_LME_Lead_1 2026-10-09: 3,023.73 (인접 중앙값 11.965, 배율 252.7, 표본 8)
+  Com_LME_Com_LME_Lead_1 2026-10-16: 2,627.15 (인접 중앙값 11.965, 배율 219.6, 표본 8)
+기준일=2026-11-08
+범위=2026-08-01 - 2026-11-08
+job 병렬화: 4 workers
+작업 처리 중: barchart_com
+  -> 수집 소요시간: 29.6초
+  -> 실행 병렬화: 3 workers
+  -> DB 저장됨: 값 0건, 가격 614건 (1.2초)
+  -> 수집됨: 1026건
+작업 처리 중: eia_gov__petroleum_spot_daily__batch21
+  -> 수집 소요시간: 2.3초
+  -> DB 저장됨: 값 132건, 가격 132건 (1.7초)
+  -> 수집됨: 264건
+작업 처리 중: lbma_org_uk
+  -> 수집 소요시간: 1.2초
+  -> 영구 중단 value series 4개 출력 차단: Com_LME_AlAlloy_Spread, Com_LME_Com_Aluminium_Alloy_Opening_Stock, Com_LME_Com_Nasaac_Opening_Stock, Com_LME_Nasaac_Spread
+작업 처리 중: lme_com
+  -> 수집 소요시간: 329.9초
+  -> lme_com 범위(기준일 제외): 2026-08-01 - 2026-11-07
+  -> DB 저장됨: 값 4791건, 가격 0건 (5.4초)
+  -> 수집됨: 4791건
+작업 처리 중: newyorkfed_org__markets
+  -> 수집 소요시간: 1.7초
+  -> DB 저장됨: 값 67건, 가격 0건 (0.3초)
+  -> 수집됨: 67건
+REFRESH_EXIT=0

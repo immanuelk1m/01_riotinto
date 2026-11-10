@@ -38,17 +38,17 @@ from dataclasses import dataclass
 ALLOWED_SOURCES = ("protocol", "definitional", "declared")
 
 #: bump when a value changes; it is part of every leaderboard row
-PARAMS_VERSION = "2.1"
+PARAMS_VERSION = "3.0"
 
 #: the protocol revision these constants implement (PROTOCOL.md §0)
-PROTOCOL_VERSION = "1.1"
+PROTOCOL_VERSION = "1.2"
 
 
 @dataclass(frozen=True)
 class Param:
     """One registered constant."""
 
-    value: float | int | None
+    value: float | int | str | tuple | None
     source: str
     rationale: str
 
@@ -75,9 +75,14 @@ REGISTRY: dict[str, Param] = {
         "PROTOCOL.md §5.4: the paired interval must come from a moving-block bootstrap "
         "with 26-week blocks.",
     ),
-    "SEALED_ORIGINS": Param(
-        52, "protocol",
-        "PROTOCOL.md §4.2: the most recent 52 weeks of mature targets are sealed.",
+    "TSCV_START": Param(
+        "2025-01", "protocol",
+        "PROTOCOL.md §4.2: the evaluation origins are the first week of each month from this month "
+        "(user-specified; replaces the dev/sealed split).",
+    ),
+    "TSCV_END": Param(
+        "2026-09", "protocol",
+        "PROTOCOL.md §4: last month with an evaluation origin (user-specified).",
     ),
     "ALPHA": Param(0.05, "protocol", "PROTOCOL.md §5.5: the declared family-wise level."),
     "MIN_COVERAGE": Param(
@@ -116,20 +121,9 @@ REGISTRY: dict[str, Param] = {
         "count from this tuple, and a swing run is written outside the leaderboard by "
         "construction, so a sensitivity value can never become a ranking.",
     ),
-    "TRAIN_FRAC": Param(
-        0.70, "declared",
-        "Warm-up fraction of the walk-forward: the first 70 % of the usable origin grid "
-        "is in-sample, the rest is walk-forward. Declared in the round's README before "
-        "the run.",
-    ),
-    "REFIT_EVERY": Param(
-        4, "declared",
-        "Refit cadence in weeks. Weekly refits add no information at weekly resolution "
-        "and multiply the compute by four.",
-    ),
     "MIN_TRAIN": Param(
         100, "declared",
-        "Minimum training window in weeks before the first forecast is issued.",
+        "Minimum number of mature training weeks an origin needs before a forecast is issued.",
     ),
     "MIN_WEEKS": Param(
         200, "declared",
@@ -170,7 +164,10 @@ REGISTRY: dict[str, Param] = {
         "each (experiment/E028/CEILING.md §4: 32 of the 40 largest basis-index jumps, all 9 above 6 %).",
     ),
     # -- E028 analysis constants: they cannot change a cell, so they stay out of the hash --
-    "WEEKS_PER_YEAR": Param(52, "definitional", "Annualisation of a weekly Sharpe ratio."),
+    "ORIGINS_PER_YEAR": Param(
+        12, "definitional",
+        "One TSCV origin per calendar month: annualisation of a per-origin Sharpe ratio.",
+    ),
     "COST_BPS": Param(
         5, "declared",
         "One-way trading cost in basis points for the E028 P&L check (liquid futures, with slippage). "
@@ -179,6 +176,12 @@ REGISTRY: dict[str, Param] = {
     "COST_SWING": Param(
         (0, 5, 25), "declared",
         "Registered cost grid for the E028 P&L check; 25 bp stands in for a physical basis trade.",
+    ),
+    "ORIGIN_LAG": Param(
+        2, "declared",
+        "Monthly origins are 4-5 weeks apart and an H=8 horizon overlaps the next origin's targets "
+        "but ends before the one after: HAC lag and mature-instrument lag, in origin units, "
+        "= ceil((H-1)/4) = 2. Replaces H-1 = 7, which counts weekly origins.",
     ),
     "CSCV_SPLITS": Param(
         16, "declared",
@@ -205,7 +208,7 @@ P = _Access({name: param.value for name, param in REGISTRY.items()})
 
 #: analysis and instrumentation entries: they are registered and linted like everything else,
 #: but they cannot change a registered cell, so they stay out of the provenance hash
-NOT_MODELLING = ("SENSITIVITY_LAGS", "WEEKS_PER_YEAR", "COST_BPS", "COST_SWING", "CSCV_SPLITS",
+NOT_MODELLING = ("SENSITIVITY_LAGS", "ORIGIN_LAG", "ORIGINS_PER_YEAR", "COST_BPS", "COST_SWING", "CSCV_SPLITS",
                  "PLANTED_R2")
 
 

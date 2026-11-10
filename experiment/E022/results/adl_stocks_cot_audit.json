@@ -1,0 +1,66 @@
+{
+  "n_cells": 800,
+  "n_origins": 20,
+  "n_series": 5,
+  "mean_d": 0.006607605148773395,
+  "ci_low": -0.0008161380047876118,
+  "ci_high": 0.01597335483077507,
+  "blocks": 4,
+  "block_win_rate": 0.5,
+  "mape_pers": 12.236634850958676,
+  "mape_cand": 11.575874336081334,
+  "frac_series_positive": 0.4,
+  "worst_series_delta": -0.0023906847894481337,
+  "eligible": false,
+  "per_series": {
+    "brent": {
+      "n": 160,
+      "mean_d": 0.000604,
+      "mape_pers": 11.337765,
+      "mape_cand": 11.277349
+    },
+    "gas_hh": {
+      "n": 160,
+      "mean_d": 0.035542,
+      "mape_pers": 20.568986,
+      "mape_cand": 17.014751
+    },
+    "gasoline": {
+      "n": 160,
+      "mean_d": -0.002391,
+      "mape_pers": 8.169152,
+      "mape_cand": 8.40822
+    },
+    "heating": {
+      "n": 160,
+      "mean_d": -0.000403,
+      "mape_pers": 11.245011,
+      "mape_cand": 11.285352
+    },
+    "wti": {
+      "n": 160,
+      "mean_d": -0.000314,
+      "mape_pers": 9.862261,
+      "mape_cand": 9.893699
+    }
+  },
+  "direction": "adl_stocks_cot",
+  "model": "adl",
+  "exog": [
+    "stocks",
+    "cot",
+    "bdi"
+  ],
+  "targets": [
+    "wti",
+    "brent",
+    "gas_hh",
+    "gasoline",
+    "heating"
+  ],
+  "experiment": "E022",
+  "lags": 4,
+  "sensitivity": false,
+  "params_version": "3.0",
+  "params_hash": "7b9c91677bdc2917"
+}

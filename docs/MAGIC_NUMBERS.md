@@ -5,23 +5,23 @@ Decisions are declared in [`params_decisions.json`](params_decisions.json).
 
 ## Totals
 
-- numeric literals scanned: **490**
-- knob candidates (`constant` / `call_arg` / `default_arg`): **117**
+- numeric literals scanned: **426**
+- knob candidates (`constant` / `call_arg` / `default_arg`): **106**
 
 | literal role | count |
 |---|---|
-| `inline` | 324 |
-| `call_arg` | 107 |
-| `compare` | 49 |
-| `constant` | 7 |
+| `inline` | 272 |
+| `call_arg` | 99 |
+| `compare` | 48 |
+| `constant` | 4 |
 | `default_arg` | 3 |
 
 | classification | count |
 |---|---|
-| `code` | 449 |
-| `registered` | 26 |
+| `code` | 390 |
+| `registered` | 24 |
 | `fixture` | 10 |
-| `formatting` | 5 |
+| `formatting` | 2 |
 
 ## Knob candidates
 
@@ -30,43 +30,43 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 
 | file:line | value | role | site | class | disposition |
 |---|---|---|---|---|---|
-| `_exo/engine.py:45` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `_exo/engine.py:183` | `0.0` | call_arg | `replace(#0)` | code | allowed structural literal |
-| `_exo/engine.py:194` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `_exo/engine.py:219` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `_exo/engine.py:254` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
-| `_exo/engine.py:254` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
-| `_exo/engine.py:274` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `_exo/engine.py:322` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
-| `_exo/engine.py:362` | `6` | call_arg | `round(#0)` | formatting | display precision only |
-| `_exo/engine.py:400` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
-| `_exo/engine.py:402` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
+| `_exo/engine.py:43` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `_exo/engine.py:180` | `0.0` | call_arg | `replace(#0)` | code | allowed structural literal |
+| `_exo/engine.py:191` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:216` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:265` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `_exo/engine.py:265` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `_exo/engine.py:283` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `_exo/engine.py:329` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
+| `_exo/engine.py:361` | `6` | call_arg | `round(#0)` | formatting | display precision only |
+| `_exo/engine.py:397` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
+| `_exo/engine.py:399` | `1` | call_arg | `split(#1)` | code | allowed structural literal |
 | `_exo/params.py:70` | `1.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:74` | `26` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:79` | `52` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:82` | `0.05` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:84` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
 | `_exo/params.py:87` | `0.05` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:92` | `8` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:97` | `2` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:101` | `100.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:103` | `0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:109` | `4` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:120` | `0.7` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:126` | `4` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:131` | `100` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:135` | `200` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:140` | `1040` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:145` | `1e-06` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:150` | `1e-09` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:154` | `1000` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:159` | `360` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:162` | `7` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:164` | `13` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:173` | `52` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:175` | `5` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:184` | `16` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
-| `_exo/params.py:189` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:89` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:92` | `0.05` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:97` | `8` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:102` | `2` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:106` | `100.0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:108` | `0` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:114` | `4` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:125` | `100` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:129` | `200` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:134` | `1040` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:139` | `1e-06` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:144` | `1e-09` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:148` | `1000` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:153` | `360` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:156` | `7` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:158` | `13` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:168` | `12` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:172` | `5` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:181` | `2` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:187` | `16` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/params.py:192` | `0.1` | call_arg | `Param(#0)` | registered | keep (has source + rationale) |
+| `_exo/test_leaderboard.py:8` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `_exo/test_tscv.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E022/E022.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E023/E023.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E024/E024.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
@@ -75,34 +75,32 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/E027/E027.py:7` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E028/E028.py:28` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/E028/E028.py:54` | `1.0` | constant | `PRIMARY_ASYNC` | code | allowed structural literal |
-| `experiment/E028/E028.py:149` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:158` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:158` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:207` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:229` | `0.0` | default_arg | `c` | code | allowed structural literal |
-| `experiment/E028/E028.py:244` | `1.0` | call_arg | `minimum(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:250` | `1.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:261` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:275` | `0` | call_arg | `brentq(#1)` | code | allowed structural literal |
-| `experiment/E028/E028.py:275` | `1` | call_arg | `brentq(#2)` | code | allowed structural literal |
-| `experiment/E028/E028.py:384` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:426` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:432` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:490` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:493` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:525` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:539` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:583` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:584` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:584` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:603` | `0.0` | call_arg | `normal(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:638` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:720` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:721` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:722` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:736` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:869` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
-| `experiment/E028/E028.py:933` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:142` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:151` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:151` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:200` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:222` | `0.0` | default_arg | `c` | code | allowed structural literal |
+| `experiment/E028/E028.py:237` | `1.0` | call_arg | `minimum(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:243` | `1.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:254` | `0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:268` | `0` | call_arg | `brentq(#1)` | code | allowed structural literal |
+| `experiment/E028/E028.py:268` | `1` | call_arg | `brentq(#2)` | code | allowed structural literal |
+| `experiment/E028/E028.py:359` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:403` | `1` | call_arg | `all(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:469` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:472` | `1` | call_arg | `range(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:505` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:519` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:563` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:564` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:564` | `0` | call_arg | `mean(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:583` | `0.0` | call_arg | `normal(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:618` | `1` | call_arg | `arange(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:679` | `1` | call_arg | `shift(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:680` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:681` | `0.0` | call_arg | `fillna(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:695` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `experiment/E028/E028.py:766` | `1.0` | call_arg | `min(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `experiment/transfer_contract.py:119` | `0` | constant | `wins` | code | allowed structural literal |
 | `experiment/transfer_contract.py:122` | `0` | call_arg | `range(#0)` | code | allowed structural literal |
@@ -124,27 +122,18 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 | `experiment/transfer_contract.py:212` | `0.004` | call_arg | `frame(#0)` | fixture | synthetic self-test input, not research data |
 | `experiment/transfer_contract.py:212` | `0.02` | call_arg | `frame(#1)` | fixture | synthetic self-test input, not research data |
 | `experiment/transfer_contract.py:212` | `3` | call_arg | `frame(#2)` | fixture | synthetic self-test input, not research data |
-| `tools/evaluator_reimpl.py:27` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `tools/evaluator_reimpl.py:40` | `0.0` | call_arg | `ape(#0)` | code | allowed structural literal |
-| `tools/evaluator_reimpl.py:60` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:28` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:41` | `0.0` | call_arg | `ape(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:61` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/evaluator_reimpl.py:71` | `0.0` | call_arg | `ape(#0)` | code | allowed structural literal |
-| `tools/evaluator_reimpl.py:76` | `0.0` | constant | `stat_gap` | code | allowed structural literal |
-| `tools/leaderboard_from_cells.py:23` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/evaluator_reimpl.py:75` | `0.0` | constant | `stat_gap` | code | allowed structural literal |
+| `tools/leaderboard_from_cells.py:24` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/leaderboard_lint.py:30` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:44` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:177` | `0.0` | constant | `worst` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:196` | `9` | call_arg | `round(#1)` | formatting | display precision only |
-| `tools/leaderboard_max_ape.py:235` | `9` | call_arg | `round(#1)` | formatting | display precision only |
-| `tools/leaderboard_max_ape.py:327` | `0.0` | call_arg | `matches(#1)` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:364` | `0.0` | constant | `peak` | code | allowed structural literal |
-| `tools/leaderboard_max_ape.py:367` | `9` | call_arg | `round(#1)` | formatting | display precision only |
-| `tools/leaderboard_migrate_v2.py:45` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `tools/leaderboard_migrate_v2.py:145` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
-| `tools/leaderboard_report.py:70` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
+| `tools/leaderboard_report.py:33` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
+| `tools/leaderboard_report.py:73` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
 | `tools/params_lint.py:162` | `0` | constant | `count` | code | allowed structural literal |
 | `tools/params_lint.py:172` | `0` | call_arg | `get(#1)` | code | allowed structural literal |
 | `tools/resolve_series.py:28` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
-| `tools/retire_experiment.py:302` | `0` | constant | `total` | code | allowed structural literal |
 | `tools/round_summary.py:32` | `0` | call_arg | `insert(#0)` | code | allowed structural literal |
 | `tools/round_summary.py:44` | `0` | call_arg | `integers(#0)` | code | allowed structural literal |
 
@@ -152,27 +141,26 @@ purge has not yet judged it, and the run must not proceed past Gate 2.
 
 | file | constant | call_arg | default_arg | other |
 |---|---|---|---|---|
-| `_exo/engine.py` | 0 | 11 | 0 | 33 |
-| `_exo/leaderboard.py` | 0 | 0 | 0 | 5 |
-| `_exo/params.py` | 0 | 26 | 0 | 14 |
+| `_exo/engine.py` | 0 | 11 | 0 | 32 |
+| `_exo/leaderboard.py` | 0 | 0 | 0 | 7 |
+| `_exo/params.py` | 0 | 24 | 0 | 14 |
+| `_exo/test_leaderboard.py` | 0 | 1 | 0 | 8 |
+| `_exo/test_tscv.py` | 0 | 1 | 0 | 6 |
 | `experiment/E022/E022.py` | 0 | 1 | 0 | 3 |
 | `experiment/E023/E023.py` | 0 | 1 | 0 | 3 |
 | `experiment/E024/E024.py` | 0 | 1 | 0 | 3 |
 | `experiment/E025/E025.py` | 0 | 1 | 0 | 3 |
 | `experiment/E026/E026.py` | 0 | 1 | 0 | 3 |
 | `experiment/E027/E027.py` | 0 | 1 | 0 | 3 |
-| `experiment/E028/E028.py` | 1 | 28 | 1 | 138 |
+| `experiment/E028/E028.py` | 1 | 26 | 1 | 122 |
 | `experiment/transfer_contract.py` | 1 | 18 | 2 | 32 |
 | `tools/check_all.py` | 0 | 0 | 0 | 8 |
-| `tools/evaluator_reimpl.py` | 1 | 4 | 0 | 9 |
+| `tools/evaluator_reimpl.py` | 1 | 4 | 0 | 10 |
 | `tools/leaderboard_from_cells.py` | 0 | 1 | 0 | 3 |
-| `tools/leaderboard_lint.py` | 0 | 1 | 0 | 16 |
-| `tools/leaderboard_max_ape.py` | 2 | 5 | 0 | 36 |
-| `tools/leaderboard_migrate_v2.py` | 0 | 2 | 0 | 13 |
-| `tools/leaderboard_report.py` | 0 | 1 | 0 | 5 |
+| `tools/leaderboard_lint.py` | 0 | 1 | 0 | 15 |
+| `tools/leaderboard_report.py` | 0 | 2 | 0 | 4 |
 | `tools/params_lint.py` | 1 | 1 | 0 | 13 |
 | `tools/resolve_series.py` | 0 | 1 | 0 | 3 |
-| `tools/retire_experiment.py` | 1 | 0 | 0 | 2 |
 | `tools/round_summary.py` | 0 | 2 | 0 | 25 |
 
 ## Experiment model fingerprints
@@ -183,27 +171,6 @@ search loop, or a module constant that changes the fitted object.
 
 | experiment | estimators | search / selection | module constants |
 |---|---|---|---|
-| `E001` | — | — | — |
-| `E002` | — | — | — |
-| `E003` | — | — | — |
-| `E004` | — | — | — |
-| `E005` | — | — | — |
-| `E006` | — | — | — |
-| `E007` | — | — | — |
-| `E008` | — | — | — |
-| `E009` | — | — | — |
-| `E010` | — | — | — |
-| `E011` | — | — | — |
-| `E012` | — | — | — |
-| `E013` | — | — | — |
-| `E014` | — | — | — |
-| `E015` | — | — | — |
-| `E016` | — | — | — |
-| `E017` | — | — | — |
-| `E018` | — | — | — |
-| `E019` | — | — | — |
-| `E020` | — | — | — |
-| `E021` | — | — | — |
 | `E022` | — | — | — |
 | `E023` | — | — | — |
 | `E024` | — | — | — |

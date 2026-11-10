@@ -1,0 +1,51 @@
+{
+  "n_cells": 432,
+  "n_origins": 21,
+  "n_series": 3,
+  "mean_d": -0.00474249236229582,
+  "ci_low": -0.009057636510594472,
+  "ci_high": -0.0011984079490837973,
+  "blocks": 4,
+  "block_win_rate": 0.25,
+  "mape_pers": 6.093493715095195,
+  "mape_cand": 6.567742951324777,
+  "frac_series_positive": 0.0,
+  "worst_series_delta": -0.013296390342878063,
+  "eligible": false,
+  "per_series": {
+    "coffee_r": {
+      "n": 168,
+      "mean_d": -0.003788,
+      "mape_pers": 9.40636,
+      "mape_cand": 9.785178
+    },
+    "rice": {
+      "n": 104,
+      "mean_d": -0.013296,
+      "mape_pers": 4.072504,
+      "mape_cand": 5.402143
+    },
+    "sugar": {
+      "n": 160,
+      "mean_d": -0.000184,
+      "mape_pers": 3.928627,
+      "mape_cand": 3.947076
+    }
+  },
+  "direction": "adl_enso",
+  "model": "adl",
+  "exog": [
+    "oni",
+    "soi"
+  ],
+  "targets": [
+    "coffee_r",
+    "sugar",
+    "rice"
+  ],
+  "experiment": "E024",
+  "lags": 4,
+  "sensitivity": false,
+  "params_version": "3.0",
+  "params_hash": "7b9c91677bdc2917"
+}

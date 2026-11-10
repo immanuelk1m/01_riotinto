@@ -1,5 +1,7 @@
 # Exogenous-information round (E022–E026) — family declaration
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 **Registered:** 2026-10-31, before any direction was run.
 **Protocol:** [`PROTOCOL.md`](../PROTOCOL.md). The full Gate C registration for the round is
 [`E022/README.md`](E022/README.md); this file fixes the **family size** that Gate D requires.
@@ -7,7 +9,7 @@
 ## What this round is
 
 A Gate A audit of exogenous-information candidates. Every direction is a
-(candidate, persistence) pair evaluated on identical walk-forward origins with the
+(candidate, naive forecast) pair evaluated on identical walk-forward origins with the
 repository's existing cell definition. **No deployment rule is evaluated here**, so
 Gate B's restriction on rule-only experiments does not bind; the axes changed are
 *data* (published exogenous series with real-time availability lags) and *model*
@@ -40,22 +42,22 @@ excluded from the eligibility computation and reported once, separately, in each
 ## Decision rule
 
 A direction is **Eligible** only if, on the development window, the mean paired
-difference (persistence minus candidate, capped APE) is positive with a 26-week
+difference (naive forecast minus candidate, capped APE) is positive with a 26-week
 moving-block bootstrap 95% interval excluding zero. Everything else is reported as
 "no detectable difference" or as a loss, and is not described as a result.
 
 ## Leaderboard
 
-Every direction writes `<EXP>_<direction>` rows and the direction-free baseline writes
-`<EXP>_persistence` (one per series and horizon 1-8, plus an `all` row) through
-`_exo/leaderboard.py`:
+Every direction writes `<EXP>_<direction>` rows (one per series and horizon 1-8, plus an
+`all` row) through `_exo/leaderboard.py`. Naive-forecast baselines are not stored in the ledger;
+the audit recomputes them from the cells:
 
 - `mape` - dev-window mean capped APE in percent (the number the audit reports)
 - `max_ape_pct` - worst single dev-window cell in percent, uncapped, so a tail is visible
   instead of being clipped at 100 %
 
-The sealed 52 origins are in neither column. `--limit` runs do not write the leaderboard
-unless `EXO_LEADERBOARD` points at a scratch database.
+The sealed 52 origins are in neither column. The engine no longer writes the leaderboard;
+`tools/leaderboard_from_cells.py` writes full-panel cells to the W&B ledger.
 
 ## Plan revision — 2026-11-01: the panel is coffee and corn
 

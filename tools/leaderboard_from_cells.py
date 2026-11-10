@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Write ``leaderboard`` rows from promoted ``*_cells.parquet`` files.
+"""Write ``leaderboard`` rows from ``results/*_cells.parquet`` files.
 
-The Colab VM writes its ledger to ``/content/leaderboard.sqlite``, which the harness
-does not download, so the ledger step has to run here, on the mini, from the promoted
-cells.  Only development-window cells are written (sealed origins stay out), exactly as
-``_exo/engine.py`` does at run time.
+The ledger is the W&B artifact ``riotinto/ledger``; the ledger step runs on the mini
+(W&B credentials in `~/.netrc`) from those cells.  Each direction is one
+W&B run, and ``results/`` is uploaded as the ``<EXP>-results`` artifact.  Every TSCV cell is
+written; a cells file whose audit was produced under another ``PARAMS_HASH`` is skipped, so a retired
+direction's stale cells cannot reach the ledger.
 
 Usage (repository root):
 
@@ -23,13 +24,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from _exo.leaderboard import write  # noqa: E402
-from _exo.params import P, PARAMS_HASH  # noqa: E402
+from _exo.params import PARAMS_HASH  # noqa: E402
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("experiment", help="experiment directory name, e.g. E027")
-    ap.add_argument("--apply", action="store_true", help="write to leaderboard.sqlite")
+    ap.add_argument("--apply", action="store_true", help="write to the W&B ledger")
     args = ap.parse_args()
 
     base = ROOT / "experiment" / args.experiment
@@ -39,21 +40,23 @@ def main() -> int:
 
     paths = sorted((base / "results").glob("*_cells.parquet"))
     if not paths:
-        raise SystemExit(f"no cells under {base / 'results'}; promote the run first")
+        raise SystemExit(f"no cells under {base / 'results'}; run the direction first")
 
     for path in paths:
         cells = pd.read_parquet(path)
         name = str(cells.direction.iloc[0])
-        cut = int(cells.origin.max()) - P.SEALED_ORIGINS
-        dev = cells[cells.origin < cut]
         label = f"{args.experiment}_{name}"
-        if not args.apply:
-            print(f"[dry] {label}: {len(dev)} dev cells of {len(cells)} "
-                  f"(sealed {len(cells) - len(dev)}), series {sorted(dev.series.unique())}")
+        audit = json.loads(path.with_name(f"{name}_audit.json").read_text())
+        if audit.get("params_hash") != PARAMS_HASH:
+            print(f"[skip] {label}: cells were produced under params {audit.get('params_hash')}, "
+                  f"current is {PARAMS_HASH}")
             continue
-        written = write(ROOT / "leaderboard.sqlite", label, dev, col_names,
-                        persistence=f"{label}_persistence",
-                        direction=name, params_hash=params_hash)
+        if not args.apply:
+            print(f"[dry] {label}: {len(cells)} cells, origins {cells.origin.nunique()}, "
+                  f"series {sorted(cells.series.unique())}")
+            continue
+        written = write(label, cells, col_names, direction=name,
+                        params_hash=params_hash, results=base / "results")
         print(f"[ledger] {label}: {written} rows written")
     return 0
 

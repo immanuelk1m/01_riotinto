@@ -3,14 +3,15 @@
 
 It never imports the engine for its own numbers. From the text:
 
-* §2.1  err = min(1.0, |expm1(forecast − log_return_target)|); persistence forecasts a zero log return.
+* §2.1  err = min(1.0, |expm1(forecast − log_return_target)|); the naive forecast is a zero log return.
 * §5.1  cell MAPE = mean(|forecast/target − 1|) × 100 over cells (series, horizon, origin).
 * §5.3  series are weighted equally (one panel, one cell count per series).
 * §2.2  interval: moving-block bootstrap with 26-week blocks, over the origin-ordered d.
 
-`--check` compares it with the engine on E028's dev and sealed cells: every cell APE and every
+`--check` compares it with the engine on E028's TSCV cells: every cell APE and every
 statement MAPE must agree to TOL_ABS. The interval is reported, not gated: the engine resamples
 non-overlapping calendar blocks, §2.2 says moving blocks, so the two intervals differ by design.
+With ~20 monthly origins a 26-origin moving block does not fit, so that interval prints as nan.
 """
 
 from __future__ import annotations
@@ -61,29 +62,26 @@ def check() -> int:
     import E028 as exp  # the reference side: engine scoring through E028's own selection
 
     failures = []
-    for window, name in (("dev", "dev_cells.parquet"), ("sealed", "sealed_cells.parquet")):
-        path = E028 / "results" / name
-        if not path.exists():
-            print(f"[evaluator] {window}: {name} missing, skipped")
-            continue
-        raw = pd.read_parquet(path)
-        ref = exp.scored(raw, "struct", exp.common_origins(raw))
-        mine_p = ape(0.0, ref.target_logret)
-        mine_c = ape(ref.fc, ref.target_logret)
-        cell_gap = float(max(np.abs(mine_p - ref.ape_pers).max(), np.abs(mine_c - ref.ape_cand).max()))
-        stored = json.loads((E028 / "results" / f"{window}.json").read_text())
-        rows = stored["gate_a"]["struct"] if window == "dev" else stored["statements"]
-        stat_gap = 0.0
-        for key in exp.STATEMENTS:
-            got = statement(exp.statement(ref, key))
-            for field in ("mape_pers", "mape_cand", "reduction"):
-                stat_gap = max(stat_gap, abs(got[field] - rows[key][field]))
-            print(f"[evaluator] {window} {key:7} MAPE {got['mape_pers']:.4f}->{got['mape_cand']:.4f} "
-                  f"({got['reduction'] * P.PCT:+.2f}%) moving-block CI d {got['moving_block_ci']}")
-        print(f"[evaluator] {window}: {len(ref)} cells, max cell gap {cell_gap:.2e}, "
-              f"max statement gap {stat_gap:.2e}")
-        if cell_gap > P.TOL_ABS or stat_gap > P.TOL_ABS:
-            failures.append(window)
+    path = E028 / "results" / "tscv_cells.parquet"
+    if not path.exists():
+        print(f"[evaluator] {path.name} missing, skipped")
+        return 0
+    raw = pd.read_parquet(path)
+    ref = exp.scored(raw, "struct", exp.common_origins(raw))
+    mine_p = ape(0.0, ref.target_logret)
+    mine_c = ape(ref.fc, ref.target_logret)
+    cell_gap = float(max(np.abs(mine_p - ref.ape_pers).max(), np.abs(mine_c - ref.ape_cand).max()))
+    rows = json.loads((E028 / "results" / "tscv.json").read_text())["gate_a"]["struct"]
+    stat_gap = 0.0
+    for key in exp.STATEMENTS:
+        got = statement(exp.statement(ref, key))
+        for field in ("mape_pers", "mape_cand", "reduction"):
+            stat_gap = max(stat_gap, abs(got[field] - rows[key][field]))
+        print(f"[evaluator] {key:7} MAPE {got['mape_pers']:.4f}->{got['mape_cand']:.4f} "
+              f"({got['reduction'] * P.PCT:+.2f}%) moving-block CI d {got['moving_block_ci']}")
+    print(f"[evaluator] {len(ref)} cells, max cell gap {cell_gap:.2e}, max statement gap {stat_gap:.2e}")
+    if cell_gap > P.TOL_ABS or stat_gap > P.TOL_ABS:
+        failures.append("tscv")
     print(f"[evaluator] {'FAIL ' + str(failures) if failures else 'engine == protocol text, cell by cell'}")
     return 1 if failures else 0
 

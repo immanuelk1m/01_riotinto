@@ -1,9 +1,9 @@
 {
  "rows": [
   {
-   "id": "_exo/engine.py:45:0",
+   "id": "_exo/engine.py:43:0",
    "file": "_exo/engine.py",
-   "line": 45,
+   "line": 43,
    "col": 20,
    "value": 0,
    "kind": "call_arg",
@@ -16,9 +16,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:61:90",
+   "id": "_exo/engine.py:58:90",
    "file": "_exo/engine.py",
-   "line": 61,
+   "line": 58,
    "col": 49,
    "value": 90,
    "kind": "inline",
@@ -31,9 +31,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:120:7.0",
+   "id": "_exo/engine.py:117:7.0",
    "file": "_exo/engine.py",
-   "line": 120,
+   "line": 117,
    "col": 48,
    "value": 7.0,
    "kind": "inline",
@@ -46,9 +46,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:130:0",
+   "id": "_exo/engine.py:127:0",
    "file": "_exo/engine.py",
-   "line": 130,
+   "line": 127,
    "col": 52,
    "value": 0,
    "kind": "compare",
@@ -61,9 +61,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:144:0",
+   "id": "_exo/engine.py:141:0",
    "file": "_exo/engine.py",
-   "line": 144,
+   "line": 141,
    "col": 43,
    "value": 0,
    "kind": "inline",
@@ -76,9 +76,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:145:1",
+   "id": "_exo/engine.py:142:1",
    "file": "_exo/engine.py",
-   "line": 145,
+   "line": 142,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -91,9 +91,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:153:2",
+   "id": "_exo/engine.py:150:2",
    "file": "_exo/engine.py",
-   "line": 153,
+   "line": 150,
    "col": 68,
    "value": 2,
    "kind": "inline",
@@ -106,9 +106,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:183:0.0",
+   "id": "_exo/engine.py:180:0.0",
    "file": "_exo/engine.py",
-   "line": 183,
+   "line": 180,
    "col": 42,
    "value": 0.0,
    "kind": "call_arg",
@@ -121,9 +121,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:194:1",
+   "id": "_exo/engine.py:191:1",
    "file": "_exo/engine.py",
-   "line": 194,
+   "line": 191,
    "col": 21,
    "value": 1,
    "kind": "call_arg",
@@ -136,9 +136,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:194:1",
+   "id": "_exo/engine.py:191:1",
    "file": "_exo/engine.py",
-   "line": 194,
+   "line": 191,
    "col": 31,
    "value": 1,
    "kind": "inline",
@@ -151,9 +151,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:214:0",
+   "id": "_exo/engine.py:211:0",
    "file": "_exo/engine.py",
-   "line": 214,
+   "line": 211,
    "col": 65,
    "value": 0,
    "kind": "inline",
@@ -166,9 +166,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:219:1",
+   "id": "_exo/engine.py:216:1",
    "file": "_exo/engine.py",
-   "line": 219,
+   "line": 216,
    "col": 68,
    "value": 1,
    "kind": "call_arg",
@@ -181,9 +181,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:219:1",
+   "id": "_exo/engine.py:216:1",
    "file": "_exo/engine.py",
-   "line": 219,
+   "line": 216,
    "col": 82,
    "value": 1,
    "kind": "inline",
@@ -196,9 +196,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:238:1",
+   "id": "_exo/engine.py:235:1",
    "file": "_exo/engine.py",
-   "line": 238,
+   "line": 235,
    "col": 45,
    "value": 1,
    "kind": "inline",
@@ -211,9 +211,24 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:254:1",
+   "id": "_exo/engine.py:256:0",
    "file": "_exo/engine.py",
-   "line": 254,
+   "line": 256,
+   "col": 22,
+   "value": 0,
+   "kind": "compare",
+   "func": "tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "return pos[pos >= 0]",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/engine.py:265:1",
+   "file": "_exo/engine.py",
+   "line": 265,
    "col": 28,
    "value": 1,
    "kind": "call_arg",
@@ -226,9 +241,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:254:1",
+   "id": "_exo/engine.py:265:1",
    "file": "_exo/engine.py",
-   "line": 254,
+   "line": 265,
    "col": 52,
    "value": 1,
    "kind": "call_arg",
@@ -241,24 +256,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:261:1",
+   "id": "_exo/engine.py:279:1",
    "file": "_exo/engine.py",
-   "line": 261,
-   "col": 39,
-   "value": 1,
-   "kind": "inline",
-   "func": "walk_forward",
-   "call": null,
-   "argname": null,
-   "text": "first = int(valid[min(len(valid) - 1, int(round(P.TRAIN_FRAC * len(valid))))])",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "_exo/engine.py:270:1",
-   "file": "_exo/engine.py",
-   "line": 270,
+   "line": 279,
    "col": 68,
    "value": 1,
    "kind": "inline",
@@ -271,9 +271,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:270:0",
+   "id": "_exo/engine.py:279:0",
    "file": "_exo/engine.py",
-   "line": 270,
+   "line": 279,
    "col": 72,
    "value": 0,
    "kind": "inline",
@@ -286,54 +286,54 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:274:1",
+   "id": "_exo/engine.py:283:1",
    "file": "_exo/engine.py",
-   "line": 274,
+   "line": 283,
    "col": 23,
    "value": 1,
    "kind": "call_arg",
    "func": "walk_forward",
    "call": "range",
    "argname": "#0",
-   "text": "for h in range(1, int(P.H) + 1):",
+   "text": "for h in range(1, horizon + 1):",
    "class": "code",
    "disposition": "allowed structural literal",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:274:1",
+   "id": "_exo/engine.py:283:1",
    "file": "_exo/engine.py",
-   "line": 274,
-   "col": 37,
+   "line": 283,
+   "col": 36,
    "value": 1,
    "kind": "inline",
    "func": "walk_forward",
    "call": null,
    "argname": null,
-   "text": "for h in range(1, int(P.H) + 1):",
+   "text": "for h in range(1, horizon + 1):",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:278:1",
+   "id": "_exo/engine.py:285:1",
    "file": "_exo/engine.py",
-   "line": 278,
-   "col": 76,
+   "line": 285,
+   "col": 82,
    "value": 1,
    "kind": "inline",
    "func": "walk_forward",
    "call": null,
    "argname": null,
-   "text": "dict(origin=int(t), horizon=h, target_logret=float(Y[t, h - 1]),",
+   "text": "dict(origin=int(week[t]), horizon=h, target_logret=float(Y[t, h - 1]),",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:279:1",
+   "id": "_exo/engine.py:286:1",
    "file": "_exo/engine.py",
-   "line": 279,
+   "line": 286,
    "col": 39,
    "value": 1,
    "kind": "inline",
@@ -346,9 +346,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:316:2",
+   "id": "_exo/engine.py:323:2",
    "file": "_exo/engine.py",
-   "line": 316,
+   "line": 323,
    "col": 18,
    "value": 2,
    "kind": "compare",
@@ -361,9 +361,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:322:0",
+   "id": "_exo/engine.py:329:0",
    "file": "_exo/engine.py",
-   "line": 322,
+   "line": 329,
    "col": 28,
    "value": 0,
    "kind": "call_arg",
@@ -376,9 +376,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:326:2",
+   "id": "_exo/engine.py:333:2",
    "file": "_exo/engine.py",
-   "line": 326,
+   "line": 333,
    "col": 46,
    "value": 2,
    "kind": "inline",
@@ -391,9 +391,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:327:1",
+   "id": "_exo/engine.py:334:1",
    "file": "_exo/engine.py",
-   "line": 327,
+   "line": 334,
    "col": 36,
    "value": 1,
    "kind": "inline",
@@ -406,9 +406,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:327:2",
+   "id": "_exo/engine.py:334:2",
    "file": "_exo/engine.py",
-   "line": 327,
+   "line": 334,
    "col": 50,
    "value": 2,
    "kind": "inline",
@@ -421,9 +421,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:350:0",
+   "id": "_exo/engine.py:355:0",
    "file": "_exo/engine.py",
-   "line": 350,
+   "line": 355,
    "col": 39,
    "value": 0,
    "kind": "compare",
@@ -436,9 +436,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:353:0",
+   "id": "_exo/engine.py:358:0",
    "file": "_exo/engine.py",
-   "line": 353,
+   "line": 358,
    "col": 56,
    "value": 0,
    "kind": "compare",
@@ -451,39 +451,39 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:355:0",
+   "id": "_exo/engine.py:360:0",
    "file": "_exo/engine.py",
-   "line": 355,
-   "col": 37,
+   "line": 360,
+   "col": 39,
    "value": 0,
    "kind": "compare",
    "func": "audit",
    "call": null,
    "argname": null,
-   "text": "eligible=bool(dev.d.mean() > 0 and boot[\"lo\"] > 0),",
+   "text": "eligible=bool(cells.d.mean() > 0 and boot[\"lo\"] > 0),",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:355:0",
+   "id": "_exo/engine.py:360:0",
    "file": "_exo/engine.py",
-   "line": 355,
-   "col": 56,
+   "line": 360,
+   "col": 58,
    "value": 0,
    "kind": "compare",
    "func": "audit",
    "call": null,
    "argname": null,
-   "text": "eligible=bool(dev.d.mean() > 0 and boot[\"lo\"] > 0),",
+   "text": "eligible=bool(cells.d.mean() > 0 and boot[\"lo\"] > 0),",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "_exo/engine.py:362:6",
+   "id": "_exo/engine.py:361:6",
    "file": "_exo/engine.py",
-   "line": 362,
+   "line": 361,
    "col": 36,
    "value": 6,
    "kind": "call_arg",
@@ -496,9 +496,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:385:1",
+   "id": "_exo/engine.py:382:1",
    "file": "_exo/engine.py",
-   "line": 385,
+   "line": 382,
    "col": 67,
    "value": 1,
    "kind": "inline",
@@ -511,9 +511,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:395:0",
+   "id": "_exo/engine.py:392:0",
    "file": "_exo/engine.py",
-   "line": 395,
+   "line": 392,
    "col": 17,
    "value": 0,
    "kind": "inline",
@@ -526,9 +526,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:398:1",
+   "id": "_exo/engine.py:395:1",
    "file": "_exo/engine.py",
-   "line": 398,
+   "line": 395,
    "col": 22,
    "value": 1,
    "kind": "inline",
@@ -541,9 +541,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:400:1",
+   "id": "_exo/engine.py:397:1",
    "file": "_exo/engine.py",
-   "line": 400,
+   "line": 397,
    "col": 40,
    "value": 1,
    "kind": "call_arg",
@@ -556,9 +556,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:400:1",
+   "id": "_exo/engine.py:397:1",
    "file": "_exo/engine.py",
-   "line": 400,
+   "line": 397,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -571,9 +571,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:402:1",
+   "id": "_exo/engine.py:399:1",
    "file": "_exo/engine.py",
-   "line": 402,
+   "line": 399,
    "col": 39,
    "value": 1,
    "kind": "call_arg",
@@ -586,9 +586,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:402:1",
+   "id": "_exo/engine.py:399:1",
    "file": "_exo/engine.py",
-   "line": 402,
+   "line": 399,
    "col": 42,
    "value": 1,
    "kind": "inline",
@@ -601,9 +601,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:470:2",
+   "id": "_exo/engine.py:466:2",
    "file": "_exo/engine.py",
-   "line": 470,
+   "line": 466,
    "col": 67,
    "value": 2,
    "kind": "inline",
@@ -616,24 +616,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:474:1",
+   "id": "_exo/engine.py:471:2",
    "file": "_exo/engine.py",
-   "line": 474,
-   "col": 68,
-   "value": 1,
-   "kind": "inline",
-   "func": "run",
-   "call": null,
-   "argname": null,
-   "text": "ledger_db = Path(os.environ.get(\"EXO_LEADERBOARD\", base.parents[1] / \"leaderboard.sqlite\"))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "_exo/engine.py:489:2",
-   "file": "_exo/engine.py",
-   "line": 489,
+   "line": 471,
    "col": 81,
    "value": 2,
    "kind": "inline",
@@ -646,9 +631,9 @@
    "note": ""
   },
   {
-   "id": "_exo/engine.py:490:0",
+   "id": "_exo/engine.py:472:0",
    "file": "_exo/engine.py",
-   "line": 490,
+   "line": 472,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -661,9 +646,9 @@
    "note": ""
   },
   {
-   "id": "_exo/leaderboard.py:75:0",
+   "id": "_exo/leaderboard.py:85:0",
    "file": "_exo/leaderboard.py",
-   "line": 75,
+   "line": 85,
    "col": 21,
    "value": 0,
    "kind": "compare",
@@ -676,9 +661,9 @@
    "note": ""
   },
   {
-   "id": "_exo/leaderboard.py:80:0",
+   "id": "_exo/leaderboard.py:90:0",
    "file": "_exo/leaderboard.py",
-   "line": 80,
+   "line": 90,
    "col": 27,
    "value": 0,
    "kind": "inline",
@@ -691,9 +676,9 @@
    "note": ""
   },
   {
-   "id": "_exo/leaderboard.py:80:0",
+   "id": "_exo/leaderboard.py:90:0",
    "file": "_exo/leaderboard.py",
-   "line": 80,
+   "line": 90,
    "col": 33,
    "value": 0,
    "kind": "compare",
@@ -706,9 +691,39 @@
    "note": ""
   },
   {
-   "id": "_exo/leaderboard.py:132:0",
+   "id": "_exo/leaderboard.py:151:0",
    "file": "_exo/leaderboard.py",
-   "line": 132,
+   "line": 151,
+   "col": 61,
+   "value": 0,
+   "kind": "inline",
+   "func": "commit",
+   "call": null,
+   "argname": null,
+   "text": "run.config.update({\"status\": mine[\"status\"].iloc[0]}, allow_val_change=True)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/leaderboard.py:152:0",
+   "file": "_exo/leaderboard.py",
+   "line": 152,
+   "col": 93,
+   "value": 0,
+   "kind": "inline",
+   "func": "commit",
+   "call": null,
+   "argname": null,
+   "text": "run.log({\"rows\": wandb.Table(dataframe=board[board.experiment.str.split(\"_\").str[0] == group])})",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/leaderboard.py:202:0",
+   "file": "_exo/leaderboard.py",
+   "line": 202,
    "col": 15,
    "value": 0,
    "kind": "inline",
@@ -721,16 +736,16 @@
    "note": ""
   },
   {
-   "id": "_exo/leaderboard.py:139:60",
+   "id": "_exo/leaderboard.py:208:0",
    "file": "_exo/leaderboard.py",
-   "line": 139,
-   "col": 44,
-   "value": 60,
+   "line": 208,
+   "col": 50,
+   "value": 0,
    "kind": "inline",
    "func": "write",
    "call": null,
    "argname": null,
-   "text": "con = sqlite3.connect(Path(db), timeout=60)",
+   "text": "commit(con, experiment, experiment.split(\"_\")[0], results=results)",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
@@ -766,24 +781,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:79:52",
+   "id": "_exo/params.py:87:0.05",
    "file": "_exo/params.py",
-   "line": 79,
-   "col": 8,
-   "value": 52,
-   "kind": "call_arg",
-   "func": null,
-   "call": "Param",
-   "argname": "#0",
-   "text": "52, \"protocol\",",
-   "class": "registered",
-   "disposition": "keep (has source + rationale)",
-   "note": ""
-  },
-  {
-   "id": "_exo/params.py:82:0.05",
-   "file": "_exo/params.py",
-   "line": 82,
+   "line": 87,
    "col": 19,
    "value": 0.05,
    "kind": "call_arg",
@@ -796,9 +796,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:84:0.1",
+   "id": "_exo/params.py:89:0.1",
    "file": "_exo/params.py",
-   "line": 84,
+   "line": 89,
    "col": 8,
    "value": 0.1,
    "kind": "call_arg",
@@ -811,9 +811,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:87:0.05",
+   "id": "_exo/params.py:92:0.05",
    "file": "_exo/params.py",
-   "line": 87,
+   "line": 92,
    "col": 8,
    "value": 0.05,
    "kind": "call_arg",
@@ -826,9 +826,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:92:8",
+   "id": "_exo/params.py:97:8",
    "file": "_exo/params.py",
-   "line": 92,
+   "line": 97,
    "col": 8,
    "value": 8,
    "kind": "call_arg",
@@ -841,9 +841,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:97:2",
+   "id": "_exo/params.py:102:2",
    "file": "_exo/params.py",
-   "line": 97,
+   "line": 102,
    "col": 8,
    "value": 2,
    "kind": "call_arg",
@@ -856,9 +856,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:101:100.0",
+   "id": "_exo/params.py:106:100.0",
    "file": "_exo/params.py",
-   "line": 101,
+   "line": 106,
    "col": 17,
    "value": 100.0,
    "kind": "call_arg",
@@ -871,9 +871,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:103:0",
+   "id": "_exo/params.py:108:0",
    "file": "_exo/params.py",
-   "line": 103,
+   "line": 108,
    "col": 8,
    "value": 0,
    "kind": "call_arg",
@@ -886,9 +886,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:109:4",
+   "id": "_exo/params.py:114:4",
    "file": "_exo/params.py",
-   "line": 109,
+   "line": 114,
    "col": 8,
    "value": 4,
    "kind": "call_arg",
@@ -901,9 +901,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:114:2",
+   "id": "_exo/params.py:119:2",
    "file": "_exo/params.py",
-   "line": 114,
+   "line": 119,
    "col": 9,
    "value": 2,
    "kind": "inline",
@@ -916,9 +916,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:114:4",
+   "id": "_exo/params.py:119:4",
    "file": "_exo/params.py",
-   "line": 114,
+   "line": 119,
    "col": 12,
    "value": 4,
    "kind": "inline",
@@ -931,9 +931,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:114:8",
+   "id": "_exo/params.py:119:8",
    "file": "_exo/params.py",
-   "line": 114,
+   "line": 119,
    "col": 15,
    "value": 8,
    "kind": "inline",
@@ -946,39 +946,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:120:0.7",
+   "id": "_exo/params.py:125:100",
    "file": "_exo/params.py",
-   "line": 120,
-   "col": 8,
-   "value": 0.7,
-   "kind": "call_arg",
-   "func": null,
-   "call": "Param",
-   "argname": "#0",
-   "text": "0.70, \"declared\",",
-   "class": "registered",
-   "disposition": "keep (has source + rationale)",
-   "note": ""
-  },
-  {
-   "id": "_exo/params.py:126:4",
-   "file": "_exo/params.py",
-   "line": 126,
-   "col": 8,
-   "value": 4,
-   "kind": "call_arg",
-   "func": null,
-   "call": "Param",
-   "argname": "#0",
-   "text": "4, \"declared\",",
-   "class": "registered",
-   "disposition": "keep (has source + rationale)",
-   "note": ""
-  },
-  {
-   "id": "_exo/params.py:131:100",
-   "file": "_exo/params.py",
-   "line": 131,
+   "line": 125,
    "col": 8,
    "value": 100,
    "kind": "call_arg",
@@ -991,9 +961,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:135:200",
+   "id": "_exo/params.py:129:200",
    "file": "_exo/params.py",
-   "line": 135,
+   "line": 129,
    "col": 8,
    "value": 200,
    "kind": "call_arg",
@@ -1006,9 +976,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:140:1040",
+   "id": "_exo/params.py:134:1040",
    "file": "_exo/params.py",
-   "line": 140,
+   "line": 134,
    "col": 8,
    "value": 1040,
    "kind": "call_arg",
@@ -1021,9 +991,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:145:1e-06",
+   "id": "_exo/params.py:139:1e-06",
    "file": "_exo/params.py",
-   "line": 145,
+   "line": 139,
    "col": 8,
    "value": 1e-06,
    "kind": "call_arg",
@@ -1036,9 +1006,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:150:1e-09",
+   "id": "_exo/params.py:144:1e-09",
    "file": "_exo/params.py",
-   "line": 150,
+   "line": 144,
    "col": 8,
    "value": 1e-09,
    "kind": "call_arg",
@@ -1051,9 +1021,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:154:1000",
+   "id": "_exo/params.py:148:1000",
    "file": "_exo/params.py",
-   "line": 154,
+   "line": 148,
    "col": 8,
    "value": 1000,
    "kind": "call_arg",
@@ -1066,9 +1036,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:159:360",
+   "id": "_exo/params.py:153:360",
    "file": "_exo/params.py",
-   "line": 159,
+   "line": 153,
    "col": 8,
    "value": 360,
    "kind": "call_arg",
@@ -1081,9 +1051,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:162:7",
+   "id": "_exo/params.py:156:7",
    "file": "_exo/params.py",
-   "line": 162,
+   "line": 156,
    "col": 27,
    "value": 7,
    "kind": "call_arg",
@@ -1096,9 +1066,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:164:13",
+   "id": "_exo/params.py:158:13",
    "file": "_exo/params.py",
-   "line": 164,
+   "line": 158,
    "col": 8,
    "value": 13,
    "kind": "call_arg",
@@ -1111,9 +1081,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:168:3",
+   "id": "_exo/params.py:162:3",
    "file": "_exo/params.py",
-   "line": 168,
+   "line": 162,
    "col": 9,
    "value": 3,
    "kind": "inline",
@@ -1126,9 +1096,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:168:5",
+   "id": "_exo/params.py:162:5",
    "file": "_exo/params.py",
-   "line": 168,
+   "line": 162,
    "col": 12,
    "value": 5,
    "kind": "inline",
@@ -1141,9 +1111,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:168:7",
+   "id": "_exo/params.py:162:7",
    "file": "_exo/params.py",
-   "line": 168,
+   "line": 162,
    "col": 15,
    "value": 7,
    "kind": "inline",
@@ -1156,11 +1126,26 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:168:9",
+   "id": "_exo/params.py:162:9",
    "file": "_exo/params.py",
-   "line": 168,
+   "line": 162,
    "col": 18,
    "value": 9,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "(3, 5, 7, 9, 12), \"definitional\",",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/params.py:162:12",
+   "file": "_exo/params.py",
+   "line": 162,
+   "col": 21,
+   "value": 12,
    "kind": "inline",
    "func": null,
    "call": null,
@@ -1174,36 +1159,21 @@
    "id": "_exo/params.py:168:12",
    "file": "_exo/params.py",
    "line": 168,
-   "col": 21,
+   "col": 8,
    "value": 12,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "(3, 5, 7, 9, 12), \"definitional\",",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "_exo/params.py:173:52",
-   "file": "_exo/params.py",
-   "line": 173,
-   "col": 28,
-   "value": 52,
    "kind": "call_arg",
    "func": null,
    "call": "Param",
    "argname": "#0",
-   "text": "\"WEEKS_PER_YEAR\": Param(52, \"definitional\", \"Annualisation of a weekly Sharpe ratio.\"),",
+   "text": "12, \"definitional\",",
    "class": "registered",
    "disposition": "keep (has source + rationale)",
    "note": ""
   },
   {
-   "id": "_exo/params.py:175:5",
+   "id": "_exo/params.py:172:5",
    "file": "_exo/params.py",
-   "line": 175,
+   "line": 172,
    "col": 8,
    "value": 5,
    "kind": "call_arg",
@@ -1216,9 +1186,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:180:0",
+   "id": "_exo/params.py:177:0",
    "file": "_exo/params.py",
-   "line": 180,
+   "line": 177,
    "col": 9,
    "value": 0,
    "kind": "inline",
@@ -1231,9 +1201,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:180:5",
+   "id": "_exo/params.py:177:5",
    "file": "_exo/params.py",
-   "line": 180,
+   "line": 177,
    "col": 12,
    "value": 5,
    "kind": "inline",
@@ -1246,9 +1216,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:180:25",
+   "id": "_exo/params.py:177:25",
    "file": "_exo/params.py",
-   "line": 180,
+   "line": 177,
    "col": 15,
    "value": 25,
    "kind": "inline",
@@ -1261,9 +1231,24 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:184:16",
+   "id": "_exo/params.py:181:2",
    "file": "_exo/params.py",
-   "line": 184,
+   "line": 181,
+   "col": 8,
+   "value": 2,
+   "kind": "call_arg",
+   "func": null,
+   "call": "Param",
+   "argname": "#0",
+   "text": "2, \"declared\",",
+   "class": "registered",
+   "disposition": "keep (has source + rationale)",
+   "note": ""
+  },
+  {
+   "id": "_exo/params.py:187:16",
+   "file": "_exo/params.py",
+   "line": 187,
    "col": 8,
    "value": 16,
    "kind": "call_arg",
@@ -1276,9 +1261,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:189:0.1",
+   "id": "_exo/params.py:192:0.1",
    "file": "_exo/params.py",
-   "line": 189,
+   "line": 192,
    "col": 8,
    "value": 0.1,
    "kind": "call_arg",
@@ -1291,9 +1276,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:226:16",
+   "id": "_exo/params.py:229:16",
    "file": "_exo/params.py",
-   "line": 226,
+   "line": 229,
    "col": 64,
    "value": 16,
    "kind": "inline",
@@ -1306,9 +1291,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:239:1",
+   "id": "_exo/params.py:242:1",
    "file": "_exo/params.py",
-   "line": 239,
+   "line": 242,
    "col": 67,
    "value": 1,
    "kind": "inline",
@@ -1321,9 +1306,9 @@
    "note": ""
   },
   {
-   "id": "_exo/params.py:239:0",
+   "id": "_exo/params.py:242:0",
    "file": "_exo/params.py",
-   "line": 239,
+   "line": 242,
    "col": 81,
    "value": 0,
    "kind": "inline",
@@ -1331,6 +1316,246 @@
    "call": null,
    "argname": null,
    "text": "for name, param in sorted(REGISTRY.items(), key=lambda kv: (kv[1].source, kv[0])):",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:8:0",
+   "file": "_exo/test_leaderboard.py",
+   "line": 8,
+   "col": 16,
+   "value": 0,
+   "kind": "call_arg",
+   "func": null,
+   "call": "insert",
+   "argname": "#0",
+   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:8:1",
+   "file": "_exo/test_leaderboard.py",
+   "line": 8,
+   "col": 56,
+   "value": 1,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:16:0",
+   "file": "_exo/test_leaderboard.py",
+   "line": 16,
+   "col": 75,
+   "value": 0,
+   "kind": "inline",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "row.update(experiment=\"E0_x\", commodity=\"gold\", horizon=\"1\", aggregate=0, mape=1.5, n=3)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:16:1.5",
+   "file": "_exo/test_leaderboard.py",
+   "line": 16,
+   "col": 83,
+   "value": 1.5,
+   "kind": "inline",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "row.update(experiment=\"E0_x\", commodity=\"gold\", horizon=\"1\", aggregate=0, mape=1.5, n=3)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:16:3",
+   "file": "_exo/test_leaderboard.py",
+   "line": 16,
+   "col": 90,
+   "value": 3,
+   "kind": "inline",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "row.update(experiment=\"E0_x\", commodity=\"gold\", horizon=\"1\", aggregate=0, mape=1.5, n=3)",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:22:2.5",
+   "file": "_exo/test_leaderboard.py",
+   "line": 22,
+   "col": 58,
+   "value": 2.5,
+   "kind": "inline",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "con.execute(leaderboard.INSERT, tuple({**row, \"mape\": 2.5}[c] for c in leaderboard.COLUMNS))",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:24:1",
+   "file": "_exo/test_leaderboard.py",
+   "line": 24,
+   "col": 23,
+   "value": 1,
+   "kind": "compare",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "assert len(out) == 1 and out.mape.iloc[0] == 2.5",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:24:0",
+   "file": "_exo/test_leaderboard.py",
+   "line": 24,
+   "col": 43,
+   "value": 0,
+   "kind": "inline",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "assert len(out) == 1 and out.mape.iloc[0] == 2.5",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_leaderboard.py:24:2.5",
+   "file": "_exo/test_leaderboard.py",
+   "line": 24,
+   "col": 49,
+   "value": 2.5,
+   "kind": "compare",
+   "func": "test_roundtrip_and_upsert",
+   "call": null,
+   "argname": null,
+   "text": "assert len(out) == 1 and out.mape.iloc[0] == 2.5",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:7:0",
+   "file": "_exo/test_tscv.py",
+   "line": 7,
+   "col": 16,
+   "value": 0,
+   "kind": "call_arg",
+   "func": null,
+   "call": "insert",
+   "argname": "#0",
+   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
+   "class": "code",
+   "disposition": "allowed structural literal",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:7:1",
+   "file": "_exo/test_tscv.py",
+   "line": 7,
+   "col": 56,
+   "value": 1,
+   "kind": "inline",
+   "func": null,
+   "call": null,
+   "argname": null,
+   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:15:21",
+   "file": "_exo/test_tscv.py",
+   "line": 15,
+   "col": 23,
+   "value": 21,
+   "kind": "compare",
+   "func": "test_tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "assert len(got) == 21",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:16:0",
+   "file": "_exo/test_tscv.py",
+   "line": 16,
+   "col": 15,
+   "value": 0,
+   "kind": "inline",
+   "func": "test_tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "assert got[0] == pd.Timestamp(\"2025-01-05\") and got[-1] == pd.Timestamp(\"2026-09-06\")",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:16:1",
+   "file": "_exo/test_tscv.py",
+   "line": 16,
+   "col": 57,
+   "value": 1,
+   "kind": "inline",
+   "func": "test_tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "assert got[0] == pd.Timestamp(\"2025-01-05\") and got[-1] == pd.Timestamp(\"2026-09-06\")",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:17:6",
+   "file": "_exo/test_tscv.py",
+   "line": 17,
+   "col": 31,
+   "value": 6,
+   "kind": "compare",
+   "func": "test_tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "assert (got.day_of_week == 6).all() and got.to_period(\"M\").is_unique",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "_exo/test_tscv.py:19:20",
+   "file": "_exo/test_tscv.py",
+   "line": 19,
+   "col": 79,
+   "value": 20,
+   "kind": "compare",
+   "func": "test_tscv_origins",
+   "call": null,
+   "argname": null,
+   "text": "assert len(engine.tscv_origins(index.drop(pd.Timestamp(\"2025-03-02\")))) == 20",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
@@ -1816,9 +2041,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:80:2",
+   "id": "experiment/E028/E028.py:78:2",
    "file": "experiment/E028/E028.py",
-   "line": 80,
+   "line": 78,
    "col": 66,
    "value": 2,
    "kind": "inline",
@@ -1831,9 +2056,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:81:1",
+   "id": "experiment/E028/E028.py:79:1",
    "file": "experiment/E028/E028.py",
-   "line": 81,
+   "line": 79,
    "col": 59,
    "value": 1,
    "kind": "inline",
@@ -1846,24 +2071,24 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:105:2",
+   "id": "experiment/E028/E028.py:98:2",
    "file": "experiment/E028/E028.py",
-   "line": 105,
-   "col": 36,
+   "line": 98,
+   "col": 77,
    "value": 2,
    "kind": "inline",
    "func": "prepare",
    "call": null,
    "argname": null,
-   "text": "json.dumps(manifest, indent=2))",
+   "text": "(base / \"data\" / \"manifest.json\").write_text(json.dumps(manifest, indent=2))",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:139:24",
+   "id": "experiment/E028/E028.py:132:24",
    "file": "experiment/E028/E028.py",
-   "line": 139,
+   "line": 132,
    "col": 51,
    "value": 24,
    "kind": "inline",
@@ -1876,9 +2101,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:141:3",
+   "id": "experiment/E028/E028.py:134:3",
    "file": "experiment/E028/E028.py",
-   "line": 141,
+   "line": 134,
    "col": 15,
    "value": 3,
    "kind": "inline",
@@ -1891,9 +2116,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:141:4",
+   "id": "experiment/E028/E028.py:134:4",
    "file": "experiment/E028/E028.py",
-   "line": 141,
+   "line": 134,
    "col": 37,
    "value": 4,
    "kind": "inline",
@@ -1906,9 +2131,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:149:0",
+   "id": "experiment/E028/E028.py:142:0",
    "file": "experiment/E028/E028.py",
-   "line": 149,
+   "line": 142,
    "col": 22,
    "value": 0,
    "kind": "call_arg",
@@ -1921,9 +2146,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:156:1",
+   "id": "experiment/E028/E028.py:149:1",
    "file": "experiment/E028/E028.py",
-   "line": 156,
+   "line": 149,
    "col": 23,
    "value": 1,
    "kind": "inline",
@@ -1936,9 +2161,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:157:0",
+   "id": "experiment/E028/E028.py:150:0",
    "file": "experiment/E028/E028.py",
-   "line": 157,
+   "line": 150,
    "col": 15,
    "value": 0,
    "kind": "compare",
@@ -1951,9 +2176,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:157:1",
+   "id": "experiment/E028/E028.py:150:1",
    "file": "experiment/E028/E028.py",
-   "line": 157,
+   "line": 150,
    "col": 27,
    "value": 1,
    "kind": "inline",
@@ -1966,9 +2191,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:158:1",
+   "id": "experiment/E028/E028.py:151:1",
    "file": "experiment/E028/E028.py",
-   "line": 158,
+   "line": 151,
    "col": 41,
    "value": 1,
    "kind": "call_arg",
@@ -1981,9 +2206,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:158:1",
+   "id": "experiment/E028/E028.py:151:1",
    "file": "experiment/E028/E028.py",
-   "line": 158,
+   "line": 151,
    "col": 71,
    "value": 1,
    "kind": "call_arg",
@@ -1996,9 +2221,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:164:1",
+   "id": "experiment/E028/E028.py:157:1",
    "file": "experiment/E028/E028.py",
-   "line": 164,
+   "line": 157,
    "col": 35,
    "value": 1,
    "kind": "inline",
@@ -2011,9 +2236,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:164:2",
+   "id": "experiment/E028/E028.py:157:2",
    "file": "experiment/E028/E028.py",
-   "line": 164,
+   "line": 157,
    "col": 42,
    "value": 2,
    "kind": "inline",
@@ -2026,9 +2251,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:164:0",
+   "id": "experiment/E028/E028.py:157:0",
    "file": "experiment/E028/E028.py",
-   "line": 164,
+   "line": 157,
    "col": 48,
    "value": 0,
    "kind": "compare",
@@ -2041,9 +2266,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:170:1",
+   "id": "experiment/E028/E028.py:163:1",
    "file": "experiment/E028/E028.py",
-   "line": 170,
+   "line": 163,
    "col": 30,
    "value": 1,
    "kind": "compare",
@@ -2056,9 +2281,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:178:1",
+   "id": "experiment/E028/E028.py:171:1",
    "file": "experiment/E028/E028.py",
-   "line": 178,
+   "line": 171,
    "col": 70,
    "value": 1,
    "kind": "inline",
@@ -2071,9 +2296,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:179:100",
+   "id": "experiment/E028/E028.py:172:100",
    "file": "experiment/E028/E028.py",
-   "line": 179,
+   "line": 172,
    "col": 36,
    "value": 100,
    "kind": "inline",
@@ -2086,9 +2311,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:181:1",
+   "id": "experiment/E028/E028.py:174:1",
    "file": "experiment/E028/E028.py",
-   "line": 181,
+   "line": 174,
    "col": 30,
    "value": 1,
    "kind": "inline",
@@ -2101,9 +2326,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:181:1",
+   "id": "experiment/E028/E028.py:174:1",
    "file": "experiment/E028/E028.py",
-   "line": 181,
+   "line": 174,
    "col": 45,
    "value": 1,
    "kind": "inline",
@@ -2116,9 +2341,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:193:0",
+   "id": "experiment/E028/E028.py:186:0",
    "file": "experiment/E028/E028.py",
-   "line": 193,
+   "line": 186,
    "col": 39,
    "value": 0,
    "kind": "compare",
@@ -2131,9 +2356,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:207:1",
+   "id": "experiment/E028/E028.py:200:1",
    "file": "experiment/E028/E028.py",
-   "line": 207,
+   "line": 200,
    "col": 23,
    "value": 1,
    "kind": "call_arg",
@@ -2146,9 +2371,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:207:1",
+   "id": "experiment/E028/E028.py:200:1",
    "file": "experiment/E028/E028.py",
-   "line": 207,
+   "line": 200,
    "col": 37,
    "value": 1,
    "kind": "inline",
@@ -2161,9 +2386,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:212:7",
+   "id": "experiment/E028/E028.py:205:7",
    "file": "experiment/E028/E028.py",
-   "line": 212,
+   "line": 205,
    "col": 50,
    "value": 7,
    "kind": "inline",
@@ -2176,9 +2401,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:212:365",
+   "id": "experiment/E028/E028.py:205:365",
    "file": "experiment/E028/E028.py",
-   "line": 212,
+   "line": 205,
    "col": 54,
    "value": 365,
    "kind": "inline",
@@ -2191,9 +2416,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:214:13",
+   "id": "experiment/E028/E028.py:207:13",
    "file": "experiment/E028/E028.py",
-   "line": 214,
+   "line": 207,
    "col": 49,
    "value": 13,
    "kind": "inline",
@@ -2206,9 +2431,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:229:0.0",
+   "id": "experiment/E028/E028.py:222:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 229,
+   "line": 222,
    "col": 67,
    "value": 0.0,
    "kind": "default_arg",
@@ -2221,9 +2446,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:234:2",
+   "id": "experiment/E028/E028.py:227:2",
    "file": "experiment/E028/E028.py",
-   "line": 234,
+   "line": 227,
    "col": 38,
    "value": 2,
    "kind": "inline",
@@ -2236,9 +2461,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:235:2",
+   "id": "experiment/E028/E028.py:228:2",
    "file": "experiment/E028/E028.py",
-   "line": 235,
+   "line": 228,
    "col": 38,
    "value": 2,
    "kind": "inline",
@@ -2251,9 +2476,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:236:2",
+   "id": "experiment/E028/E028.py:229:2",
    "file": "experiment/E028/E028.py",
-   "line": 236,
+   "line": 229,
    "col": 38,
    "value": 2,
    "kind": "inline",
@@ -2266,9 +2491,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:242:5",
+   "id": "experiment/E028/E028.py:235:5",
    "file": "experiment/E028/E028.py",
-   "line": 242,
+   "line": 235,
    "col": 26,
    "value": 5,
    "kind": "inline",
@@ -2281,9 +2506,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:243:1",
+   "id": "experiment/E028/E028.py:236:1",
    "file": "experiment/E028/E028.py",
-   "line": 243,
+   "line": 236,
    "col": 47,
    "value": 1,
    "kind": "inline",
@@ -2296,9 +2521,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:244:1.0",
+   "id": "experiment/E028/E028.py:237:1.0",
    "file": "experiment/E028/E028.py",
-   "line": 244,
+   "line": 237,
    "col": 29,
    "value": 1.0,
    "kind": "call_arg",
@@ -2311,9 +2536,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:244:2",
+   "id": "experiment/E028/E028.py:237:2",
    "file": "experiment/E028/E028.py",
-   "line": 244,
+   "line": 237,
    "col": 84,
    "value": 2,
    "kind": "inline",
@@ -2326,9 +2551,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:245:1",
+   "id": "experiment/E028/E028.py:238:1",
    "file": "experiment/E028/E028.py",
-   "line": 245,
+   "line": 238,
    "col": 19,
    "value": 1,
    "kind": "inline",
@@ -2341,9 +2566,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:245:1",
+   "id": "experiment/E028/E028.py:238:1",
    "file": "experiment/E028/E028.py",
-   "line": 245,
+   "line": 238,
    "col": 31,
    "value": 1,
    "kind": "inline",
@@ -2356,9 +2581,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:246:1",
+   "id": "experiment/E028/E028.py:239:1",
    "file": "experiment/E028/E028.py",
-   "line": 246,
+   "line": 239,
    "col": 20,
    "value": 1,
    "kind": "inline",
@@ -2371,9 +2596,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:250:1.0",
+   "id": "experiment/E028/E028.py:243:1.0",
    "file": "experiment/E028/E028.py",
-   "line": 250,
+   "line": 243,
    "col": 43,
    "value": 1.0,
    "kind": "call_arg",
@@ -2386,9 +2611,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:261:0",
+   "id": "experiment/E028/E028.py:254:0",
    "file": "experiment/E028/E028.py",
-   "line": 261,
+   "line": 254,
    "col": 48,
    "value": 0,
    "kind": "call_arg",
@@ -2401,9 +2626,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:264:0.5",
+   "id": "experiment/E028/E028.py:257:0.5",
    "file": "experiment/E028/E028.py",
-   "line": 264,
+   "line": 257,
    "col": 33,
    "value": 0.5,
    "kind": "inline",
@@ -2416,9 +2641,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:274:2",
+   "id": "experiment/E028/E028.py:267:2",
    "file": "experiment/E028/E028.py",
-   "line": 274,
+   "line": 267,
    "col": 66,
    "value": 2,
    "kind": "inline",
@@ -2431,9 +2656,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:275:0",
+   "id": "experiment/E028/E028.py:268:0",
    "file": "experiment/E028/E028.py",
-   "line": 275,
+   "line": 268,
    "col": 90,
    "value": 0,
    "kind": "call_arg",
@@ -2446,9 +2671,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:275:1",
+   "id": "experiment/E028/E028.py:268:1",
    "file": "experiment/E028/E028.py",
-   "line": 275,
+   "line": 268,
    "col": 93,
    "value": 1,
    "kind": "call_arg",
@@ -2461,9 +2686,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:276:1",
+   "id": "experiment/E028/E028.py:269:1",
    "file": "experiment/E028/E028.py",
-   "line": 276,
+   "line": 269,
    "col": 65,
    "value": 1,
    "kind": "inline",
@@ -2476,39 +2701,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:312:1",
+   "id": "experiment/E028/E028.py:306:2",
    "file": "experiment/E028/E028.py",
-   "line": 312,
-   "col": 39,
-   "value": 1,
-   "kind": "inline",
-   "func": "run_ceiling",
-   "call": null,
-   "argname": null,
-   "text": "for i in range(len(weeks) - span + 1):",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:313:1",
-   "file": "experiment/E028/E028.py",
-   "line": 313,
-   "col": 80,
-   "value": 1,
-   "kind": "inline",
-   "func": "run_ceiling",
-   "call": null,
-   "argname": null,
-   "text": "w = common[(common.week >= weeks[i]) & (common.week <= weeks[i + span - 1])]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:330:2",
-   "file": "experiment/E028/E028.py",
-   "line": 330,
+   "line": 306,
    "col": 66,
    "value": 2,
    "kind": "inline",
@@ -2521,9 +2716,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:330:2",
+   "id": "experiment/E028/E028.py:306:2",
    "file": "experiment/E028/E028.py",
-   "line": 330,
+   "line": 306,
    "col": 88,
    "value": 2,
    "kind": "inline",
@@ -2536,9 +2731,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:340:2",
+   "id": "experiment/E028/E028.py:315:2",
    "file": "experiment/E028/E028.py",
-   "line": 340,
+   "line": 315,
    "col": 65,
    "value": 2,
    "kind": "inline",
@@ -2551,9 +2746,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:341:2",
+   "id": "experiment/E028/E028.py:316:2",
    "file": "experiment/E028/E028.py",
-   "line": 341,
+   "line": 316,
    "col": 37,
    "value": 2,
    "kind": "inline",
@@ -2566,9 +2761,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:345:0",
+   "id": "experiment/E028/E028.py:320:0",
    "file": "experiment/E028/E028.py",
-   "line": 345,
+   "line": 320,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -2581,9 +2776,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:364:0",
+   "id": "experiment/E028/E028.py:339:0",
    "file": "experiment/E028/E028.py",
-   "line": 364,
+   "line": 339,
    "col": 39,
    "value": 0,
    "kind": "compare",
@@ -2596,9 +2791,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:384:1",
+   "id": "experiment/E028/E028.py:359:1",
    "file": "experiment/E028/E028.py",
-   "line": 384,
+   "line": 359,
    "col": 39,
    "value": 1,
    "kind": "call_arg",
@@ -2611,9 +2806,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:384:1",
+   "id": "experiment/E028/E028.py:359:1",
    "file": "experiment/E028/E028.py",
-   "line": 384,
+   "line": 359,
    "col": 53,
    "value": 1,
    "kind": "inline",
@@ -2626,9 +2821,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:389:1",
+   "id": "experiment/E028/E028.py:364:1",
    "file": "experiment/E028/E028.py",
-   "line": 389,
+   "line": 364,
    "col": 61,
    "value": 1,
    "kind": "inline",
@@ -2641,9 +2836,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:404:100",
+   "id": "experiment/E028/E028.py:379:100",
    "file": "experiment/E028/E028.py",
-   "line": 404,
+   "line": 379,
    "col": 75,
    "value": 100,
    "kind": "inline",
@@ -2656,9 +2851,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:422:1",
+   "id": "experiment/E028/E028.py:399:1",
    "file": "experiment/E028/E028.py",
-   "line": 422,
+   "line": 399,
    "col": 62,
    "value": 1,
    "kind": "inline",
@@ -2671,9 +2866,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:426:1",
+   "id": "experiment/E028/E028.py:403:1",
    "file": "experiment/E028/E028.py",
-   "line": 426,
+   "line": 403,
    "col": 32,
    "value": 1,
    "kind": "call_arg",
@@ -2686,24 +2881,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:432:0",
+   "id": "experiment/E028/E028.py:410:1",
    "file": "experiment/E028/E028.py",
-   "line": 432,
-   "col": 27,
-   "value": 0,
-   "kind": "call_arg",
-   "func": "forecast",
-   "call": "range",
-   "argname": "#0",
-   "text": "for start in range(0, n, int(P.REFIT_EVERY)):",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:433:1",
-   "file": "experiment/E028/E028.py",
-   "line": 433,
+   "line": 410,
    "col": 39,
    "value": 1,
    "kind": "inline",
@@ -2716,39 +2896,69 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:450:0",
+   "id": "experiment/E028/E028.py:413:1",
    "file": "experiment/E028/E028.py",
-   "line": 450,
-   "col": 65,
+   "line": 413,
+   "col": 92,
+   "value": 1,
+   "kind": "inline",
+   "func": "forecast",
+   "call": null,
+   "argname": null,
+   "text": "fc[start, k] = engine._apply(engine._ols(X[train], y[train]), X[start : start + 1])[0]",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:413:0",
+   "file": "experiment/E028/E028.py",
+   "line": 413,
+   "col": 96,
+   "value": 0,
+   "kind": "inline",
+   "func": "forecast",
+   "call": null,
+   "argname": null,
+   "text": "fc[start, k] = engine._apply(engine._ols(X[train], y[train]), X[start : start + 1])[0]",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:430:0",
+   "file": "experiment/E028/E028.py",
+   "line": 430,
+   "col": 69,
    "value": 0,
    "kind": "inline",
    "func": "campaign_cells",
    "call": null,
    "argname": null,
-   "text": "fc = forecast(series, model, lab, frame, lab[\"r\"][:, 0] if leak else None)",
+   "text": "fc = forecast(series, model, lab, frame, at, lab[\"r\"][:, 0] if leak else None)",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:453:1",
+   "id": "experiment/E028/E028.py:433:1",
    "file": "experiment/E028/E028.py",
-   "line": 453,
-   "col": 93,
+   "line": 433,
+   "col": 101,
    "value": 1,
    "kind": "inline",
    "func": "campaign_cells",
    "call": null,
    "argname": null,
-   "text": "series=series, model=model, origin=origin, week=frame.index, horizon=k + 1,",
+   "text": "series=series, model=model, origin=origin[at], week=frame.index[at], horizon=k + 1,",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:477:1",
+   "id": "experiment/E028/E028.py:456:1",
    "file": "experiment/E028/E028.py",
-   "line": 477,
+   "line": 456,
    "col": 42,
    "value": 1,
    "kind": "inline",
@@ -2761,9 +2971,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:489:1",
+   "id": "experiment/E028/E028.py:468:1",
    "file": "experiment/E028/E028.py",
-   "line": 489,
+   "line": 468,
    "col": 52,
    "value": 1,
    "kind": "inline",
@@ -2776,9 +2986,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:490:0",
+   "id": "experiment/E028/E028.py:469:0",
    "file": "experiment/E028/E028.py",
-   "line": 490,
+   "line": 469,
    "col": 19,
    "value": 0,
    "kind": "call_arg",
@@ -2791,9 +3001,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:493:1",
+   "id": "experiment/E028/E028.py:472:1",
    "file": "experiment/E028/E028.py",
-   "line": 493,
+   "line": 472,
    "col": 21,
    "value": 1,
    "kind": "call_arg",
@@ -2806,9 +3016,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:493:1",
+   "id": "experiment/E028/E028.py:472:1",
    "file": "experiment/E028/E028.py",
-   "line": 493,
+   "line": 472,
    "col": 31,
    "value": 1,
    "kind": "inline",
@@ -2821,9 +3031,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:495:1",
+   "id": "experiment/E028/E028.py:474:1",
    "file": "experiment/E028/E028.py",
-   "line": 495,
+   "line": 474,
    "col": 17,
    "value": 1,
    "kind": "inline",
@@ -2836,9 +3046,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:495:1",
+   "id": "experiment/E028/E028.py:474:1",
    "file": "experiment/E028/E028.py",
-   "line": 495,
+   "line": 474,
    "col": 35,
    "value": 1,
    "kind": "inline",
@@ -2851,9 +3061,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:504:1",
+   "id": "experiment/E028/E028.py:484:1",
    "file": "experiment/E028/E028.py",
-   "line": 504,
+   "line": 484,
    "col": 42,
    "value": 1,
    "kind": "inline",
@@ -2866,9 +3076,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:504:0",
+   "id": "experiment/E028/E028.py:484:0",
    "file": "experiment/E028/E028.py",
-   "line": 504,
+   "line": 484,
    "col": 45,
    "value": 0,
    "kind": "inline",
@@ -2881,9 +3091,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:504:0",
+   "id": "experiment/E028/E028.py:484:0",
    "file": "experiment/E028/E028.py",
-   "line": 504,
+   "line": 484,
    "col": 48,
    "value": 0,
    "kind": "inline",
@@ -2896,9 +3106,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:505:1",
+   "id": "experiment/E028/E028.py:485:1",
    "file": "experiment/E028/E028.py",
-   "line": 505,
+   "line": 485,
    "col": 25,
    "value": 1,
    "kind": "inline",
@@ -2911,9 +3121,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:505:2",
+   "id": "experiment/E028/E028.py:485:2",
    "file": "experiment/E028/E028.py",
-   "line": 505,
+   "line": 485,
    "col": 29,
    "value": 2,
    "kind": "inline",
@@ -2926,9 +3136,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:505:1",
+   "id": "experiment/E028/E028.py:485:1",
    "file": "experiment/E028/E028.py",
-   "line": 505,
+   "line": 485,
    "col": 46,
    "value": 1,
    "kind": "inline",
@@ -2941,9 +3151,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:506:1",
+   "id": "experiment/E028/E028.py:486:1",
    "file": "experiment/E028/E028.py",
-   "line": 506,
+   "line": 486,
    "col": 63,
    "value": 1,
    "kind": "inline",
@@ -2956,9 +3166,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:513:2",
+   "id": "experiment/E028/E028.py:493:2",
    "file": "experiment/E028/E028.py",
-   "line": 513,
+   "line": 493,
    "col": 28,
    "value": 2,
    "kind": "inline",
@@ -2971,9 +3181,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:513:2",
+   "id": "experiment/E028/E028.py:493:2",
    "file": "experiment/E028/E028.py",
-   "line": 513,
+   "line": 493,
    "col": 62,
    "value": 2,
    "kind": "inline",
@@ -2986,9 +3196,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:513:2",
+   "id": "experiment/E028/E028.py:493:2",
    "file": "experiment/E028/E028.py",
-   "line": 513,
+   "line": 493,
    "col": 75,
    "value": 2,
    "kind": "inline",
@@ -3001,54 +3211,39 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:515:1",
+   "id": "experiment/E028/E028.py:495:0",
    "file": "experiment/E028/E028.py",
-   "line": 515,
-   "col": 51,
-   "value": 1,
-   "kind": "inline",
-   "func": "clark_west",
-   "call": null,
-   "argname": null,
-   "text": "stat = ft.mean() / np.sqrt(_lrv(ft, int(P.H) - 1)[0, 0] / len(ft))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:515:0",
-   "file": "experiment/E028/E028.py",
-   "line": 515,
-   "col": 54,
+   "line": 495,
+   "col": 59,
    "value": 0,
    "kind": "inline",
    "func": "clark_west",
    "call": null,
    "argname": null,
-   "text": "stat = ft.mean() / np.sqrt(_lrv(ft, int(P.H) - 1)[0, 0] / len(ft))",
+   "text": "stat = ft.mean() / np.sqrt(_lrv(ft, int(P.ORIGIN_LAG))[0, 0] / len(ft))",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:515:0",
+   "id": "experiment/E028/E028.py:495:0",
    "file": "experiment/E028/E028.py",
-   "line": 515,
-   "col": 57,
+   "line": 495,
+   "col": 62,
    "value": 0,
    "kind": "inline",
    "func": "clark_west",
    "call": null,
    "argname": null,
-   "text": "stat = ft.mean() / np.sqrt(_lrv(ft, int(P.H) - 1)[0, 0] / len(ft))",
+   "text": "stat = ft.mean() / np.sqrt(_lrv(ft, int(P.ORIGIN_LAG))[0, 0] / len(ft))",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:525:0",
+   "id": "experiment/E028/E028.py:505:0",
    "file": "experiment/E028/E028.py",
-   "line": 525,
+   "line": 505,
    "col": 18,
    "value": 0,
    "kind": "call_arg",
@@ -3061,24 +3256,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:526:1",
+   "id": "experiment/E028/E028.py:507:1",
    "file": "experiment/E028/E028.py",
-   "line": 526,
-   "col": 57,
-   "value": 1,
-   "kind": "inline",
-   "func": "giacomini_white",
-   "call": null,
-   "argname": null,
-   "text": "stat = len(z) * zbar @ np.linalg.solve(_lrv(z, lag - 1), zbar)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:527:1",
-   "file": "experiment/E028/E028.py",
-   "line": 527,
+   "line": 507,
    "col": 70,
    "value": 1,
    "kind": "inline",
@@ -3091,9 +3271,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:532:1",
+   "id": "experiment/E028/E028.py:512:1",
    "file": "experiment/E028/E028.py",
-   "line": 532,
+   "line": 512,
    "col": 17,
    "value": 1,
    "kind": "inline",
@@ -3106,9 +3286,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:532:2",
+   "id": "experiment/E028/E028.py:512:2",
    "file": "experiment/E028/E028.py",
-   "line": 532,
+   "line": 512,
    "col": 52,
    "value": 2,
    "kind": "inline",
@@ -3121,9 +3301,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:532:2",
+   "id": "experiment/E028/E028.py:512:2",
    "file": "experiment/E028/E028.py",
-   "line": 532,
+   "line": 512,
    "col": 84,
    "value": 2,
    "kind": "inline",
@@ -3136,9 +3316,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:537:0.0",
+   "id": "experiment/E028/E028.py:517:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 537,
+   "line": 517,
    "col": 34,
    "value": 0.0,
    "kind": "inline",
@@ -3151,9 +3331,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:539:1.0",
+   "id": "experiment/E028/E028.py:519:1.0",
    "file": "experiment/E028/E028.py",
-   "line": 539,
+   "line": 519,
    "col": 35,
    "value": 1.0,
    "kind": "call_arg",
@@ -3166,9 +3346,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:559:1",
+   "id": "experiment/E028/E028.py:539:1",
    "file": "experiment/E028/E028.py",
-   "line": 559,
+   "line": 539,
    "col": 18,
    "value": 1,
    "kind": "inline",
@@ -3181,9 +3361,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:559:2",
+   "id": "experiment/E028/E028.py:539:2",
    "file": "experiment/E028/E028.py",
-   "line": 559,
+   "line": 539,
    "col": 23,
    "value": 2,
    "kind": "compare",
@@ -3196,9 +3376,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:568:0",
+   "id": "experiment/E028/E028.py:548:0",
    "file": "experiment/E028/E028.py",
-   "line": 568,
+   "line": 548,
    "col": 75,
    "value": 0,
    "kind": "inline",
@@ -3211,9 +3391,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:578:1",
+   "id": "experiment/E028/E028.py:558:1",
    "file": "experiment/E028/E028.py",
-   "line": 578,
+   "line": 558,
    "col": 23,
    "value": 1,
    "kind": "inline",
@@ -3226,9 +3406,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:580:2",
+   "id": "experiment/E028/E028.py:560:2",
    "file": "experiment/E028/E028.py",
-   "line": 580,
+   "line": 560,
    "col": 66,
    "value": 2,
    "kind": "inline",
@@ -3241,9 +3421,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:583:0",
+   "id": "experiment/E028/E028.py:563:0",
    "file": "experiment/E028/E028.py",
-   "line": 583,
+   "line": 563,
    "col": 30,
    "value": 0,
    "kind": "call_arg",
@@ -3256,9 +3436,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:584:0",
+   "id": "experiment/E028/E028.py:564:0",
    "file": "experiment/E028/E028.py",
-   "line": 584,
+   "line": 564,
    "col": 31,
    "value": 0,
    "kind": "call_arg",
@@ -3271,9 +3451,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:584:0",
+   "id": "experiment/E028/E028.py:564:0",
    "file": "experiment/E028/E028.py",
-   "line": 584,
+   "line": 564,
    "col": 51,
    "value": 0,
    "kind": "call_arg",
@@ -3286,9 +3466,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:584:1",
+   "id": "experiment/E028/E028.py:564:1",
    "file": "experiment/E028/E028.py",
-   "line": 584,
+   "line": 564,
    "col": 69,
    "value": 1,
    "kind": "inline",
@@ -3301,9 +3481,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:584:1",
+   "id": "experiment/E028/E028.py:564:1",
    "file": "experiment/E028/E028.py",
-   "line": 584,
+   "line": 564,
    "col": 83,
    "value": 1,
    "kind": "inline",
@@ -3316,9 +3496,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:585:1",
+   "id": "experiment/E028/E028.py:565:1",
    "file": "experiment/E028/E028.py",
-   "line": 585,
+   "line": 565,
    "col": 34,
    "value": 1,
    "kind": "inline",
@@ -3331,9 +3511,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:585:0",
+   "id": "experiment/E028/E028.py:565:0",
    "file": "experiment/E028/E028.py",
-   "line": 585,
+   "line": 565,
    "col": 47,
    "value": 0,
    "kind": "compare",
@@ -3346,54 +3526,39 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:594:1",
+   "id": "experiment/E028/E028.py:574:0",
    "file": "experiment/E028/E028.py",
-   "line": 594,
-   "col": 36,
-   "value": 1,
-   "kind": "inline",
-   "func": "mde",
-   "call": null,
-   "argname": null,
-   "text": "se = np.sqrt(_lrv(d, int(P.H) - 1)[0, 0] / origins)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:594:0",
-   "file": "experiment/E028/E028.py",
-   "line": 594,
-   "col": 39,
+   "line": 574,
+   "col": 44,
    "value": 0,
    "kind": "inline",
    "func": "mde",
    "call": null,
    "argname": null,
-   "text": "se = np.sqrt(_lrv(d, int(P.H) - 1)[0, 0] / origins)",
+   "text": "se = np.sqrt(_lrv(d, int(P.ORIGIN_LAG))[0, 0] / origins)",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:594:0",
+   "id": "experiment/E028/E028.py:574:0",
    "file": "experiment/E028/E028.py",
-   "line": 594,
-   "col": 42,
+   "line": 574,
+   "col": 47,
    "value": 0,
    "kind": "inline",
    "func": "mde",
    "call": null,
    "argname": null,
-   "text": "se = np.sqrt(_lrv(d, int(P.H) - 1)[0, 0] / origins)",
+   "text": "se = np.sqrt(_lrv(d, int(P.ORIGIN_LAG))[0, 0] / origins)",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:595:1",
+   "id": "experiment/E028/E028.py:575:1",
    "file": "experiment/E028/E028.py",
-   "line": 595,
+   "line": 575,
    "col": 67,
    "value": 1,
    "kind": "inline",
@@ -3406,9 +3571,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:595:0.8",
+   "id": "experiment/E028/E028.py:575:0.8",
    "file": "experiment/E028/E028.py",
-   "line": 595,
+   "line": 575,
    "col": 71,
    "value": 0.8,
    "kind": "inline",
@@ -3421,9 +3586,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:603:0.0",
+   "id": "experiment/E028/E028.py:583:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 603,
+   "line": 583,
    "col": 23,
    "value": 0.0,
    "kind": "call_arg",
@@ -3436,9 +3601,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:604:0",
+   "id": "experiment/E028/E028.py:584:0",
    "file": "experiment/E028/E028.py",
-   "line": 604,
+   "line": 584,
    "col": 10,
    "value": 0,
    "kind": "inline",
@@ -3451,9 +3616,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:604:0.0",
+   "id": "experiment/E028/E028.py:584:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 604,
+   "line": 584,
    "col": 15,
    "value": 0.0,
    "kind": "inline",
@@ -3466,9 +3631,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:605:0",
+   "id": "experiment/E028/E028.py:585:0",
    "file": "experiment/E028/E028.py",
-   "line": 605,
+   "line": 585,
    "col": 45,
    "value": 0,
    "kind": "inline",
@@ -3481,9 +3646,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:622:0",
+   "id": "experiment/E028/E028.py:602:0",
    "file": "experiment/E028/E028.py",
-   "line": 622,
+   "line": 602,
    "col": 52,
    "value": 0,
    "kind": "compare",
@@ -3496,9 +3661,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:634:1",
+   "id": "experiment/E028/E028.py:614:1",
    "file": "experiment/E028/E028.py",
-   "line": 634,
+   "line": 614,
    "col": 84,
    "value": 1,
    "kind": "inline",
@@ -3511,9 +3676,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:635:0.0",
+   "id": "experiment/E028/E028.py:615:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 635,
+   "line": 615,
    "col": 69,
    "value": 0.0,
    "kind": "inline",
@@ -3526,9 +3691,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:635:1",
+   "id": "experiment/E028/E028.py:615:1",
    "file": "experiment/E028/E028.py",
-   "line": 635,
+   "line": 615,
    "col": 78,
    "value": 1,
    "kind": "inline",
@@ -3541,9 +3706,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:636:0.0",
+   "id": "experiment/E028/E028.py:616:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 636,
+   "line": 616,
    "col": 21,
    "value": 0.0,
    "kind": "inline",
@@ -3556,9 +3721,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:638:1",
+   "id": "experiment/E028/E028.py:618:1",
    "file": "experiment/E028/E028.py",
-   "line": 638,
+   "line": 618,
    "col": 61,
    "value": 1,
    "kind": "call_arg",
@@ -3571,9 +3736,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:638:1",
+   "id": "experiment/E028/E028.py:618:1",
    "file": "experiment/E028/E028.py",
-   "line": 638,
+   "line": 618,
    "col": 75,
    "value": 1,
    "kind": "inline",
@@ -3586,9 +3751,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:647:1",
+   "id": "experiment/E028/E028.py:627:1",
    "file": "experiment/E028/E028.py",
-   "line": 647,
+   "line": 627,
    "col": 40,
    "value": 1,
    "kind": "inline",
@@ -3601,9 +3766,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:651:0",
+   "id": "experiment/E028/E028.py:631:0",
    "file": "experiment/E028/E028.py",
-   "line": 651,
+   "line": 631,
    "col": 48,
    "value": 0,
    "kind": "compare",
@@ -3616,9 +3781,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:651:2",
+   "id": "experiment/E028/E028.py:631:2",
    "file": "experiment/E028/E028.py",
-   "line": 651,
+   "line": 631,
    "col": 93,
    "value": 2,
    "kind": "inline",
@@ -3631,24 +3796,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:659:0",
+   "id": "experiment/E028/E028.py:649:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 659,
-   "col": 66,
-   "value": 0,
-   "kind": "compare",
-   "func": "run_detectors",
-   "call": null,
-   "argname": null,
-   "text": "cuts = sorted({by_origin[x] for x in o if x % int(P.BLOCK) == 0})",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:670:0.0",
-   "file": "experiment/E028/E028.py",
-   "line": 670,
+   "line": 649,
    "col": 89,
    "value": 0.0,
    "kind": "inline",
@@ -3661,9 +3811,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:671:1",
+   "id": "experiment/E028/E028.py:650:1",
    "file": "experiment/E028/E028.py",
-   "line": 671,
+   "line": 650,
    "col": 18,
    "value": 1,
    "kind": "inline",
@@ -3676,9 +3826,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:671:1",
+   "id": "experiment/E028/E028.py:650:1",
    "file": "experiment/E028/E028.py",
-   "line": 671,
+   "line": 650,
    "col": 29,
    "value": 1,
    "kind": "inline",
@@ -3691,9 +3841,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:673:0.0",
+   "id": "experiment/E028/E028.py:652:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 673,
+   "line": 652,
    "col": 46,
    "value": 0.0,
    "kind": "compare",
@@ -3706,9 +3856,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:675:0",
+   "id": "experiment/E028/E028.py:654:0",
    "file": "experiment/E028/E028.py",
-   "line": 675,
+   "line": 654,
    "col": 85,
    "value": 0,
    "kind": "compare",
@@ -3721,24 +3871,24 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:676:0",
+   "id": "experiment/E028/E028.py:655:0",
    "file": "experiment/E028/E028.py",
-   "line": 676,
-   "col": 89,
+   "line": 655,
+   "col": 85,
    "value": 0,
    "kind": "compare",
    "func": "run_detectors",
    "call": null,
    "argname": null,
-   "text": "leaky_dev_reduction=leak[\"reduction\"], pass_=bool(max(leak_moved) > 0))",
+   "text": "leaky_reduction=leak[\"reduction\"], pass_=bool(max(leak_moved) > 0))",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:678:0",
+   "id": "experiment/E028/E028.py:657:0",
    "file": "experiment/E028/E028.py",
-   "line": 678,
+   "line": 657,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -3751,9 +3901,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:684:2",
+   "id": "experiment/E028/E028.py:663:2",
    "file": "experiment/E028/E028.py",
-   "line": 684,
+   "line": 663,
    "col": 34,
    "value": 2,
    "kind": "inline",
@@ -3766,54 +3916,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:695:0",
+   "id": "experiment/E028/E028.py:672:3",
    "file": "experiment/E028/E028.py",
-   "line": 695,
-   "col": 89,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_dev",
-   "call": null,
-   "argname": null,
-   "text": "out = dict(origins=dict(n=len(o), first=str(cells[cells.origin == o.min()].week.iloc[0].date()),",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:696:0",
-   "file": "experiment/E028/E028.py",
-   "line": 696,
-   "col": 78,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_dev",
-   "call": null,
-   "argname": null,
-   "text": "last=str(cells[cells.origin == o.max()].week.iloc[0].date())), gate_a={})",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:708:0",
-   "file": "experiment/E028/E028.py",
-   "line": 708,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_dev",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:713:3",
-   "file": "experiment/E028/E028.py",
-   "line": 713,
+   "line": 672,
    "col": 39,
    "value": 3,
    "kind": "inline",
@@ -3826,9 +3931,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:719:1",
+   "id": "experiment/E028/E028.py:678:1",
    "file": "experiment/E028/E028.py",
-   "line": 719,
+   "line": 678,
    "col": 50,
    "value": 1,
    "kind": "compare",
@@ -3841,9 +3946,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:720:1",
+   "id": "experiment/E028/E028.py:679:1",
    "file": "experiment/E028/E028.py",
-   "line": 720,
+   "line": 679,
    "col": 42,
    "value": 1,
    "kind": "call_arg",
@@ -3856,9 +3961,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:721:0.0",
+   "id": "experiment/E028/E028.py:680:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 721,
+   "line": 680,
    "col": 39,
    "value": 0.0,
    "kind": "call_arg",
@@ -3871,9 +3976,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:722:0.0",
+   "id": "experiment/E028/E028.py:681:0.0",
    "file": "experiment/E028/E028.py",
-   "line": 722,
+   "line": 681,
    "col": 35,
    "value": 0.0,
    "kind": "call_arg",
@@ -3886,43 +3991,43 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:727:10000.0",
+   "id": "experiment/E028/E028.py:685:10000.0",
    "file": "experiment/E028/E028.py",
-   "line": 727,
-   "col": 45,
+   "line": 685,
+   "col": 44,
    "value": 10000.0,
    "kind": "inline",
    "func": "_pnl",
    "call": null,
    "argname": null,
-   "text": "pnl = (pos * ret - turn * cost / 1e4)[m]",
+   "text": "pnl = pos * ret - turn * cost / 1e4",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:731:0",
+   "id": "experiment/E028/E028.py:689:0",
    "file": "experiment/E028/E028.py",
-   "line": 731,
-   "col": 82,
+   "line": 689,
+   "col": 84,
    "value": 0,
    "kind": "compare",
    "func": "_pnl",
    "call": null,
    "argname": null,
-   "text": "sharpe=float(pnl.mean() / sd * np.sqrt(P.WEEKS_PER_YEAR)) if sd > 0 else float(\"nan\"))",
+   "text": "sharpe=float(pnl.mean() / sd * np.sqrt(P.ORIGINS_PER_YEAR)) if sd > 0 else float(\"nan\"))",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:736:0",
+   "id": "experiment/E028/E028.py:695:0",
    "file": "experiment/E028/E028.py",
-   "line": 736,
+   "line": 695,
    "col": 20,
    "value": 0,
    "kind": "call_arg",
-   "func": "run_sealed",
+   "func": "run_tscv",
    "call": "insert",
    "argname": "#0",
    "text": "sys.path.insert(0, str(base / \"experiment\"))   # where --include puts it on the VM",
@@ -3931,13 +4036,28 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:778:0",
+   "id": "experiment/E028/E028.py:717:1",
    "file": "experiment/E028/E028.py",
-   "line": 778,
+   "line": 717,
+   "col": 62,
+   "value": 1,
+   "kind": "inline",
+   "func": "run_tscv",
+   "call": null,
+   "argname": null,
+   "text": "summary(sc), dm_hln=dm_hln(d, int(P.ORIGIN_LAG) + 1), clark_west=clark_west(sc),",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
+   "id": "experiment/E028/E028.py:738:0",
+   "file": "experiment/E028/E028.py",
+   "line": 738,
    "col": 11,
    "value": 0,
    "kind": "inline",
-   "func": "run_sealed",
+   "func": "run_tscv",
    "call": null,
    "argname": null,
    "text": "return 0",
@@ -3946,174 +4066,24 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:814:0",
+   "id": "experiment/E028/E028.py:751:0",
    "file": "experiment/E028/E028.py",
-   "line": 814,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_forward",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:830:1",
-   "file": "experiment/E028/E028.py",
-   "line": 830,
-   "col": 94,
-   "value": 1,
-   "kind": "inline",
-   "func": "_qualifying",
-   "call": null,
-   "argname": null,
-   "text": "stale = log.reindex(columns=[\"stale_weeks\", \"input_stale_weeks\"]).fillna(np.inf).max(axis=1)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:831:1",
-   "file": "experiment/E028/E028.py",
-   "line": 831,
-   "col": 25,
-   "value": 1,
-   "kind": "compare",
-   "func": "_qualifying",
-   "call": null,
-   "argname": null,
-   "text": "fresh = log[stale <= 1].groupby(\"issue\").series.nunique()",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:857:2",
-   "file": "experiment/E028/E028.py",
-   "line": 857,
-   "col": 67,
-   "value": 2,
-   "kind": "inline",
-   "func": "_forward_eval",
-   "call": null,
-   "argname": null,
-   "text": "out[\"missing_cells\"] = int(cells.target_logret.isna().sum() // 2)   # a DB week with no fixing",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:869:1.0",
-   "file": "experiment/E028/E028.py",
-   "line": 869,
-   "col": 8,
-   "value": 1.0,
-   "kind": "call_arg",
-   "func": "_forward_eval",
-   "call": "min",
-   "argname": "#0",
-   "text": "1.0, out[\"statements\"][\"pooled\"][\"dm_hln\"][\"p\"] * family)",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:881:0",
-   "file": "experiment/E028/E028.py",
-   "line": 881,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_forward_eval",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:893:0",
-   "file": "experiment/E028/E028.py",
-   "line": 893,
-   "col": 52,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_forward_check",
-   "call": null,
-   "argname": null,
-   "text": "log[\"stale_weeks\"] = log[\"input_stale_weeks\"] = 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:900:0",
-   "file": "experiment/E028/E028.py",
-   "line": 900,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "run_forward_check",
-   "call": null,
-   "argname": null,
-   "text": "return 0 if ok and gap <= P.TOL_ABS else 1",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:900:1",
-   "file": "experiment/E028/E028.py",
-   "line": 900,
-   "col": 45,
-   "value": 1,
-   "kind": "inline",
-   "func": "run_forward_check",
-   "call": null,
-   "argname": null,
-   "text": "return 0 if ok and gap <= P.TOL_ABS else 1",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:909:1",
-   "file": "experiment/E028/E028.py",
-   "line": 909,
-   "col": 22,
-   "value": 1,
-   "kind": "inline",
-   "func": "run_ledger",
-   "call": null,
-   "argname": null,
-   "text": "db = base.parents[1] / \"leaderboard.sqlite\"",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:914:0",
-   "file": "experiment/E028/E028.py",
-   "line": 914,
+   "line": 751,
    "col": 56,
    "value": 0,
    "kind": "inline",
    "func": "run_ledger",
    "call": null,
    "argname": null,
-   "text": "\"and experiment not like '%naive%'\").fetchone()[0]",
+   "text": "\"where experiment not like 'E028%'\").fetchone()[0])",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:933:1.0",
+   "id": "experiment/E028/E028.py:766:1.0",
    "file": "experiment/E028/E028.py",
-   "line": 933,
+   "line": 766,
    "col": 43,
    "value": 1.0,
    "kind": "call_arg",
@@ -4126,9 +4096,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:935:0",
+   "id": "experiment/E028/E028.py:768:0",
    "file": "experiment/E028/E028.py",
-   "line": 935,
+   "line": 768,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -4141,9 +4111,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:944:2",
+   "id": "experiment/E028/E028.py:775:2",
    "file": "experiment/E028/E028.py",
-   "line": 944,
+   "line": 775,
    "col": 23,
    "value": 2,
    "kind": "compare",
@@ -4156,9 +4126,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:944:1",
+   "id": "experiment/E028/E028.py:775:1",
    "file": "experiment/E028/E028.py",
-   "line": 944,
+   "line": 775,
    "col": 37,
    "value": 1,
    "kind": "inline",
@@ -4171,9 +4141,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:946:1",
+   "id": "experiment/E028/E028.py:777:1",
    "file": "experiment/E028/E028.py",
-   "line": 946,
+   "line": 777,
    "col": 16,
    "value": 1,
    "kind": "inline",
@@ -4186,24 +4156,9 @@
    "note": ""
   },
   {
-   "id": "experiment/E028/E028.py:947:2",
+   "id": "experiment/E028/E028.py:780:1",
    "file": "experiment/E028/E028.py",
-   "line": 947,
-   "col": 36,
-   "value": 2,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "prepare(BASE, full=sys.argv[2:] == [\"full\"])",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "experiment/E028/E028.py:949:1",
-   "file": "experiment/E028/E028.py",
-   "line": 949,
+   "line": 780,
    "col": 43,
    "value": 1,
    "kind": "inline",
@@ -4870,7 +4825,7 @@
    "func": "_self_test",
    "call": "frame",
    "argname": "#0",
-   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than persistence",
+   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than the naive forecast",
    "class": "fixture",
    "disposition": "synthetic self-test input, not research data",
    "note": ""
@@ -4885,7 +4840,7 @@
    "func": "_self_test",
    "call": "frame",
    "argname": "#1",
-   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than persistence",
+   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than the naive forecast",
    "class": "fixture",
    "disposition": "synthetic self-test input, not research data",
    "note": ""
@@ -4900,7 +4855,7 @@
    "func": "_self_test",
    "call": "frame",
    "argname": "#2",
-   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than persistence",
+   "text": "bad = {'x': frame(0.12, 0.6, 2)}           # deployed is far noisier than the naive forecast",
    "class": "code",
    "disposition": "allowed structural literal",
    "note": ""
@@ -5131,9 +5086,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:26:1",
+   "id": "tools/evaluator_reimpl.py:27:1",
    "file": "tools/evaluator_reimpl.py",
-   "line": 26,
+   "line": 27,
    "col": 40,
    "value": 1,
    "kind": "inline",
@@ -5146,9 +5101,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:27:0",
+   "id": "tools/evaluator_reimpl.py:28:0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 27,
+   "line": 28,
    "col": 16,
    "value": 0,
    "kind": "call_arg",
@@ -5161,9 +5116,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:36:1.0",
+   "id": "tools/evaluator_reimpl.py:37:1.0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 36,
+   "line": 37,
    "col": 78,
    "value": 1.0,
    "kind": "inline",
@@ -5176,9 +5131,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:40:0.0",
+   "id": "tools/evaluator_reimpl.py:41:0.0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 40,
+   "line": 41,
    "col": 15,
    "value": 0.0,
    "kind": "call_arg",
@@ -5191,9 +5146,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:45:1",
+   "id": "tools/evaluator_reimpl.py:46:1",
    "file": "tools/evaluator_reimpl.py",
-   "line": 45,
+   "line": 46,
    "col": 82,
    "value": 1,
    "kind": "inline",
@@ -5206,9 +5161,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:53:1",
+   "id": "tools/evaluator_reimpl.py:54:1",
    "file": "tools/evaluator_reimpl.py",
-   "line": 53,
+   "line": 54,
    "col": 40,
    "value": 1,
    "kind": "inline",
@@ -5221,9 +5176,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:56:2",
+   "id": "tools/evaluator_reimpl.py:57:2",
    "file": "tools/evaluator_reimpl.py",
-   "line": 56,
+   "line": 57,
    "col": 46,
    "value": 2,
    "kind": "inline",
@@ -5236,9 +5191,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:56:1",
+   "id": "tools/evaluator_reimpl.py:57:1",
    "file": "tools/evaluator_reimpl.py",
-   "line": 56,
+   "line": 57,
    "col": 76,
    "value": 1,
    "kind": "inline",
@@ -5251,9 +5206,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:56:2",
+   "id": "tools/evaluator_reimpl.py:57:2",
    "file": "tools/evaluator_reimpl.py",
-   "line": 56,
+   "line": 57,
    "col": 90,
    "value": 2,
    "kind": "inline",
@@ -5266,9 +5221,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:60:0",
+   "id": "tools/evaluator_reimpl.py:61:0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 60,
+   "line": 61,
    "col": 20,
    "value": 0,
    "kind": "call_arg",
@@ -5281,10 +5236,25 @@
    "note": ""
   },
   {
+   "id": "tools/evaluator_reimpl.py:68:0",
+   "file": "tools/evaluator_reimpl.py",
+   "line": 68,
+   "col": 15,
+   "value": 0,
+   "kind": "inline",
+   "func": "check",
+   "call": null,
+   "argname": null,
+   "text": "return 0",
+   "class": "code",
+   "disposition": "allowed (cannot change an estimate)",
+   "note": ""
+  },
+  {
    "id": "tools/evaluator_reimpl.py:71:0.0",
    "file": "tools/evaluator_reimpl.py",
    "line": 71,
-   "col": 21,
+   "col": 17,
    "value": 0.0,
    "kind": "call_arg",
    "func": "check",
@@ -5296,10 +5266,10 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:76:0.0",
+   "id": "tools/evaluator_reimpl.py:75:0.0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 76,
-   "col": 19,
+   "line": 75,
+   "col": 15,
    "value": 0.0,
    "kind": "constant",
    "func": "check",
@@ -5311,9 +5281,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:88:1",
+   "id": "tools/evaluator_reimpl.py:86:1",
    "file": "tools/evaluator_reimpl.py",
-   "line": 88,
+   "line": 86,
    "col": 11,
    "value": 1,
    "kind": "inline",
@@ -5326,9 +5296,9 @@
    "note": ""
   },
   {
-   "id": "tools/evaluator_reimpl.py:88:0",
+   "id": "tools/evaluator_reimpl.py:86:0",
    "file": "tools/evaluator_reimpl.py",
-   "line": 88,
+   "line": 86,
    "col": 30,
    "value": 0,
    "kind": "inline",
@@ -5341,9 +5311,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_from_cells.py:22:1",
+   "id": "tools/leaderboard_from_cells.py:23:1",
    "file": "tools/leaderboard_from_cells.py",
-   "line": 22,
+   "line": 23,
    "col": 40,
    "value": 1,
    "kind": "inline",
@@ -5356,9 +5326,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_from_cells.py:23:0",
+   "id": "tools/leaderboard_from_cells.py:24:0",
    "file": "tools/leaderboard_from_cells.py",
-   "line": 23,
+   "line": 24,
    "col": 16,
    "value": 0,
    "kind": "call_arg",
@@ -5371,9 +5341,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_from_cells.py:46:0",
+   "id": "tools/leaderboard_from_cells.py:47:0",
    "file": "tools/leaderboard_from_cells.py",
-   "line": 46,
+   "line": 47,
    "col": 40,
    "value": 0,
    "kind": "inline",
@@ -5386,9 +5356,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_from_cells.py:58:0",
+   "id": "tools/leaderboard_from_cells.py:61:0",
    "file": "tools/leaderboard_from_cells.py",
-   "line": 58,
+   "line": 61,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -5431,24 +5401,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:42:30",
+   "id": "tools/leaderboard_lint.py:44:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 42,
-   "col": 43,
-   "value": 30,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "con = sqlite3.connect(args.db, timeout=30)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_lint.py:46:0",
-   "file": "tools/leaderboard_lint.py",
-   "line": 46,
+   "line": 44,
    "col": 16,
    "value": 0,
    "kind": "inline",
@@ -5461,9 +5416,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:49:1",
+   "id": "tools/leaderboard_lint.py:47:1",
    "file": "tools/leaderboard_lint.py",
-   "line": 49,
+   "line": 47,
    "col": 15,
    "value": 1,
    "kind": "inline",
@@ -5476,9 +5431,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:59:0",
+   "id": "tools/leaderboard_lint.py:57:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 59,
+   "line": 57,
    "col": 35,
    "value": 0,
    "kind": "inline",
@@ -5491,9 +5446,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:64:0",
+   "id": "tools/leaderboard_lint.py:62:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 64,
+   "line": 62,
    "col": 82,
    "value": 0,
    "kind": "compare",
@@ -5506,9 +5461,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:66:0",
+   "id": "tools/leaderboard_lint.py:64:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 66,
+   "line": 64,
    "col": 43,
    "value": 0,
    "kind": "compare",
@@ -5521,9 +5476,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:73:0",
+   "id": "tools/leaderboard_lint.py:71:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 73,
+   "line": 71,
    "col": 16,
    "value": 0,
    "kind": "inline",
@@ -5536,9 +5491,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:73:1",
+   "id": "tools/leaderboard_lint.py:71:1",
    "file": "tools/leaderboard_lint.py",
-   "line": 73,
+   "line": 71,
    "col": 22,
    "value": 1,
    "kind": "inline",
@@ -5551,39 +5506,39 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:77:0",
+   "id": "tools/leaderboard_lint.py:74:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 77,
-   "col": 65,
+   "line": 74,
+   "col": 75,
    "value": 0,
    "kind": "inline",
    "func": "main",
    "call": null,
    "argname": null,
-   "text": "archived = q(\"select count(*) from leaderboard_archive\")[0][0]",
+   "text": "legacy = q(\"select count(*) from leaderboard where pipeline='legacy'\")[0][0]",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:77:0",
+   "id": "tools/leaderboard_lint.py:74:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 77,
-   "col": 68,
+   "line": 74,
+   "col": 78,
    "value": 0,
    "kind": "inline",
    "func": "main",
    "call": null,
    "argname": null,
-   "text": "archived = q(\"select count(*) from leaderboard_archive\")[0][0]",
+   "text": "legacy = q(\"select count(*) from leaderboard where pipeline='legacy'\")[0][0]",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:92:40",
+   "id": "tools/leaderboard_lint.py:85:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 92,
+   "line": 85,
    "col": 25,
    "value": 40,
    "kind": "inline",
@@ -5596,9 +5551,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:94:40",
+   "id": "tools/leaderboard_lint.py:87:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 94,
+   "line": 87,
    "col": 21,
    "value": 40,
    "kind": "compare",
@@ -5611,9 +5566,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:95:40",
+   "id": "tools/leaderboard_lint.py:88:40",
    "file": "tools/leaderboard_lint.py",
-   "line": 95,
+   "line": 88,
    "col": 37,
    "value": 40,
    "kind": "inline",
@@ -5626,9 +5581,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:101:1",
+   "id": "tools/leaderboard_lint.py:93:1",
    "file": "tools/leaderboard_lint.py",
-   "line": 101,
+   "line": 93,
    "col": 11,
    "value": 1,
    "kind": "inline",
@@ -5641,9 +5596,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_lint.py:101:0",
+   "id": "tools/leaderboard_lint.py:93:0",
    "file": "tools/leaderboard_lint.py",
-   "line": 101,
+   "line": 93,
    "col": 28,
    "value": 0,
    "kind": "inline",
@@ -5651,876 +5606,6 @@
    "call": null,
    "argname": null,
    "text": "return 1 if issues else 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:44:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 44,
-   "col": 16,
-   "value": 0,
-   "kind": "call_arg",
-   "func": null,
-   "call": "insert",
-   "argname": "#0",
-   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:44:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 44,
-   "col": 56,
-   "value": 1,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1]))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:48:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 48,
-   "col": 40,
-   "value": 1,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "ROOT = Path(__file__).resolve().parents[1]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:12",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 50,
-   "value": 12,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:13",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 54,
-   "value": 13,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:14",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 58,
-   "value": 14,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:15",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 62,
-   "value": 15,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:16",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 66,
-   "value": 16,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:18",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 70,
-   "value": 18,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:19",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 74,
-   "value": 19,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:56:20",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 56,
-   "col": 78,
-   "value": 20,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "DEFAULT_EXPERIMENTS = tuple(f\"E{n:03d}\" for n in (12, 13, 14, 15, 16, 18, 19, 20))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:74:60",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 74,
-   "col": 38,
-   "value": 60,
-   "kind": "inline",
-   "func": "connect",
-   "call": null,
-   "argname": null,
-   "text": "con = sqlite3.connect(db, timeout=60)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:80:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 80,
-   "col": 16,
-   "value": 1,
-   "kind": "inline",
-   "func": "columns",
-   "call": null,
-   "argname": null,
-   "text": "return [row[1] for row in con.execute(\"PRAGMA table_info(leaderboard)\")]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:128:100.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 128,
-   "col": 71,
-   "value": 100.0,
-   "kind": "inline",
-   "func": "cells",
-   "call": null,
-   "argname": null,
-   "text": "return (frame[column] - frame.y_true).abs() / frame.y_true.abs() * 100.0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:139:100.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 139,
-   "col": 45,
-   "value": 100.0,
-   "kind": "inline",
-   "func": "metrics",
-   "call": null,
-   "argname": null,
-   "text": "ape = error.abs() / frame.y_true.abs() * 100.0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:140:2",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 140,
-   "col": 64,
-   "value": 2,
-   "kind": "inline",
-   "func": "metrics",
-   "call": null,
-   "argname": null,
-   "text": "return float(ape.mean()), float(ape.max()), float((error ** 2).mean() ** 0.5), int(len(ape))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:140:0.5",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 140,
-   "col": 77,
-   "value": 0.5,
-   "kind": "inline",
-   "func": "metrics",
-   "call": null,
-   "argname": null,
-   "text": "return float(ape.mean()), float(ape.max()), float((error ** 2).mean() ** 0.5), int(len(ape))",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:172:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 172,
-   "col": 57,
-   "value": 0,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "candidates = artefact_dirs(root, base.split(\"_\")[0])",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:177:0.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 177,
-   "col": 20,
-   "value": 0.0,
-   "kind": "constant",
-   "func": "pick_dir",
-   "call": null,
-   "argname": "worst",
-   "text": "worst = 0.0",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:190:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 190,
-   "col": 21,
-   "value": 1,
-   "kind": "compare",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "if len(chosen) > 1:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:196:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 196,
-   "col": 91,
-   "value": 1,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "round(metrics(store[row[\"commodity\"]], split_experiment(row[\"experiment\"])[1], row[\"horizon\"])[1], 9)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:196:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 196,
-   "col": 111,
-   "value": 1,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "round(metrics(store[row[\"commodity\"]], split_experiment(row[\"experiment\"])[1], row[\"horizon\"])[1], 9)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:196:9",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 196,
-   "col": 115,
-   "value": 9,
-   "kind": "call_arg",
-   "func": "pick_dir",
-   "call": "round",
-   "argname": "#1",
-   "text": "round(metrics(store[row[\"commodity\"]], split_experiment(row[\"experiment\"])[1], row[\"horizon\"])[1], 9)",
-   "class": "formatting",
-   "disposition": "display precision only",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:200:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 200,
-   "col": 38,
-   "value": 1,
-   "kind": "compare",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "if len(set(peaks.values())) > 1:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:202:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 202,
-   "col": 68,
-   "value": 0,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "named = [pair for pair in chosen if base and base.endswith(pair[0].name)]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:203:1",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 203,
-   "col": 54,
-   "value": 1,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "return min(named or chosen, key=lambda pair: pair[1])[0], \"\"",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:203:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 203,
-   "col": 58,
-   "value": 0,
-   "kind": "inline",
-   "func": "pick_dir",
-   "call": null,
-   "argname": null,
-   "text": "return min(named or chosen, key=lambda pair: pair[1])[0], \"\"",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:216:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 216,
-   "col": 70,
-   "value": 0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "price_rows = [row for row in rows if row[\"experiment\"].split(\"_\")[0] in scope or row[\"experiment\"] in PERSISTE",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:217:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 217,
-   "col": 49,
-   "value": 0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "all_prefixes = {row[\"experiment\"].split(\"_\")[0] for row in rows}",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:231:0.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 231,
-   "col": 32,
-   "value": 0.0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "worst_peak, mean_peak = 0.0, 0.0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:231:0.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 231,
-   "col": 37,
-   "value": 0.0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "worst_peak, mean_peak = 0.0, 0.0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:235:9",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 235,
-   "col": 40,
-   "value": 9,
-   "kind": "call_arg",
-   "func": "backfill",
-   "call": "round",
-   "argname": "#1",
-   "text": "updates.append((round(peak, 9), row[\"experiment\"], row[\"commodity\"], row[\"horizon\"]))",
-   "class": "formatting",
-   "disposition": "display precision only",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:251:5",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 251,
-   "col": 83,
-   "value": 5,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "for peak, experiment, commodity, horizon in sorted(updates, reverse=True)[:5]:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:253:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 253,
-   "col": 15,
-   "value": 0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:261:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 261,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "backfill",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:288:100.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 288,
-   "col": 50,
-   "value": 100.0,
-   "kind": "inline",
-   "func": "log_metrics",
-   "call": null,
-   "argname": null,
-   "text": "block = block.assign(_raw=np.abs(error) * 100.0)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:327:0.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 327,
-   "col": 37,
-   "value": 0.0,
-   "kind": "call_arg",
-   "func": "pick_cells",
-   "call": "matches",
-   "argname": "#1",
-   "text": "if not matches(mean, 0.0, n, row[\"mape\"], None, row[\"n\"]):",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:364:0.0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 364,
-   "col": 19,
-   "value": 0.0,
-   "kind": "constant",
-   "func": "backfill_cells",
-   "call": null,
-   "argname": "peak",
-   "text": "peak = 0.0",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:367:9",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 367,
-   "col": 45,
-   "value": 9,
-   "kind": "call_arg",
-   "func": "backfill_cells",
-   "call": "round",
-   "argname": "#1",
-   "text": "updates.append((round(value, 9), row[\"experiment\"], row[\"commodity\"], row[\"horizon\"]))",
-   "class": "formatting",
-   "disposition": "display precision only",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:381:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 381,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "backfill_cells",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:400:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 400,
-   "col": 17,
-   "value": 0,
-   "kind": "inline",
-   "func": "report",
-   "call": null,
-   "argname": null,
-   "text": ").fetchone()[0]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:402:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 402,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "report",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_max_ape.py:425:0",
-   "file": "tools/leaderboard_max_ape.py",
-   "line": 425,
-   "col": 19,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:44:1",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 44,
-   "col": 40,
-   "value": 1,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "ROOT = Path(__file__).resolve().parents[1]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:45:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 45,
-   "col": 16,
-   "value": 0,
-   "kind": "call_arg",
-   "func": null,
-   "call": "insert",
-   "argname": "#0",
-   "text": "sys.path.insert(0, str(ROOT))",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:74:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 74,
-   "col": 41,
-   "value": 0,
-   "kind": "compare",
-   "func": "classify",
-   "call": null,
-   "argname": null,
-   "text": "if mape is None or n is None or n <= 0 or mape < 0:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:74:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 74,
-   "col": 53,
-   "value": 0,
-   "kind": "compare",
-   "func": "classify",
-   "call": null,
-   "argname": null,
-   "text": "if mape is None or n is None or n <= 0 or mape < 0:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:76:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 76,
-   "col": 39,
-   "value": 0,
-   "kind": "compare",
-   "func": "classify",
-   "call": null,
-   "argname": null,
-   "text": "if mape is not None and mape < 0:",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:126:60",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 126,
-   "col": 43,
-   "value": 60,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "con = sqlite3.connect(args.db, timeout=60)",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:128:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 128,
-   "col": 16,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "tables = [r[0] for r in con.execute(\"select name from sqlite_master where type='table'\")]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:132:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 132,
-   "col": 15,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:134:1",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 134,
-   "col": 17,
-   "value": 1,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "columns = [r[1] for r in con.execute(\"PRAGMA table_info(leaderboard)\")]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:137:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 137,
-   "col": 15,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:139:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 139,
-   "col": 69,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "total = con.execute(f\"select count(*) from {source}\").fetchone()[0]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:145:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 145,
-   "col": 58,
-   "value": 0,
-   "kind": "call_arg",
-   "func": "main",
-   "call": "get",
-   "argname": "#1",
-   "text": "counts[row[\"status\"]] = counts.get(row[\"status\"], 0) + 1",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:145:1",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 145,
-   "col": 63,
-   "value": 1,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "counts[row[\"status\"]] = counts.get(row[\"status\"], 0) + 1",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:158:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 158,
-   "col": 77,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "written = con.execute(\"select count(*) from leaderboard\").fetchone()[0]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/leaderboard_migrate_v2.py:164:0",
-   "file": "tools/leaderboard_migrate_v2.py",
-   "line": 164,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
    "class": "code",
    "disposition": "allowed (cannot change an estimate)",
    "note": ""
@@ -6541,24 +5626,24 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_report.py:44:30",
+   "id": "tools/leaderboard_report.py:33:0",
    "file": "tools/leaderboard_report.py",
-   "line": 44,
-   "col": 38,
-   "value": 30,
-   "kind": "inline",
-   "func": "build",
-   "call": null,
-   "argname": null,
-   "text": "con = sqlite3.connect(db, timeout=30)",
+   "line": 33,
+   "col": 16,
+   "value": 0,
+   "kind": "call_arg",
+   "func": null,
+   "call": "insert",
+   "argname": "#0",
+   "text": "sys.path.insert(0, str(ROOT))",
    "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
+   "disposition": "allowed structural literal",
    "note": ""
   },
   {
-   "id": "tools/leaderboard_report.py:70:0",
+   "id": "tools/leaderboard_report.py:73:0",
    "file": "tools/leaderboard_report.py",
-   "line": 70,
+   "line": 73,
    "col": 58,
    "value": 0,
    "kind": "call_arg",
@@ -6571,9 +5656,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_report.py:174:1",
+   "id": "tools/leaderboard_report.py:121:1",
    "file": "tools/leaderboard_report.py",
-   "line": 174,
+   "line": 121,
    "col": 19,
    "value": 1,
    "kind": "inline",
@@ -6586,9 +5671,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_report.py:176:0",
+   "id": "tools/leaderboard_report.py:123:0",
    "file": "tools/leaderboard_report.py",
-   "line": 176,
+   "line": 123,
    "col": 15,
    "value": 0,
    "kind": "inline",
@@ -6601,9 +5686,9 @@
    "note": ""
   },
   {
-   "id": "tools/leaderboard_report.py:180:0",
+   "id": "tools/leaderboard_report.py:127:0",
    "file": "tools/leaderboard_report.py",
-   "line": 180,
+   "line": 127,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -6901,51 +5986,6 @@
    "note": ""
   },
   {
-   "id": "tools/retire_experiment.py:29:1",
-   "file": "tools/retire_experiment.py",
-   "line": 29,
-   "col": 40,
-   "value": 1,
-   "kind": "inline",
-   "func": null,
-   "call": null,
-   "argname": null,
-   "text": "ROOT = Path(__file__).resolve().parents[1]",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
-   "id": "tools/retire_experiment.py:302:0",
-   "file": "tools/retire_experiment.py",
-   "line": 302,
-   "col": 12,
-   "value": 0,
-   "kind": "constant",
-   "func": "main",
-   "call": null,
-   "argname": "total",
-   "text": "total = 0",
-   "class": "code",
-   "disposition": "allowed structural literal",
-   "note": ""
-  },
-  {
-   "id": "tools/retire_experiment.py:314:0",
-   "file": "tools/retire_experiment.py",
-   "line": 314,
-   "col": 11,
-   "value": 0,
-   "kind": "inline",
-   "func": "main",
-   "call": null,
-   "argname": null,
-   "text": "return 0",
-   "class": "code",
-   "disposition": "allowed (cannot change an estimate)",
-   "note": ""
-  },
-  {
    "id": "tools/round_summary.py:31:1",
    "file": "tools/round_summary.py",
    "line": 31,
@@ -7051,9 +6091,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:65:0",
+   "id": "tools/round_summary.py:63:0",
    "file": "tools/round_summary.py",
-   "line": 65,
+   "line": 63,
    "col": 51,
    "value": 0,
    "kind": "inline",
@@ -7066,9 +6106,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:86:1",
+   "id": "tools/round_summary.py:81:1",
    "file": "tools/round_summary.py",
-   "line": 86,
+   "line": 81,
    "col": 46,
    "value": 1,
    "kind": "inline",
@@ -7081,9 +6121,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:88:1",
+   "id": "tools/round_summary.py:83:1",
    "file": "tools/round_summary.py",
-   "line": 88,
+   "line": 83,
    "col": 48,
    "value": 1,
    "kind": "inline",
@@ -7096,9 +6136,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:90:0",
+   "id": "tools/round_summary.py:85:0",
    "file": "tools/round_summary.py",
-   "line": 90,
+   "line": 85,
    "col": 47,
    "value": 0,
    "kind": "compare",
@@ -7111,9 +6151,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:90:0",
+   "id": "tools/round_summary.py:85:0",
    "file": "tools/round_summary.py",
-   "line": 90,
+   "line": 85,
    "col": 69,
    "value": 0,
    "kind": "compare",
@@ -7126,9 +6166,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:103:0",
+   "id": "tools/round_summary.py:98:0",
    "file": "tools/round_summary.py",
-   "line": 103,
+   "line": 98,
    "col": 20,
    "value": 0,
    "kind": "inline",
@@ -7141,9 +6181,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:103:1",
+   "id": "tools/round_summary.py:98:1",
    "file": "tools/round_summary.py",
-   "line": 103,
+   "line": 98,
    "col": 35,
    "value": 1,
    "kind": "inline",
@@ -7156,9 +6196,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:103:2",
+   "id": "tools/round_summary.py:98:2",
    "file": "tools/round_summary.py",
-   "line": 103,
+   "line": 98,
    "col": 49,
    "value": 2,
    "kind": "inline",
@@ -7171,9 +6211,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:103:3",
+   "id": "tools/round_summary.py:98:3",
    "file": "tools/round_summary.py",
-   "line": 103,
+   "line": 98,
    "col": 63,
    "value": 3,
    "kind": "inline",
@@ -7186,9 +6226,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:103:4",
+   "id": "tools/round_summary.py:98:4",
    "file": "tools/round_summary.py",
-   "line": 103,
+   "line": 98,
    "col": 77,
    "value": 4,
    "kind": "inline",
@@ -7201,9 +6241,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:104:5",
+   "id": "tools/round_summary.py:99:5",
    "file": "tools/round_summary.py",
-   "line": 104,
+   "line": 99,
    "col": 20,
    "value": 5,
    "kind": "inline",
@@ -7216,9 +6256,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:104:6",
+   "id": "tools/round_summary.py:99:6",
    "file": "tools/round_summary.py",
-   "line": 104,
+   "line": 99,
    "col": 35,
    "value": 6,
    "kind": "inline",
@@ -7231,9 +6271,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:104:7",
+   "id": "tools/round_summary.py:99:7",
    "file": "tools/round_summary.py",
-   "line": 104,
+   "line": 99,
    "col": 50,
    "value": 7,
    "kind": "inline",
@@ -7246,9 +6286,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:104:8",
+   "id": "tools/round_summary.py:99:8",
    "file": "tools/round_summary.py",
-   "line": 104,
+   "line": 99,
    "col": 65,
    "value": 8,
    "kind": "inline",
@@ -7261,9 +6301,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:104:9",
+   "id": "tools/round_summary.py:99:9",
    "file": "tools/round_summary.py",
-   "line": 104,
+   "line": 99,
    "col": 80,
    "value": 9,
    "kind": "inline",
@@ -7276,9 +6316,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:105:10",
+   "id": "tools/round_summary.py:100:10",
    "file": "tools/round_summary.py",
-   "line": 105,
+   "line": 100,
    "col": 20,
    "value": 10,
    "kind": "inline",
@@ -7291,9 +6331,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:105:11",
+   "id": "tools/round_summary.py:100:11",
    "file": "tools/round_summary.py",
-   "line": 105,
+   "line": 100,
    "col": 35,
    "value": 11,
    "kind": "inline",
@@ -7306,9 +6346,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:111:1",
+   "id": "tools/round_summary.py:106:1",
    "file": "tools/round_summary.py",
-   "line": 111,
+   "line": 106,
    "col": 17,
    "value": 1,
    "kind": "inline",
@@ -7321,9 +6361,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:115:1",
+   "id": "tools/round_summary.py:109:1",
    "file": "tools/round_summary.py",
-   "line": 115,
+   "line": 109,
    "col": 59,
    "value": 1,
    "kind": "inline",
@@ -7336,9 +6376,9 @@
    "note": ""
   },
   {
-   "id": "tools/round_summary.py:117:0",
+   "id": "tools/round_summary.py:111:0",
    "file": "tools/round_summary.py",
-   "line": 117,
+   "line": 111,
    "col": 11,
    "value": 0,
    "kind": "inline",
@@ -7353,31 +6393,41 @@
  ],
  "summary": {
   "by_kind": {
-   "call_arg": 107,
-   "inline": 324,
-   "compare": 49,
-   "constant": 7,
+   "call_arg": 99,
+   "inline": 272,
+   "compare": 48,
+   "constant": 4,
    "default_arg": 3
   },
   "by_class": {
-   "code": 449,
-   "formatting": 5,
-   "registered": 26,
+   "code": 390,
+   "formatting": 2,
+   "registered": 24,
    "fixture": 10
   },
   "by_file": {
    "_exo/engine.py": {
     "call_arg": 11,
-    "inline": 27,
-    "compare": 6
+    "inline": 25,
+    "compare": 7
    },
    "_exo/leaderboard.py": {
     "compare": 2,
-    "inline": 3
+    "inline": 5
    },
    "_exo/params.py": {
-    "call_arg": 26,
+    "call_arg": 24,
     "inline": 14
+   },
+   "_exo/test_leaderboard.py": {
+    "call_arg": 1,
+    "inline": 6,
+    "compare": 2
+   },
+   "_exo/test_tscv.py": {
+    "call_arg": 1,
+    "inline": 3,
+    "compare": 3
    },
    "experiment/E022/E022.py": {
     "call_arg": 1,
@@ -7410,10 +6460,10 @@
     "inline": 2
    },
    "experiment/E028/E028.py": {
-    "call_arg": 28,
-    "inline": 121,
+    "call_arg": 26,
+    "inline": 107,
     "constant": 1,
-    "compare": 17,
+    "compare": 15,
     "default_arg": 1
    },
    "experiment/transfer_contract.py": {
@@ -7428,7 +6478,7 @@
     "compare": 2
    },
    "tools/evaluator_reimpl.py": {
-    "inline": 9,
+    "inline": 10,
     "call_arg": 4,
     "constant": 1
    },
@@ -7437,24 +6487,13 @@
     "call_arg": 1
    },
    "tools/leaderboard_lint.py": {
-    "inline": 13,
+    "inline": 12,
     "call_arg": 1,
     "compare": 3
    },
-   "tools/leaderboard_max_ape.py": {
-    "call_arg": 5,
-    "inline": 34,
-    "constant": 2,
-    "compare": 2
-   },
-   "tools/leaderboard_migrate_v2.py": {
-    "inline": 10,
-    "call_arg": 2,
-    "compare": 3
-   },
    "tools/leaderboard_report.py": {
-    "inline": 5,
-    "call_arg": 1
+    "inline": 4,
+    "call_arg": 2
    },
    "tools/params_lint.py": {
     "inline": 12,
@@ -7466,10 +6505,6 @@
     "inline": 3,
     "call_arg": 1
    },
-   "tools/retire_experiment.py": {
-    "inline": 2,
-    "constant": 1
-   },
    "tools/round_summary.py": {
     "inline": 22,
     "call_arg": 2,
@@ -7478,153 +6513,6 @@
   }
  },
  "fingerprints": [
-  {
-   "file": "experiment/E001/E001.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E001"
-  },
-  {
-   "file": "experiment/E002/E002.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E002"
-  },
-  {
-   "file": "experiment/E003/E003.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E003"
-  },
-  {
-   "file": "experiment/E004/E004.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E004"
-  },
-  {
-   "file": "experiment/E005/E005.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E005"
-  },
-  {
-   "file": "experiment/E006/E006.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E006"
-  },
-  {
-   "file": "experiment/E007/E007.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E007"
-  },
-  {
-   "file": "experiment/E008/E008.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E008"
-  },
-  {
-   "file": "experiment/E009/E009.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E009"
-  },
-  {
-   "file": "experiment/E010/E010.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E010"
-  },
-  {
-   "file": "experiment/E011/E011.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E011"
-  },
-  {
-   "file": "experiment/E012/E012.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E012"
-  },
-  {
-   "file": "experiment/E013/E013.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E013"
-  },
-  {
-   "file": "experiment/E014/E014.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E014"
-  },
-  {
-   "file": "experiment/E015/E015.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E015"
-  },
-  {
-   "file": "experiment/E016/E016.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E016"
-  },
-  {
-   "file": "experiment/E017/E017.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E017"
-  },
-  {
-   "file": "experiment/E018/E018.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E018"
-  },
-  {
-   "file": "experiment/E019/E019.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E019"
-  },
-  {
-   "file": "experiment/E020/E020.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E020"
-  },
-  {
-   "file": "experiment/E021/E021.py",
-   "estimators": [],
-   "search": [],
-   "constants": [],
-   "experiment": "E021"
-  },
   {
    "file": "experiment/E022/E022.py",
    "estimators": [],

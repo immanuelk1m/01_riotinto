@@ -1,8 +1,7 @@
 {
   "manifest": {
-    "last_common_target": "2026-08-21",
-    "cutoff": "2025-06-29",
-    "params_hash": "d7721b4d7a5a8d63",
+    "last_common_target": "2026-09-29",
+    "params_hash": "7b9c91677bdc2917",
     "eia_sha256": {
       "cl1": "fe40a6bfe9e1cc14a4349ceb64d225d5afaf7f750137e07a9f1681b42670ce8c",
       "cl2": "d4b2510c4a40703eebcbae394517f500b22d60f23cd4595ca184792b9bc424d9"
@@ -10,87 +9,94 @@
     "series": {
       "gold": {
         "col_name": "Com_LBMA_Gold_Price_PM_USD_V_0",
-        "rows": 14377,
+        "rows": 14693,
         "first": "1968-04-01",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 316
+        "last": "2026-09-29",
+        "sha256": "b555db074b8f93409a4ba5baeb31dcb8a709b4296609efc34098a55ff154c407"
       },
       "copper": {
         "col_name": "Com_LME_Cu_Cash_Bid",
-        "rows": 6184,
+        "rows": 6530,
         "first": "2001-01-02",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 328
+        "last": "2026-11-06",
+        "sha256": "ed7821388d38b38eb1d34de21a7ea37c92e6c34f5535954aad4703dfb62d3a67"
       },
       "corn": {
         "col_name": "Com_Barchart_Cash_National_Corn_Index",
-        "rows": 5857,
+        "rows": 6198,
         "first": "2002-02-15",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 333
+        "last": "2026-11-06",
+        "sha256": "bfcde393960b30a1025b4e1a14fd50f79a17f4045cf806dde447e5039c3838ec"
       },
       "wheat": {
         "col_name": "Com_Barchart_Cash_Soft_Red_Wheat_Index",
-        "rows": 5409,
+        "rows": 5750,
         "first": "2003-12-16",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 287
+        "last": "2026-11-06",
+        "sha256": "abac54c72598cb807486098c9d27a6335d9a29e9905aff137e9941a477ab691b"
       },
       "coffee": {
         "col_name": "Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag",
-        "rows": 5841,
+        "rows": 6175,
         "first": "2001-11-08",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 334
+        "last": "2026-10-27",
+        "sha256": "c8c902cfd8b8ab7ae467c00dd00a6c6f1892932334e236eab44862f176f3e957"
       },
       "wti": {
         "col_name": "Oil_EIA_Cushing_WTI_Spot_Price_Daily_USD_Per_Barrel",
-        "rows": 9577,
+        "rows": 9915,
         "first": "1986-01-02",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 318
+        "last": "2026-11-03",
+        "sha256": "ce8403058e9285d534913c62c65508df55533e9fcfc669c5a498a7f20a60528a"
       },
       "gold_am": {
         "col_name": "Com_LBMA_Gold_Price_AM_USD_V_0",
-        "rows": 14527,
+        "rows": 14845,
         "first": "1968-01-02",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 318
+        "last": "2026-09-29",
+        "sha256": "7347f9140498641e89324d7ecd20e0e5093aab03da5728783f44fc19dabac49c"
       },
       "effr": {
         "col_name": "Macro_NYFed_Effective_Federal_Funds_Rate_Pct",
-        "rows": 6280,
+        "rows": 6621,
         "first": "2000-07-03",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 323
+        "last": "2026-11-05",
+        "sha256": "c97f9e74073c4f2d9bdecb1cd6958db6b61d178fa4ceaec9d2a4e3615a2a9c1e"
       },
       "cu_3m": {
         "col_name": "Com_LME_Cu_3M_Bid",
-        "rows": 6183,
+        "rows": 6529,
         "first": "2001-01-02",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 328
+        "last": "2026-11-06",
+        "sha256": "64f98a6f5d5bf9a650bae2d11012aa4f582a96b887ba5bd7cf2db27b8fd5ac32"
       },
       "corn_basis": {
         "col_name": "Com_Barchart_US_Corn_Basis_Index",
-        "rows": 2952,
+        "rows": 3302,
         "first": "2014-01-02",
-        "last": "2025-06-27",
-        "dropped_after_cutoff": 297
+        "last": "2026-11-06",
+        "sha256": "d1da2ee46d992ed015d17acc2e328d5fb76c845433898ff811ce8f523f7c8c1b"
+      },
+      "brent": {
+        "col_name": "Com_EIA_Daily_Europe_Brent_Spot_Price_FOB_USD_Per_Barrel",
+        "rows": 10012,
+        "first": "1987-05-20",
+        "last": "2026-11-03",
+        "sha256": "b38a6b4d7a0e89cd31b8f80af99f31717b8d971cf74058b93154e05b29fd6447"
       },
       "cl1": {
         "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC1d.xls",
         "rows": 10183,
         "first": "1983-04-04",
         "last": "2024-04-05",
-        "dropped_after_cutoff": 0
+        "sha256": "9d67b63a6b86cd0066cf587d1a71f281fd352a87c7244f5b6bb52c05d2acb06f"
       },
       "cl2": {
         "col_name": "https://www.eia.gov/dnav/pet/hist_xls/RCLC2d.xls",
         "rows": 9594,
         "first": "1985-01-02",
         "last": "2024-04-05",
-        "dropped_after_cutoff": 0
+        "sha256": "9c66ee09a8dc95fb14bbd13cc75bd572ea87a55310577b3dcf6c0f2ef9784d6d"
       }
     }
   },
@@ -110,14 +116,14 @@
   "swing": {
     "0.5": {
       "strict": 0.39873461312975095,
-      "indicative": 0.08434500848396638,
-      "measured_part": 0.04450282177241031,
+      "indicative": 0.08434500848396641,
+      "measured_part": 0.044502821772410314,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 1.2858732314291206
     },
     "1.0": {
       "strict": 0.41632745419634976,
-      "indicative": 0.1145938706201132,
+      "indicative": 0.11459387062011321,
       "measured_part": 0.06209566283900916,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 1.236208459672789
@@ -125,7 +131,7 @@
     "2.0": {
       "strict": 0.44883883117669077,
       "indicative": 0.17014576829512396,
-      "measured_part": 0.09460703981935016,
+      "measured_part": 0.09460703981935017,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 1.1444285071852824
     }
@@ -133,21 +139,21 @@
   "swing_futures_r2": {
     "0.0": {
       "strict": 0.41632745419634976,
-      "indicative": 0.1145938706201132,
+      "indicative": 0.11459387062011321,
       "measured_part": 0.06209566283900916,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 1.236208459672789
     },
     "0.05": {
       "strict": 0.4455624210250768,
-      "indicative": 0.16508612667529596,
-      "measured_part": 0.09133062966773622,
+      "indicative": 0.165086126675296,
+      "measured_part": 0.09133062966773624,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 1.15367784683111
     },
     "0.25": {
       "strict": 0.5563808149893837,
-      "indicative": 0.35595791249089564,
+      "indicative": 0.3559579124908957,
       "measured_part": 0.20214902363204307,
       "unmeasured_weight": 0.3542317913573407,
       "need_unmeasured": 0.8408363778605402
@@ -155,38 +161,21 @@
   },
   "pooled": {
     "strict": 0.41632745419634976,
-    "indicative": 0.1145938706201132,
+    "indicative": 0.11459387062011321,
     "measured_part": 0.06209566283900916,
     "unmeasured_weight": 0.3542317913573407,
     "need_unmeasured": 1.236208459672789
   },
-  "pooled_mape_persistence": 5.573831733859277,
+  "pooled_mape_persistence": 5.573831733859275,
   "series_weight": {
-    "coffee": 0.16412973184652668,
+    "coffee": 0.16412973184652666,
     "copper": 0.12801733644306254,
     "corn": 0.15903373743633037,
-    "gold": 0.08767494756729449,
+    "gold": 0.08767494756729448,
     "wheat": 0.19010205951081394,
     "wti": 0.271042187195972
   },
-  "rolling_52": {
-    "windows": 477,
-    "strict_max": 0.5075586016872262,
-    "strict_max_at": "2022-04-17",
-    "indicative_max": 0.25210589432702585,
-    "indicative_max_at": "2022-06-19",
-    "strict_median": 0.4187526309606497,
-    "indicative_median": 0.11854388367785512,
-    "worst": {
-      "start": "2022-04-17",
-      "strict": 0.5075586016872262,
-      "indicative": 0.2207891092631352,
-      "measured_part": 0.059504689502743936,
-      "unmeasured_weight": 0.4480539121844824,
-      "need_unmeasured": 0.9831301513463537
-    }
-  },
-  "gold_am_pm_share_of_daily_var": 0.36055725253371473,
+  "gold_am_pm_share_of_daily_var": 0.3390811506688211,
   "persistence_formula_gap": {
     "ape_pers": {
       "coffee": 5.488989047015902,

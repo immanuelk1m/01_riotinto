@@ -1,12 +1,14 @@
 # E027 — results (coffee and corn only)
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 Registered in [`README.md`](README.md) before the run; executed 2026-11-01 13:10–13:27 on a
 Colab CPU runtime (16.7 min, session stopped). 2,072 cells per direction (1,856 development +
 216 sealed), 116 origins × 8 horizons × 2 series, 19 calendar blocks of 26 weeks.
 
 ## 1. Hypothesis and sealed block
 
-As registered: on `coffee_r` and on `corn`, a pre-registered exogenous model beats persistence
+As registered: on `coffee_r` and on `corn`, a pre-registered exogenous model beats the naive forecast
 at 1–8 weeks on the development window by more than this panel's detection floor; statements
 are `pooled`, `coffee`, `corn`, and the family is 3 directions × 3 statements = 9 tests.
 The most recent 52 origins of each direction are sealed and are **not** part of any number
@@ -56,8 +58,8 @@ gain does not reappear out of sample, which is the same pattern as E022–E026.
 
 ## 6. Oracle bound (Gate B 3.4)
 
-A rule that knew per cell whether persistence or the candidate was better would reach MAPE
-4.648 against persistence 6.113 on the `gbrt_cc` panel — **1.465 pp available**. `gbrt_cc`
+A rule that knew per cell whether the naive forecast or the candidate was better would reach MAPE
+4.648 against the naive forecast 6.113 on the `gbrt_cc` panel — **1.465 pp available**. `gbrt_cc`
 captured 0.487 pp of it (33 %). No deployment rule is evaluated in this round.
 
 ## 7. Limitations specific to this data and design
@@ -69,7 +71,7 @@ captured 0.487 pp of it (33 %). No deployment rule is evaluated in this round.
 - The sealed block is 216 cells per direction. A mean of −0.0003 is "no measurable effect at
   this n", not "no effect".
 - E027's leaderboard rows live on a different walk-forward grid (50 % start) than E024's
-  (70 %); the two are not comparable cell for cell, and persistence itself moves (coffee
+  (70 %); the two are not comparable cell for cell, and the naive forecast itself moves (coffee
   6.856 here vs 8.440 there) because the window moved.
 
 ## 8. Verdict

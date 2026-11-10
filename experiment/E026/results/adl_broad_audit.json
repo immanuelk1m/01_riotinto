@@ -1,0 +1,85 @@
+{
+  "n_cells": 1112,
+  "n_origins": 21,
+  "n_series": 7,
+  "mean_d": 0.0037269972061037978,
+  "ci_low": -0.0024802951181919337,
+  "ci_high": 0.009000714737251041,
+  "blocks": 4,
+  "block_win_rate": 0.75,
+  "mape_pers": 9.41156996793692,
+  "mape_cand": 9.038870247326539,
+  "frac_series_positive": 0.5714285714285714,
+  "worst_series_delta": -0.006902830342641074,
+  "eligible": false,
+  "per_series": {
+    "brent": {
+      "n": 160,
+      "mean_d": 0.001943,
+      "mape_pers": 11.337765,
+      "mape_cand": 11.143445
+    },
+    "coffee_r": {
+      "n": 168,
+      "mean_d": -0.004498,
+      "mape_pers": 9.40636,
+      "mape_cand": 9.856147
+    },
+    "copper_cash": {
+      "n": 160,
+      "mean_d": -0.006903,
+      "mape_pers": 4.684528,
+      "mape_cand": 5.374811
+    },
+    "gas_hh": {
+      "n": 160,
+      "mean_d": 0.032815,
+      "mape_pers": 20.568986,
+      "mape_cand": 17.287477
+    },
+    "gold": {
+      "n": 160,
+      "mean_d": 0.003032,
+      "mape_pers": 5.693346,
+      "mape_cand": 5.390141
+    },
+    "soybean": {
+      "n": 144,
+      "mean_d": -0.001905,
+      "mape_pers": 3.763164,
+      "mape_cand": 3.953641
+    },
+    "wti": {
+      "n": 160,
+      "mean_d": 0.001452,
+      "mape_pers": 9.862261,
+      "mape_cand": 9.717043
+    }
+  },
+  "direction": "adl_broad",
+  "model": "adl",
+  "exog": [
+    "vix",
+    "dgs10",
+    "slope",
+    "dollar",
+    "gpr",
+    "stocks",
+    "bdi",
+    "oni"
+  ],
+  "targets": [
+    "wti",
+    "brent",
+    "gas_hh",
+    "gold",
+    "copper_cash",
+    "coffee_r",
+    "soybean"
+  ],
+  "experiment": "E026",
+  "lags": 4,
+  "sensitivity": false,
+  "params_version": "3.0",
+  "params_hash": "7b9c91677bdc2917"
+}

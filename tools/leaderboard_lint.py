@@ -10,7 +10,7 @@ against mechanically:
 3. nothing carries a metric a MAPE cannot be (negative, non-finite) or ``n <= 0``;
 4. ``aggregate`` is exactly "this is a ``horizon = 'all'`` row", so §5.1's ban on
    aggregates entering a cell mean is a filter, not a memory;
-5. no row was lost: the v2 table holds the same number of rows as the archive;
+5. no legacy (v1 pipeline) row is back in the ledger;
 6. no single experiment reports two different ``n_series`` values, which would mean
    its own rows are being averaged across panels (§5.3).
 
@@ -29,17 +29,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from _exo.leaderboard import STATUSES  # noqa: E402
+from _exo.leaderboard import STATUSES, connect  # noqa: E402
 
 REQUIRED_FOR_OK = ("params_hash", "n_series", "cells", "protocol_version", "evaluator_version")
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--db", default=str(ROOT / "leaderboard.sqlite"))
-    args = parser.parse_args()
+    argparse.ArgumentParser().parse_args()
 
-    con = sqlite3.connect(args.db, timeout=30)
+    con = connect()
     con.row_factory = sqlite3.Row
     issues: list[str] = []
 
@@ -73,14 +71,9 @@ def main() -> int:
     counts = {r[0]: r[1] for r in q("select status, count(*) from leaderboard group by 1")}
     total = sum(counts.values())
 
-    if "leaderboard_archive" in tables:
-        archived = q("select count(*) from leaderboard_archive")[0][0]
-        if total < archived:
-            issues.append(f"row loss: archive has {archived}, v2 has {total}")
-        elif total > archived:
-            print(f"  note: {total - archived} rows added since the migration (re-runs)")
-    else:
-        archived = None
+    legacy = q("select count(*) from leaderboard where pipeline='legacy'")[0][0]
+    if legacy:
+        issues.append(f"{legacy} legacy rows are back in the ledger")
 
     mixed = q(
         "select experiment, count(distinct n_series) k from leaderboard "
@@ -95,7 +88,6 @@ def main() -> int:
         print(f"  ... {len(issues) - 40} more")
     print(
         f"[leaderboard_lint] {total} rows {counts}"
-        + (f", archive {archived}" if archived is not None else "")
         + f" — {len(issues)} violations"
     )
     return 1 if issues else 0

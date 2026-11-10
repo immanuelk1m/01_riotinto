@@ -1,18 +1,18 @@
 """E028 stage 0 — predictability ceiling for the six fixed targets.
 
 No model is fitted and no leaderboard row is written. The question is only how large a
-MAPE reduction over persistence the structure of each target allows.
+MAPE reduction over the naive forecast the structure of each target allows.
 
     uv run --with xlrd python experiment/E028/E028.py prepare          # Mac mini: Postgres + EIA -> parquet
-    uv run python -m _colab.job run --exp E028 --cmd ceiling --include _exo
+    uv run python experiment/E028/E028.py ceiling
 
 Identity per target (log, h weeks):  r = f + b,  f = same-contract futures change (efficient,
 unpredictable by assumption), b = everything else (basis / premium / carry / roll).
 Strict bound for any forecaster whose information makes f a martingale difference:
     R2_oos <= E[(b + f_known)^2] / E[r^2],   f_known = the part of f already traded before the
     origin's information cutoff (async allowance, declared in CEILING.md).
-`prepare` truncates every series at CUTOFF = last common target week - (SEALED_ORIGINS + H)
-weeks, so neither the sealed block nor its targets reach the VM.
+Evaluation is one rule for every command: the TSCV origins of `_exo.engine.tscv_origins` (the first
+week of each month from TSCV_START to TSCV_END, h = 1..H), each fitted on labels mature at the origin.
 """
 import hashlib
 import json
@@ -58,13 +58,11 @@ FUTURES_R2 = (0.0, 0.05, 0.25)
 
 # --------------------------------------------------------------------------- prepare (mini)
 
-def prepare(base: pathlib.Path, full: bool = False) -> None:
-    """dev snapshot (default): everything after CUTOFF dropped. `full`: the whole DB history, written to
-    data/full only when the sealed block is opened (stage 4) or a forward forecast is issued; the
-    campaign is DB-only, so `full` skips the EIA files."""
+def prepare(base: pathlib.Path) -> None:
+    """The whole DB history (plus the EIA CL files for the ceiling) as one snapshot in data/daily."""
     import psycopg
 
-    raw, daily = base / "data" / "raw", base / "data" / ("full" if full else "daily")
+    raw, daily = base / "data" / "raw", base / "data" / "daily"
     raw.mkdir(parents=True, exist_ok=True)
     daily.mkdir(parents=True, exist_ok=True)
     frames, sha = {}, {}
@@ -72,7 +70,7 @@ def prepare(base: pathlib.Path, full: bool = False) -> None:
         for key, col in {**TARGETS, **COMPONENTS}.items():
             cur.execute("select dt, value from public.value where col_name = %s order by dt", (col,))
             frames[key] = pd.DataFrame(cur.fetchall(), columns=["dt", "value"])
-    for key, url in ({} if full else EIA).items():
+    for key, url in EIA.items():
         path = raw / f"{key}.xls"
         if not path.exists():
             urllib.request.urlretrieve(url, path)
@@ -85,32 +83,27 @@ def prepare(base: pathlib.Path, full: bool = False) -> None:
         frame["value"] = frame["value"].astype(float)
         frames[key] = frame.dropna().sort_values("dt")
     last_common = min(frames[k].dt.max() for k in TARGETS)
-    last_week = last_common.to_period("W-SUN").end_time.normalize()
-    cutoff = last_week - pd.Timedelta(weeks=int(P.SEALED_ORIGINS) + int(P.H))
 
-    manifest = dict(last_common_target=str(last_common.date()), cutoff=str(cutoff.date()),
-                    params_hash=PARAMS_HASH, eia_sha256=sha, series={})
+    manifest = dict(last_common_target=str(last_common.date()), params_hash=PARAMS_HASH,
+                    eia_sha256=sha, series={})
     for key, frame in frames.items():
-        kept = frame if full else frame[frame.dt <= cutoff]
-        kept.to_parquet(daily / f"{key}.parquet", index=False)
+        frame.to_parquet(daily / f"{key}.parquet", index=False)
         manifest["series"][key] = dict(
-            col_name={**TARGETS, **COMPONENTS}.get(key, EIA.get(key)), rows=len(kept),
-            first=str(kept.dt.min().date()), last=str(kept.dt.max().date()),
-            dropped_after_cutoff=int(len(frame) - len(kept)),
+            col_name={**TARGETS, **COMPONENTS}.get(key, EIA.get(key)), rows=len(frame),
+            first=str(frame.dt.min().date()), last=str(frame.dt.max().date()),
             sha256=hashlib.sha256((daily / f"{key}.parquet").read_bytes()).hexdigest(),
         )
-        print(f"[prepare] {key}: {len(kept)} rows {manifest['series'][key]['first']}"
+        print(f"[prepare] {key}: {len(frame)} rows {manifest['series'][key]['first']}"
               f"..{manifest['series'][key]['last']}", flush=True)
-    (base / "data" / ("manifest_full.json" if full else "manifest.json")).write_text(
-        json.dumps(manifest, indent=2))
-    print(f"[prepare] cutoff {cutoff.date()} (last common target {last_common.date()})", flush=True)
+    (base / "data" / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    print(f"[prepare] last common target {last_common.date()}", flush=True)
 
 
-# --------------------------------------------------------------------------- ceiling (Colab)
+# --------------------------------------------------------------------------- ceiling
 
-def _load(base: pathlib.Path, sub: str = "daily") -> dict:
+def _load(base: pathlib.Path) -> dict:
     out = {}
-    for path in sorted((base / "data" / sub).glob("*.parquet")):
+    for path in sorted((base / "data" / "daily").glob("*.parquet")):
         frame = pd.read_parquet(path)
         out[path.stem] = frame.assign(dt=frame.dt.astype("datetime64[ns]")).sort_values("dt")
     return out
@@ -305,23 +298,6 @@ def run_ceiling(base: pathlib.Path) -> int:
     results["pooled_mape_persistence"] = float(t.groupby("series").mape.mean().mean())
     results["series_weight"] = (t.groupby("series").mape.sum() / t.mape.sum()).to_dict()
 
-    # every 52-origin window inside the common window (the sealed block's length)
-    weeks = np.sort(common.week.unique())
-    span = int(P.SEALED_ORIGINS)
-    roll = []
-    for i in range(len(weeks) - span + 1):
-        w = common[(common.week >= weeks[i]) & (common.week <= weeks[i + span - 1])]
-        roll.append(dict(start=str(pd.Timestamp(weeks[i]).date()), **pooled(bounds(w, PRIMARY_ASYNC))))
-    roll = pd.DataFrame(roll)
-    results["rolling_52"] = dict(
-        windows=len(roll),
-        strict_max=float(roll.strict.max()), strict_max_at=roll["start"][roll.strict.idxmax()],
-        indicative_max=float(roll.indicative.max()),
-        indicative_max_at=roll["start"][roll.indicative.idxmax()],
-        strict_median=float(roll.strict.median()), indicative_median=float(roll.indicative.median()),
-        worst=roll.loc[roll.strict.idxmax()].to_dict(),
-    )
-
     # gold fix-time component: share of daily variance between the AM (10:30) and PM (15:00) fixes
     fix = pd.merge(data["gold"], data["gold_am"], on="dt", suffixes=("_pm", "_am"))
     fix = fix[fix.dt >= start]
@@ -336,7 +312,6 @@ def run_ceiling(base: pathlib.Path) -> int:
     out = base / "results"
     out.mkdir(exist_ok=True)
     t.to_csv(out / "ceiling_by_series_h.csv", index=False)
-    roll.to_csv(out / "ceiling_rolling52.csv", index=False)
     (out / "ceiling.json").write_text(json.dumps(results, indent=2, default=str))
     print(json.dumps(results, indent=2, default=str), flush=True)
     cols = ["series", "h", "n", "mape", "share_b", "share_f_pred", "r2_max", "c_gauss", "c_oracle",
@@ -351,7 +326,7 @@ def run_ceiling(base: pathlib.Path) -> int:
 # at the origin; the market component f is forecast as zero.
 
 MODELS = ("fut", "lvl", "mon", "struct")
-UNMEASURED = ("wheat", "coffee")          # no DB component: every model is persistence
+UNMEASURED = ("wheat", "coffee")          # no DB component: every model is the naive forecast
 STATEMENTS = ("pooled", "gold", "copper", "corn", "wti")
 
 
@@ -407,13 +382,15 @@ def labels(series: str, frame: pd.DataFrame) -> dict:
     return out
 
 
-def forecast(series: str, model: str, lab: dict, frame: pd.DataFrame, leak=None) -> np.ndarray:
-    """(n, H) log-return forecasts. OLS per h, refit every REFIT_EVERY weeks on mature labels only."""
+def forecast(series: str, model: str, lab: dict, frame: pd.DataFrame, at: np.ndarray,
+             leak=None) -> np.ndarray:
+    """(n, H) log-return forecasts, filled at the positions `at` only. OLS per h, refit at every
+    such origin on labels already mature there."""
     n = len(frame)
     if series in UNMEASURED:
         return np.zeros((n, int(P.H)))
     if model == "fut" or series == "gold":  # gold: b is the carry itself, nothing to estimate
-        return np.nan_to_num(lab["fut"])     # no curve in the DB -> futures-implied = persistence
+        return np.nan_to_num(lab["fut"])     # no curve in the DB -> futures-implied = naive forecast
     month = frame.date.dt.month.to_numpy()
     cols = []
     if model in ("lvl", "struct"):
@@ -429,30 +406,32 @@ def forecast(series: str, model: str, lab: dict, frame: pd.DataFrame, leak=None)
     for k in range(int(P.H)):
         y = lab["b"][:, k]
         good = usable & np.isfinite(y)
-        for start in range(0, n, int(P.REFIT_EVERY)):
+        for start in at:
             train = good & (rows + k + 1 <= start)   # label of row j at horizon k+1 matures at j+k+1
-            if train.sum() < int(P.MIN_TRAIN):
+            if train.sum() < int(P.MIN_TRAIN) or not usable[start]:
                 continue
-            block = slice(start, start + int(P.REFIT_EVERY))
-            pred = engine._apply(engine._ols(X[train], y[train]), np.nan_to_num(X[block]))
-            fc[block, k] = np.where(usable[block], pred, np.nan)
+            fc[start, k] = engine._apply(engine._ols(X[train], y[train]), X[start : start + 1])[0]
     return fc
 
 
-def campaign_cells(data: dict, models=MODELS, synth=None, leak: bool = False) -> pd.DataFrame:
+def campaign_cells(data: dict, models=MODELS, synth=None, leak: bool = False,
+                   weekly: bool = False) -> pd.DataFrame:
+    """Cells at the TSCV origins; `weekly` puts an origin on every week (detectors D1/D2 only, which
+    test the pipeline's power and need more than 20 origins)."""
     rows = []
     for series, frame in components(data).items():
         if synth is not None:
             frame = synth(series, frame)
         lab = labels(series, frame)
+        at = np.arange(len(frame)) if weekly else engine.tscv_origins(frame.index)
         origin = frame.index.to_period("W-SUN").asi8
+        logp = frame.logp.to_numpy()
         for model in models:
-            fc = forecast(series, model, lab, frame, lab["r"][:, 0] if leak else None)
+            fc = forecast(series, model, lab, frame, at, lab["r"][:, 0] if leak else None)
             for k in range(int(P.H)):
                 rows.append(pd.DataFrame(dict(
-                    series=series, model=model, origin=origin, week=frame.index, horizon=k + 1,
-                    logp=frame.logp.to_numpy(), target_logret=lab["r"][:, k], fc=fc[:, k],
-                    b=lab["b"][:, k])))
+                    series=series, model=model, origin=origin[at], week=frame.index[at], horizon=k + 1,
+                    logp=logp[at], target_logret=lab["r"][at, k], fc=fc[at, k], b=lab["b"][at, k])))
     return pd.concat(rows, ignore_index=True)
 
 
@@ -497,7 +476,8 @@ def _lrv(x: np.ndarray, lags: int) -> np.ndarray:
 
 
 def dm_hln(d: np.ndarray, h: int) -> dict:
-    """Diebold-Mariano on d = loss_pers - loss_cand, Harvey-Leybourne-Newbold correction; H1: d > 0."""
+    """Diebold-Mariano on d = loss_pers - loss_cand, Harvey-Leybourne-Newbold correction; H1: d > 0.
+    `d` is one value per origin, so `h` is in origins: ORIGIN_LAG + 1 (HAC lag h - 1 = ORIGIN_LAG)."""
     from scipy import stats
 
     n = len(d)
@@ -507,23 +487,23 @@ def dm_hln(d: np.ndarray, h: int) -> dict:
 
 
 def clark_west(sc: pd.DataFrame) -> dict:
-    """Clark-West for a model nesting persistence, on log-return MSE, origin-level, HAC lag H-1."""
+    """Clark-West for a model nesting the naive forecast, on log-return MSE, origin-level, HAC lag ORIGIN_LAG."""
     from scipy import stats
 
     f = sc.target_logret ** 2 - (sc.target_logret - sc.fc) ** 2 + sc.fc ** 2
     ft = f.groupby(sc.origin).mean().to_numpy()
-    stat = ft.mean() / np.sqrt(_lrv(ft, int(P.H) - 1)[0, 0] / len(ft))
+    stat = ft.mean() / np.sqrt(_lrv(ft, int(P.ORIGIN_LAG))[0, 0] / len(ft))
     return dict(stat=float(stat), p=float(stats.norm.sf(stat)), n=len(ft))
 
 
 def giacomini_white(d: np.ndarray) -> dict:
-    """Conditional predictive ability, instruments (1, d_{t-H}): d_{t-H} is mature at t."""
+    """Conditional predictive ability, instruments (1, d_{t-L}): d_{t-L} is mature at t (L = ORIGIN_LAG)."""
     from scipy import stats
 
-    lag = int(P.H)
+    lag = int(P.ORIGIN_LAG)
     z = np.column_stack([d[lag:], d[:-lag] * d[lag:]])
     zbar = z.mean(0)
-    stat = len(z) * zbar @ np.linalg.solve(_lrv(z, lag - 1), zbar)
+    stat = len(z) * zbar @ np.linalg.solve(_lrv(z, lag), zbar)
     return dict(stat=float(stat), p=float(stats.chi2.sf(stat, z.shape[1])), n=len(z))
 
 
@@ -587,11 +567,11 @@ def pbo(perf: np.ndarray) -> float:
 
 
 def mde(sc: pd.DataFrame, origins: int) -> dict:
-    """Minimum detectable pooled reduction at `origins` sealed origins (one-sided Holm step 1, 80 % power)."""
+    """Minimum detectable pooled reduction at `origins` origins (one-sided Holm step 1, 80 % power)."""
     from scipy import stats
 
     d = sc.groupby("origin").d.mean().to_numpy()
-    se = np.sqrt(_lrv(d, int(P.H) - 1)[0, 0] / origins)
+    se = np.sqrt(_lrv(d, int(P.ORIGIN_LAG))[0, 0] / origins)
     z = stats.norm.isf(P.ALPHA / len(STATEMENTS)) + stats.norm.isf(1 - 0.8)
     return dict(mde_d=float(z * se), mde_reduction=float(z * se * P.PCT / sc.mape_pers.mean()))
 
@@ -616,7 +596,7 @@ def run_detectors(base: pathlib.Path) -> int:
     rng = np.random.default_rng(int(P.SEED))
 
     # D1: random-walk targets, real components -> nothing to find
-    null = campaign_cells(data, ("struct",), synth=lambda s, f: _rw(rng, f))
+    null = campaign_cells(data, ("struct",), synth=lambda s, f: _rw(rng, f), weekly=True)
     o = common_origins(null)
     out["D1"] = summary(scored(null, "struct", o))
     out["D1"]["pass"] = bool(out["D1"]["ci_low"] <= 0)
@@ -640,7 +620,7 @@ def run_detectors(base: pathlib.Path) -> int:
         oracle[series] = pd.DataFrame(known, index=frame.index).stack().rename("oracle")
         return syn
 
-    syn = campaign_cells(data, ("struct",), synth=plant)
+    syn = campaign_cells(data, ("struct",), synth=plant, weekly=True)
     o = common_origins(syn, series=planted)
     rec = summary(scored(syn, "struct", o, planted))
     known = pd.concat(oracle, names=["series", "week", "k"]).reset_index()
@@ -650,13 +630,12 @@ def run_detectors(base: pathlib.Path) -> int:
     out["D2"] = dict(recovered=rec, oracle=orc,
                      pass_=bool(rec["ci_low"] > 0 and rec["reduction"] >= orc["reduction"] / 2))
 
-    # D3: perturb every daily value after each block-start cutoff; earlier forecasts must not move.
-    # D4: the same check on a variant that is given next week's realised return must FAIL.
+    # D3: perturb every daily value after each TSCV origin; that origin's and all earlier forecasts must
+    # not move. D4: the same check on a variant that is given next week's realised return must FAIL.
     base_cells = campaign_cells(data, ("struct",))
     leak_cells = campaign_cells(data, ("struct",), leak=True)
     o = common_origins(base_cells)
-    by_origin = dict(zip(base_cells.origin, base_cells.week))
-    cuts = sorted({by_origin[x] for x in o if x % int(P.BLOCK) == 0})
+    cuts = [pd.Timestamp(w) for w in sorted(base_cells.week.unique())]
     moved, leak_moved = [], []
     for cut in cuts:
         mutated = {k: v.assign(value=np.where(v.dt > cut, v.value * np.exp(rng.normal(size=len(v))),
@@ -673,7 +652,7 @@ def run_detectors(base: pathlib.Path) -> int:
                      pass_=bool(max(moved) == 0.0))
     leak = summary(scored(leak_cells, "struct", common_origins(leak_cells)))
     out["D4"] = dict(max_abs_change=max(leak_moved), detected=bool(max(leak_moved) > 0),
-                     leaky_dev_reduction=leak["reduction"], pass_=bool(max(leak_moved) > 0))
+                     leaky_reduction=leak["reduction"], pass_=bool(max(leak_moved) > 0))
     _dump(base, "detectors.json", out)
     return 0
 
@@ -686,27 +665,7 @@ def _dump(base: pathlib.Path, name: str, obj) -> None:
     print(text, flush=True)
 
 
-# ------------------------------------------------------------------------------- dev / sealed
-
-def run_dev(base: pathlib.Path) -> int:
-    data = _load(base)
-    cells = campaign_cells(data)
-    o = common_origins(cells)
-    out = dict(origins=dict(n=len(o), first=str(cells[cells.origin == o.min()].week.iloc[0].date()),
-                            last=str(cells[cells.origin == o.max()].week.iloc[0].date())), gate_a={})
-    for model in MODELS:
-        sc = scored(cells, model, o)
-        out["gate_a"][model] = {name: summary(statement(sc, name)) for name in STATEMENTS}
-    struct = scored(cells, "struct", o)
-    out["mde_at_sealed"] = mde(struct, int(P.SEALED_ORIGINS))
-    loss = losses(cells, o, tuple(TARGETS))
-    out["pbo"] = dict(models=list(loss.columns), pbo=pbo(-loss.to_numpy()))
-    keep = cells[cells.origin.isin(o)]
-    (base / "results").mkdir(exist_ok=True)
-    keep.to_parquet(base / "results" / "dev_cells.parquet", index=False)
-    _dump(base, "dev.json", out)
-    return 0
-
+# ------------------------------------------------------------------------------- TSCV evaluation
 
 def _cells_sha(sc: pd.DataFrame) -> str:
     cols = ["series", "origin", "horizon", "target_logret", "fc"]
@@ -714,57 +673,58 @@ def _cells_sha(sc: pd.DataFrame) -> str:
     return hashlib.sha256(frame.to_csv(index=False).encode()).hexdigest()
 
 
-def _pnl(sc: pd.DataFrame, series: str, sealed) -> dict:
-    """h=1 timing trade on the sealed origins: position = sign(forecast - mean of earlier forecasts)."""
+def _pnl(sc: pd.DataFrame, series: str) -> dict:
+    """h=1 timing trade at the TSCV origins: position = sign(forecast - mean of earlier forecasts)."""
     c = sc[(sc.series == series) & (sc.horizon == 1)].sort_values("origin")
     prior = c.fc.expanding().mean().shift(1)
     pos = np.sign(c.fc - prior).fillna(0.0)
     turn = pos.diff().abs().fillna(0.0)
-    m = c.origin.isin(sealed).to_numpy()
     out = {}
     for leg, ret in (("futures", c.target_logret - c.b), ("basis", c.b)):
         for cost in P.COST_SWING:
-            pnl = (pos * ret - turn * cost / 1e4)[m]
+            pnl = pos * ret - turn * cost / 1e4
             sd = pnl.std()
             out[f"{leg}_{cost}bp"] = dict(
-                mean_weekly=float(pnl.mean()),
-                sharpe=float(pnl.mean() / sd * np.sqrt(P.WEEKS_PER_YEAR)) if sd > 0 else float("nan"))
+                mean_per_origin=float(pnl.mean()),
+                sharpe=float(pnl.mean() / sd * np.sqrt(P.ORIGINS_PER_YEAR)) if sd > 0 else float("nan"))
     return out
 
 
-def run_sealed(base: pathlib.Path) -> int:
+def run_tscv(base: pathlib.Path) -> int:
+    """The one evaluation: every model, every statement, at the TSCV origins."""
     sys.path.insert(0, str(base / "experiment"))   # where --include puts it on the VM
     import transfer_contract
 
-    dev_manifest = json.loads((base / "data" / "manifest.json").read_text())
-    full_manifest = json.loads((base / "data" / "manifest_full.json").read_text())
-    cutoff = pd.Timestamp(dev_manifest["cutoff"])
-    last = pd.Timestamp(dev_manifest["last_common_target"]).to_period("W-SUN").end_time.normalize()
-    data = {k: v[v.dt <= last] for k, v in _load(base, "full").items()}
-    cells = campaign_cells(data)
-    allo = common_origins(cells)
+    manifest = json.loads((base / "data" / "manifest.json").read_text())
+    cells = campaign_cells(_load(base))
+    o = common_origins(cells)
     week_of = dict(zip(cells.origin, cells.week))
-    sealed = np.array([x for x in allo if cutoff < week_of[x] <= cutoff + pd.Timedelta(weeks=int(P.SEALED_ORIGINS))])
-    out = dict(cutoff=str(cutoff.date()), last_target_week=str(last.date()), n_sealed=len(sealed),
-               first=str(week_of[sealed.min()].date()), last=str(week_of[sealed.max()].date()),
-               full_manifest_cutoff_check=full_manifest["last_common_target"], statements={})
-    struct = scored(cells, "struct", sealed)
+    out = dict(last_common_target=manifest["last_common_target"],
+               origins=dict(n=len(o), first=str(week_of[o.min()].date()), last=str(week_of[o.max()].date())),
+               gate_a={}, statements={})
+    for model in MODELS:
+        sc = scored(cells, model, o)
+        out["gate_a"][model] = {name: summary(statement(sc, name)) for name in STATEMENTS}
+    struct = scored(cells, "struct", o)
+    out["mde"] = mde(struct, len(o))
+    loss = losses(cells, o, tuple(TARGETS))
+    out["pbo"] = dict(models=list(loss.columns), pbo=pbo(-loss.to_numpy()))
     for name in STATEMENTS:
         sc = statement(struct, name)
         d = sc.groupby("origin").d.mean().to_numpy()
         series = tuple(TARGETS) if name == "pooled" else (name,)
         out["statements"][name] = dict(
-            summary(sc), dm_hln=dm_hln(d, int(P.H)), clark_west=clark_west(sc),
+            summary(sc), dm_hln=dm_hln(d, int(P.ORIGIN_LAG) + 1), clark_west=clark_west(sc),
             giacomini_white=giacomini_white(d), ct_r2=ct_r2(sc),
             by_h={int(h): dict(mape_pers=float(g.mape_pers.mean()), mape_cand=float(g.mape_cand.mean()),
                               ct_r2=ct_r2(g)) for h, g in sc.groupby("horizon")},
-            spa_mcs=spa_mcs(losses(cells, sealed, series)),
-            fut=summary(statement(scored(cells, "fut", sealed), name)))
+            spa_mcs=spa_mcs(losses(cells, o, series)),
+            fut=summary(statement(scored(cells, "fut", o), name)))
     out["holm_round"] = holm({k: v["dm_hln"]["p"] for k, v in out["statements"].items()})
-    out["pnl"] = {s: _pnl(scored(cells, "struct", allo), s, sealed) for s in ("gold", "copper", "corn", "wti")}
+    out["pnl"] = {s: _pnl(struct, s) for s in ("gold", "copper", "corn", "wti")}
 
     def frames(model):
-        sc = scored(cells, model, sealed)
+        sc = scored(cells, model, o)
         return {s: pd.DataFrame(dict(origin=pd.to_datetime(g.week), horizon=g.horizon,
                                      last_price=np.exp(g.logp), y_true=np.exp(g.logp + g.target_logret),
                                      y_pred=np.exp(g.logp + g.fc))).reset_index(drop=True)
@@ -773,177 +733,48 @@ def run_sealed(base: pathlib.Path) -> int:
     out["gate_e"] = transfer_contract.evaluate_frame(frames("struct"), control=frames("fut"))
     out["cells_sha256"] = _cells_sha(struct)
     (base / "results").mkdir(exist_ok=True)
-    cells[cells.origin.isin(sealed)].to_parquet(base / "results" / "sealed_cells.parquet", index=False)
-    _dump(base, "sealed.json", out)
+    cells[cells.origin.isin(o)].to_parquet(base / "results" / "tscv_cells.parquet", index=False)
+    _dump(base, "tscv.json", out)
     return 0
-
-
-#: DB inputs each forward forecast reads; a row is as stale as its oldest input (README 개정 3)
-INPUTS = dict(gold=("gold", "effr"), copper=("copper", "cu_3m"), corn=("corn", "corn_basis"),
-              wheat=("wheat",), coffee=("coffee",), wti=("wti", "brent"))
-
-
-def _weeks_before(later, earlier):
-    return (later - earlier).dt.days // P.DAYS_PER_WEEK
-
-
-def run_forward(base: pathlib.Path) -> int:
-    """Issue one forecast per series at its latest DB week; append-only log, evaluated once (개정 3)."""
-    data = _load(base, "full")
-    cells = campaign_cells(data, ("fut", "struct"))
-    issued = pd.Timestamp.now(tz="UTC")
-    week_now = issued.tz_localize(None).to_period("W-SUN").end_time.normalize()
-    code = hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()
-    snap = hashlib.sha256(json.dumps(json.loads(
-        (base / "data" / "manifest_full.json").read_text())["series"], sort_keys=True).encode()).hexdigest()
-    last = cells.groupby("series").week.transform("max")
-    rows = cells[cells.week == last].pivot_table(index=["series", "week", "horizon", "logp"],
-                                                  columns="model", values="fc").reset_index()
-    oldest = {s: min(data[k].dt.max() for k in keys).to_period("W-SUN").end_time.normalize()
-              for s, keys in INPUTS.items()}
-    rows["issued_utc"] = issued.isoformat(timespec="seconds")
-    rows["stale_weeks"] = _weeks_before(week_now, rows.week).astype(int)
-    rows["input_stale_weeks"] = _weeks_before(week_now, rows.series.map(oldest)).astype(int)
-    rows["code_sha256"], rows["data_sha256"], rows["params_hash"] = code, snap, PARAMS_HASH
-    out = base / "results"
-    out.mkdir(exist_ok=True)
-    rows.to_csv(out / f"forward_{issued.date()}.csv", index=False)
-    print(rows.to_string(index=False), flush=True)
-    issues = _qualifying(pd.concat([_forward_log(base), rows], ignore_index=True)).issue.nunique()
-    print(f"[forward] qualifying issues {issues}/{int(P.SEALED_ORIGINS)} (README 개정 2·3)", flush=True)
-    return 0
-
-
-def _forward_log(base: pathlib.Path) -> pd.DataFrame:
-    paths = sorted((base / "forward").glob("forward_*.csv"))
-    return pd.concat([pd.read_csv(p, parse_dates=["week"]) for p in paths], ignore_index=True)
-
-
-def _qualifying(log: pd.DataFrame) -> pd.DataFrame:
-    """README 개정 2·3: the first issue of each week counts when all six series, inputs included, are at
-    most one week stale; the first 52 such issues are the forward window. Rows logged without
-    `input_stale_weeks` (the 2026-11-08 issue) never count. At most one week stale already puts every
-    target week after the issue time, so 개정 2's target-week rule needs no separate test."""
-    issued = pd.to_datetime(log.issued_utc, utc=True).dt.tz_localize(None)
-    log = log.assign(issued=issued, issue=pd.PeriodIndex(issued, freq="W-SUN").asi8)
-    log = log[log.issued == log.groupby("issue").issued.transform("min")]
-    stale = log.reindex(columns=["stale_weeks", "input_stale_weeks"]).fillna(np.inf).max(axis=1)
-    fresh = log[stale <= 1].groupby("issue").series.nunique()
-    keep = fresh[fresh == len(TARGETS)].index[:int(P.SEALED_ORIGINS)]
-    return log[log.issue.isin(keep)]
-
-
-def _result(base: pathlib.Path, name: str) -> pathlib.Path:
-    """results/ is not bundled; on the VM `--include experiment/E028/results/<name>` puts it here."""
-    local = base / "results" / name
-    return local if local.exists() else base / "experiment" / "E028" / "results" / name
-
-
-def _forward_eval(base: pathlib.Path, log: pd.DataFrame) -> dict:
-    """Score the logged forecasts against the current DB snapshot; counts only until all 52 matured."""
-    q = _qualifying(log)
-    frames = components(_load(base, "full"))
-    realised = pd.concat({s: f.logp for s, f in frames.items()}, names=["series", "target_week"])
-    q = q.assign(target_week=q.week + pd.to_timedelta(q.horizon * P.DAYS_PER_WEEK, unit="D"))
-    q = q.join(realised.rename("realised"), on=["series", "target_week"])
-    last = q.series.map({s: f.index.max() for s, f in frames.items()})
-    out = dict(issues=int(q.issue.nunique()), needed=int(P.SEALED_ORIGINS),
-               cells_matured=int((q.target_week <= last).sum()), cells=int(len(q)))
-    if out["issues"] < int(P.SEALED_ORIGINS) or out["cells_matured"] < out["cells"]:
-        return out                                     # no loss is computed before the window matures
-    cells = q.melt(id_vars=["series", "week", "horizon", "logp", "issue", "realised"],
-                   value_vars=["fut", "struct"], var_name="model", value_name="fc")
-    cells = cells.assign(origin=cells.issue, target_logret=cells.realised - cells.logp)
-    out["missing_cells"] = int(cells.target_logret.isna().sum() // 2)   # a DB week with no fixing
-    sc = {m: engine.score(g.dropna(subset=["target_logret"])) for m, g in cells.groupby("model")}
-    out["statements"] = {}
-    for name in STATEMENTS:
-        s = statement(sc["struct"], name)
-        d = s.groupby("origin").d.mean().to_numpy()
-        out["statements"][name] = dict(summary(s), dm_hln=dm_hln(d, int(P.H)), clark_west=clark_west(s),
-                                       giacomini_white=giacomini_white(d), ct_r2=ct_r2(s),
-                                       fut=summary(statement(sc["fut"], name)))
-    out["holm_round"] = holm({k: v["dm_hln"]["p"] for k, v in out["statements"].items()})
-    family = json.loads(_result(base, "program_family.json").read_text())["family"]
-    out["family"], out["pooled_p_bonferroni"] = family, min(
-        1.0, out["statements"]["pooled"]["dm_hln"]["p"] * family)
-    out["cells_sha256"] = _cells_sha(sc["struct"])
-    return out
-
-
-def run_forward_eval(base: pathlib.Path) -> int:
-    """The single forward evaluation (README 개정 3). Before maturity it prints counts and no losses."""
-    out = _forward_eval(base, _forward_log(base))
-    if "statements" in out:
-        _dump(base, "forward.json", out)
-    else:
-        print(f"[forward_eval] not matured: {out}", flush=True)
-    return 0
-
-
-def run_forward_check(base: pathlib.Path) -> int:
-    """Replay the sealed block as if each origin had been issued live; the forward evaluator must
-    reproduce sealed.json cell for cell before it is trusted with the real log."""
-    cells = pd.read_parquet(_result(base, "sealed_cells.parquet"))
-    sealed = json.loads(_result(base, "sealed.json").read_text())
-    c = cells[cells.model.isin(["fut", "struct"])]
-    log = c.pivot_table(index=["series", "week", "horizon", "logp"], columns="model",
-                        values="fc").reset_index()
-    log["issued_utc"] = log.week.dt.strftime("%Y-%m-%dT%H:%M:%S+00:00")   # inside the origin week
-    log["stale_weeks"] = log["input_stale_weeks"] = 0
-    out = _forward_eval(base, log)
-    got, want = out["statements"]["pooled"], sealed["statements"]["pooled"]
-    gap = max(abs(got[k] - want[k]) for k in ("mape_pers", "mape_cand", "reduction"))
-    ok = out["cells_sha256"] == sealed["cells_sha256"] and out["issues"] == sealed["n_sealed"]
-    print(f"[forward_check] issues {out['issues']}, sha {'==' if ok else '!='} sealed, max gap {gap:.1e}",
-          flush=True)
-    return 0 if ok and gap <= P.TOL_ABS else 1
 
 
 def run_ledger(base: pathlib.Path) -> int:
-    """Mini, seconds: write the E028 rows into leaderboard.sqlite and apply the program-wide family."""
-    import sqlite3
-
+    """Mini, seconds: write the E028 rows into the W&B ledger and apply the program-wide family."""
     from _exo import leaderboard
 
-    db = base.parents[1] / "leaderboard.sqlite"
-    con = sqlite3.connect(db)
-    prior = con.execute(
+    con = leaderboard.connect()
+    registered = base / "results" / "program_family.json"
+    # the family counts every direction ever tried; the legacy ones are gone from the ledger, so
+    # the registered count is the only copy of it and must not be re-derived from the ledger
+    prior = (json.loads(registered.read_text())["prior_directions"] if registered.exists() else con.execute(
         "select count(distinct experiment || '|' || coalesce(direction, '')) from leaderboard "
-        "where experiment not like 'E028%' and experiment not like '%persist%' "
-        "and experiment not like '%naive%'").fetchone()[0]
+        "where experiment not like 'E028%'").fetchone()[0])
     family = int(prior) + len(MODELS)
     names = {k: v for k, v in TARGETS.items()}
-    payload = []
-    for window, path in (("dev", "dev_cells.parquet"), ("sealed", "sealed_cells.parquet")):
-        cells = pd.read_parquet(base / "results" / path)
-        sc = scored(cells, "struct", common_origins(cells))
-        payload += leaderboard.rows("E028_struct", sc, names, direction="struct", window=window,
-                                    params_hash=PARAMS_HASH)
-        payload += leaderboard.rows("E028_struct_persistence", sc, names, kind="persistence",
-                                    window=window, params_hash=PARAMS_HASH)
+    cells = pd.read_parquet(base / "results" / "tscv_cells.parquet")
+    sc = scored(cells, "struct", common_origins(cells))
+    payload = leaderboard.rows("E028_struct", sc, names, direction="struct", params_hash=PARAMS_HASH)
     with con:
         leaderboard.ensure_schema(con)
         con.execute("delete from leaderboard where experiment like 'E028%'")
         con.executemany(leaderboard.INSERT, payload)
+    leaderboard.commit(con, "E028_struct", "E028", results=base / "results")
     con.close()
-    sealed = json.loads((base / "results" / "sealed.json").read_text())
-    p = sealed["statements"]["pooled"]["dm_hln"]["p"]
+    tscv = json.loads((base / "results" / "tscv.json").read_text())
+    p = tscv["statements"]["pooled"]["dm_hln"]["p"]
     program = dict(prior_directions=int(prior), family=family, pooled_p_raw=p,
                    pooled_p_bonferroni=min(1.0, p * family), rows_written=len(payload))
     _dump(base, "program_family.json", program)
     return 0
 
 
-COMMANDS = dict(ceiling=run_ceiling, detectors=run_detectors, dev=run_dev, sealed=run_sealed,
-                forward=run_forward, forward_eval=run_forward_eval, forward_check=run_forward_check,
-                ledger=run_ledger)
+COMMANDS = dict(ceiling=run_ceiling, detectors=run_detectors, tscv=run_tscv, ledger=run_ledger)
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in ("prepare", *COMMANDS):
-        raise SystemExit(f"usage: E028.py prepare [full] | {' | '.join(COMMANDS)}")
+        raise SystemExit(f"usage: E028.py prepare | {' | '.join(COMMANDS)}")
     if sys.argv[1] == "prepare":
-        prepare(BASE, full=sys.argv[2:] == ["full"])
+        prepare(BASE)
     else:
         raise SystemExit(COMMANDS[sys.argv[1]](BASE))

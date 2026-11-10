@@ -1,5 +1,7 @@
 # E022 — exogenous predictors for the energy panel (pre-registration)
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 **Round:** exogenous-information axis, 2026-10-31
 **Protocol:** [`PROTOCOL.md`](../../PROTOCOL.md) gates A–E. This file is the Gate C registration;
 it was written before any direction was run.
@@ -9,7 +11,7 @@ it was written before any direction was run.
 Weekly energy prices (WTI, Brent, Henry Hub, gasoline, heating oil) contain a
 component predictable from **published, lag-annotated exogenous series** —
 geopolitical risk, macro-financial conditions, inventories, positioning, freight —
-and a candidate using them beats persistence at 1–8 weeks by more than the
+and a candidate using them beats the naive forecast at 1–8 weeks by more than the
 detection floor.
 
 ## Gate B — axes changed
@@ -27,9 +29,9 @@ protocol are unchanged from E021 (`capped APE`, cell = series × horizon × orig
 
 - **Candidate:** the direction's exogenous model forecast.
 - **Matched control:** the E021 ridge candidate (price-only, same walk-forward).
-- **Baseline:** persistence (zero log-return).
-- **Primary metric:** cell MAPE of the candidate against persistence.
-- **Decision rule:** Gate A — mean paired difference `d = ape_persistence − ape_candidate`
+- **Baseline:** naive forecast (zero log-return).
+- **Primary metric:** cell MAPE of the candidate against the naive forecast.
+- **Decision rule:** Gate A — mean paired difference `d = ape_naive − ape_candidate`
   must be > 0 with a 26-week moving-block bootstrap 95% interval excluding 0.
   No deployment rule is evaluated in this experiment.
 
@@ -77,6 +79,6 @@ fails Gate A is not a result and is not reported as one.
 ```bash
 # Mac mini (data preparation only; Postgres lives here)
 uv run python experiment/E022/E022.py prepare
-# Colab (one pane per direction)
-uv run python -m _colab.job run --exp E022 --cmd "adl_gpr_vix" --include _exo
+# one direction per run
+uv run python experiment/E022/E022.py adl_gpr_vix
 ```

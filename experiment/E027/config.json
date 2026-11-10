@@ -1,12 +1,6 @@
 {
   "experiment": "E027",
   "title": "Coffee and corn only: two-series replication of the exogenous round",
-  "design": {
-    "train_frac": 0.5,
-    "refit_every": 4,
-    "block": 26,
-    "sealed_origins": 52
-  },
   "targets": {
     "corn": "^barchart cash national corn index$",
     "coffee_r": "cepea/esalq robusta"

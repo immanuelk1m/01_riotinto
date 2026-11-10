@@ -10,7 +10,7 @@ below fails for a different reason, and all of them must pass:
 | `params_lint` | a knob-carrying estimator, an unregistered constant, a literal in a knob position, or a hard-coded data filter appears in the code |
 | `leaderboard_lint` | an eligible row lacks provenance, a metric is not a MAPE, or the migrated table lost a row |
 | `leaderboard_report --check` | `LEADERBOARD_*.md` disagrees with the database |
-| `pytest experiment/test_retired.py` | a retired experiment can still run |
+| `pytest _exo/test_leaderboard.py` | the ledger tables stop round-tripping through the in-memory schema, or the TSCV origins change |
 | `evaluator_reimpl --check` | the engine's cell APE or a statement MAPE disagrees with an evaluator written from PROTOCOL.md alone |
 
 Usage::
@@ -32,7 +32,7 @@ GATES = (
     ("params", [PY, "tools/params_lint.py"]),
     ("leaderboard", [PY, "tools/leaderboard_lint.py"]),
     ("report", [PY, "tools/leaderboard_report.py", "--check"]),
-    ("retired", [PY, "-m", "pytest", "experiment/test_retired.py", "-q"]),
+    ("ledger", [PY, "-m", "pytest", "_exo", "-q"]),
     ("evaluator", [PY, "tools/evaluator_reimpl.py", "--check"]),
 )
 

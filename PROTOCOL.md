@@ -1,21 +1,23 @@
 # Research Protocol
 
-**Version:** 1.1 (2026-11-03) — adds Gate F (constant discipline) and the v2
-leaderboard schema. Nothing in Gates A–E changed.
+**Version:** 1.2 (2026-11-09) — §4 replaces the sealed block with the fixed monthly-TSCV
+evaluation origins; the leaderboard drops `window` (evaluator cell-v4).
+**Previous:** 1.1 (2026-11-03) — added Gate F (constant discipline) and the v2
+leaderboard schema.
 **Superseded:** 1.0 (2026-10-31).
 **Scope:** every experiment under `experiment/`, every report under `.omx/research/`.
 **Status:** normative. Where this document conflicts with an experiment README or a
 report narrative, this document wins.
 
 This protocol exists because four experiments (E018–E021) ran to completion without
-producing a single result that beat persistence in a way an outside reader would
+producing a single result that beat the naive forecast in a way an outside reader would
 accept. The failures were not of causal discipline — that held up — but of
 **ordering and search space**: effect sizes, power and the external reference point
 were checked after implementation, and three of the four rounds varied only the
 decision rule on a candidate that was already worse than the baseline. Appendix A
 records the evidence.
 
-Comparisons in this repository are stated as **margins over persistence and over a
+Comparisons in this repository are stated as **margins over the naive forecast and over a
 matched control, with confidence intervals**. No experiment may be described as
 state of the art, best in class, or otherwise superior without satisfying every gate
 below; those words are not used as claims anywhere in the repository.
@@ -44,7 +46,7 @@ the candidate itself. For every (model, series set) pair intended for use, compu
 paired per-cell difference
 
 ```
-d_c = err_persistence(c) - err_candidate(c),   c = (series, horizon, origin)
+d_c = err_naive(c) - err_candidate(c),   c = (series, horizon, origin)
 err = min(1.0, |expm1(forecast - log_return_target)|)      # capped APE
 ```
 
@@ -78,33 +80,44 @@ conformal step or aggregation layer over an unchanged forecast may be run only i
 forecast passes Gate A on the same series set.
 
 3.4 Every deployment-rule experiment reports the **oracle-gate bound**: the MAPE of a
-rule that knows, per cell, whether the candidate or persistence was better, and the
+rule that knows, per cell, whether the candidate or the naive forecast was better, and the
 fraction of that bound the rule captured. If the bound is inside the noise band from
 Gate D, the rule cannot produce a reportable gain and the experiment should not be
 started.
 
 ---
 
-## 4. Gate C — Pre-registration and the sealed block
+## 4. Gate C — Pre-registration and the evaluation origins
 
 4.1 Before implementation, write the hypothesis in the experiment README:
 
 - candidate and its Gate A audit row;
 - matched control and baseline;
 - primary metric and decision rule;
-- the declared family size (number of variants that will be evaluated);
-- the sealed block boundaries.
+- the declared family size (number of variants that will be evaluated).
 
-4.2 The **most recent 52 weeks of mature targets are sealed**. They are not used to
-choose features, directions, hyperparameters or rules, and they are not read while
-developing. They are unsealed **once per round**, for the pre-registered analysis only.
+4.2 **Evaluation is one fixed rule** (revision 2026-11-09; it replaces the dev/sealed
+split of 1.1). The evaluation origins are the **first week of each month** from
+`TSCV_START` (2025-01) to `TSCV_END` (2026-09), where the first week of a month is the
+W-SUN week-end that first falls inside it. At each origin the model is refit on the
+information mature at that origin (expanding window) and forecasts `h = 1..8` weeks. An
+origin counts for a series only when all eight targets have matured. Nothing is held
+back: every cell the leaderboard reports is a cell of these origins.
 
-4.3 All exploration happens in the development window (everything before the sealed
-block). Any direction discovered after the seal is opened is labelled exploratory and
-cannot carry the round's conclusion.
+4.3 Because no block is sealed, a result is no longer protected from the researcher who
+saw it. Register the hypothesis and decision rule before the run, and report every
+direction that was tried (the family size in 4.1). A rule changed after the cells were
+seen is exploratory and labelled so.
 
-4.4 Reusing a previously inspected outer interval is allowed but must be declared;
-such a result is retrospective and cannot be the sole evidence for a claim.
+4.4 Reusing a previously inspected interval is allowed but must be declared; such a
+result is retrospective and cannot be the sole evidence for a claim. The 2026-11-09
+revision itself is retrospective: the E028 sealed result was known when the seal was
+removed, so E028 under 4.2 is exploratory, not confirmatory.
+
+4.5 With about twenty origins 4–5 weeks apart, an 8-week horizon overlaps the next
+origin's targets. Origin-level tests use the HAC lag `ORIGIN_LAG` (origins), and the
+26-week bootstrap blocks (§5.4) give only a handful of blocks, so the interval is
+reported but is not the decision statistic.
 
 ---
 
@@ -115,7 +128,7 @@ such a result is retrospective and cannot be the sole evidence for a claim.
 **must not enter a cell mean**; they may be reported separately and labelled.
 
 5.2 **Primary metric:** cell MAPE of the deployed forecast. **Secondary:** 26-week
-block win rate against the matched control and against persistence, plus deploy
+block win rate against the matched control and against the naive forecast, plus deploy
 coverage.
 
 5.3 **Comparability.** Two experiments may be compared only when `n_series`, cell
@@ -131,7 +144,7 @@ detectable difference", regardless of sign.
 Holm or Benjamini–Hochberg at the declared level and report both raw and adjusted
 values. Selecting the best of many variants post hoc is not a finding.
 
-5.6 **Deploy coverage floor.** A rule that wins by falling back to persistence almost
+5.6 **Deploy coverage floor.** A rule that wins by falling back to the naive forecast almost
 everywhere reports its coverage; coverage below 10% of blocks is non-transfer.
 
 ---
@@ -141,7 +154,7 @@ everywhere reports its coverage; coverage below 10% of blocks is non-transfer.
 6.1 Five items are machine-checked by `experiment/transfer_contract.py`. Each returns
 pass or fail with the numbers behind it.
 
-1. **Margin** — deployed cell MAPE is below both the matched control and persistence,
+1. **Margin** — deployed cell MAPE is below both the matched control and the naive forecast,
    with a bootstrap interval excluding 0.
 2. **Block transfer** — the next-block win rate, computed per 26-week block, exceeds
    50%.
@@ -178,7 +191,7 @@ leaderboard as eligible only if its forecast comes from a model whose definition
 fixed by this protocol or by a closed form with no penalty, no architecture and no
 search. A model whose result depends on a hand-set `alpha`, `k`, depth, learning rate
 or clip bound is **retired**: its rows are kept under `status = 'retired-heuristic'`
-and are never compared against persistence.
+and are never compared against the naive forecast.
 
 7.3 **Declared constants must be shown not to matter.** A `declared` constant that
 could decide a conclusion requires a sensitivity table over a pre-declared grid,
@@ -194,7 +207,7 @@ is not a substitute for registration.
 
 7.6 **The leaderboard records provenance.** In addition to §6.3, every row carries
 `params_hash`, `params_version`, `pipeline`, `aggregate` (1 for `horizon = 'all'`, so
-§5.1 is a filter rather than a memory), `window` (`dev`/`sealed`) and `status`.
+§5.1 is a filter rather than a memory) and `status`.
 `tools/leaderboard_lint.py` fails when an eligible row lacks any of them, when a
 metric is not a MAPE, or when the migrated table lost a row.
 
@@ -204,7 +217,7 @@ metric is not a MAPE, or when the migrated table lost a row.
 
 Every report contains:
 
-1. Hypothesis as registered, and the sealed-block dates.
+1. Hypothesis as registered, and the evaluation origins (4.2).
 2. Gate A audit table for the candidate, including the ineligible entries.
 3. Gate B statement: which axes changed, and the oracle-gate bound with the fraction
    captured.
@@ -241,7 +254,7 @@ horizons 1–8:
 
 | Quantity | Value |
 | --- | --- |
-| persistence MAPE | 6.180 |
+| naive-forecast MAPE | 6.180 |
 | candidate (always deployed) MAPE | 6.194 |
 | oracle gate MAPE (knows per-cell winner) | 5.976 |
 | oracle bound on any deployment rule | **0.204 MAPE** |
@@ -251,7 +264,7 @@ horizons 1–8:
 Other facts recorded during the audit:
 
 - E019 `cap` reached 6.173 on the leaderboard, but 54 of 200 deployed commodity-weeks
-  (0.27) were worse than persistence against a 0.10 target — a Gate E item 1/4 failure
+  (0.27) were worse than the naive forecast against a 0.10 target — a Gate E item 1/4 failure
   that aggregate MAPE hid.
 - Across 71 earlier comparisons, none survived a Bonferroni threshold of 0.0007; the
   best uncorrected p-value was 0.0032 for `E007_robust`, itself the maximum of five
@@ -278,8 +291,9 @@ constraint, and re-gating a weaker-than-baseline candidate could not have exceed
   CI로 먼저 감사한다. 0을 포함하면 그 후보로 규칙·보정 실험을 시작하지 않는다.
 - **Gate B (설계)**: 데이터·특징·모델 3축 중 최소 2축을 바꾼다. 규칙만 바꾸는 실험은
   후보가 Gate A를 통과했을 때만 허용하고, 오라클 상한과 회수율을 반드시 보고한다.
-- **Gate C (사전등록)**: 라운드당 주가설 1개, 최근 52주는 봉인하고 개발구간에서만
-  탐색한다.
+- **Gate C (사전등록)**: 라운드당 주가설 1개. 평가는 dev/sealed 없이 단일 규칙 —
+  2025-01~2026-09 각 월 첫 주를 origin으로 하는 TSCV(h=1..8). 봉인이 없으므로 가설·판정 규칙을
+  실행 전에 등록하고, 본 뒤에 바꾼 규칙은 탐색적으로 표기한다.
 - **Gate D (평가)**: 'all' 행을 셀 평균에서 제외, 시리즈 수·셀 수·evaluator_version이
   같을 때만 비교, family size와 보정 p값 공개, 커버리지 10% 미만은 non-transfer.
 - **Gate E (계약 코드화)**: 5개 항목을 `experiment/transfer_contract.py`로 자동 판정,

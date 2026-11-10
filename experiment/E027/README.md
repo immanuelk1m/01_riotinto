@@ -1,5 +1,7 @@
 # E027 — coffee and corn only (Gate C registration)
 
+> **Revision (2026-11-09):** the dev/sealed split and the 52-origin seal are gone. Evaluation is the monthly-first-week TSCV, 2025-01..2026-09, h = 1..8 (PROTOCOL.md v1.2 §4). The dev, sealed and `window` text below records the old rule (cell-v3).
+
 **Registered:** 2026-11-01, before any direction of this round was run.
 **Protocol:** [`PROTOCOL.md`](../../PROTOCOL.md) gates A–E. Round-level registration and
 family size live in [`../FAMILY.md`](../FAMILY.md).
@@ -11,7 +13,7 @@ re-analysed here.
 
 The E022–E026 report (`../LEADERBOARD_exogenous_2026.md`) shows every one of its 25
 directions failing Holm, but the per-series table inside the audit files shows a
-consistent, positive candidate-over-persistence gap on exactly two series:
+consistent, positive candidate-over-naive-forecast gap on exactly two series:
 
 | series | E024 `gbrt_agri` mean d | other directions positive |
 |---|---|---|
@@ -24,7 +26,7 @@ those two series and asks a narrower question.
 ## Hypothesis
 
 On coffee (CEPEA/ESALQ robusta, USD per 60 kg bag) and on corn (Barchart cash national corn
-index), a pre-registered exogenous model beats persistence at 1–8 weeks on the development
+index), a pre-registered exogenous model beats the naive forecast at 1–8 weeks on the development
 window by more than this panel's detection floor.
 
 Two series → three statements: `coffee`, `corn`, and `pooled`.
@@ -55,8 +57,8 @@ E024 numbers above.
 ## Design (fixed, no search)
 
 - `cell` = (series, horizon, origin); horizons 1–8; `train_frac = 0.50`; refit every 4 weeks.
-- primary metric: cell MAPE (capped APE) against persistence, paired per cell
-  `d = ape_persistence − ape_candidate`.
+- primary metric: cell MAPE (capped APE) against the naive forecast, paired per cell
+  `d = ape_naive − ape_candidate`.
 - uncertainty: 26-week **calendar**-block bootstrap (`origin // 26`), 2000 draws, blocks
   resampled with their cells pooled; one-sided p = P(mean d ≤ 0).
 - family size: 3 directions × 3 statements = **9** tests → Holm α₁ = 0.00556.
@@ -126,8 +128,8 @@ Registered now, evaluated once:
 ```bash
 # Mac mini (data preparation only)
 uv run python experiment/E027/E027.py prepare
-# Colab, one pane per direction
-uv run python -m _colab.job run --exp E027 --cmd "gbrt_cc" --include _exo
+# one direction per run
+uv run python experiment/E027/E027.py gbrt_cc
 ```
 
 ## Amendment 1 — evaluator (declared 2026-11-08, before any forward target matured)
@@ -135,12 +137,12 @@ uv run python -m _colab.job run --exp E027 --cmd "gbrt_cc" --include _exo
 The forward evaluation above is to be scored with evaluator **cell-v3**, not the cell-v2 code that
 produced the development and sealed numbers in `RESULTS.md`.
 
-- cell-v2 (`_exo/engine.py` until 2026-11-08) scored persistence as `|expm1(r)| = |P_{t+h}/P_t − 1|`
+- cell-v2 (`_exo/engine.py` until 2026-11-08) scored the naive forecast as `|expm1(r)| = |P_{t+h}/P_t − 1|`
   while scoring the candidate as `|P̂/P_{t+h} − 1|`; PROTOCOL §2.1/§5.1 define both against the
-  target, so persistence must be `|expm1(−r)|`. The mismatch inflated `d` in rising samples
+  target, so the naive forecast must be `|expm1(−r)|`. The mismatch inflated `d` in rising samples
   (on `gbrt_cc` cells: mean d +0.00433 under cell-v2, +0.00390 under §5.1).
 - The forecasts, models, family size and decision rule of the forward test are unchanged. Only the
-  persistence APE formula changes, to the one the protocol already stated.
+  naive-forecast APE formula changes, to the one the protocol already stated.
 - Timing: the first forward origin is 2026-11-02 and its h=1 target week ends 2026-11-08; no forward
   target had been observed when this amendment was written.
 - The development and sealed numbers in `RESULTS.md` stay as run (cell-v2) and are not compared with

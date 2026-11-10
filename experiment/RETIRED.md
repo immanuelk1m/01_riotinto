@@ -2,7 +2,7 @@
 
 ## The rule
 
-> A direction can be ranked against persistence only if its forecast comes from a
+> A direction can be ranked against the naive forecast only if its forecast comes from a
 > model whose definition is fixed by `PROTOCOL.md` or by a **closed form with no free
 > parameter**. Everything else is retired.
 
@@ -51,5 +51,14 @@ survives.
 | `persistence` | forecasts a zero log-return; no parameter |
 | `adl` | closed-form OLS on a registered design matrix; `np.linalg.lstsq`, no penalty |
 
-The leaderboard rows that survive are the persistence baselines plus the ADL
+The leaderboard rows that survive are the naive-forecast baselines plus the ADL
 directions of E023 and E024 re-run under `PARAMS_VERSION = 2.0`.
+
+## Old evaluation rule (2026-11-09)
+
+The dev/sealed split was replaced by the monthly-first-week TSCV (PROTOCOL.md v1.2 §4, evaluator cell-v4),
+so rows scored on the old origins are not comparable and were dropped from the ledger. Only the `adl`
+directions can still run (`RETAINED_MODELS`) and were rerun: E022 `adl_gpr_vix`, `adl_stocks_cot`; E023
+`adl_real_yield`, `adl_basis_macro`; E024 `adl_parity_fx`, `adl_enso`, `adl_rain`; E026 `adl_broad`; E027
+`adl_cc`; E028 `struct`. Every other direction of E022–E027 (lasso, pcr, gbrt, rf, combo, mlp; all of E025)
+has no model that may run, so it keeps only its old-rule audit files and has no cell-v4 row.

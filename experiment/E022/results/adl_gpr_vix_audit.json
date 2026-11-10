@@ -1,0 +1,67 @@
+{
+  "n_cells": 800,
+  "n_origins": 20,
+  "n_series": 5,
+  "mean_d": 0.008327326782814844,
+  "ci_low": -0.002099470884639236,
+  "ci_high": 0.017229963305781845,
+  "blocks": 4,
+  "block_win_rate": 0.75,
+  "mape_pers": 12.236634850958676,
+  "mape_cand": 11.40390217267719,
+  "frac_series_positive": 0.8,
+  "worst_series_delta": -0.0019999386469880054,
+  "eligible": false,
+  "per_series": {
+    "brent": {
+      "n": 160,
+      "mean_d": 0.007579,
+      "mape_pers": 11.337765,
+      "mape_cand": 10.57985
+    },
+    "gas_hh": {
+      "n": 160,
+      "mean_d": 0.028807,
+      "mape_pers": 20.568986,
+      "mape_cand": 17.688288
+    },
+    "gasoline": {
+      "n": 160,
+      "mean_d": -0.002,
+      "mape_pers": 8.169152,
+      "mape_cand": 8.369145
+    },
+    "heating": {
+      "n": 160,
+      "mean_d": 0.001115,
+      "mape_pers": 11.245011,
+      "mape_cand": 11.133518
+    },
+    "wti": {
+      "n": 160,
+      "mean_d": 0.006136,
+      "mape_pers": 9.862261,
+      "mape_cand": 9.24871
+    }
+  },
+  "direction": "adl_gpr_vix",
+  "model": "adl",
+  "exog": [
+    "gpr",
+    "vix",
+    "dgs10",
+    "dollar"
+  ],
+  "targets": [
+    "wti",
+    "brent",
+    "gas_hh",
+    "gasoline",
+    "heating"
+  ],
+  "experiment": "E022",
+  "lags": 4,
+  "sensitivity": false,
+  "params_version": "3.0",
+  "params_hash": "7b9c91677bdc2917"
+}

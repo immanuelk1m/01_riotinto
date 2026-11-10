@@ -30,7 +30,6 @@ fails the build if a new one appears.  Concretely, v1 decided results with:
 from __future__ import annotations
 
 import json
-import os
 import re
 import sys
 from pathlib import Path
@@ -39,15 +38,13 @@ import numpy as np
 import pandas as pd
 
 if __package__:
-    from .leaderboard import write as write_leaderboard
     from .params import P, PARAMS_HASH, PARAMS_VERSION
 else:  # executed as a plain script
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from leaderboard import write as write_leaderboard
     from params import P, PARAMS_HASH, PARAMS_VERSION
 
 #: the complete set of models that may run.  ``adl`` is a closed-form OLS on a
-#: declared design matrix; ``persistence`` forecasts a zero log-return.  Neither
+#: declared design matrix; the naive forecast ``persistence`` is a zero log-return.  Neither
 #: carries a free parameter, so neither can be tuned into a win.
 RETAINED_MODELS = ("persistence", "adl")
 
@@ -246,24 +243,36 @@ def fit_predict(model: str, Xtr: np.ndarray, Ytr: np.ndarray, Xte: np.ndarray) -
 
 # ------------------------------------------------------------------- walk and audit
 
+def tscv_origins(index: pd.DatetimeIndex) -> np.ndarray:
+    """Positions in ``index`` of the first week of every month in TSCV_START..TSCV_END.
+
+    The first week of a month is the W-SUN week-end that first falls inside it, taken from the
+    calendar, so a week missing from ``index`` drops that origin instead of shifting it.
+    """
+    weeks = pd.date_range(pd.Period(P.TSCV_START).start_time, pd.Period(P.TSCV_END).end_time,
+                          freq="W-SUN")
+    first = weeks.to_series().groupby(weeks.to_period("M")).first()
+    pos = index.get_indexer(pd.DatetimeIndex(first.to_numpy()))
+    return pos[pos >= 0]
+
+
 def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
                  lags: int | None = None):
+    """TSCV: one expanding-window fit per origin in ``tscv_origins``, mature labels only."""
     logp = np.log(price.to_numpy(dtype=float))
     X, names = features(price, exog, keys, lags=lags)
     Y = targets(logp)
     ok = np.isfinite(X).all(1) & np.isfinite(Y).all(1) & np.isfinite(logp)
     valid = np.flatnonzero(ok)
-    # a training window plus one complete horizon set, nothing more
-    if len(valid) < int(P.MIN_TRAIN) + int(P.H):
-        return None
-    n = len(logp)
+    n, horizon = len(logp), int(P.H)
+    week = price.index.to_period("W-SUN").asi8
     usable = set(valid.tolist())
-    first = int(valid[min(len(valid) - 1, int(round(P.TRAIN_FRAC * len(valid))))])
     rows = []
-    for t in range(first, n, int(P.REFIT_EVERY)):
-        if t not in usable:
+    for t in tscv_origins(price.index):
+        # all H targets must exist, and a training row's label (j + H) must be known at t
+        if t not in usable or t + horizon >= n:
             continue
-        train = valid[valid < t]
+        train = valid[valid + horizon <= t]
         if len(train) < int(P.MIN_TRAIN):
             continue
         try:
@@ -271,11 +280,9 @@ def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
         except Exception as exc:  # noqa: BLE001 - one bad fit must not kill a direction
             print(f"[walk] fit failed t={t}: {exc}", flush=True)
             continue
-        for h in range(1, int(P.H) + 1):
-            if t + h >= n:
-                continue
+        for h in range(1, horizon + 1):
             rows.append(
-                dict(origin=int(t), horizon=h, target_logret=float(Y[t, h - 1]),
+                dict(origin=int(week[t]), horizon=h, target_logret=float(Y[t, h - 1]),
                      fc=float(pred[h - 1]))
             )
     if not rows:
@@ -285,7 +292,7 @@ def walk_forward(price: pd.Series, exog: dict, keys: list[str], model: str,
 
 def score(cells: pd.DataFrame) -> pd.DataFrame:
     cells = cells.copy()
-    # persistence forecasts P_t, so its APE is |P_t / P_{t+h} - 1| = |expm1(-r)| (§5.1); cell-v2
+    # the naive forecast is P_t, so its APE is |P_t / P_{t+h} - 1| = |expm1(-r)| (§5.1); cell-v2
     # used |expm1(r)| = |P_{t+h} / P_t - 1|, a different denominator from the candidate's
     cells["ape_pers"] = np.minimum(P.CAP, np.abs(np.expm1(-cells.target_logret)))
     cells["ape_cand"] = np.minimum(P.CAP, np.abs(np.expm1(cells.fc - cells.target_logret)))
@@ -298,23 +305,23 @@ def score(cells: pd.DataFrame) -> pd.DataFrame:
     return cells
 
 
-def block_bootstrap(dev: pd.DataFrame, block: int | None = None, draws: int | None = None,
+def block_bootstrap(cells: pd.DataFrame, block: int | None = None, draws: int | None = None,
                     seed: int | None = None):
     """Resample calendar blocks of origins and pool their cells.
 
-    Blocking uses the calendar index (``origin // block``), not the count of
-    distinct origins: on a sparse grid (refit every 4 weeks) counting origins
-    reported 6 blocks where 18 exist and produced intervals narrow enough to turn
-    a false result into a PASS.
+    Blocking uses the calendar index (``origin // block``, origin = week ordinal), not
+    the count of distinct origins: on a sparse grid (monthly origins) counting origins
+    reports more blocks than the calendar holds and produces intervals narrow enough
+    to turn a false result into a PASS.
     """
     block = int(P.BLOCK if block is None else block)
     draws = int(P.BOOT if draws is None else draws)
     seed = int(P.SEED if seed is None else seed)
-    frame = dev.assign(_blk=(dev.origin // block).astype(int))
+    frame = cells.assign(_blk=(cells.origin // block).astype(int))
     groups = [g.d.to_numpy(dtype=float) for _, g in frame.groupby("_blk")]
     n_blocks = len(groups)
     if n_blocks < 2:
-        values = dev.d.to_numpy(dtype=float)
+        values = cells.d.to_numpy(dtype=float)
         return dict(mean=float(values.mean()), lo=float("nan"), hi=float("nan"), blocks=n_blocks)
     rng = np.random.default_rng(seed)
     means = np.empty(draws)
@@ -322,43 +329,35 @@ def block_bootstrap(dev: pd.DataFrame, block: int | None = None, draws: int | No
         pick = rng.integers(0, n_blocks, size=n_blocks)
         means[b] = np.concatenate([groups[i] for i in pick]).mean()
     return dict(
-        mean=float(dev.d.mean()),
+        mean=float(cells.d.mean()),
         lo=float(np.quantile(means, P.ALPHA / 2)),
         hi=float(np.quantile(means, 1 - P.ALPHA / 2)),
         blocks=n_blocks,
     )
 
 
-def audit(cells: pd.DataFrame, sealed_cut: int, block: int | None = None) -> dict:
-    dev = cells[cells.origin < sealed_cut]
-    sealed = cells[cells.origin >= sealed_cut]
-    boot = block_bootstrap(dev, block=block)
+def audit(cells: pd.DataFrame, block: int | None = None) -> dict:
+    boot = block_bootstrap(cells, block=block)
     block_size = int(P.BLOCK if block is None else block)
-    blocks = dev.assign(block=(dev.origin // block_size)).groupby("block").d.mean()
-    per_series = dev.groupby("series").agg(
+    blocks = cells.assign(block=(cells.origin // block_size)).groupby("block").d.mean()
+    per_series = cells.groupby("series").agg(
         n=("d", "size"), mean_d=("d", "mean"),
         mape_pers=("mape_pers", "mean"), mape_cand=("mape_cand", "mean"),
     )
     out = dict(
-        n_cells=int(len(dev)),
-        n_origins=int(dev.origin.nunique()),
-        n_series=int(dev.series.nunique()),
-        mean_d=float(dev.d.mean()),
+        n_cells=int(len(cells)),
+        n_origins=int(cells.origin.nunique()),
+        n_series=int(cells.series.nunique()),
+        mean_d=float(cells.d.mean()),
         ci_low=boot["lo"],
         ci_high=boot["hi"],
         blocks=boot["blocks"],
         block_win_rate=float((blocks > 0).mean()) if len(blocks) else float("nan"),
-        mape_pers=float(dev.mape_pers.mean()),
-        mape_cand=float(dev.mape_cand.mean()),
+        mape_pers=float(cells.mape_pers.mean()),
+        mape_cand=float(cells.mape_cand.mean()),
         frac_series_positive=float((per_series.mean_d > 0).mean()),
         worst_series_delta=float(per_series.mean_d.min()),
-        eligible=bool(dev.d.mean() > 0 and boot["lo"] > 0),
-        sealed=dict(
-            n_cells=int(len(sealed)),
-            mean_d=float(sealed.d.mean()) if len(sealed) else float("nan"),
-            mape_pers=float(sealed.mape_pers.mean()) if len(sealed) else float("nan"),
-            mape_cand=float(sealed.mape_cand.mean()) if len(sealed) else float("nan"),
-        ),
+        eligible=bool(cells.d.mean() > 0 and boot["lo"] > 0),
         per_series=per_series.round(6).to_dict(orient="index"),
     )
     return out
@@ -369,14 +368,12 @@ def markdown(direction: str, audit_row: dict) -> str:
     head = (
         f"# {direction}\n\n"
         f"- cells: {audit_row['n_cells']} (origins {audit_row['n_origins']}, series {audit_row['n_series']})\n"
-        f"- mean d (capped APE, persistence - candidate): **{audit_row['mean_d']:.6f}** "
+        f"- mean d (capped APE, naive forecast - candidate): **{audit_row['mean_d']:.6f}** "
         f"[{audit_row['ci_low']:.6f}, {audit_row['ci_high']:.6f}] ({audit_row['blocks']} blocks)\n"
-        f"- MAPE persistence {audit_row['mape_pers']:.3f} vs candidate {audit_row['mape_cand']:.3f}\n"
+        f"- MAPE naive forecast {audit_row['mape_pers']:.3f} vs candidate {audit_row['mape_cand']:.3f}\n"
         f"- block win rate {audit_row['block_win_rate']:.3f}; series positive "
         f"{audit_row['frac_series_positive']:.3f}; worst series {audit_row['worst_series_delta']:.6f}\n"
         f"- **Gate A: {'PASS' if audit_row['eligible'] else 'FAIL'}**\n"
-        f"- sealed block (not used for eligibility): mean d {audit_row['sealed']['mean_d']:.6f}, "
-        f"MAPE {audit_row['sealed']['mape_pers']:.3f} vs {audit_row['sealed']['mape_cand']:.3f}\n"
         f"- params: v{PARAMS_VERSION} `{PARAMS_HASH}`\n\n"
         "| series | n | mean d | MAPE pers | MAPE cand |\n|---|---|---|---|---|\n"
     )
@@ -457,8 +454,7 @@ def run(base: Path, spec: str) -> int:
 
     cells = score(pd.concat(frames, ignore_index=True))
     cells["direction"] = name
-    sealed_cut = int(cells.origin.max()) - int(P.SEALED_ORIGINS)
-    row = audit(cells, sealed_cut)
+    row = audit(cells)
     row.update(direction=name, model=direction["model"], exog=exog_keys,
                targets=keys, experiment=cfg["experiment"], lags=int(P.LAGS if lags is None else lags),
                sensitivity=swing,
@@ -470,21 +466,7 @@ def run(base: Path, spec: str) -> int:
     (out / f"{name}_audit.json").write_text(json.dumps(row, indent=2, default=float))
     (out / f"{name}_audit.md").write_text(markdown(name, row))
 
-    dev = cells[cells.origin < sealed_cut]
-    ledger_db = Path(os.environ.get("EXO_LEADERBOARD", base.parents[1] / "leaderboard.sqlite"))
-    if swing:
-        print(f"[ledger] skipped (sensitivity swing LAGS={lags})", flush=True)
-    elif limit and "EXO_LEADERBOARD" not in os.environ:
-        print("[ledger] skipped (--limit: partial panel)", flush=True)
-    else:
-        col_names = {key: meta["col_name"] for key, meta in
-                     json.loads((base / "data" / "manifest.json").read_text())["targets"].items()}
-        # the baseline is scoped to the direction, not to the experiment: two directions in one
-        # experiment can score different panels, and a shared `_persistence` label then mixes a
-        # 2-series and a 3-series panel under one name (§5.3)
-        written = write_leaderboard(ledger_db, f"{cfg['experiment']}_{name}", dev, col_names,
-                                    persistence=f"{cfg['experiment']}_{name}_persistence",
-                                    direction=name)
-        print(f"[ledger] {written} rows -> {ledger_db}", flush=True)
+    # the ledger is W&B (`_exo/leaderboard.py`); it is written on the mini from the cells
+    print(f"[ledger] next: tools/leaderboard_from_cells.py {cfg['experiment']} --apply", flush=True)
     print(json.dumps({k: v for k, v in row.items() if k != "per_series"}, indent=2, default=float), flush=True)
     return 0

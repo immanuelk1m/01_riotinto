@@ -12,7 +12,7 @@ src/                           # Kedro 패키지 자체(package_name = "src") �
   features/                    # 피처 블록: 파일 하나 = 블록 하나, __init__.py 의 FEATURES 에 등록
   models/                      # 모델: 파일 하나 = 모델 하나, __init__.py 의 MODELS 에 등록
     statistical/               #   통계 모델 (naive, seasonal_naive, ols)
-    ml/                        #   머신러닝 모델
+    ml/                        #   머신러닝 모델 (xgb)
     dl/                        #   딥러닝 모델 (NeuralForecast)
   pipelines/<이름>/            # Kedro modular pipeline: nodes.py(노드 함수) + pipeline.py(create_pipeline)
     data_ingestion/            #   load_prices, load_exogenous — 등록 이름 `data`, __default__ 에서 빠진다
@@ -51,7 +51,8 @@ tests/
 
 - **실험**: `conf/base/parameters_experiments.yml` 에 항목 추가.
   `study`(W&B group), `model`(필수), `features`(블록 목록), `model_params`, `feature_params: {블록: {인자: 값}}`,
-  `target`(`level|diff|log|logdiff`, 생략 시 `logdiff` — `src/utils.py` 의 `TARGETS`).
+  `target`(`level|diff|log|logdiff`, 생략 시 `logdiff` — `src/utils.py` 의 `TARGETS`),
+  `train_start`(그 주부터의 행만 학습 — `exog` 실험과 학습 구간을 맞춘 대조군용, 생략 시 전체).
 - **모델**: `src/models/<statistical|ml|dl>/<이름>.py` 에 `fit(X, Y) -> self`, `predict(X) -> (n, H)` 클래스 + `MODELS` 한 줄.
   Y·예측은 실험의 `target` 공간이다. 출력 공간이 고정된 모델(naive 류)은 클래스 속성 `target` 을 적는다.
 - **피처**: `src/features/<이름>.py` 에 `build(logp, horizon, exog, **params) -> DataFrame` + `FEATURES` 한 줄.
@@ -108,7 +109,7 @@ uv run pytest
   그래서 `exog` 를 쓰는 실험의 학습 구간은 `start` 부터로 고정된다.
 - 고르기(`exog` 블록): `feature_params: {exog: {source: drivers|ml|all, codes: [...], exclude: [...]}}`.
   `codes`·`exclude` 는 `value_manifest.code` 접두어다 — 대 `MAC`, 중 `MAC.INF`, 소 `MAC.INF.PRODUCER`.
-- 값은 수준 그대로 들어간다(차분·표준화 없음).
+- 값은 기본으로 수준 그대로 들어간다(표준화 없음). `feature_params: {exog: {diff: k}}` 면 k주 변화량이고 열 이름은 `<col>__d<k>`.
 
 ## 7. 용어
 

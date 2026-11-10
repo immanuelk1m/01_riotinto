@@ -41,6 +41,8 @@ def fit(model, model_input: pd.DataFrame, spec: dict, horizon: int) -> dict:
         xcols = group[all_xcols].dropna(axis=1, how="all").columns.tolist()   # 다른 시리즈 전용 열은 뺀다
         has_x = group[xcols].notna().all(axis=1).to_numpy()
         complete = has_x & group[ycols].notna().all(axis=1).to_numpy()
+        if "train_start" in spec:                                # 학습 구간을 맞춘 대조군용
+            complete &= (group.week >= pd.Timestamp(spec["train_start"])).to_numpy()
         for t in np.flatnonzero(group.is_origin.to_numpy() & has_x):
             train = group[complete & (position + horizon <= t)]
             fitted[(series, group.week[t])] = copy.deepcopy(model).fit(train[xcols], encode(*_prices(train, ycols)))

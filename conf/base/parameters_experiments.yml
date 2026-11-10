@@ -7,14 +7,118 @@
 #   model_params:   모델 생성자 인자
 #   target:         모델이 학습·예측하는 공간 — level(P_{t+h}) | diff(P_{t+h}−P_t) | log(log P_{t+h})
 #                   | logdiff(log(P_{t+h}/P_t), 생략 시). 평가는 어느 쪽이든 가격 MAPE
+#   train_start:    그 주부터의 행만 학습 (exog 실험과 학습 구간을 맞춘 대조군용, 생략 시 전체)
 #   feature_params: 블록별 인자 덮어쓰기  {블록이름: {인자: 값}}
 #     exog 블록: source(drivers|ml|all), codes / exclude(value_manifest.code 접두어: MAC, MAC.INF, MAC.INF.PRODUCER)
+#     exog 블록: diff(0 = 수준값, k = k주 변화량)
 experiments:
   naive:
     study: baseline
     model: naive
-  ols_drivers:
-    study: exog
+  # --- study xgb_feat: 가격 이력의 다른 표현 (대조군 = xgb_logdiff_ret_reg) ---
+  xgb_logdiff_ret_reg:
+    study: xgb_target
+    model: xgb
+    target: logdiff
+    features: [lags]
+    model_params: &reg {tree_method: hist, multi_strategy: multi_output_tree,
+                        max_depth: 2, learning_rate: 0.03, n_estimators: 100, min_child_weight: 20}
+  xgb_mom:
+    study: xgb_feat
+    model: xgb
+    features: [momentum]
+    model_params: *reg
+  xgb_ret_mom:
+    study: xgb_feat
+    model: xgb
+    features: [lags, momentum]
+    model_params: *reg
+  xgb_ret_seasonal:
+    study: xgb_feat
+    model: xgb
+    features: [lags, seasonal]
+    model_params: *reg
+  # --- study xgb_model: 모델 설정 (대조군 = xgb_logdiff_ret_reg) ---
+  xgb_ret_mid:
+    study: xgb_model
+    model: xgb
+    features: [lags]
+    model_params: {tree_method: hist, multi_strategy: multi_output_tree,
+                   max_depth: 3, learning_rate: 0.1, n_estimators: 100, min_child_weight: 5}
+  xgb_ret_perh:
+    study: xgb_model
+    model: xgb
+    features: [lags]
+    model_params: {tree_method: hist, multi_strategy: one_output_per_tree,
+                   max_depth: 2, learning_rate: 0.03, n_estimators: 100, min_child_weight: 20}
+  ols_ret:
+    study: xgb_model
     model: ols
+    features: [lags]
+  # --- study xgb_exog: 외생변수 drivers, 학습 2015-01~ (대조군 = xgb_w2015) ---
+  xgb_w2015:
+    study: xgb_exog
+    model: xgb
+    features: [lags]
+    train_start: "2015-01-04"
+    model_params: *reg
+  xgb_drv:
+    study: xgb_exog
+    model: xgb
     features: [lags, exog]
     feature_params: {exog: {source: drivers}}
+    model_params: *reg
+  xgb_drv_d4:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, diff: 4}}
+    model_params: *reg
+  xgb_fnd:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [FND]}}
+    model_params: *reg
+  xgb_fnd_d4:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [FND], diff: 4}}
+    model_params: *reg
+  xgb_mac:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [MAC]}}
+    model_params: *reg
+  xgb_mac_d4:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [MAC], diff: 4}}
+    model_params: *reg
+  xgb_pfm:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [PFM]}}
+    model_params: *reg
+  xgb_pfm_d4:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [PFM], diff: 4}}
+    model_params: *reg
+  xgb_ext:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [EXT]}}
+    model_params: *reg
+  xgb_ext_d4:
+    study: xgb_exog
+    model: xgb
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers, codes: [EXT], diff: 4}}
+    model_params: *reg

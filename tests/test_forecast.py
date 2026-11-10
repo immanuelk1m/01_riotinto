@@ -85,6 +85,14 @@ def test_ols_learns_a_linear_rule():
     assert np.allclose(metrics.mape, 0, atol=1e-6) and metrics.mape_naive.mean() > 1
 
 
+def test_xgb_multi_output_tree_holds_a_constant_price():
+    spec = {"model": "xgb", "target": "level", "features": ["price_lags"],
+            "model_params": {"tree_method": "hist", "multi_strategy": "multi_output_tree"}}
+    forecasts, metrics = run(spec, np.full(300, 7.0))
+    assert len(metrics) == H and np.allclose(metrics.mape, 0, atol=1e-3)
+    assert forecasts.origin.nunique() == run(NAIVE, np.full(300, 7.0))[0].origin.nunique()   # 프로토콜 동일
+
+
 def test_forecast_at_origin_ignores_the_future():
     rng = np.random.default_rng(0)
     value = np.exp(np.cumsum(rng.normal(0, 0.03, 300)))
@@ -159,3 +167,17 @@ def test_fixed_space_models_reject_other_targets():
         check("e", {"model": "naive", "target": "level"})
     with pytest.raises(ValueError, match="모르는 target"):
         check("e", {"model": "ols", "target": "pct"})
+
+
+def test_train_start_drops_earlier_rows_from_training():
+    value = np.r_[np.full(150, 1.0), 100.0 + np.arange(150)]     # 앞 절반은 다른 체제: 뒤 절반만 보면 diff = h 로 정확
+    ols = lambda **kw: run({"model": "ols", "target": "diff", **kw}, value)[1].mape  # noqa: E731
+    assert np.allclose(ols(train_start=str(WEEKS[150].date())), 0, atol=1e-9) and (ols() > 1e-3).all()
+
+
+def test_exog_diff_gives_changes_under_their_own_column_names():
+    targets = make_targets(pd.DataFrame({"series": "x", "week": WEEKS, "value": 7.0}), H, START)
+    spec = lambda **p: {"model": "ols", "features": ["exog"], "feature_params": {"exog": p}}  # noqa: E731
+    features, columns = build_features(targets, exog_rows("x", "a", "MAC.INF", "drivers"),
+                                       {"l": spec(), "d": spec(diff=4)}, {}, H)
+    assert list(columns.values()) == [["a"], ["a__d4"]] and features["a__d4"].equals(features["a"].diff(4))

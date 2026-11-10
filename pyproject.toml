@@ -9,7 +9,9 @@ dependencies = [
     "pandas>=3.1.0",
     "psycopg[binary]>=3.3.6",
     "pyarrow>=26.0.0",
+    "scikit-learn>=1.9.1",
     "wandb>=0.31.0",
+    "xgboost>=3.4.1",
 ]
 
 [dependency-groups]

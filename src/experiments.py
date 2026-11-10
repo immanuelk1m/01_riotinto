@@ -8,7 +8,7 @@ from src.features import FEATURES
 from src.models import MODELS
 from src.utils import DEFAULT_TARGET, TARGETS
 
-SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params", "target"}
+SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params", "target", "train_start"}
 
 
 def experiments() -> dict[str, dict]:

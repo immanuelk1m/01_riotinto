@@ -1,0 +1,88 @@
+# 외생변수 설정. 원자재 키 = parameters.yml 의 targets 키.
+#   start:   이 주부터의 외생 데이터만 쓴다. 이 날짜에 아직 값이 없는 변수는 그 원자재에서 빠진다.
+#   drivers: 주간 가격 변동 원인에 연결된 변수 (commodity_weekly_drivers.xlsx 원인표).
+# ml 변수 목록은 여기 적지 않는다 — 스냅샷 때 Postgres ml.feature 에서 읽는다.
+exogenous:
+  coffee:
+    start: "2015-01-04"
+    drivers:
+      - Weather_NOAA_CPC_Nino34_Weekly_SST_Celsius
+      - Com_Fed_H10_EX_BRL_USD
+      - Com_Conab_Brazil_Coffee_Arabica_Production_Estimate_Million_60kg_Bags
+      - Climate_USDM_CONUS_D0_D4_Area_Percent
+      - Com_NSO_Vietnam_Preliminary_Exports_Of_Goods_Coffee_Quantity
+      - Com_ICE_Coffee_C_Certified_Stocks_Bags
+      - Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Noncommercial_Long_Positions_All
+      - Com_Cooxupe_Weekly_Coffee_Harvest_Progress_Pct
+      - Com_Conab_Brazil_Coffee_Total_Production_Estimate_Million_60kg_Bags
+      - Macro_Policyuncertainty_US_Daily_Trade_Policy_Uncertainty_Index
+      - Com_Cecafe_Brazil_Conillon_Coffee_Exports_Million_60kg_Bags
+      - Com_EPU_Gpr_Daily_Gprd
+      - fed_h10_nominal_broad_dollar_index_daily
+      - Com_CBOE_VIX_Index
+      - Com_Conab_Brazil_Coffee_Conilon_Production_Estimate_Million_60kg_Bags
+      - Com_Cecafe_Brazil_Arabica_Coffee_Exports_Million_60kg_Bags
+      - Com_CFTC_Commitments_Of_Traders_Legacy_Report_COFFEE_C_ICE_Futures_U_S_Commercial_Long_Positions_All
+      - Com_Econ_US_nonfarm_payrolls
+      - ecf_monthly_european_ports_green_coffee_stocks_robusta_tonnes
+      - ecf_monthly_european_ports_green_coffee_stocks_total_tonnes
+  copper:
+    start: "2015-01-04"
+    drivers:
+      - fed_h10_nominal_broad_dollar_index_daily
+      - Com_Copper_Import_China
+      - Com_LME_Daily_Closing_Stock_Copper_CA
+      - Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_2_Year_Treasury
+      - Com_Fed_G17_G21223_CopperNickelLeadZincMining_IP_Index_Monthly
+      - Com_CBOE_VIX_Index
+      - Macro_Policyuncertainty_US_Daily_Trade_Policy_Uncertainty_Index
+      - Com_Econ_CN_pmi_mfg
+      - Com_Econ_US_nonfarm_payrolls
+      - Com_BLS_CPI_All_Items_US_SA_Index
+      - Com_FRED_Federal_Funds_Target_Range_Upper_Limit
+      - Com_Econ_CN_gdp_yoy
+      - Com_Econ_US_cpi_yoy
+      - shfe_daily_copper_warrant_stock_total_tonnes
+      - Com_CFTC_COMEX_Copper_Legacy_Futures_Only_NoncommercialLongTraders_Weekly
+      - Com_Econ_CN_cpi_yoy
+      - Com_Econ_CN_exports_yoy
+      - Com_Econ_CN_industrial_prod_yoy
+      - Com_Econ_US_ism_pmi_nonmfg
+      - Com_EPU_Gpr_Daily_Gprd
+      - Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury
+      - Com_LME_Cu_Spread
+      - Com_SHFE_Cu_Inv
+      - Com_Econ_CN_gdp_qoq
+      - Com_Econ_CN_ppi_yoy
+      - Com_Econ_CN_retail_sales_yoy
+      - Com_Econ_US_real_gdp_qoq_annual_rate
+      - Com_Econ_US_retail_sales_mom
+      - Com_Econ_US_unemployment
+      - Com_NBS_China_Refined_Copper_Production_Current_Period_10k_Tonnes
+  gold:
+    start: "2015-01-04"
+    drivers:
+      - Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_2_Year_Treasury
+      - fed_h10_nominal_broad_dollar_index_daily
+      - Com_CBOE_VIX_Index
+      - Com_BLS_CPI_All_Items_US_SA_Index
+      - Com_Econ_US_nonfarm_payrolls
+      - Com_EPU_Gpr_Daily_Gprd
+      - Macro_Policyuncertainty_US_Daily_Trade_Policy_Uncertainty_Index
+      - Com_Econ_US_core_pce_price_index_mom
+      - Com_FRED_Federal_Funds_Target_Range_Upper_Limit
+      - Com_Econ_US_cpi_yoy
+      - Com_Home_Treasury_Gov_Daily_Treasury_Par_Yield_Curve_Rates_10_Year_Treasury
+      - Com_Econ_CN_gdp_qoq
+      - Com_Econ_US_jobless_claims
+      - Com_Econ_CN_cpi_yoy
+      - Com_Econ_US_gdp_qoq
+      - Com_Econ_US_ppi_yoy
+      - Com_WGC_Weekly_Gold_ETF_Global_Inflows_Net_Flows_Pct_of_Holdings
+      - Com_Econ_CN_retail_sales_yoy
+      - Com_Econ_US_core_cpi_mom
+      - Com_Econ_US_ism_pmi_nonmfg
+      - Com_Econ_US_retail_sales_mom
+      - Com_Econ_US_unemployment
+      - Com_WGC_Central_Banks_Dashboard_China_Gold_Reserves_Tonnes
+      - Com_WGC_Gold_Demand_Trends_Central_Bank_Net_Purchases_Tonnes

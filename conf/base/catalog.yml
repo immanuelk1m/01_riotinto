@@ -1,0 +1,47 @@
+raw_prices:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/prices.parquet
+
+raw_exogenous:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/exogenous.parquet
+
+weekly_prices:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/weekly_prices.parquet
+
+targets:
+  type: pandas.ParquetDataset
+  filepath: data/03_feature/targets.parquet
+
+# 모든 실험이 공유하는 모델 입력 — 실험은 여기서 자기 피처 열만 고른다
+feature_columns:               # {"블록:인자": [열 이름]}
+  type: json.JSONDataset
+  filepath: data/03_feature/feature_columns.json
+
+tabular:
+  type: pandas.ParquetDataset
+  filepath: data/04_model_input/tabular.parquet
+
+timeseries:
+  type: pandas.ParquetDataset
+  filepath: data/04_model_input/timeseries.parquet
+
+summary:
+  type: pandas.ParquetDataset
+  filepath: data/07_reporting/summary.parquet
+
+# 실험 namespace 별: {input}.{category}.{exp}
+#   input = tabular|timeseries (모델이 읽는 05 파일), category = statistical|ml|dl (models/ 하위 폴더),
+#   exp = parameters_experiments.yml 의 항목 이름
+"{input}.{category}.{exp}.fitted":
+  type: pickle.PickleDataset
+  filepath: data/05_models/{input}/{category}/{exp}.pkl
+
+"{input}.{category}.{exp}.forecasts":
+  type: pandas.ParquetDataset
+  filepath: data/06_model_output/{input}/{category}/{exp}_forecasts.parquet
+
+"{input}.{category}.{exp}.metrics":
+  type: pandas.ParquetDataset
+  filepath: data/07_reporting/{exp}_metrics.parquet

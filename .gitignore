@@ -1,7 +1,14 @@
 __pycache__/
 .omx/tmp/
-colab_runs/
-.venv-linux/
+.pytest_cache/
+.ruff_cache/
 
+# kedro
+data/
+conf/local/*
+!conf/local/.gitkeep
+.telemetry
+
+# wandb
 wandb/
 artifacts/

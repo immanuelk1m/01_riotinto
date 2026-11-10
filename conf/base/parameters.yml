@@ -1,0 +1,8 @@
+# 모든 실험에 공통인 평가 설정 (실험별 설정은 parameters_experiments.yml)
+targets:                      # key: Postgres public.value 의 col_name
+  coffee: Com_CEPEA_ESALQ_Daily_Coffee_Robusta_Spot_USD_Per_60kg_Bag
+  copper: Com_LME_Cu_Cash_Bid
+  gold: Com_LBMA_Gold_Price_PM_USD_V_0
+horizon: 8                    # 주간 h=1..8
+origin_start: "2024-01-01"    # 이후 매월 첫 W-SUN 주가 origin
+ape_cap: 1.0                  # mape 에만 적용되는 셀 APE 상한

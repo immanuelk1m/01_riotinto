@@ -1,4 +1,5 @@
-"""preprocessing → 평가 격자. 모든 예측은 로그수익률 `log(P_{t+h} / P_t)` 이고, 주는 `W-SUN`(일요일 마감)이다."""
+"""preprocessing → 평가 격자. 격자의 y_h 는 로그수익률 `log(P_{t+h} / P_t)`(모델이 학습할 공간은 실험의
+`target` 이 modeling 에서 정한다), 주는 `W-SUN`(일요일 마감)이다."""
 import numpy as np
 import pandas as pd
 

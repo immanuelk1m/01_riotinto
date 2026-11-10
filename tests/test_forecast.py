@@ -6,7 +6,8 @@ from src.pipelines.data_processing.nodes import make_targets
 from src.pipelines.feature_engineering.nodes import build_features, make_tabular, make_timeseries
 from src.pipelines.modeling.nodes import fit, make_model, predict, select_input
 from src.pipelines.reporting.nodes import _features, evaluate, run_config, run_id
-from src.utils import KEYS
+from src.experiments import check
+from src.utils import KEYS, TARGETS
 
 H, START = 8, "2024-01-01"
 NAIVE = {"model": "naive"}
@@ -31,7 +32,7 @@ def run(spec: dict, value: np.ndarray):
     weeks = pd.date_range("2020-01-05", periods=len(value), freq="W-SUN")
     targets = make_targets(pd.DataFrame({"series": "x", "week": weeks, "value": value}), H, START)
     frame = model_input(spec, targets)
-    forecasts = predict(fit(make_model(spec), frame, H), frame, H)
+    forecasts = predict(fit(make_model(spec), frame, spec, H), frame, spec, H)
     return forecasts, evaluate(forecasts, 1.0)
 
 
@@ -135,6 +136,26 @@ def test_series_with_different_exog_columns_all_get_forecasts():
     exog = pd.concat([exog_rows("x", "a", "MAC.INF.PRODUCER", "ml"), exog_rows("y", "b", "PFM.FX.BILATERAL", "ml")])
     spec = {"model": "ols", "features": ["exog"]}
     frame = model_input(spec, targets, exog)
-    forecasts = predict(fit(make_model(spec), frame, H), frame, H)
+    forecasts = predict(fit(make_model(spec), frame, spec, H), frame, spec, H)
     origins = run(NAIVE, value)[0].origin.nunique()              # 외생변수 없이 얻는 origin 수
     assert origins > 0 and forecasts.groupby("series").origin.nunique().to_dict() == {"x": origins, "y": origins}
+
+
+def test_every_target_round_trips_to_price():
+    p0, p = np.array([[2.0], [5.0]]), np.array([[1.0, 3.0], [4.0, 9.0]])
+    for name, (encode, decode) in TARGETS.items():
+        assert np.allclose(decode(p0, encode(p0, p)), p), name
+
+
+def test_target_sets_the_space_the_model_learns_in():
+    value = 100.0 + np.arange(300)                       # P_{t+h} − P_t = h: 절편만으로 diff 는 정확, logdiff 는 아니다
+    ols = lambda target: run({"model": "ols", "target": target}, value)[1].mape  # noqa: E731
+    assert np.allclose(ols("diff"), 0, atol=1e-9) and (ols("logdiff") > 1e-3).all()
+
+
+def test_fixed_space_models_reject_other_targets():
+    check("ok", {"model": "naive"})
+    with pytest.raises(ValueError, match="target"):
+        check("e", {"model": "naive", "target": "level"})
+    with pytest.raises(ValueError, match="모르는 target"):
+        check("e", {"model": "ols", "target": "pct"})

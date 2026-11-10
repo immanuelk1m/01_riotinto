@@ -6,8 +6,9 @@ from kedro.framework.project import settings
 
 from src.features import FEATURES
 from src.models import MODELS
+from src.utils import DEFAULT_TARGET, TARGETS
 
-SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params"}
+SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params", "target"}
 
 
 def experiments() -> dict[str, dict]:
@@ -15,13 +16,22 @@ def experiments() -> dict[str, dict]:
     conf = OmegaConfigLoader(conf_source=str(Path.cwd() / settings.CONF_SOURCE), base_env="base", default_run_env="local")
     specs = conf["parameters"]["experiments"]
     for name, spec in specs.items():
-        if unknown := set(spec) - SPEC_KEYS:
-            raise ValueError(f"실험 {name}: 모르는 키 {sorted(unknown)} (허용: {sorted(SPEC_KEYS)})")
-        if spec["model"] not in MODELS:
-            raise ValueError(f"실험 {name}: 미등록 모델 {spec['model']!r} (등록: {sorted(MODELS)})")
-        if unknown := set(spec.get("features", [])) - set(FEATURES):
-            raise ValueError(f"실험 {name}: 미등록 피처 {sorted(unknown)} (등록: {sorted(FEATURES)})")
+        check(name, spec)
     return specs
+
+
+def check(name: str, spec: dict) -> None:
+    if unknown := set(spec) - SPEC_KEYS:
+        raise ValueError(f"실험 {name}: 모르는 키 {sorted(unknown)} (허용: {sorted(SPEC_KEYS)})")
+    if spec["model"] not in MODELS:
+        raise ValueError(f"실험 {name}: 미등록 모델 {spec['model']!r} (등록: {sorted(MODELS)})")
+    if unknown := set(spec.get("features", [])) - set(FEATURES):
+        raise ValueError(f"실험 {name}: 미등록 피처 {sorted(unknown)} (등록: {sorted(FEATURES)})")
+    target = spec.get("target", DEFAULT_TARGET)
+    if target not in TARGETS:
+        raise ValueError(f"실험 {name}: 모르는 target {target!r} (허용: {sorted(TARGETS)})")
+    if (fixed := getattr(MODELS[spec["model"]], "target", target)) != target:
+        raise ValueError(f"실험 {name}: 모델 {spec['model']!r} 은 target {fixed!r} 로만 예측한다")
 
 
 def namespace(name: str, spec: dict) -> str:

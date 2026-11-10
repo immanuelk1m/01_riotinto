@@ -5,6 +5,8 @@
 #   model:          src/models/__init__.py 의 MODELS 키 (필수)
 #   features:       src/features/__init__.py 의 FEATURES 키 목록
 #   model_params:   모델 생성자 인자
+#   target:         모델이 학습·예측하는 공간 — level(P_{t+h}) | diff(P_{t+h}−P_t) | log(log P_{t+h})
+#                   | logdiff(log(P_{t+h}/P_t), 생략 시). 평가는 어느 쪽이든 가격 MAPE
 #   feature_params: 블록별 인자 덮어쓰기  {블록이름: {인자: 값}}
 #     exog 블록: source(drivers|ml|all), codes / exclude(value_manifest.code 접두어: MAC, MAC.INF, MAC.INF.PRODUCER)
 experiments:

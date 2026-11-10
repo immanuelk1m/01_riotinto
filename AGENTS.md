@@ -50,8 +50,10 @@ tests/
 ## 2. 실험·모델·피처 추가
 
 - **실험**: `conf/base/parameters_experiments.yml` 에 항목 추가.
-  `study`(W&B group), `model`(필수), `features`(블록 목록), `model_params`, `feature_params: {블록: {인자: 값}}`.
+  `study`(W&B group), `model`(필수), `features`(블록 목록), `model_params`, `feature_params: {블록: {인자: 값}}`,
+  `target`(`level|diff|log|logdiff`, 생략 시 `logdiff` — `src/utils.py` 의 `TARGETS`).
 - **모델**: `src/models/<statistical|ml|dl>/<이름>.py` 에 `fit(X, Y) -> self`, `predict(X) -> (n, H)` 클래스 + `MODELS` 한 줄.
+  Y·예측은 실험의 `target` 공간이다. 출력 공간이 고정된 모델(naive 류)은 클래스 속성 `target` 을 적는다.
 - **피처**: `src/features/<이름>.py` 에 `build(logp, horizon, exog, **params) -> DataFrame` + `FEATURES` 한 줄.
   행 t 에는 **t 까지의 정보만** 넣는다. `exog` 는 그 시리즈의 외생변수 long 프레임(안 쓰는 블록은 무시).
 - 평가 설정(`parameters.yml`)은 실험별로 바꾸지 않는다 — 실험 간 비교가 깨진다.
@@ -72,7 +74,9 @@ uv run pytest
 
 ## 4. 평가 규칙
 
-- 타겟: 커피·구리·금 주간(`W-SUN`) 가격, 예측은 로그수익률 h=1..8 (MIMO).
+- 타겟: 커피·구리·금 주간(`W-SUN`) 가격 h=1..8 (MIMO). 모델이 학습하는 공간은 실험별 `target`
+  (`level` P_{t+h}, `diff` P_{t+h}−P_t, `log` log P_{t+h}, `logdiff` log(P_{t+h}/P_t)), 예측은 가격으로 되돌려 평가한다.
+  `06_model_output` 의 `fc`·`actual`·`base` 는 가격(P̂_{t+h}, P_{t+h}, P_t)이다.
 - origin: 2024-01 이후 **매월 첫 주**, H개 타겟이 모두 성숙한 origin 만. 모델은 origin 마다
   라벨이 성숙한 행(`week + H <= origin`)만으로 expanding-window 재학습한다.
 - `data/07_reporting/{실험}_metrics.parquet` (series × horizon):

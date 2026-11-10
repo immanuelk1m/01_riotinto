@@ -15,12 +15,11 @@ def evaluate(forecasts: pd.DataFrame, ape_cap: float) -> pd.DataFrame:
 
     `mape_naive` 는 **같은 셀**에서의 naive forecast(`P_t` 유지) MAPE 라서 실험끼리 셀집합이 달라도 공정하다.
     """
-    target = forecasts.target_logret
-    ape = np.abs(np.expm1(forecasts.fc - target))                # |P̂ / P − 1|
+    ape = np.abs(forecasts.fc / forecasts.actual - 1)            # |P̂ / P − 1|
     cells = forecasts.assign(
         ape=ape,
         capped=ape.clip(upper=ape_cap),
-        naive=np.abs(np.expm1(-target)).clip(upper=ape_cap),     # |P_t / P_{t+h} − 1|
+        naive=np.abs(forecasts.base / forecasts.actual - 1).clip(upper=ape_cap),   # |P_t / P_{t+h} − 1|
     )
     grouped = cells.groupby(["series", "horizon"])
     metrics = pd.DataFrame({

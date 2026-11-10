@@ -1,0 +1,18 @@
+# 지금 돌릴 실험 목록. 항목 이름 = W&B run 이름 = 산출물 파일 접두어.
+# Kedro namespace 는 <입력 형식>.<모델 카테고리>.<항목 이름> (예: tabular.statistical.ols_lags).
+# 실행하면 W&B 에 run 이 남으므로, 끝난 실험은 여기서 지워도 된다(기록은 W&B).
+#   study:          W&B group — ablation 한 묶음의 이름 (생략 시 default)
+#   model:          src/models/__init__.py 의 MODELS 키 (필수)
+#   features:       src/features/__init__.py 의 FEATURES 키 목록
+#   model_params:   모델 생성자 인자
+#   feature_params: 블록별 인자 덮어쓰기  {블록이름: {인자: 값}}
+#     exog 블록: source(drivers|ml|all), codes / exclude(value_manifest.code 접두어: MAC, MAC.INF, MAC.INF.PRODUCER)
+experiments:
+  naive:
+    study: baseline
+    model: naive
+  ols_drivers:
+    study: exog
+    model: ols
+    features: [lags, exog]
+    feature_params: {exog: {source: drivers}}

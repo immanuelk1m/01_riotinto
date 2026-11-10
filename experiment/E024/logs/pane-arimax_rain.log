@@ -1,8 +1,0 @@
-[harness] bundle 0.2 MB
-[harness] creating session e024-arimax_rain (gpu=none)
-COLAB-HARNESS-OK staged 30 entries
-[harness] launch [1/1] E024.py arimax_rain
-[harness] state=done tag=arimax_rain_1 (0.8 min)
-[harness] downloaded 4 artifacts -> /Users/sonet/Desktop/01_riotinto/experiment/E024/colab_runs/arimax_rain
-[harness] session stopped: e024-arimax_rain
-[harness] finished in 0.9 min

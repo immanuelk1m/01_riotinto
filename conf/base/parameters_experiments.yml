@@ -55,13 +55,7 @@ experiments:
     study: xgb_model
     model: ols
     features: [lags]
-  # --- study xgb_exog: 외생변수 drivers, 학습 2015-01~ (대조군 = xgb_w2015) ---
-  xgb_w2015:
-    study: xgb_exog
-    model: xgb
-    features: [lags]
-    train_start: "2015-01-04"
-    model_params: *reg
+  # --- study xgb_exog: 외생변수 drivers, 학습 2015-01~ ---
   xgb_drv:
     study: xgb_exog
     model: xgb

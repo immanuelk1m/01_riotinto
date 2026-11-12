@@ -16,7 +16,7 @@ src/                           # Kedro 패키지 자체(package_name = "src") �
     dl/                        #   딥러닝 모델 (NeuralForecast)
   pipelines/<이름>/            # Kedro modular pipeline: nodes.py(노드 함수) + pipeline.py(create_pipeline)
     data_ingestion/            #   load_prices, load_exogenous — 등록 이름 `data`, __default__ 에서 빠진다
-    data_processing/           #   to_weekly, make_targets
+    data_processing/           #   make_targets
     feature_engineering/       #   build_features, make_tabular, make_timeseries
     modeling/                  #   select_input, make_model, fit, predict — 실험마다 namespace
     reporting/                 #   evaluate, log_run — 실험마다 namespace / summarize — 공유
@@ -29,7 +29,7 @@ tests/
 
 단계: `data → preprocessing → feature → model input → model → learning → inference → evaluation`.
 `data`(Postgres 스냅샷)는 별도 파이프라인이다. preprocessing·타겟 격자·피처·모델 입력
-(`to_weekly → make_targets → build_features → make_tabular·make_timeseries`)은 모든 실험이 공유하고,
+(`make_targets → build_features → make_tabular·make_timeseries`)은 모든 실험이 공유하고,
 `select_input → make_model → fit → predict`(modeling) `→ evaluate → log_run`(reporting) 은 실험마다 같은 namespace 로 한 벌씩 돈다.
 새 단계는 `pipelines/<이름>/` 폴더 하나로 추가한다(`create_pipeline()` 이 있으면 자동 등록, `__default__` 에 들어간다).
 
@@ -63,6 +63,7 @@ tests/
 
 ```bash
 uv run kedro run --pipeline data                 # Postgres `commodity` → data/01_raw (스냅샷 갱신할 때만)
+                                                 #   가격 = `ml.price_week`(끝난 W-SUN 주의 마지막 양수 관측값, 앞값 채움·지연 없음)
 uv run kedro run --pipeline data --nodes load_exogenous   # 외생변수 스냅샷만 (가격·data_sha 는 그대로)
 uv run kedro run                                 # 목록의 모든 실험 + W&B 기록 + data/07_reporting/summary.parquet
 uv run kedro run --namespaces tabular.statistical.ols_lags12   # 실험 하나만 — 04_model_input 은 다시 만들지 않는다.
@@ -105,8 +106,10 @@ uv run pytest
   갱신이 끊긴 변수도 마지막 값이 계속 이어진다(걸러내지 않는다).
 - 두 묶음: `ml` = 그 원자재의 `ml.feature` 변수(스냅샷 때 DB 에서 읽음), `drivers` = `parameters_exogenous.yml` 에 적은
   주간 원인 변수. 뷰에 없는 drivers 는 경고를 남기고 건너뛴다.
-- `start`(원자재별): 그 주부터의 외생 데이터만 쓰고, **그 날짜에 아직 값이 없는 변수는 그 원자재에서 뺀다.**
-  그래서 `exog` 를 쓰는 실험의 학습 구간은 `start` 부터로 고정된다.
+- `start`(원자재별): 그 주부터의 외생 데이터만 쓴다. 늦게 시작하는 변수도 빼지 않는다(시작 전은 NaN).
+  `exog` 를 쓰는 실험의 학습 구간은 `start` 부터로 고정된다(`fit` 이 자른다).
+- 결측: `allow_nan = True` 모델(xgb)은 X 의 NaN 을 그대로 받는다. 아닌 모델(ols)은 X 가 모두 있는 행만 쓰므로,
+  늦게 시작하는 변수가 있으면 학습 구간이 그 변수의 시작부터로 줄어든다.
 - 고르기(`exog` 블록): `feature_params: {exog: {source: drivers|ml|all, codes: [...], exclude: [...]}}`.
   `codes`·`exclude` 는 `value_manifest.code` 접두어다 — 대 `MAC`, 중 `MAC.INF`, 소 `MAC.INF.PRODUCER`.
 - 값은 기본으로 수준 그대로 들어간다(표준화 없음). `feature_params: {exog: {diff: k}}` 면 k주 변화량이고 열 이름은 `<col>__d<k>`.
@@ -114,3 +117,16 @@ uv run pytest
 ## 7. 용어
 
 - 기준선은 **naive forecast**(로그수익률 0, 즉 `P_t` 유지)라고 부른다. 개선은 "naive forecast 대비"로 쓴다.
+
+## 8. 추적 가능한 연구 실행
+
+- `conf/studies/p0_p1_v1.yml`은 `base_xgb`부터의 고정 ablation 명세다. `lineage`의 부모·변경 축·실제 설정 차이를 실행 전에 검증한다.
+- `uv run python tools/run_study.py`로 전체 연구를 실행한다. `--phase anchor|features|adaptation`은 해당 단계와 필요한 조상·비교 기준선을 함께 실행한다. `--wandb-mode disabled`는 합성 검증용이다.
+- 일반 `parameters_experiments.yml`과 기존 03~07 산출물은 보존한다. 연구 산출물은 `data/07_reporting/studies/<study_id>/<execution_fingerprint>/`에 입력·소스·모델·예측·계보·비교표와 함께 저장한다.
+- 완료 run은 설정·입력·코드·환경 지문과 산출물 무결성이 일치할 때만 재사용한다. 연구 run은 코드 변경도 다른 ID로 기록하며, 기존 일반 실행의 run ID 규칙은 유지한다.
+- 연구 spec의 `train_window_weeks`는 origin 기준 최근 달력 주의 범위다. rolling에서도 `week + H <= origin`을 유지한다. `prediction` 파생 실험은 부모 예측으로 계산하며 재학습하지 않는다.
+- `columns_by_series`는 원자재별 정확한 외생변수 목록이다. 빈 목록은 사용하지 않는다는 뜻이며, 요청한 변수가 없으면 실패한다. 선택 범위가 다른 피처는 열 이름도 구분한다.
+- 평가에는 naive forecast·직접 부모·루트 대비 같은 셀의 성과, 연도별 결과와 origin 블록 bootstrap을 남긴다. 현재 연구는 역사적 탐색이며 이미 본 기간을 미사용 holdout으로 부르지 않는다.
+- GP 기준선 연구는 `uv run python tools/run_study.py --study conf/studies/gp_baseline_v1.yml`로 실행한다. `base_xgb → base_xgb_ffill → base_xgb_ffill_scaled → base_gaussian_process` 순서로 변경 축을 분리한다.
+- `preprocessing: {missing: ffill, scaling: standard}`는 선택한 입력 X만 원자재별 순방향으로 채우고, 성숙 학습 행으로만 StandardScaler를 적합한다. 선두 결측 학습 행은 제외하며 추론 결측은 실패시킨다. 타겟·실제 가격은 채우지 않는다.
+- GP의 origin별 체크포인트는 해당 run ID 경로에 저장하고 무결성 확인 후 재사용한다. 첫 origin 비용 측정에 사용한 모델도 전체 실행에서 재사용한다.

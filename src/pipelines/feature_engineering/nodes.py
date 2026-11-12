@@ -1,26 +1,18 @@
 """feature → model input. 실험들이 쓰는 (블록, 인자) 조합을 한 번씩 계산해 공유 입력 두 장을 만든다."""
-import logging
-
 import pandas as pd
 
 from src.features import FEATURES
 from src.utils import KEYS, block_keys
 
-log = logging.getLogger(__name__)
-
 
 def _exog_from(exogenous: pd.DataFrame, series: str, start: str | None) -> pd.DataFrame:
-    """한 시리즈의 외생변수. `start` 가 있으면 그 주부터의 행만, 그리고 `start` 에 이미 값이 있는 변수만 남긴다.
-
-    늦게 시작하는 변수를 빼 두어야 학습 구간이 `start` 로 고정된다(변수를 넣고 빼도 같은 구간).
-    """
+    """한 시리즈의 외생변수. `start` 가 있으면 그 주부터의 행만 남긴다(늦게 시작하는 변수는 그 전까지 NaN)."""
     exog = exogenous[exogenous.series == series]
-    if start is None:
-        return exog
-    first = exog.groupby("col_name").week.transform("min")
-    kept = exog[(first <= pd.Timestamp(start)) & (exog.week >= pd.Timestamp(start))]
-    log.info("%s: 외생변수 %d개 중 %d개 사용 (start=%s)", series, exog.col_name.nunique(), kept.col_name.nunique(), start)
-    return kept
+    if start is not None:
+        exog = exog[exog.week >= pd.Timestamp(start)]
+    exog = exog.copy()
+    exog.attrs["series"] = series
+    return exog
 
 
 def build_features(targets: pd.DataFrame, exogenous: pd.DataFrame, experiments: dict[str, dict], exog_spec: dict,

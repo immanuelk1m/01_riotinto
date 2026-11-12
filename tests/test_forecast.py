@@ -32,7 +32,7 @@ def run(spec: dict, value: np.ndarray):
     weeks = pd.date_range("2020-01-05", periods=len(value), freq="W-SUN")
     targets = make_targets(pd.DataFrame({"series": "x", "week": weeks, "value": value}), H, START)
     frame = model_input(spec, targets)
-    forecasts = predict(fit(make_model(spec), frame, spec, H), frame, spec, H)
+    forecasts = predict(fit(make_model(spec), frame, spec, H, {}), frame, spec, H)
     return forecasts, evaluate(forecasts, 1.0)
 
 
@@ -121,20 +121,39 @@ def test_exog_selects_by_source_and_code_and_respects_start():
     exog = pd.concat([
         exog_rows("x", "a", "MAC.INF.PRODUCER", "drivers"),
         exog_rows("x", "b", "PFM.FX.BILATERAL", "ml"),
-        exog_rows("x", "late", "MAC.ACT.OUTPUT", "ml", first=100),   # start 에 아직 값이 없다 → 빠진다
+        exog_rows("x", "late", "MAC.ACT.OUTPUT", "ml", first=100),   # start 뒤에 시작 → 그 전까지 NaN
         exog_rows("other", "c", "MAC.INF.PRODUCER", "ml"),           # 다른 시리즈의 변수
     ])
     def cols(**params):
         spec = {"model": "ols", "features": ["exog"], "feature_params": {"exog": params}}
         features, _ = build_features(targets, exog, {"e": spec}, {"x": {"start": str(WEEKS[50].date())}}, H)
         assert features.loc[features.week < WEEKS[50]].drop(columns=KEYS).isna().all(axis=None)
-        assert features.loc[features.week >= WEEKS[50]].notna().all(axis=None)
+        assert features.loc[features.week >= WEEKS[100]].notna().all(axis=None)
         return set(features.columns) - set(KEYS)
 
-    assert cols() == {"a", "b"}
-    assert cols(source="drivers") == {"a"} and cols(source="ml") == {"b"}
-    assert cols(codes=["MAC"]) == {"a"} and cols(codes=["PFM.FX"]) == {"b"}
-    assert cols(exclude=["MAC.INF.PRODUCER"]) == {"b"}
+    assert cols() == {"a", "b", "late"}
+    assert cols(source="drivers") == {"a"} and cols(source="ml") == {"b", "late"}
+    assert cols(codes=["MAC"]) == {"a", "late"} and cols(codes=["PFM.FX"]) == {"b"}
+    assert cols(exclude=["MAC.INF.PRODUCER", "MAC.ACT"]) == {"b"}
+
+
+def test_xgb_keeps_missing_exog_and_trains_from_start():
+    value = np.exp(np.cumsum(np.random.default_rng(0).normal(0, 0.03, 300)))
+    targets = make_targets(pd.DataFrame({"series": "x", "week": WEEKS, "value": value}), H, START)
+    exog = pd.concat([exog_rows("x", "a", "MAC.INF.PRODUCER", "drivers"),
+                      exog_rows("x", "late", "MAC.ACT.OUTPUT", "drivers", first=200)])
+    exog_spec = {"x": {"start": str(WEEKS[50].date())}}
+    spec = {"model": "xgb", "features": ["lags", "exog"], "model_params": {"n_estimators": 5}}
+    features, columns = build_features(targets, exog, {"e": spec}, exog_spec, H)
+    frame = select_input(make_tabular(features, targets), columns, spec, H)
+    fitted = fit(make_model(spec), frame, spec, H, exog_spec)
+    (_, origin), model = next(iter(fitted.items()))
+    assert "late" in model.feature_names_in_                      # 늦게 시작한 변수도 NaN 그대로 들어간다
+    seen = []
+    model.fit = lambda X, Y: seen.append(X) or model              # noqa: E731
+    fit(model, frame, spec, H, exog_spec)
+    assert len(seen[0]) == ((WEEKS >= WEEKS[50]) & (WEEKS + pd.Timedelta(weeks=H) <= origin)).sum()   # start 부터 학습
+    assert len(predict(fitted, frame, spec, H)) > 0
 
 
 def test_series_with_different_exog_columns_all_get_forecasts():
@@ -144,7 +163,7 @@ def test_series_with_different_exog_columns_all_get_forecasts():
     exog = pd.concat([exog_rows("x", "a", "MAC.INF.PRODUCER", "ml"), exog_rows("y", "b", "PFM.FX.BILATERAL", "ml")])
     spec = {"model": "ols", "features": ["exog"]}
     frame = model_input(spec, targets, exog)
-    forecasts = predict(fit(make_model(spec), frame, spec, H), frame, spec, H)
+    forecasts = predict(fit(make_model(spec), frame, spec, H, {}), frame, spec, H)
     origins = run(NAIVE, value)[0].origin.nunique()              # 외생변수 없이 얻는 origin 수
     assert origins > 0 and forecasts.groupby("series").origin.nunique().to_dict() == {"x": origins, "y": origins}
 

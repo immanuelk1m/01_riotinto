@@ -14,13 +14,15 @@ def create_pipeline(**kwargs) -> Pipeline:
                     Node(n.select_input, ["tabular", "feature_columns", "params:spec", "params:horizon"],
                          "model_input", name="select_input"),
                     Node(n.make_model, "params:spec", "model", name="make_model"),
-                    Node(n.fit, ["model", "model_input", "params:spec", "params:horizon"], "fitted", name="fit"),
+                    Node(n.fit, ["model", "model_input", "params:spec", "params:horizon", "params:exogenous"], "fitted",
+                         name="fit"),
                     Node(n.predict, ["fitted", "model_input", "params:spec", "params:horizon"], "forecasts",
                          name="predict"),
                 ],
                 namespace=namespace(name, spec),
                 inputs={"tabular", "feature_columns"},
-                parameters={"params:spec": f"params:experiments.{name}", "params:horizon": "params:horizon"},
+                parameters={"params:spec": f"params:experiments.{name}", "params:horizon": "params:horizon",
+                            "params:exogenous": "params:exogenous"},
             )
             for name, spec in experiments().items()
         ),

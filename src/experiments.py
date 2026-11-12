@@ -8,7 +8,8 @@ from src.features import FEATURES
 from src.models import MODELS
 from src.utils import DEFAULT_TARGET, TARGETS
 
-SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params", "target", "train_start"}
+SPEC_KEYS = {"study", "model", "features", "model_params", "feature_params", "target", "train_start",
+             "lineage", "train_window_weeks", "prediction", "preprocessing", "forecast_strategy"}
 
 
 def experiments() -> dict[str, dict]:
@@ -17,6 +18,8 @@ def experiments() -> dict[str, dict]:
     specs = conf["parameters"]["experiments"]
     for name, spec in specs.items():
         check(name, spec)
+        if "prediction" in spec:
+            raise ValueError(f"파생 연구 실험 {name}: tools/run_study.py 로 실행한다 (일반 파이프라인 재학습 금지)")
     return specs
 
 
@@ -25,6 +28,14 @@ def check(name: str, spec: dict) -> None:
         raise ValueError(f"실험 {name}: 모르는 키 {sorted(unknown)} (허용: {sorted(SPEC_KEYS)})")
     if spec["model"] not in MODELS:
         raise ValueError(f"실험 {name}: 미등록 모델 {spec['model']!r} (등록: {sorted(MODELS)})")
+    strategy = spec.get("forecast_strategy", "mimo")
+    if strategy not in ("mimo", "direct"):
+        raise ValueError(f"실험 {name}: forecast_strategy 는 mimo 또는 direct 여야 한다")
+    if spec["model"] == "lightgbm" and strategy != "direct":
+        raise ValueError(f"실험 {name}: lightgbm 은 forecast_strategy direct 를 요구한다")
+    if (spec["model"] == "xgb" and strategy == "direct"
+            and "multi_strategy" in spec.get("model_params", {})):
+        raise ValueError(f"실험 {name}: direct XGB 는 multi_strategy 를 생략해야 한다")
     if unknown := set(spec.get("features", [])) - set(FEATURES):
         raise ValueError(f"실험 {name}: 미등록 피처 {sorted(unknown)} (등록: {sorted(FEATURES)})")
     target = spec.get("target", DEFAULT_TARGET)
@@ -32,6 +43,22 @@ def check(name: str, spec: dict) -> None:
         raise ValueError(f"실험 {name}: 모르는 target {target!r} (허용: {sorted(TARGETS)})")
     if (fixed := getattr(MODELS[spec["model"]], "target", target)) != target:
         raise ValueError(f"실험 {name}: 모델 {spec['model']!r} 은 target {fixed!r} 로만 예측한다")
+    if "train_window_weeks" in spec:
+        window = spec["train_window_weeks"]
+        if isinstance(window, bool) or not isinstance(window, int) or window <= 0:
+            raise ValueError(f"실험 {name}: train_window_weeks 는 양의 정수여야 한다")
+    if "prediction" in spec and spec.get("lineage", {}).get("kind") != "derived":
+        raise ValueError(f"실험 {name}: prediction 은 계보가 있는 derived 실험에만 허용된다")
+    if "preprocessing" in spec:
+        preprocessing = spec["preprocessing"]
+        if not isinstance(preprocessing, dict) or set(preprocessing) - {"missing", "scaling"}:
+            raise ValueError(f"실험 {name}: preprocessing 은 missing/scaling 키만 허용한다")
+        missing = preprocessing.get("missing", "native")
+        scaling = preprocessing.get("scaling", "none")
+        if missing not in ("native", "ffill") or scaling not in ("none", "standard"):
+            raise ValueError(f"실험 {name}: 잘못된 preprocessing missing/scaling 값")
+        if scaling == "standard" and missing != "ffill":
+            raise ValueError(f"실험 {name}: standard scaling 은 ffill 을 요구한다")
 
 
 def namespace(name: str, spec: dict) -> str:

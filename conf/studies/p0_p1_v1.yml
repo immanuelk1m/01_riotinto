@@ -1,0 +1,465 @@
+# Fixed study catalogue. Queue generation never edits this file.
+study_id: p0_p1_v1
+root: base_xgb
+provenance:
+  legacy_experiment: baseline_xgb
+  legacy_config: wandb/run-20261110_214417-162eb8e3ee99/files/config.yaml
+  plan: .omx/plans/p0-p1-base-xgb-ablation-plan.md
+evaluation:
+  classification: retrospective_exploration
+  bootstrap_repetitions: 2000
+  bootstrap_seed: 0
+  block_origins: 3
+  sensitivity_blocks:
+  - 2
+  - 4
+  confidence: 0.95
+phases:
+  anchor:
+  - base_xgb
+  - xgb_logdiff
+  - xgb_ret_matched
+  - xgb_ret8
+  - xgb_ret8_depth2
+  - xgb_ret8_depth2_lr003
+  - xgb_ret8_reg
+  - xgb_ret8_reg_2015
+  - naive
+  - drift
+  features:
+  - drivers_all
+  adaptation:
+  - xgb_ret8_reg_2015_roll156
+  - xgb_ret8_reg_2015_shrink025
+  - xgb_ret8_reg_2015_shrink050
+experiments:
+  base_xgb:
+    model: xgb
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params: &id001
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: p0_p1_v1.root
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: null
+      axis: root
+      changed_paths: []
+      primary_series: &id002
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_logdiff:
+    model: xgb
+    target: logdiff
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params: *id001
+    train_start: null
+    study: p0_p1_v1.target
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: base_xgb
+      axis: target
+      changed_paths:
+      - target
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret_matched:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 3
+        - 11
+        - 51
+    model_params: *id001
+    train_start: null
+    study: p0_p1_v1.representation
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_logdiff
+      axis: representation
+      changed_paths:
+      - feature_params.lags.offsets
+      - feature_params.price_lags.lags
+      - features
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: *id001
+    train_start: null
+    study: p0_p1_v1.lag_schedule
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret_matched
+      axis: lag_schedule
+      changed_paths:
+      - feature_params.lags.offsets
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8_depth2:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: p0_p1_v1.depth
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8
+      axis: depth
+      changed_paths:
+      - model_params.max_depth
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8_depth2_lr003:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: p0_p1_v1.learning_rate
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_depth2
+      axis: learning_rate
+      changed_paths:
+      - model_params.learning_rate
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8_reg:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: &id003
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 20
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: p0_p1_v1.min_child_weight
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_depth2_lr003
+      axis: min_child_weight
+      changed_paths:
+      - model_params.min_child_weight
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8_reg_2015:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: *id003
+    train_start: '2015-01-04'
+    study: p0_p1_v1.train_start
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_reg
+      axis: train_start
+      changed_paths:
+      - train_start
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  naive:
+    model: naive
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: &id004 {}
+    train_start: '2015-01-04'
+    study: p0_p1_v1.benchmark
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series: *id002
+      comparators: []
+      kind: benchmark
+  drift:
+    model: drift
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: *id004
+    train_start: '2015-01-04'
+    study: p0_p1_v1.benchmark
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series: *id002
+      comparators: []
+      kind: benchmark
+  drivers_all:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    - exog
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      exog:
+        source: drivers
+    model_params: *id003
+    train_start: '2015-01-04'
+    study: p0_p1_v1.drivers_basket
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015
+      axis: drivers_basket
+      changed_paths:
+      - feature_params.exog.source
+      - features
+      primary_series: *id002
+      comparators: []
+      kind: fit
+  xgb_ret8_reg_2015_roll156:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: *id003
+    train_start: '2015-01-04'
+    study: p0_p1_v1.window
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015
+      axis: window
+      changed_paths:
+      - train_window_weeks
+      primary_series: *id002
+      comparators: []
+      kind: fit
+    train_window_weeks: 156
+  xgb_ret8_reg_2015_shrink025:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: *id003
+    train_start: '2015-01-04'
+    study: p0_p1_v1.shrink
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015
+      axis: shrink
+      changed_paths:
+      - prediction.alpha
+      - prediction.method
+      - prediction.source
+      primary_series: *id002
+      comparators: []
+      kind: derived
+    prediction:
+      method: shrink
+      source: xgb_ret8_reg_2015
+      alpha: 0.25
+  xgb_ret8_reg_2015_shrink050:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params: *id003
+    train_start: '2015-01-04'
+    study: p0_p1_v1.shrink
+    lineage:
+      study_id: p0_p1_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015
+      axis: shrink
+      changed_paths:
+      - prediction.alpha
+      - prediction.method
+      - prediction.source
+      primary_series: *id002
+      comparators: []
+      kind: derived
+    prediction:
+      method: shrink
+      source: xgb_ret8_reg_2015
+      alpha: 0.5

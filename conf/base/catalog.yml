@@ -6,10 +6,6 @@ raw_exogenous:
   type: pandas.ParquetDataset
   filepath: data/01_raw/exogenous.parquet
 
-weekly_prices:
-  type: pandas.ParquetDataset
-  filepath: data/02_intermediate/weekly_prices.parquet
-
 targets:
   type: pandas.ParquetDataset
   filepath: data/03_feature/targets.parquet

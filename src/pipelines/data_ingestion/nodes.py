@@ -7,19 +7,22 @@ log = logging.getLogger(__name__)
 
 
 def load_prices(targets: dict[str, str]) -> pd.DataFrame:
-    """Postgres `commodity` → (series, dt, value) 일별 가격."""
+    """Postgres `ml.price_week` → (series, week, value) 주간 가격.
+
+    뷰가 끝난 `W-SUN` 주의 마지막 양수 관측값을 준다(앞값 채움·발표 지연 없음, 빠진 주는 행이 없다).
+    """
     import psycopg
 
     with psycopg.connect("dbname=commodity") as con:
         rows = con.execute(
-            "select col_name, dt, value from public.value where col_name = any(%s) order by dt",
+            "select col_name, week_end, value from ml.price_week where col_name = any(%s) order by week_end",
             (list(targets.values()),),
         ).fetchall()
-    raw = pd.DataFrame(rows, columns=["col_name", "dt", "value"])
+    raw = pd.DataFrame(rows, columns=["col_name", "week", "value"])
     raw["series"] = raw.col_name.map({col: key for key, col in targets.items()})
     if missing := set(targets) - set(raw.series):
         raise ValueError(f"public.value 에 없는 시리즈: {sorted(missing)}")
-    return raw.assign(dt=pd.to_datetime(raw.dt), value=raw.value.astype(float))[["series", "dt", "value"]]
+    return raw.assign(week=pd.to_datetime(raw.week), value=raw.value.astype(float))[["series", "week", "value"]]
 
 
 def load_exogenous(targets: dict[str, str], exogenous: dict[str, dict]) -> pd.DataFrame:

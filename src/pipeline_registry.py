@@ -1,4 +1,4 @@
-from kedro.framework.project import find_pipelines
+from kedro.framework.project import find_pipelines, pipelines as registry
 from kedro.pipeline import Pipeline
 
 
@@ -7,6 +7,8 @@ def register_pipelines() -> dict[str, Pipeline]:
 
     `data`(= data_ingestion, Postgres → data/01_raw)는 스냅샷 갱신 때만 돌리므로 `__default__` 에서 뺀다.
     """
+    # kedro 1.8 은 `--pipeline <이름>` 을 폴더 이름으로 보고 그 폴더만 읽는다 — `data` 별칭은 폴더가 없으니 전체를 읽는다.
+    registry.set_requested(None)
     pipelines = find_pipelines(raise_errors=True)
     pipelines.pop("__default__")
     pipelines["data"] = pipelines.pop("data_ingestion")

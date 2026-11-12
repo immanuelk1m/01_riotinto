@@ -1,0 +1,555 @@
+# Fixed Direct-common study: every head uses the same complete H8-mature rows.
+study_id: lightgbm_direct_v1
+root: base_xgb
+provenance:
+  source_catalogue: conf/studies/p0_p1_v1.yml
+  plan: .omx/plans/lightgbm-direct-ablation-plan.md
+evaluation:
+  classification: retrospective_exploration
+  bootstrap_repetitions: 2000
+  bootstrap_seed: 0
+  block_origins: 3
+  sensitivity_blocks:
+  - 2
+  - 4
+  confidence: 0.95
+phases:
+  anchor:
+  - base_xgb
+  - xgb_logdiff
+  - xgb_ret_matched
+  - xgb_ret8
+  - xgb_ret8_depth2
+  - xgb_ret8_depth2_lr003
+  - xgb_ret8_reg
+  - xgb_ret8_reg_2015
+  - naive
+  - drift
+  features:
+  - xgb_ret8_reg_2015_ffill
+  - xgb_direct
+  - base_lightgbm_direct
+experiments:
+  base_xgb:
+    model: xgb
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: null
+      axis: root
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_logdiff:
+    model: xgb
+    target: logdiff
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: base_xgb
+      axis: target
+      changed_paths:
+      - target
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret_matched:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 3
+        - 11
+        - 51
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_logdiff
+      axis: representation
+      changed_paths:
+      - feature_params.lags.offsets
+      - feature_params.price_lags.lags
+      - features
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret8:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret_matched
+      axis: lag_schedule
+      changed_paths:
+      - feature_params.lags.offsets
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret8_depth2:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8
+      axis: depth
+      changed_paths:
+      - model_params.max_depth
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret8_depth2_lr003:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8_depth2
+      axis: learning_rate
+      changed_paths:
+      - model_params.learning_rate
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret8_reg:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 20
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8_depth2_lr003
+      axis: min_child_weight
+      changed_paths:
+      - model_params.min_child_weight
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  xgb_ret8_reg_2015:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 20
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8_reg
+      axis: train_start
+      changed_paths:
+      - train_start
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  naive:
+    model: naive
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: {}
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: benchmark
+  drift:
+    model: drift
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: {}
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: benchmark
+  xgb_ret8_reg_2015_ffill:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 20
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015
+      axis: missing
+      changed_paths:
+      - preprocessing.missing
+      - preprocessing.scaling
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: none
+  xgb_direct:
+    model: xgb
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      max_depth: 2
+      learning_rate: 0.03
+      min_child_weight: 20
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_ret8_reg_2015_ffill
+      axis: forecast_strategy
+      changed_paths:
+      - forecast_strategy
+      - model_params.multi_strategy
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: none
+    forecast_strategy: direct
+  base_lightgbm_direct:
+    model: lightgbm
+    target: logdiff
+    features:
+    - lags
+    feature_params:
+      lags:
+        offsets:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    model_params:
+      objective: regression
+      boosting_type: gbdt
+      n_estimators: 100
+      learning_rate: 0.03
+      max_depth: 2
+      num_leaves: 4
+      min_child_samples: 20
+      min_child_weight: 0.001
+      reg_alpha: 0
+      reg_lambda: 1
+      subsample: 1
+      colsample_bytree: 1
+      device_type: cpu
+      random_state: 0
+      n_jobs: 1
+      deterministic: true
+      force_col_wise: true
+      verbosity: -1
+    train_start: '2015-01-04'
+    study: lightgbm_direct_v1
+    lineage:
+      study_id: lightgbm_direct_v1
+      root: base_xgb
+      parent: xgb_direct
+      axis: model_family
+      changed_paths:
+      - model
+      - model_params.boosting_type
+      - model_params.colsample_bytree
+      - model_params.deterministic
+      - model_params.device
+      - model_params.device_type
+      - model_params.force_col_wise
+      - model_params.min_child_samples
+      - model_params.min_child_weight
+      - model_params.n_jobs
+      - model_params.num_leaves
+      - model_params.objective
+      - model_params.reg_alpha
+      - model_params.reg_lambda
+      - model_params.subsample
+      - model_params.tree_method
+      - model_params.verbosity
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: none
+    forecast_strategy: direct

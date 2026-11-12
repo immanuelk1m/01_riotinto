@@ -1,0 +1,313 @@
+study_id: gp_baseline_v1
+root: base_xgb
+provenance:
+  source_catalogue: conf/studies/p0_p1_v1.yml
+  plan: .omx/plans/base-gaussian-process-plan.md
+  continuation_of: gp_baseline_v1
+evaluation:
+  classification: retrospective_exploration
+  bootstrap_repetitions: 2000
+  bootstrap_seed: 0
+  block_origins: 3
+  sensitivity_blocks:
+  - 2
+  - 4
+  confidence: 0.95
+phases:
+  anchor:
+  - base_xgb
+  - naive
+  - drift
+  features:
+  - base_xgb_ffill
+  - base_xgb_ffill_scaled
+  - base_gaussian_process
+  adaptation:
+  - gp_logdiff
+experiments:
+  base_xgb:
+    model: xgb
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: gp_baseline_v1.root
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: null
+      axis: root
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: fit
+  naive:
+    model: naive
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: {}
+    train_start: '2015-01-04'
+    study: gp_baseline_v1.benchmark
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: benchmark
+  drift:
+    model: drift
+    target: logdiff
+    features: []
+    feature_params: {}
+    model_params: {}
+    train_start: '2015-01-04'
+    study: gp_baseline_v1.benchmark
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: null
+      axis: benchmark
+      changed_paths: []
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators: []
+      kind: benchmark
+  base_xgb_ffill:
+    model: xgb
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: gp_baseline_v1.missing
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: base_xgb
+      axis: missing
+      changed_paths:
+      - preprocessing.missing
+      - preprocessing.scaling
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: none
+  base_xgb_ffill_scaled:
+    model: xgb
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      objective: reg:squarederror
+      tree_method: hist
+      multi_strategy: multi_output_tree
+      max_depth: 6
+      learning_rate: 0.3
+      min_child_weight: 1
+      n_estimators: 100
+      random_state: 0
+      device: cpu
+    train_start: null
+    study: gp_baseline_v1.scaling
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: base_xgb_ffill
+      axis: scaling
+      changed_paths:
+      - preprocessing.scaling
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: standard
+  base_gaussian_process:
+    model: gaussian_process
+    target: level
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      constant_value: 1.0
+      constant_value_bounds:
+      - 0.001
+      - 1000.0
+      length_scale: 1.0
+      length_scale_bounds:
+      - 0.01
+      - 100.0
+      nu: 1.5
+      noise_level: 0.1
+      noise_level_bounds:
+      - 1.0e-05
+      - 10.0
+      normalize_y: true
+      alpha: 1.0e-06
+      optimizer: fmin_l_bfgs_b
+      n_restarts_optimizer: 0
+      random_state: 0
+      computational_threads: 1
+    train_start: null
+    study: gp_baseline_v1.model_family
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: base_xgb_ffill_scaled
+      axis: model_family
+      changed_paths:
+      - model
+      - model_params.alpha
+      - model_params.computational_threads
+      - model_params.constant_value
+      - model_params.constant_value_bounds
+      - model_params.device
+      - model_params.learning_rate
+      - model_params.length_scale
+      - model_params.length_scale_bounds
+      - model_params.max_depth
+      - model_params.min_child_weight
+      - model_params.multi_strategy
+      - model_params.n_estimators
+      - model_params.n_restarts_optimizer
+      - model_params.noise_level
+      - model_params.noise_level_bounds
+      - model_params.normalize_y
+      - model_params.nu
+      - model_params.objective
+      - model_params.optimizer
+      - model_params.tree_method
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: standard
+  gp_logdiff:
+    model: gaussian_process
+    target: logdiff
+    features:
+    - price_lags
+    feature_params:
+      price_lags:
+        lags:
+        - 1
+        - 2
+        - 4
+        - 12
+        - 52
+    model_params:
+      constant_value: 1.0
+      constant_value_bounds:
+      - 0.001
+      - 1000.0
+      length_scale: 1.0
+      length_scale_bounds:
+      - 0.01
+      - 100.0
+      nu: 1.5
+      noise_level: 0.1
+      noise_level_bounds:
+      - 1.0e-05
+      - 10.0
+      normalize_y: true
+      alpha: 1.0e-06
+      optimizer: fmin_l_bfgs_b
+      n_restarts_optimizer: 0
+      random_state: 0
+      computational_threads: 1
+    train_start: null
+    study: gp_baseline_v1.target
+    lineage:
+      study_id: gp_baseline_v1
+      root: base_xgb
+      parent: base_gaussian_process
+      axis: target
+      changed_paths:
+      - target
+      primary_series:
+      - coffee
+      - copper
+      - gold
+      comparators:
+      - drift
+      kind: fit
+    preprocessing:
+      missing: ffill
+      scaling: standard

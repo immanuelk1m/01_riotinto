@@ -5,7 +5,7 @@
 | 파이프라인 | 노드 | 실행 단위 |
 | :--- | :--- | :--- |
 | `data_ingestion` (등록 이름 `data`) | `load_prices`, `load_exogenous` | 스냅샷 갱신할 때만 (`__default__`에서 빠짐) |
-| `data_processing` | `to_weekly`, `make_targets` | 모든 실험 공통 1회 |
+| `data_processing` | `make_targets` | 모든 실험 공통 1회 |
 | `feature_engineering` | `build_features`, `make_tabular`, `make_timeseries` | 모든 실험 공통 1회 |
 | `modeling` | `select_input`, `make_model`, `fit`, `predict` | 실험마다 namespace 한 벌 |
 | `reporting` | `evaluate`, `log_run` / `summarize` | 실험마다 namespace 한 벌 / 전체 1회 |
@@ -13,6 +13,7 @@
 ---
 
 ### 0. 스냅샷: `data_ingestion` (별도 실행: `uv run kedro run --pipeline data`)
+* **`load_prices` (`src/pipelines/data_ingestion/nodes.py:9`)**: `ml.price_week`에서 타겟 가격의 주간 값 읽음 (끝난 W-SUN 주의 마지막 양수 관측값, ffill·발표 지연 없음). 결과물: `data/01_raw/prices.parquet` (`series, week, value`).
 * **`load_exogenous` (`src/pipelines/data_ingestion/nodes.py:25`)**
   * 원자재별 외생변수 목록 생성: `ml.feature` 변수(`ml=True`)와 `parameters_exogenous.yml`의 `drivers`(`drivers=True`)를 outer merge함.
   * 타겟 자기 가격은 목록에서 제외함(:42).
@@ -24,14 +25,12 @@
 
 ### 1. 공유 단계 (모든 실험 공통 1회 실행)
 **`data_processing` (`src/pipelines/data_processing/nodes.py`)**
-* **`to_weekly` (:8)**: 일별 가격의 주간 마지막 값 사용, 0 이하는 제거함.
-* **`make_targets` (:17)**: 달력 격자 위에 `logp`, $y_1 \dots y_8 = \log p(t+h) - \log p(t)$, `is_origin`(2024-01 이후 매월 첫 주) 생성함.
+* **`make_targets` (:7)**: 달력 격자 위에 `logp`, $y_1 \dots y_8 = \log p(t+h) - \log p(t)$, `is_origin`(2024-01 이후 매월 첫 주) 생성함.
 
 **`feature_engineering` (`src/pipelines/feature_engineering/nodes.py`)**
 * **`build_features` (:26)**: 전체 실험의 (블록, 인자) 조합 모아서 시리즈별 1회 계산함. 블록 키는 `src/utils.py`의 `block_keys`가 만듦.
   * `_exog_from` (:12): 해당 원자재 행만 필터링 후 `start(2015-01-04)` 규칙 적용함.
-    * 첫 관측값이 `start`보다 늦으면 통째로 드랍함(:21).
-    * 통과한 변수도 `week >= start` 행만 남김.
+    * `week >= start` 행만 남김. 늦게 시작하는 변수도 남고, 시작 전 주는 NaN.
   * `exog.build` (`src/features/exog.py:14`): `source=drivers` 처리 후 week × col_name 으로 pivot 해서 `logp.index`에 reindex함(:30).
   * `lags.build` (`src/features/lags.py`): 최근 8주 주간 로그수익률 `lag0..lag7`.
   * 결과 컬럼은 `feature_columns.json`에 `{"exog:{\"source\": \"drivers\"}": [39개], "lags:{}": [8개]}` 형태로 기록됨.
@@ -47,7 +46,7 @@ namespace 는 `src/experiments.py`의 `namespace()`가 `<입력 형식>.<모델 
 * **`select_input` (:11)**: 공유 tabular에서 `lags:{}`와 `exog:{source: drivers}` 열만 추출함.
 * **`fit` (:24)**: 시리즈별 walk-forward 학습 진행함.
   * `xcols = dropna(axis=1, how="all")`로 타 원자재 전용 NaN 열 제거함(:34).
-  * `has_x`(모든 x가 존재하는 행) 필터링: `start` 이전 주는 외생변수가 NaN이라 자동 탈락하며, 이로 인해 학습 시작점이 2015-01-04로 고정됨.
+  * `exog` 실험은 `start`(2015-01-04) 이전 행을 학습에서 뺌. OLS 는 `has_x`(모든 x가 존재하는 행)만 써서, 늦게 시작하는 변수가 있으면 그 시작부터 학습함(xgb 는 `allow_nan` 으로 NaN 그대로).
   * origin $t$마다 라벨이 성숙한 행(`complete & position + 8 <= t`)만 모아서 expanding window 방식으로 재학습함.
   * 모델: `OLS.fit` (`src/models/statistical/ols.py`) 사용함. 상수항 추가 후 `np.linalg.lstsq`로 8개 horizon 동시 추정(MIMO)함 (rank 부족 시 최소노름 해 사용).
   * 결과물: `{(series, origin): 모델}` 형태로 `05_models/tabular/statistical/ols_drivers.pkl`에 저장됨.

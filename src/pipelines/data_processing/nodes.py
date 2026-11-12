@@ -1,18 +1,7 @@
-"""preprocessing → 평가 격자. 격자의 y_h 는 로그수익률 `log(P_{t+h} / P_t)`(모델이 학습할 공간은 실험의
+"""주간 가격 → 평가 격자. 격자의 y_h 는 로그수익률 `log(P_{t+h} / P_t)`(모델이 학습할 공간은 실험의
 `target` 이 modeling 에서 정한다), 주는 `W-SUN`(일요일 마감)이다."""
 import numpy as np
 import pandas as pd
-
-from src.utils import KEYS
-
-
-def to_weekly(raw_prices: pd.DataFrame) -> pd.DataFrame:
-    """주의 마지막 관측값. 결측·비양수(로그 불가)는 버린다."""
-    weekly = (
-        raw_prices.set_index("dt").groupby("series")["value"].resample("W-SUN").last()
-        .dropna().rename_axis(KEYS).reset_index()
-    )
-    return weekly[weekly.value > 0].reset_index(drop=True)
 
 
 def make_targets(weekly_prices: pd.DataFrame, horizon: int, origin_start: str) -> pd.DataFrame:

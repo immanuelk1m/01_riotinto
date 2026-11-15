@@ -25,7 +25,8 @@ ENTITY, PROJECT = "sonet_krr", "causal"
 NAMES = {"baseline": "PCMCI"}
 ORIGINAL = {v: k for k, v in NAMES.items()}
 ROOT_NAME = NAMES["baseline"]  # 연구가 기준(root)으로 쓰는 변형
-STUDIES = {"causal_study": "data/07_reporting/causal_study", "causal_methods": "data/07_reporting/causal_methods"}
+STUDIES = {"causal_study": "data/07_reporting/causal_study", "causal_methods": "data/07_reporting/causal_methods",
+           **{f"notebook.{t}": f"data/07_reporting/causal_notebooks/{t}" for t in ("attribution", "pcmci_lpcmci", "rcbnb_mb")}}
 PROTOCOL = "split_v1"  # 선택 2023-07~2024-12(학습 <2023-01), 확인 2025-01~(학습 <2025-01)
 DONE = ["complete", "cached"]
 COLUMNS = {"답지 주 수": "weeks_scored", "전체 주 수": "weeks_all", "입력 밖 인용": "cited_outside_panel",
@@ -96,7 +97,7 @@ def rows(directory, keys=None):
     for frame in (cells, comparisons):
         frame[["name", "parent"]] = frame[["name", "parent"]].replace(NAMES)
     selection = json.loads((directory / "selection.json").read_text())
-    study = selection.get("study", "causal_study")
+    study, protocol = selection.get("study", "causal_study"), selection.get("protocol", PROTOCOL)
     selection = dict(winner=NAMES.get(selection["winner"], selection["winner"]), selected=NAMES.get(selection["selected"], selection["selected"]),
                      specs={NAMES.get(k, k): v for k, v in selection["specs"].items()})
     inputs = {Path(k).name: v for k, v in json.loads((directory / "inputs.json").read_text()).items()}  # 로컬 경로는 올리지 않는다
@@ -124,32 +125,36 @@ def rows(directory, keys=None):
                     if phase == "confirmation":  # 선택 구간의 차이는 "개선 확인"으로 읽지 않는다
                         summary[f"{phase}/{prefix}improved_vs_{role}"] = bool(c.improved)
         tags = ["current"] + ["incomplete"] * (not group.status.isin(DONE).all()) + ["selected"] * (name == selection["selected"]) \
-            + ["winner"] * (name == selection["winner"]) + ["matched_window"] * bool(spec.get("matched"))
+            + ["winner"] * (name == selection["winner"]) + ["matched_window"] * bool(spec.get("matched")) + ["sensitivity"] * bool(spec.get("sensitivity_of")) \
+            + ["answer_key"] * bool(spec.get("uses_answer_key"))
         runs[name] = dict(
             id=hashlib.sha1(f"{fingerprint}:{ORIGINAL.get(name, name)}".encode()).hexdigest()[:12],
             group=f"{study}.{group.axis.iloc[0]}", tags=tags, summary=summary,
             config=dict(spec, name=name, study=study, parent=next((p for p in group.parent if p), ""),
-                        axis=group.axis.iloc[0], fingerprint=fingerprint, inputs=inputs, protocol=PROTOCOL,
-                        uses_answer_key=False))
+                        axis=group.axis.iloc[0], fingerprint=fingerprint, inputs=inputs, protocol=protocol,
+                        uses_answer_key=bool(spec.get("uses_answer_key"))))
     board = pd.DataFrame([
         dict(phase=phase, name=name, tags=",".join(t for t in run["tags"] if t != "current"),
              **{k.split("/", 1)[1].replace("/", "_"): v for k, v in run["summary"].items() if k.startswith(phase + "/")})
-        for name, run in runs.items() for phase in ("confirmation", "selection") if f"{phase}/complete" in run["summary"]])
+        for name, run in runs.items() for phase in dict.fromkeys(cells.phase) if f"{phase}/complete" in run["summary"]])
     board.insert(0, "study", study)
+    board.insert(1, "protocol", protocol)
+    board["answer_key"] = ["answer_key" in t.split(",") for t in board.tags]
     board.insert(3, "window", ["matched" if "matched_window" in t.split(",") else "full" for t in board.tags])
     return runs, ranked(board), cells.assign(study=study), comparisons.assign(study=study)
 
 
 def ranked(board):
-    """순위는 같은 구간·같은 학습 창(full: 결측 주를 검정에서 뺀 전체 창, matched: 시작 전 = 0 으로 채운 연속 창) 안에서만 매긴다."""
+    """순위는 같은 구간·같은 평가 조건(protocol)·같은 학습 창(full: 결측 주를 검정에서 뺀 전체 창, matched: 시작 전 = 0 으로 채운 연속 창)·
+    답지 사용 여부 안에서만 매긴다."""
     board = board.drop(columns=["rank", "rank_f1"], errors="ignore")
     for m in ("top3", "f1_3"):
         if m not in board:
             board[m] = float("nan")
-    by = board.groupby(["phase", "window"])
+    by = board.groupby(["phase", "protocol", "window", "answer_key"])
     board.insert(4, "rank", by.top3.rank(ascending=False, method="min"))
     board.insert(5, "rank_f1", by.f1_3.rank(ascending=False, method="min"))  # 정렬 기준은 top-3 그대로
-    return board.sort_values(["phase", "window", "rank", "name"], na_position="last", ignore_index=True)
+    return board.sort_values(["protocol", "phase", "answer_key", "window", "rank", "name"], na_position="last", ignore_index=True)
 
 
 def combined(exclude_by_study=None):
@@ -171,7 +176,7 @@ def upload(directory, mode="online", project=PROJECT, exclude=()):
     directory = Path(directory)
     runs, board, cells, comparisons = rows(directory)
     runs = {k: v for k, v in runs.items() if k not in exclude}
-    print(board.reindex(columns=["phase", "window", "rank", "name", "top3", "top3_chance", "delta_vs_parent", "ci_low_vs_parent", "ci_high_vs_parent",
+    print(board.reindex(columns=["protocol", "phase", "window", "rank", "name", "top3", "top3_chance", "delta_vs_parent", "ci_low_vs_parent", "ci_high_vs_parent",
                                  "rank_f1", "f1_3", "f1_3_chance", "f1_3_delta_vs_parent", "set_f1", "set_precision", "set_recall", "tags"]
                         ).to_string(index=False, float_format="%.3f"))
     if mode == "disabled":

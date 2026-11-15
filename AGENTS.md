@@ -165,5 +165,18 @@ uv run pytest
 - 캐시: 결과 폴더 `data/07_reporting/causal_methods/<지문>/`(공통 코드·입력·잠금 파일), 적합 하나는 그 방법의 `spec.json`(어댑터 소스·패키지 버전)으로 재사용.
   어댑터 하나를 고치면 그 방법만 다시 돈다.
 - W&B: 같은 프로젝트 `sonet_krr/causal`, group `causal_methods.<method|regime>`, `matched_window` 태그. 대조군 run 은 `causal_study` 쪽 것을 쓰고 다시 올리지 않는다.
-  `leaderboard` run 의 표는 두 연구를 합치고, 순위는 같은 구간·같은 학습 창(`window` = full|matched) 안에서만 매긴다.
+  `leaderboard` run 의 표는 모든 연구를 합치고, 순위는 같은 구간·같은 평가 조건(`protocol`)·같은 학습 창(`window` = full|matched)·답지 사용 여부 안에서만 매긴다.
+- 민감도 실행은 `sensitivity` 태그와 config `sensitivity_of`(기준 방법)·바꾼 값을 단다. 지금은 CASTOR 가중치 문턱 0.1·0.05(`castor_linear_t01`·`_t005`, 기본 0.4).
+
+## 11. 노트북 결과의 리더보드 등록 (`analysis/notebook_board.py`)
+
+- `ATTRIBUTION-ABLATION`·`PCMCI-LPCMCI`·`RCBNB-MB` 노트북의 마지막 셀이 `export(...)` 로 결과 폴더를 쓴다
+  (`data/07_reporting/causal_notebooks/<attribution|pcmci_lpcmci|rcbnb_mb>/<지문>/`, 지문 = 코드 셀 + 공통 코드 + 입력 + 잠금 파일).
+- 다시 돌리기: `uv run --with nbclient --with nbformat jupyter execute --inplace --timeout=-1 analysis/<노트북>.ipynb`
+  (`--with` 는 임시 환경이라 `uv.lock` 이 바뀌지 않는다 — 바뀌면 `causal_study` 의 캐시가 모두 무효가 된다).
+  올리기: `uv run python tools/log_causal_leaderboard.py --path <결과 폴더>`. run 이름은 `<tag>.<노트북의 이름>`, group `notebook.<tag>.<축>`.
+- `protocol`: PCMCI-LPCMCI·RCBNB-MB = `in_sample_full`(전체 기간 적합·같은 기간 채점, 구간 이름 `all`),
+  ATTRIBUTION-ABLATION = `fit_lt_2025`(2025-01 이전 적합, 선택 구간은 적합 구간 안). `causal_study` 의 `split_v1` 과 같은 순위에 넣지 않는다.
+- ATTRIBUTION 트랙 ②(`p0_prior`·`p1_*`·`p2_*`·`p3_*`)는 답지 인용 빈도를 쓴다 → `uses_answer_key = true`, `answer_key` 태그, 따로 순위.
+- 노트북이 돌리지 않은 조합(PCMCI-LPCMCI 의 `SKIP`: LPCMCI 구리·금)은 `skipped` 상태로 남겨 `incomplete` 가 된다 — 0점이 아니다.
 

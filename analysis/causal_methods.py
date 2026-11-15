@@ -152,10 +152,11 @@ def spacetime(T, sink, tau, logp):
     return dict(edges=edges, extra=dict(changepoints=[int(c) for c in m.changepoints_]))
 
 
-def castor_linear(T, sink, tau, logp):
-    """CASTOR 선형판 (Rahmani & Frossard, AISTATS 2025; `analysis/castor_linear.py`). 초기 창 104주, 최소 레짐 52주."""
+def castor_linear(T, sink, tau, logp, w_threshold=0.4):
+    """CASTOR 선형판 (Rahmani & Frossard, AISTATS 2025; `analysis/castor_linear.py`). 초기 창 104주, 최소 레짐 52주.
+    가중치 문턱 기본값 0.4 = 저장소 튜토리얼 값."""
     from analysis import castor_linear as cl
-    out = cl.castor(T.values, p=tau, window=104, zeta=52)
+    out = cl.castor(T.values, p=tau, window=104, zeta=52, w_threshold=w_threshold)
     k = int(out["labels"][-1])
     W, A = out["graphs"][k]
     cols, d = list(T.columns), T.shape[1]
@@ -163,7 +164,17 @@ def castor_linear(T, sink, tau, logp):
     edges += [(cols[i], 0, "<--") for i in np.flatnonzero(W[0]) if i != 0]
     edges += [(cols[i % d], i // d + 1, "-->") for i in np.flatnonzero(A[:, 0])]
     return dict(edges=edges, extra=dict(labels=out["labels"].tolist(), regimes=len(out["graphs"]), last_regime=k,
-                                        iterations=out["iterations"]))
+                                        iterations=out["iterations"], w_threshold=w_threshold))
+
+
+def castor_linear_t01(T, sink, tau, logp):
+    """민감도: CASTOR 가중치 문턱 0.4 → 0.1. 튜토리얼 값은 주간 수익률(표준화)의 작은 효과를 모두 지운다."""
+    return castor_linear(T, sink, tau, logp, w_threshold=0.1)
+
+
+def castor_linear_t005(T, sink, tau, logp):
+    """민감도: CASTOR 가중치 문턱 0.05 (L1 벌점 λ = 0.05 와 같은 크기)."""
+    return castor_linear(T, sink, tau, logp, w_threshold=0.05)
 
 
 # 이름 → (어댑터, 이 방법의 결과를 바꾸는 파일·패키지). 순서 = 실행 순서.
@@ -177,17 +188,25 @@ METHODS = {
     "rcbnb_mb": (rcbnb_mb, ["analysis/rcbnb.py"], ["tigramite", "lingam"]),
     "spacetime": (spacetime, [], ["causalchange", "ruptures"]),
     "castor_linear": (castor_linear, ["analysis/castor_linear.py"], []),
+    # 민감도 실행: 네 번째 항목 = 결과를 바꾸는 다른 어댑터 함수(캐시 열쇠에 넣는다)
+    "castor_linear_t01": (castor_linear_t01, ["analysis/castor_linear.py"], [], [castor_linear]),
+    "castor_linear_t005": (castor_linear_t005, ["analysis/castor_linear.py"], [], [castor_linear]),
 }
-REGIME = {"regime_pcmci", "rcbnb_mb", "castor_linear"}
+REGIME = {"regime_pcmci", "rcbnb_mb", "castor_linear", "castor_linear_t01", "castor_linear_t005"}
+SENSITIVITY = {"castor_linear_t01": ("castor_linear", dict(w_threshold=0.1)), "castor_linear_t005": ("castor_linear", dict(w_threshold=0.05))}
 
 
 def method_spec(name, root):
     """이 방법의 캐시 열쇠: 어댑터 소스 + 딸린 파일 + 패키지 버전 + 공통 설정."""
     import importlib.metadata
-    fn, files, packages = METHODS[name]
+    fn, files, packages, *helpers = METHODS[name]
     h = hashlib.sha256(inspect.getsource(fn).encode() + inspect.getsource(parents_from_edges).encode())
+    for g in (helpers[0] if helpers else []):
+        h.update(inspect.getsource(g).encode())
     for f in files:
         h.update((Path(root) / f).read_bytes())
+    base, changes = SENSITIVITY.get(name, (None, {}))
     return dict(method=name, source_sha=h.hexdigest()[:16], alpha=ALPHA, matched=True,
                 regime_rule="last_training_regime" if name in REGIME else None,
-                packages={p: importlib.metadata.version(p) for p in packages})
+                packages={p: importlib.metadata.version(p) for p in packages},
+                **(dict(sensitivity_of=base, **changes) if base else {}))

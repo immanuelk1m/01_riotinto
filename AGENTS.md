@@ -149,3 +149,21 @@ uv run pytest
 - 한 표로 보려면 run `leaderboard` 의 Table `leaderboard`(변형 × 구간)·`cells`(원자재별)·`comparisons`.
 - config `protocol`(평가 구간·학습 구간)과 `uses_answer_key` 가 다른 run 은 같은 순위에 넣지 않는다.
 - 기록 코드는 `tools/log_causal_leaderboard.py` 에만 둔다. `analysis/causal_study.py`·`causal_common.py`·`uv.lock` 은 fingerprint 에 들어가므로, 바꾸면 캐시된 적합을 모두 다시 돌린다.
+
+## 10. 후속 인과발견 방법 (`tools/run_causal_methods.py`)
+
+- `uv run python tools/run_causal_methods.py [--methods cdnod cedar …] [--wandb-mode disabled]`. 방법 목록은 `analysis/causal_methods.py` 의 `METHODS`:
+  `cdnod`(causal-learn), `cdnots`·`cdnots_plus`·`cedar`(Causal-TS), `regime_pcmci`(tigramite RPCMCI), `rcbnb_mb`(`analysis/rcbnb.py`, 노트북 구현을 옮김),
+  `spacetime`(causalchange), `castor_linear`(`analysis/castor_linear.py`, CASTOR 선형판을 torch 없이 옮김). 대조군 `matched_pcmci` 가 항상 함께 돈다.
+- 신경망 모델(FlowMSM·FANTOM·CASTOR 비선형·GRACE)은 쓰지 않는다. torch 는 Causal-TS 가 import 할 때만 필요하다(행렬 계산). CaReBayes 는 제외.
+- 환경은 하나다. `causalchange` 의 `numpy<2` 고정은 `[tool.uv] override-dependencies` 로 푼다(테스트 96개 통과 확인).
+- 입력은 대조군 창과 같다(늦게 시작한 변수의 시작 전 = 0, 결측 없는 연속 구간, 같은 선택·확인 구간). 모든 방법이 선형 검정·점수, τ_max = 4, 유의수준 0.05.
+- 방법은 가격과 이어진 링크만 낸다. 부모 규칙(`parents_from_edges`): 시차 ≥ 1 은 시간 순서로 부모, 같은 주는 `-->` 이거나 sink 변수와 이어진 링크
+  (PCMCI 의 같은 주 방향 가정을 모든 방법에 똑같이 준다). 귀속·채점은 `causal_study.worker` 를 그대로 쓴다 — 새 실행기의 `matched_pcmci` 가 연구 값과 정확히 같다.
+- 레짐 방법(`regime_pcmci`·`rcbnb_mb`·`castor_linear`)은 학습 구간 **마지막 주의 레짐 그래프**로 평가 구간 전체를 설명한다(`regime_rule = last_training_regime`).
+  레짐 2개·전환 ≤ 20% 전환점 수(RCBNB-MB 노트북 방식 C). RCBNB-MB 는 최소 레짐 크기 max((2τ+1)·d, 52) 를 두 레짐이 못 채우면 레짐 1개가 된다.
+- 캐시: 결과 폴더 `data/07_reporting/causal_methods/<지문>/`(공통 코드·입력·잠금 파일), 적합 하나는 그 방법의 `spec.json`(어댑터 소스·패키지 버전)으로 재사용.
+  어댑터 하나를 고치면 그 방법만 다시 돈다.
+- W&B: 같은 프로젝트 `sonet_krr/causal`, group `causal_methods.<method|regime>`, `matched_window` 태그. 대조군 run 은 `causal_study` 쪽 것을 쓰고 다시 올리지 않는다.
+  `leaderboard` run 의 표는 두 연구를 합치고, 순위는 같은 구간·같은 학습 창(`window` = full|matched) 안에서만 매긴다.
+

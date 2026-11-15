@@ -130,3 +130,22 @@ uv run pytest
 - GP 기준선 연구는 `uv run python tools/run_study.py --study conf/studies/gp_baseline_v1.yml`로 실행한다. `base_xgb → base_xgb_ffill → base_xgb_ffill_scaled → base_gaussian_process` 순서로 변경 축을 분리한다.
 - `preprocessing: {missing: ffill, scaling: standard}`는 선택한 입력 X만 원자재별 순방향으로 채우고, 성숙 학습 행으로만 StandardScaler를 적합한다. 선두 결측 학습 행은 제외하며 추론 결측은 실패시킨다. 타겟·실제 가격은 채우지 않는다.
 - GP의 origin별 체크포인트는 해당 run ID 경로에 저장하고 무결성 확인 후 재사용한다. 첫 origin 비용 측정에 사용한 모델도 전체 실행에서 재사용한다.
+
+## 9. 인과발견 리더보드 = W&B (`sonet_krr/causal`)
+
+- 인과 연구(`uv run python tools/run_causal_study.py`)는 예측 실험과 다른 프로젝트 `sonet_krr/causal` 에 기록한다. 지표(top-3 적중률)·타깃(커피는 CEPEA 헤알 가격)이 달라 `riotinto` 와 섞지 않는다.
+- 전체 연구가 끝나면 자동으로 올라간다(`--series`·`--models` 로 일부만 돌린 실행은 올리지 않는다, `--wandb-mode disabled` 로 끈다).
+  이미 끝난 결과는 `uv run python tools/log_causal_leaderboard.py [--path <결과 폴더>]` 로 다시 적합하지 않고 올린다.
+- 방법 변형 하나 = run 하나(`job_type=causal`, group `causal_study.<변경 축>`). id 는 (fingerprint + 이름)의 해시라 다시 올리면 덮어쓰고, 코드·데이터·답지가 바뀌면 새 run 이 된다. 최신 fingerprint 의 run 에만 `current` 태그가 있다.
+- summary 키: `<selection|confirmation>/top3`·`top1`·`top3_chance`·`top3_lift`·`direction_match`(세 원자재 평균), `/top3/<series>`, `/status/<series>`,
+  `/delta_vs_parent`·`/ci_low_vs_parent`·`/ci_high_vs_parent`(4주 블록 bootstrap 95%), `confirmation/improved_vs_parent`.
+- F1(저장된 `contributions.parquet` 와 답지로 계산, 재적합 없음):
+  - `f1_3`(+ `precision_3`·`recall_3`·`f1_3_chance`): 주마다 top-3 후보 vs 그 주 인용 변수의 F1 을 주 평균. 답지는 주당 1개만 인용하므로
+    `recall_3` = `top3` 이고 `f1_3` 는 top-3 에 "고른 후보 수" 벌점(1개 1.0, 2개 0.67, 3개 0.5)이 붙은 값이다. 짝 비교 키는 `f1_3_delta_vs_parent` 등.
+  - `set_f1`(+ `set_precision`·`set_recall`): 구간에서 기여가 0 이 아닌 변수(그래프 부모) vs 그 구간 인용 변수 합집합. 정밀도는 대부분 1.0 이라 차이는 재현율에서 난다.
+  - 올릴 때 재계산한 top-3 가 `summary.csv` 와 다르거나 답지 sha 가 실행 때와 다르면 멈춘다.
+- 순위는 `confirmation/top3` 로 읽는다(F1 순위는 Table 의 `rank_f1`). 세 원자재가 모두 끝나지 않은 변형은 평균을 적지 않고 `incomplete` 태그를 단다 — 0점이 아니다. `matched_window`(VARLiNGAM 대조군)는 전체 구간 모델과 순위를 매기지 않는다.
+- 대조군 창(`matched_pcmci`·`varlingam`)은 늦게 시작하는 변수의 **시작 전 구간을 0**(표준화 후 평균 = 정보 없음)으로 채워 전체 학습 구간을 쓴다. 시작 뒤의 결측은 채우지 않는다. 다른 변형은 결측 주를 검정에서 뺀다(`missing_flag`).
+- 한 표로 보려면 run `leaderboard` 의 Table `leaderboard`(변형 × 구간)·`cells`(원자재별)·`comparisons`.
+- config `protocol`(평가 구간·학습 구간)과 `uses_answer_key` 가 다른 run 은 같은 순위에 넣지 않는다.
+- 기록 코드는 `tools/log_causal_leaderboard.py` 에만 둔다. `analysis/causal_study.py`·`causal_common.py`·`uv.lock` 은 fingerprint 에 들어가므로, 바꾸면 캐시된 적합을 모두 다시 돌린다.

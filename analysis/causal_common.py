@@ -103,8 +103,12 @@ if raw is not None:  # 스냅샷에 없는 원자재(가격 이력이 아직 DB 
     SERIES = {s: name for s, name in SERIES.items() if s in set(raw.series)}
 
 
-def make_panel(series, precip_weeks=PRECIP_WEEKS):
+def make_panel(series, precip_weeks=PRECIP_WEEKS, fit_end=None, train_start=None):
     """가격 로그 수익률(0번 열 `price`) + drivers 전부를 변환해 z-score 한 주간 패널과 변환 표."""
+    if fit_end is not None:
+        return _training_panel(series, precip_weeks, fit_end, train_start)
+    if train_start is not None:
+        raise ValueError("train_start requires fit_end")
     g = raw[raw.series == series]
     wide, code = g.pivot(index="week", columns="col_name", values="value"), g.groupby("col_name").code.first()
     price = wide.pop("price").dropna()
@@ -134,13 +138,74 @@ def make_panel(series, precip_weeks=PRECIP_WEEKS):
     return (X - X.mean()) / X.std(), info
 
 
+def _training_rows(index, fit_end, train_start=None):
+    """Fit interval is [train_start or START, fit_end)."""
+    start = pd.Timestamp(train_start or START)
+    end = pd.Timestamp(fit_end)
+    if start >= end:
+        raise ValueError("train_start must precede fit_end")
+    return (index >= start) & (index < end)
+
+
+def _training_panel(series, precip_weeks, fit_end, train_start):
+    """Fit transformations on past weeks; preserve calendar gaps when transforming."""
+    g = raw[raw.series == series]
+    wide = g.pivot(index="week", columns="col_name", values="value").sort_index()
+    code = g.groupby("col_name").code.first()
+    weeks = pd.date_range(START, wide.price.last_valid_index(), freq="W-SUN")
+    # Keep pre-START observations for the first weekly difference, without closing gaps.
+    wide = wide.reindex(pd.date_range(min(wide.index.min(), weeks.min()), weeks.max(), freq="W-SUN"))
+    fit = _training_rows(wide.index, fit_end, train_start)
+    if fit.sum() < 2:
+        raise ValueError("Insufficient training weeks")
+    cols = {"price": np.log(wide.price.where(wide.price > 0)).diff()}
+    rows = []
+    for c in wide.columns.drop("price"):
+        x = wide[c]
+        past = x[fit].dropna()
+        log = bool(len(past) and (past > 0).all()) and not re.search(RATE, f"{c} {code[c]}")
+        base = np.log(x.where(x > 0)) if log else x
+        d = base.diff()
+        moved = d.abs() > 0
+        n_chg, frac = int(moved[fit].sum()), float(moved[fit].mean())
+        kind = "제외 (변화 부족)"
+        if n_chg >= MIN_CHANGES:
+            if code[c] == PRECIP:
+                m = x.rolling(precip_weeks).mean()
+                climate = m[fit].groupby(m[fit].index.isocalendar().week).mean()
+                normal = pd.Series(m.index.isocalendar().week.map(climate).to_numpy(), index=m.index)
+                kind, cols[c] = f"강수: {precip_weeks}주 평균의 평년 대비 편차", m - normal
+            elif frac >= WEEKLY_FRAC:
+                kind, cols[c] = "주간 변화", d
+            else:
+                release = base[fit & moved].dropna()
+                try:
+                    stationary = adfuller(release.values)[1] < ALPHA
+                except ValueError:
+                    stationary = False
+                kind = "계단형: 수준" if stationary else "계단형: 발표 변화 유지"
+                cols[c] = base if stationary else d.where(moved).ffill().where(x.notna())
+        rows.append((c, code[c], kind, "로그" if log else "", n_chg, round(frac, 2),
+                     past.index.min().date() if len(past) else None))
+    X = pd.DataFrame(cols).reindex(weeks)
+    training = X.loc[_training_rows(X.index, fit_end, train_start)]
+    scale = training.std()
+    # No future observations can revive a column with no training variation.
+    keep = [c for c in X if np.isfinite(scale[c]) and scale[c] > 0]
+    if "price" not in keep:
+        raise ValueError("Price has no finite training variation")
+    info = pd.DataFrame(rows, columns=["변수", "code", "변환", "로그", "변화 횟수", "주간 변화 비율", "시작"])
+    info.loc[~info.변수.isin(keep), "변환"] = "제외 (학습 변화 부족)"
+    return (X[keep] - training[keep].mean()) / scale[keep], info
+
+
 def lagged_values(series):
     """발표 지연이 반영된 주간 값(파이프라인 스냅샷 `exogenous.parquet`, 읽기만): 주 × 변수. 값이 바뀐 주 = 그 값이 알려진 주."""
     lag = pd.read_parquet(ROOT / "data/01_raw/exogenous.parquet", filters=[("series", "==", series)])
     return lag.pivot(index="week", columns="col_name", values="value")
 
 
-def event_panel(series, X, info, yoy=False):
+def event_panel(series, X, info, yoy=False, fit_end=None, train_start=None):
     """X 에서 계단형(월·분기) 열만 **발표 주 사건**으로 바꾼 패널. 주간·강수 열과 가격은 그대로다.
 
     사건 = 발표 지연이 반영된 값이 바뀐 주의 변화(그 변수의 변화들로 표준화), 나머지 주는 0.
@@ -153,7 +218,8 @@ def event_panel(series, X, info, yoy=False):
         moved = d.fillna(0) != 0
         if yoy and c in logs:
             d = np.log(L[c]).diff(52)
-        E[c] = ((d - d[moved].mean()) / d[moved].std()).where(moved, 0.0)
+        fit = moved if fit_end is None else moved & _training_rows(d.index, fit_end, train_start)
+        E[c] = ((d - d[fit].mean()) / d[fit].std()).where(moved, 0.0)
     return E
 
 
@@ -221,14 +287,14 @@ def sinks(X, info):
     return np.array([c != "price" and not re.search(REACTIVE, code[c]) for c in X.columns])
 
 
-def link_assumptions(sink, pag=False):
+def link_assumptions(sink, pag=False, tau_max=TAU):
     """tigramite `link_assumptions`: 모든 링크는 있을 수도 없을 수도 있고, sink 변수와 가격(0번)의 같은 주 링크만 방향을 정한다.
 
     pag=False (PCMCI+): `변수 -?> 가격`. pag=True (LPCMCI): `변수 o?> 가격` — 가격은 그 변수의 원인이 아니다(잠재 교란은 허용).
     """
     d = len(sink)
     lagged, into, back = ("o?>", "o?>", "<?o") if pag else ("-?>", "-?>", "<?-")
-    la = {j: {(i, -t): lagged if t else "o?o" for i in range(d) for t in range(TAU + 1) if t or i != j} for j in range(d)}
+    la = {j: {(i, -t): lagged if t else "o?o" for i in range(d) for t in range(tau_max + 1) if t or i != j} for j in range(d)}
     for i in map(int, np.flatnonzero(sink)):
         la[0][i, 0], la[i][0, 0] = into, back
     return la

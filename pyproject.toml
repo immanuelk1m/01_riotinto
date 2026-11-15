@@ -17,9 +17,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "dcor>=0.6",
     "ipykernel>=7.4.0",
     "lingam>=1.12.2",
     "matplotlib>=3.11.2",
+    "numba>=0.68.1",
     "openpyxl>=3.1.5",
     "pytest>=9.2.0",
     "tigramite>=5.2.10.1",

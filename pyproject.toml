@@ -17,13 +17,26 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "causal-learn>=0.1.4.8",
+    "causalchange>=0.1.1",
+    "causalts>=0.28.1",
+    "dcor>=0.6",
+    "hyppo>=0.5.2",
     "ipykernel>=7.4.0",
     "lingam>=1.12.2",
     "matplotlib>=3.11.2",
+    "numba>=0.68.1",
+    "networkx>=3.0",
     "openpyxl>=3.1.5",
+    "ortools>=9.15",
     "pytest>=9.2.0",
+    "ruptures>=1.1.10",
     "tigramite>=5.2.10.1",
 ]
+
+[tool.uv]
+# causalchange 0.1.1 은 numpy<2 로 고정돼 있지만 numpy 1 전용 API 를 쓰지 않는다(2026-11-15 확인). 환경은 하나만 쓴다.
+override-dependencies = ["numpy>=2.5.4"]
 
 [tool.kedro]
 package_name = "src"

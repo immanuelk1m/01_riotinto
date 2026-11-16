@@ -130,3 +130,53 @@ uv run pytest
 - GP 기준선 연구는 `uv run python tools/run_study.py --study conf/studies/gp_baseline_v1.yml`로 실행한다. `base_xgb → base_xgb_ffill → base_xgb_ffill_scaled → base_gaussian_process` 순서로 변경 축을 분리한다.
 - `preprocessing: {missing: ffill, scaling: standard}`는 선택한 입력 X만 원자재별 순방향으로 채우고, 성숙 학습 행으로만 StandardScaler를 적합한다. 선두 결측 학습 행은 제외하며 추론 결측은 실패시킨다. 타겟·실제 가격은 채우지 않는다.
 - GP의 origin별 체크포인트는 해당 run ID 경로에 저장하고 무결성 확인 후 재사용한다. 첫 origin 비용 측정에 사용한 모델도 전체 실행에서 재사용한다.
+
+## 9. 인과발견 리더보드 = W&B (`sonet_krr/causal`)
+
+- 인과 연구(`uv run python tools/run_causal_study.py`)는 예측 실험과 다른 프로젝트 `sonet_krr/causal` 에 기록한다. 지표(top-3 적중률)·타깃(커피는 CEPEA 헤알 가격)이 달라 `riotinto` 와 섞지 않는다.
+- 전체 연구가 끝나면 자동으로 올라간다(`--series`·`--models` 로 일부만 돌린 실행은 올리지 않는다, `--wandb-mode disabled` 로 끈다).
+  이미 끝난 결과는 `uv run python tools/log_causal_leaderboard.py [--path <결과 폴더>]` 로 다시 적합하지 않고 올린다.
+- 방법 변형 하나 = run 하나(`job_type=causal`, group `causal_study.<변경 축>`). id 는 (fingerprint + 이름)의 해시라 다시 올리면 덮어쓰고, 코드·데이터·답지가 바뀌면 새 run 이 된다. 최신 fingerprint 의 run 에만 `current` 태그가 있다.
+- summary 키: `<selection|confirmation>/top3`·`top1`·`top3_chance`·`top3_lift`·`direction_match`(세 원자재 평균), `/top3/<series>`, `/status/<series>`,
+  `/delta_vs_parent`·`/ci_low_vs_parent`·`/ci_high_vs_parent`(4주 블록 bootstrap 95%), `confirmation/improved_vs_parent`.
+- F1(저장된 `contributions.parquet` 와 답지로 계산, 재적합 없음):
+  - `f1_3`(+ `precision_3`·`recall_3`·`f1_3_chance`): 주마다 top-3 후보 vs 그 주 인용 변수의 F1 을 주 평균. 답지는 주당 1개만 인용하므로
+    `recall_3` = `top3` 이고 `f1_3` 는 top-3 에 "고른 후보 수" 벌점(1개 1.0, 2개 0.67, 3개 0.5)이 붙은 값이다. 짝 비교 키는 `f1_3_delta_vs_parent` 등.
+  - `set_f1`(+ `set_precision`·`set_recall`): 구간에서 기여가 0 이 아닌 변수(그래프 부모) vs 그 구간 인용 변수 합집합. 정밀도는 대부분 1.0 이라 차이는 재현율에서 난다.
+  - 올릴 때 재계산한 top-3 가 `summary.csv` 와 다르거나 답지 sha 가 실행 때와 다르면 멈춘다.
+- 순위는 `confirmation/top3` 로 읽는다(F1 순위는 Table 의 `rank_f1`). 세 원자재가 모두 끝나지 않은 변형은 평균을 적지 않고 `incomplete` 태그를 단다 — 0점이 아니다. `matched_window`(VARLiNGAM 대조군)는 전체 구간 모델과 순위를 매기지 않는다.
+- 대조군 창(`matched_pcmci`·`varlingam`)은 늦게 시작하는 변수의 **시작 전 구간을 0**(표준화 후 평균 = 정보 없음)으로 채워 전체 학습 구간을 쓴다. 시작 뒤의 결측은 채우지 않는다. 다른 변형은 결측 주를 검정에서 뺀다(`missing_flag`).
+- 한 표로 보려면 run `leaderboard` 의 Table `leaderboard`(변형 × 구간)·`cells`(원자재별)·`comparisons`.
+- config `protocol`(평가 구간·학습 구간)과 `uses_answer_key` 가 다른 run 은 같은 순위에 넣지 않는다.
+- 기록 코드는 `tools/log_causal_leaderboard.py` 에만 둔다. `analysis/causal_study.py`·`causal_common.py`·`uv.lock` 은 fingerprint 에 들어가므로, 바꾸면 캐시된 적합을 모두 다시 돌린다.
+
+## 10. 후속 인과발견 방법 (`tools/run_causal_methods.py`)
+
+- `uv run python tools/run_causal_methods.py [--methods cdnod cedar …] [--wandb-mode disabled]`. 방법 목록은 `analysis/causal_methods.py` 의 `METHODS`:
+  `cdnod`(causal-learn), `cdnots`·`cdnots_plus`·`cedar`(Causal-TS), `regime_pcmci`(tigramite RPCMCI), `rcbnb_mb`(`analysis/rcbnb.py`, 노트북 구현을 옮김),
+  `spacetime`(causalchange), `castor_linear`(`analysis/castor_linear.py`, CASTOR 선형판을 torch 없이 옮김). 대조군 `matched_pcmci` 가 항상 함께 돈다.
+- 신경망 모델(FlowMSM·FANTOM·CASTOR 비선형·GRACE)은 쓰지 않는다. torch 는 Causal-TS 가 import 할 때만 필요하다(행렬 계산). CaReBayes 는 제외.
+- 환경은 하나다. `causalchange` 의 `numpy<2` 고정은 `[tool.uv] override-dependencies` 로 푼다(테스트 96개 통과 확인).
+- 입력은 대조군 창과 같다(늦게 시작한 변수의 시작 전 = 0, 결측 없는 연속 구간, 같은 선택·확인 구간). 모든 방법이 선형 검정·점수, τ_max = 4, 유의수준 0.05.
+- 방법은 가격과 이어진 링크만 낸다. 부모 규칙(`parents_from_edges`): 시차 ≥ 1 은 시간 순서로 부모, 같은 주는 `-->` 이거나 sink 변수와 이어진 링크
+  (PCMCI 의 같은 주 방향 가정을 모든 방법에 똑같이 준다). 귀속·채점은 `causal_study.worker` 를 그대로 쓴다 — 새 실행기의 `matched_pcmci` 가 연구 값과 정확히 같다.
+- 레짐 방법(`regime_pcmci`·`rcbnb_mb`·`castor_linear`)은 학습 구간 **마지막 주의 레짐 그래프**로 평가 구간 전체를 설명한다(`regime_rule = last_training_regime`).
+  레짐 2개·전환 ≤ 20% 전환점 수(RCBNB-MB 노트북 방식 C). RCBNB-MB 는 최소 레짐 크기 max((2τ+1)·d, 52) 를 두 레짐이 못 채우면 레짐 1개가 된다.
+- 캐시: 결과 폴더 `data/07_reporting/causal_methods/<지문>/`(공통 코드·입력·잠금 파일), 적합 하나는 그 방법의 `spec.json`(어댑터 소스·패키지 버전)으로 재사용.
+  어댑터 하나를 고치면 그 방법만 다시 돈다.
+- W&B: 같은 프로젝트 `sonet_krr/causal`, group `causal_methods.<method|regime>`, `matched_window` 태그. 대조군 run 은 `causal_study` 쪽 것을 쓰고 다시 올리지 않는다.
+  `leaderboard` run 의 표는 모든 연구를 합치고, 순위는 같은 구간·같은 평가 조건(`protocol`)·같은 학습 창(`window` = full|matched)·답지 사용 여부 안에서만 매긴다.
+- 민감도 실행은 `sensitivity` 태그와 config `sensitivity_of`(기준 방법)·바꾼 값을 단다. 지금은 CASTOR 가중치 문턱 0.1·0.05(`castor_linear_t01`·`_t005`, 기본 0.4).
+
+## 11. 노트북 결과의 리더보드 등록 (`analysis/notebook_board.py`)
+
+- `ATTRIBUTION-ABLATION`·`PCMCI-LPCMCI`·`RCBNB-MB` 노트북의 마지막 셀이 `export(...)` 로 결과 폴더를 쓴다
+  (`data/07_reporting/causal_notebooks/<attribution|pcmci_lpcmci|rcbnb_mb>/<지문>/`, 지문 = 코드 셀 + 공통 코드 + 입력 + 잠금 파일).
+- 다시 돌리기: `uv run --with nbclient --with nbformat jupyter execute --inplace --timeout=-1 analysis/<노트북>.ipynb`
+  (`--with` 는 임시 환경이라 `uv.lock` 이 바뀌지 않는다 — 바뀌면 `causal_study` 의 캐시가 모두 무효가 된다).
+  올리기: `uv run python tools/log_causal_leaderboard.py --path <결과 폴더>`. run 이름은 `<tag>.<노트북의 이름>`, group `notebook.<tag>.<축>`.
+- `protocol`: PCMCI-LPCMCI·RCBNB-MB = `in_sample_full`(전체 기간 적합·같은 기간 채점, 구간 이름 `all`),
+  ATTRIBUTION-ABLATION = `fit_lt_2025`(2025-01 이전 적합, 선택 구간은 적합 구간 안). `causal_study` 의 `split_v1` 과 같은 순위에 넣지 않는다.
+- ATTRIBUTION 트랙 ②(`p0_prior`·`p1_*`·`p2_*`·`p3_*`)는 답지 인용 빈도를 쓴다 → `uses_answer_key = true`, `answer_key` 태그, 따로 순위.
+- 노트북이 돌리지 않은 조합(PCMCI-LPCMCI 의 `SKIP`: LPCMCI 구리·금)은 `skipped` 상태로 남겨 `incomplete` 가 된다 — 0점이 아니다.
+
